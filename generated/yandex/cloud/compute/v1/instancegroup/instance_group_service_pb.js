@@ -1,0 +1,6451 @@
+// source: yandex/cloud/compute/v1/instancegroup/instance_group_service.proto
+/**
+ * @fileoverview
+ * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
+ * @public
+ */
+// GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
+
+var jspb = require('google-protobuf');
+var goog = jspb;
+var global = Function('return this')();
+
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js');
+goog.object.extend(proto, google_protobuf_field_mask_pb);
+var google_api_annotations_pb = require('../../../../../google/api/annotations_pb.js');
+goog.object.extend(proto, google_api_annotations_pb);
+var yandex_cloud_access_access_pb = require('../../../../../yandex/cloud/access/access_pb.js');
+goog.object.extend(proto, yandex_cloud_access_access_pb);
+var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
+goog.object.extend(proto, yandex_cloud_api_operation_pb);
+var yandex_cloud_compute_v1_instancegroup_instance_group_pb = require('../../../../../yandex/cloud/compute/v1/instancegroup/instance_group_pb.js');
+goog.object.extend(proto, yandex_cloud_compute_v1_instancegroup_instance_group_pb);
+var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/operation/operation_pb.js');
+goog.object.extend(proto, yandex_cloud_operation_operation_pb);
+var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
+goog.object.extend(proto, yandex_cloud_validation_pb);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest', null, global);
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.repeatedFields_, null);
+};
+goog.inherits(proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.displayName = 'proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse';
+}
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessesRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ResumeInstanceGroupProcessMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessesRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.PauseInstanceGroupProcessMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    view: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} */ (reader.readEnum());
+      msg.setView(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getView();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional InstanceGroupView view = 2;
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.getView = function() {
+  return /** @type {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest.prototype.setView = function(value) {
+  return jspb.Message.setProto3EnumField(this, 2, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.repeatedFields_ = [13];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    folderId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
+    instanceTemplate: (f = msg.getInstanceTemplate()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.toObject(includeInstance, f),
+    scalePolicy: (f = msg.getScalePolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.toObject(includeInstance, f),
+    deployPolicy: (f = msg.getDeployPolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.toObject(includeInstance, f),
+    allocationPolicy: (f = msg.getAllocationPolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.toObject(includeInstance, f),
+    loadBalancerSpec: (f = msg.getLoadBalancerSpec()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.toObject(includeInstance, f),
+    healthChecksSpec: (f = msg.getHealthChecksSpec()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.toObject(includeInstance, f),
+    serviceAccountId: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    variablesList: jspb.Message.toObjectList(msg.getVariablesList(),
+    yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.toObject, includeInstance),
+    deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
+    applicationLoadBalancerSpec: (f = msg.getApplicationLoadBalancerSpec()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.ApplicationLoadBalancerSpec.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFolderId(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 5:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
+      break;
+    case 6:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.deserializeBinaryFromReader);
+      msg.setInstanceTemplate(value);
+      break;
+    case 7:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.deserializeBinaryFromReader);
+      msg.setScalePolicy(value);
+      break;
+    case 8:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.deserializeBinaryFromReader);
+      msg.setDeployPolicy(value);
+      break;
+    case 9:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.deserializeBinaryFromReader);
+      msg.setAllocationPolicy(value);
+      break;
+    case 10:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.deserializeBinaryFromReader);
+      msg.setLoadBalancerSpec(value);
+      break;
+    case 11:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.deserializeBinaryFromReader);
+      msg.setHealthChecksSpec(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setServiceAccountId(value);
+      break;
+    case 13:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.deserializeBinaryFromReader);
+      msg.addVariables(value);
+      break;
+    case 14:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeletionProtection(value);
+      break;
+    case 15:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.ApplicationLoadBalancerSpec;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.ApplicationLoadBalancerSpec.deserializeBinaryFromReader);
+      msg.setApplicationLoadBalancerSpec(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getFolderId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getInstanceTemplate();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.serializeBinaryToWriter
+    );
+  }
+  f = message.getScalePolicy();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getDeployPolicy();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getAllocationPolicy();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getLoadBalancerSpec();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.serializeBinaryToWriter
+    );
+  }
+  f = message.getHealthChecksSpec();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.serializeBinaryToWriter
+    );
+  }
+  f = message.getServiceAccountId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
+      f
+    );
+  }
+  f = message.getVariablesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      13,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.serializeBinaryToWriter
+    );
+  }
+  f = message.getDeletionProtection();
+  if (f) {
+    writer.writeBool(
+      14,
+      f
+    );
+  }
+  f = message.getApplicationLoadBalancerSpec();
+  if (f != null) {
+    writer.writeMessage(
+      15,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.ApplicationLoadBalancerSpec.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional string folder_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getFolderId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setFolderId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string name = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string description = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * map<string, string> labels = 5;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 5, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
+
+
+/**
+ * optional InstanceTemplate instance_template = 6;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getInstanceTemplate = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate, 6));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setInstanceTemplate = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearInstanceTemplate = function() {
+  return this.setInstanceTemplate(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasInstanceTemplate = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional ScalePolicy scale_policy = 7;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getScalePolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy, 7));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setScalePolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearScalePolicy = function() {
+  return this.setScalePolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasScalePolicy = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
+/**
+ * optional DeployPolicy deploy_policy = 8;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getDeployPolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy, 8));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setDeployPolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearDeployPolicy = function() {
+  return this.setDeployPolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasDeployPolicy = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional AllocationPolicy allocation_policy = 9;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getAllocationPolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy, 9));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setAllocationPolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearAllocationPolicy = function() {
+  return this.setAllocationPolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasAllocationPolicy = function() {
+  return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional LoadBalancerSpec load_balancer_spec = 10;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getLoadBalancerSpec = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec, 10));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setLoadBalancerSpec = function(value) {
+  return jspb.Message.setWrapperField(this, 10, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearLoadBalancerSpec = function() {
+  return this.setLoadBalancerSpec(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasLoadBalancerSpec = function() {
+  return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * optional HealthChecksSpec health_checks_spec = 11;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getHealthChecksSpec = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec, 11));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setHealthChecksSpec = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearHealthChecksSpec = function() {
+  return this.setHealthChecksSpec(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasHealthChecksSpec = function() {
+  return jspb.Message.getField(this, 11) != null;
+};
+
+
+/**
+ * optional string service_account_id = 12;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getServiceAccountId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setServiceAccountId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * repeated Variable variables = 13;
+ * @return {!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getVariablesList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable, 13));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setVariablesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 13, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.Variable=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.Variable}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.addVariables = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 13, opt_value, proto.yandex.cloud.compute.v1.instancegroup.Variable, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearVariablesList = function() {
+  return this.setVariablesList([]);
+};
+
+
+/**
+ * optional bool deletion_protection = 14;
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getDeletionProtection = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setDeletionProtection = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 14, value);
+};
+
+
+/**
+ * optional ApplicationLoadBalancerSpec application_load_balancer_spec = 15;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.getApplicationLoadBalancerSpec = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.ApplicationLoadBalancerSpec, 15));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.setApplicationLoadBalancerSpec = function(value) {
+  return jspb.Message.setWrapperField(this, 15, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.clearApplicationLoadBalancerSpec = function() {
+  return this.setApplicationLoadBalancerSpec(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest.prototype.hasApplicationLoadBalancerSpec = function() {
+  return jspb.Message.getField(this, 15) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    folderId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    instanceGroupYaml: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFolderId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupYaml(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getFolderId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getInstanceGroupYaml();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string folder_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.getFolderId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.setFolderId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string instance_group_yaml = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.getInstanceGroupYaml = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupFromYamlRequest.prototype.setInstanceGroupYaml = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.repeatedFields_ = [15];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    updateMask: (f = msg.getUpdateMask()) && google_protobuf_field_mask_pb.FieldMask.toObject(includeInstance, f),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
+    instanceTemplate: (f = msg.getInstanceTemplate()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.toObject(includeInstance, f),
+    scalePolicy: (f = msg.getScalePolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.toObject(includeInstance, f),
+    deployPolicy: (f = msg.getDeployPolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.toObject(includeInstance, f),
+    allocationPolicy: (f = msg.getAllocationPolicy()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.toObject(includeInstance, f),
+    healthChecksSpec: (f = msg.getHealthChecksSpec()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.toObject(includeInstance, f),
+    serviceAccountId: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    loadBalancerSpec: (f = msg.getLoadBalancerSpec()) && yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.toObject(includeInstance, f),
+    variablesList: jspb.Message.toObjectList(msg.getVariablesList(),
+    yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.toObject, includeInstance),
+    deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 16, false)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = new google_protobuf_field_mask_pb.FieldMask;
+      reader.readMessage(value,google_protobuf_field_mask_pb.FieldMask.deserializeBinaryFromReader);
+      msg.setUpdateMask(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 5:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
+      break;
+    case 6:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.deserializeBinaryFromReader);
+      msg.setInstanceTemplate(value);
+      break;
+    case 7:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.deserializeBinaryFromReader);
+      msg.setScalePolicy(value);
+      break;
+    case 8:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.deserializeBinaryFromReader);
+      msg.setDeployPolicy(value);
+      break;
+    case 9:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.deserializeBinaryFromReader);
+      msg.setAllocationPolicy(value);
+      break;
+    case 11:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.deserializeBinaryFromReader);
+      msg.setHealthChecksSpec(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setServiceAccountId(value);
+      break;
+    case 14:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.deserializeBinaryFromReader);
+      msg.setLoadBalancerSpec(value);
+      break;
+    case 15:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.deserializeBinaryFromReader);
+      msg.addVariables(value);
+      break;
+    case 16:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeletionProtection(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getUpdateMask();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      google_protobuf_field_mask_pb.FieldMask.serializeBinaryToWriter
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getInstanceTemplate();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate.serializeBinaryToWriter
+    );
+  }
+  f = message.getScalePolicy();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getDeployPolicy();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getAllocationPolicy();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getHealthChecksSpec();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec.serializeBinaryToWriter
+    );
+  }
+  f = message.getServiceAccountId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
+      f
+    );
+  }
+  f = message.getLoadBalancerSpec();
+  if (f != null) {
+    writer.writeMessage(
+      14,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec.serializeBinaryToWriter
+    );
+  }
+  f = message.getVariablesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      15,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable.serializeBinaryToWriter
+    );
+  }
+  f = message.getDeletionProtection();
+  if (f) {
+    writer.writeBool(
+      16,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional google.protobuf.FieldMask update_mask = 2;
+ * @return {?proto.google.protobuf.FieldMask}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getUpdateMask = function() {
+  return /** @type{?proto.google.protobuf.FieldMask} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_field_mask_pb.FieldMask, 2));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.FieldMask|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setUpdateMask = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearUpdateMask = function() {
+  return this.setUpdateMask(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasUpdateMask = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string name = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string description = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * map<string, string> labels = 5;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 5, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
+
+
+/**
+ * optional InstanceTemplate instance_template = 6;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getInstanceTemplate = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceTemplate, 6));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.InstanceTemplate|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setInstanceTemplate = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearInstanceTemplate = function() {
+  return this.setInstanceTemplate(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasInstanceTemplate = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional ScalePolicy scale_policy = 7;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getScalePolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.ScalePolicy, 7));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setScalePolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearScalePolicy = function() {
+  return this.setScalePolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasScalePolicy = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
+/**
+ * optional DeployPolicy deploy_policy = 8;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getDeployPolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.DeployPolicy, 8));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.DeployPolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setDeployPolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearDeployPolicy = function() {
+  return this.setDeployPolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasDeployPolicy = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional AllocationPolicy allocation_policy = 9;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getAllocationPolicy = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.AllocationPolicy, 9));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.AllocationPolicy|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setAllocationPolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearAllocationPolicy = function() {
+  return this.setAllocationPolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasAllocationPolicy = function() {
+  return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional HealthChecksSpec health_checks_spec = 11;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getHealthChecksSpec = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.HealthChecksSpec, 11));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.HealthChecksSpec|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setHealthChecksSpec = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearHealthChecksSpec = function() {
+  return this.setHealthChecksSpec(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasHealthChecksSpec = function() {
+  return jspb.Message.getField(this, 11) != null;
+};
+
+
+/**
+ * optional string service_account_id = 12;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getServiceAccountId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setServiceAccountId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional LoadBalancerSpec load_balancer_spec = 14;
+ * @return {?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getLoadBalancerSpec = function() {
+  return /** @type{?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.LoadBalancerSpec, 14));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec|undefined} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setLoadBalancerSpec = function(value) {
+  return jspb.Message.setWrapperField(this, 14, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearLoadBalancerSpec = function() {
+  return this.setLoadBalancerSpec(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.hasLoadBalancerSpec = function() {
+  return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * repeated Variable variables = 15;
+ * @return {!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getVariablesList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.Variable, 15));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.compute.v1.instancegroup.Variable>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setVariablesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 15, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.Variable=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.Variable}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.addVariables = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 15, opt_value, proto.yandex.cloud.compute.v1.instancegroup.Variable, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.clearVariablesList = function() {
+  return this.setVariablesList([]);
+};
+
+
+/**
+ * optional bool deletion_protection = 16;
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.getDeletionProtection = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 16, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupRequest.prototype.setDeletionProtection = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 16, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    instanceGroupYaml: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupYaml(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getInstanceGroupYaml();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string instance_group_yaml = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.getInstanceGroupYaml = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupFromYamlRequest.prototype.setInstanceGroupYaml = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.UpdateInstanceGroupMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StartInstanceGroupMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstanceGroupMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstanceGroupMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata;
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesMetadata.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    folderId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    filter: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    view: jspb.Message.getFieldWithDefault(msg, 5, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFolderId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPageSize(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPageToken(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilter(value);
+      break;
+    case 5:
+      var value = /** @type {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} */ (reader.readEnum());
+      msg.setView(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getFolderId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getFilter();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getView();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      5,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string folder_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.getFolderId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.setFolderId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 page_size = 2;
+ * @return {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional string page_token = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.getPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.setPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string filter = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.getFilter = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.setFilter = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional InstanceGroupView view = 5;
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.getView = function() {
+  return /** @type {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest.prototype.setView = function(value) {
+  return jspb.Message.setProto3EnumField(this, 5, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupsList: jspb.Message.toObjectList(msg.getInstanceGroupsList(),
+    yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup.toObject, includeInstance),
+    nextPageToken: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup.deserializeBinaryFromReader);
+      msg.addInstanceGroups(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNextPageToken(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getNextPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * repeated InstanceGroup instance_groups = 1;
+ * @return {!Array<!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.getInstanceGroupsList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup, 1));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.setInstanceGroupsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.addInstanceGroups = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.yandex.cloud.compute.v1.instancegroup.InstanceGroup, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.clearInstanceGroupsList = function() {
+  return this.setInstanceGroupsList([]);
+};
+
+
+/**
+ * optional string next_page_token = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.getNextPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse.prototype.setNextPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    filter: jspb.Message.getFieldWithDefault(msg, 4, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPageSize(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPageToken(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilter(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getFilter();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 page_size = 2;
+ * @return {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional string page_token = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.getPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.setPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string filter = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.getFilter = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest.prototype.setFilter = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instancesList: jspb.Message.toObjectList(msg.getInstancesList(),
+    yandex_cloud_compute_v1_instancegroup_instance_group_pb.ManagedInstance.toObject, includeInstance),
+    nextPageToken: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.ManagedInstance;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.ManagedInstance.deserializeBinaryFromReader);
+      msg.addInstances(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNextPageToken(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstancesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.ManagedInstance.serializeBinaryToWriter
+    );
+  }
+  f = message.getNextPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * repeated ManagedInstance instances = 1;
+ * @return {!Array<!proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.getInstancesList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.ManagedInstance, 1));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.setInstancesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.addInstances = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.clearInstancesList = function() {
+  return this.setInstancesList([]);
+};
+
+
+/**
+ * optional string next_page_token = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.getNextPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse.prototype.setNextPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.repeatedFields_ = [2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    managedInstanceIdsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+    createAnother: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addManagedInstanceIds(value);
+      break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCreateAnother(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getManagedInstanceIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
+  f = message.getCreateAnother();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated string managed_instance_ids = 2;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.getManagedInstanceIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.setManagedInstanceIdsList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.addManagedInstanceIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.clearManagedInstanceIdsList = function() {
+  return this.setManagedInstanceIdsList([]);
+};
+
+
+/**
+ * optional bool create_another = 3;
+ * @return {boolean}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.getCreateAnother = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.DeleteInstancesRequest.prototype.setCreateAnother = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 3, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.repeatedFields_ = [2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    managedInstanceIdsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addManagedInstanceIds(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getManagedInstanceIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated string managed_instance_ids = 2;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.getManagedInstanceIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.setManagedInstanceIdsList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.addManagedInstanceIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.StopInstancesRequest.prototype.clearManagedInstanceIdsList = function() {
+  return this.setManagedInstanceIdsList([]);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    filter: jspb.Message.getFieldWithDefault(msg, 4, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPageSize(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPageToken(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilter(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getFilter();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 page_size = 2;
+ * @return {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional string page_token = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.getPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.setPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string filter = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.getFilter = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest.prototype.setFilter = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    operationsList: jspb.Message.toObjectList(msg.getOperationsList(),
+    yandex_cloud_operation_operation_pb.Operation.toObject, includeInstance),
+    nextPageToken: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new yandex_cloud_operation_operation_pb.Operation;
+      reader.readMessage(value,yandex_cloud_operation_operation_pb.Operation.deserializeBinaryFromReader);
+      msg.addOperations(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNextPageToken(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getOperationsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      yandex_cloud_operation_operation_pb.Operation.serializeBinaryToWriter
+    );
+  }
+  f = message.getNextPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * repeated yandex.cloud.operation.Operation operations = 1;
+ * @return {!Array<!proto.yandex.cloud.operation.Operation>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.getOperationsList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.operation.Operation>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_operation_operation_pb.Operation, 1));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.operation.Operation>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.setOperationsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.operation.Operation=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.operation.Operation}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.addOperations = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.yandex.cloud.operation.Operation, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.clearOperationsList = function() {
+  return this.setOperationsList([]);
+};
+
+
+/**
+ * optional string next_page_token = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.getNextPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse.prototype.setNextPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    instanceGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    filter: jspb.Message.getFieldWithDefault(msg, 4, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInstanceGroupId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPageSize(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPageToken(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilter(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getInstanceGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getFilter();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string instance_group_id = 1;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.getInstanceGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.setInstanceGroupId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional int64 page_size = 2;
+ * @return {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional string page_token = 3;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.getPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.setPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string filter = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.getFilter = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest.prototype.setFilter = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    logRecordsList: jspb.Message.toObjectList(msg.getLogRecordsList(),
+    yandex_cloud_compute_v1_instancegroup_instance_group_pb.LogRecord.toObject, includeInstance),
+    nextPageToken: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse;
+  return proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new yandex_cloud_compute_v1_instancegroup_instance_group_pb.LogRecord;
+      reader.readMessage(value,yandex_cloud_compute_v1_instancegroup_instance_group_pb.LogRecord.deserializeBinaryFromReader);
+      msg.addLogRecords(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNextPageToken(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getLogRecordsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      yandex_cloud_compute_v1_instancegroup_instance_group_pb.LogRecord.serializeBinaryToWriter
+    );
+  }
+  f = message.getNextPageToken();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * repeated LogRecord log_records = 1;
+ * @return {!Array<!proto.yandex.cloud.compute.v1.instancegroup.LogRecord>}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.getLogRecordsList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.compute.v1.instancegroup.LogRecord>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_compute_v1_instancegroup_instance_group_pb.LogRecord, 1));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.compute.v1.instancegroup.LogRecord>} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} returns this
+*/
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.setLogRecordsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.LogRecord=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.LogRecord}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.addLogRecords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.yandex.cloud.compute.v1.instancegroup.LogRecord, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.clearLogRecordsList = function() {
+  return this.setLogRecordsList([]);
+};
+
+
+/**
+ * optional string next_page_token = 2;
+ * @return {string}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.getNextPageToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse.prototype.setNextPageToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * @enum {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.InstanceGroupView = {
+  BASIC: 0,
+  FULL: 1
+};
+
+goog.object.extend(exports, proto.yandex.cloud.compute.v1.instancegroup);

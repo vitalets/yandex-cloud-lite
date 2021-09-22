@@ -5,12 +5,15 @@
   "main": "dist/index.js",
   "files": [
     "dist",
+    "generated",
     "README.md"
   ],
   "scripts": {
     "lint": "eslint src test --ext .ts",
     "test": "echo tbd",
     "check": "ts-node scripts/check.ts",
+    "update-proto": "./scripts/update-proto.sh",
+    "build-from-proto": "./scripts/build-from-proto.sh",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "release": "npm run lint && npm t && npm run build && npm version $VER && npm publish && git push --follow-tags --no-verify",
     "release-patch": "VER=patch npm run release",
