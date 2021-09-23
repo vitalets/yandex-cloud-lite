@@ -1,3 +1,7 @@
+/**
+ * See: https://cloud.yandex.ru/docs/api-design-guide/concepts/endpoints
+ * curl https://api.cloud.yandex.net/endpoints
+ */
 import * as grpc from '@grpc/grpc-js';
 
 const endpoints: Record<string, string> = {
