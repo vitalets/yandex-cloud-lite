@@ -4,6 +4,7 @@ const endpoints: Record<string, string> = {
   'yandex.cloud.iam.v1.IamTokenService': 'iam.api.cloud.yandex.net:443',
   'yandex.cloud.serverless.functions.v1.FunctionService': 'serverless-functions.api.cloud.yandex.net:443',
   'yandex.cloud.logging.v1.LogReadingService': 'reader.logging.yandexcloud.net:443',
+  'yandex.cloud.serverless.apigateway.v1.ApiGatewayService': 'serverless-apigateway.api.cloud.yandex.net:443',
 };
 
 export function getEnpoint(ctor: typeof grpc.Client) {
