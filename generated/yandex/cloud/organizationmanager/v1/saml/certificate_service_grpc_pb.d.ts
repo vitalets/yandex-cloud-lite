@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_organizationmanager_v1_saml_certificate_service_pb from "../../../../../yandex/cloud/organizationmanager/v1/saml/certificate_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -78,7 +78,7 @@ interface ICertificateServiceService_IListOperations extends grpc.MethodDefiniti
 
 export const CertificateServiceService: ICertificateServiceService;
 
-export interface ICertificateServiceServer {
+export interface ICertificateServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.GetCertificateRequest, yandex_cloud_organizationmanager_v1_saml_certificate_pb.Certificate>;
     list: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.ListCertificatesRequest, yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.ListCertificatesResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.CreateCertificateRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -109,7 +109,7 @@ export interface ICertificateServiceClient {
 }
 
 export class CertificateServiceClient extends grpc.Client implements ICertificateServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.GetCertificateRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_certificate_pb.Certificate) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.GetCertificateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_certificate_pb.Certificate) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_organizationmanager_v1_saml_certificate_service_pb.GetCertificateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_certificate_pb.Certificate) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_organizationmanager_v1_saml_federation_service_pb from "../../../../../yandex/cloud/organizationmanager/v1/saml/federation_service_pb";
 import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
@@ -100,7 +100,7 @@ interface IFederationServiceService_IListOperations extends grpc.MethodDefinitio
 
 export const FederationServiceService: IFederationServiceService;
 
-export interface IFederationServiceServer {
+export interface IFederationServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_federation_service_pb.GetFederationRequest, yandex_cloud_organizationmanager_v1_saml_federation_pb.Federation>;
     list: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_federation_service_pb.ListFederationsRequest, yandex_cloud_organizationmanager_v1_saml_federation_service_pb.ListFederationsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_organizationmanager_v1_saml_federation_service_pb.CreateFederationRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -139,7 +139,7 @@ export interface IFederationServiceClient {
 }
 
 export class FederationServiceClient extends grpc.Client implements IFederationServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_organizationmanager_v1_saml_federation_service_pb.GetFederationRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_federation_pb.Federation) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_organizationmanager_v1_saml_federation_service_pb.GetFederationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_federation_pb.Federation) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_organizationmanager_v1_saml_federation_service_pb.GetFederationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_organizationmanager_v1_saml_federation_pb.Federation) => void): grpc.ClientUnaryCall;

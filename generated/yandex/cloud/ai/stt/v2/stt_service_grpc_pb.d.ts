@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ai_stt_v2_stt_service_pb from "../../../../../yandex/cloud/ai/stt/v2/stt_service_pb";
 import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -36,7 +36,7 @@ interface ISttServiceService_IStreamingRecognize extends grpc.MethodDefinition<y
 
 export const SttServiceService: ISttServiceService;
 
-export interface ISttServiceServer {
+export interface ISttServiceServer extends grpc.UntypedServiceImplementation {
     longRunningRecognize: grpc.handleUnaryCall<yandex_cloud_ai_stt_v2_stt_service_pb.LongRunningRecognitionRequest, yandex_cloud_operation_operation_pb.Operation>;
     streamingRecognize: grpc.handleBidiStreamingCall<yandex_cloud_ai_stt_v2_stt_service_pb.StreamingRecognitionRequest, yandex_cloud_ai_stt_v2_stt_service_pb.StreamingRecognitionResponse>;
 }
@@ -51,7 +51,7 @@ export interface ISttServiceClient {
 }
 
 export class SttServiceClient extends grpc.Client implements ISttServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public longRunningRecognize(request: yandex_cloud_ai_stt_v2_stt_service_pb.LongRunningRecognitionRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public longRunningRecognize(request: yandex_cloud_ai_stt_v2_stt_service_pb.LongRunningRecognitionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public longRunningRecognize(request: yandex_cloud_ai_stt_v2_stt_service_pb.LongRunningRecognitionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

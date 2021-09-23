@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_disk_type_service_pb from "../../../../yandex/cloud/compute/v1/disk_type_service_pb";
 import * as yandex_cloud_compute_v1_disk_type_pb from "../../../../yandex/cloud/compute/v1/disk_type_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IDiskTypeServiceService_IList extends grpc.MethodDefinition<yandex_clo
 
 export const DiskTypeServiceService: IDiskTypeServiceService;
 
-export interface IDiskTypeServiceServer {
+export interface IDiskTypeServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_type_service_pb.GetDiskTypeRequest, yandex_cloud_compute_v1_disk_type_pb.DiskType>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_type_service_pb.ListDiskTypesRequest, yandex_cloud_compute_v1_disk_type_service_pb.ListDiskTypesResponse>;
 }
@@ -50,7 +50,7 @@ export interface IDiskTypeServiceClient {
 }
 
 export class DiskTypeServiceClient extends grpc.Client implements IDiskTypeServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_disk_type_service_pb.GetDiskTypeRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_type_pb.DiskType) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_disk_type_service_pb.GetDiskTypeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_type_pb.DiskType) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_disk_type_service_pb.GetDiskTypeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_type_pb.DiskType) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_lockbox_v1_payload_service_pb from "../../../../yandex/cloud/lockbox/v1/payload_service_pb";
 import * as yandex_cloud_lockbox_v1_payload_pb from "../../../../yandex/cloud/lockbox/v1/payload_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -25,7 +25,7 @@ interface IPayloadServiceService_IGet extends grpc.MethodDefinition<yandex_cloud
 
 export const PayloadServiceService: IPayloadServiceService;
 
-export interface IPayloadServiceServer {
+export interface IPayloadServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_lockbox_v1_payload_service_pb.GetPayloadRequest, yandex_cloud_lockbox_v1_payload_pb.Payload>;
 }
 
@@ -36,7 +36,7 @@ export interface IPayloadServiceClient {
 }
 
 export class PayloadServiceClient extends grpc.Client implements IPayloadServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_lockbox_v1_payload_service_pb.GetPayloadRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_payload_pb.Payload) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_lockbox_v1_payload_service_pb.GetPayloadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_payload_pb.Payload) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_lockbox_v1_payload_service_pb.GetPayloadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_payload_pb.Payload) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_k8s_v1_version_service_pb from "../../../../yandex/cloud/k8s/v1/version_service_pb";
 import * as yandex_cloud_k8s_v1_cluster_pb from "../../../../yandex/cloud/k8s/v1/cluster_pb";
 
@@ -24,7 +24,7 @@ interface IVersionServiceService_IList extends grpc.MethodDefinition<yandex_clou
 
 export const VersionServiceService: IVersionServiceService;
 
-export interface IVersionServiceServer {
+export interface IVersionServiceServer extends grpc.UntypedServiceImplementation {
     list: grpc.handleUnaryCall<yandex_cloud_k8s_v1_version_service_pb.ListVersionsRequest, yandex_cloud_k8s_v1_version_service_pb.ListVersionsResponse>;
 }
 
@@ -35,7 +35,7 @@ export interface IVersionServiceClient {
 }
 
 export class VersionServiceClient extends grpc.Client implements IVersionServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public list(request: yandex_cloud_k8s_v1_version_service_pb.ListVersionsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_version_service_pb.ListVersionsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_k8s_v1_version_service_pb.ListVersionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_version_service_pb.ListVersionsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_k8s_v1_version_service_pb.ListVersionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_version_service_pb.ListVersionsResponse) => void): grpc.ClientUnaryCall;

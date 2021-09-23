@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iot_devices_v1_device_service_pb from "../../../../../yandex/cloud/iot/devices/v1/device_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -148,7 +148,7 @@ interface IDeviceServiceService_IListOperations extends grpc.MethodDefinition<ya
 
 export const DeviceServiceService: IDeviceServiceService;
 
-export interface IDeviceServiceServer {
+export interface IDeviceServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_device_service_pb.GetDeviceRequest, yandex_cloud_iot_devices_v1_device_pb.Device>;
     getByName: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_device_service_pb.GetByNameDeviceRequest, yandex_cloud_iot_devices_v1_device_pb.Device>;
     list: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_device_service_pb.ListDevicesRequest, yandex_cloud_iot_devices_v1_device_service_pb.ListDevicesResponse>;
@@ -207,7 +207,7 @@ export interface IDeviceServiceClient {
 }
 
 export class DeviceServiceClient extends grpc.Client implements IDeviceServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iot_devices_v1_device_service_pb.GetDeviceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_pb.Device) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iot_devices_v1_device_service_pb.GetDeviceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_pb.Device) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iot_devices_v1_device_service_pb.GetDeviceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_pb.Device) => void): grpc.ClientUnaryCall;

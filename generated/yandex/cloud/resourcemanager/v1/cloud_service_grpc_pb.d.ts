@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_resourcemanager_v1_cloud_service_pb from "../../../../yandex/cloud/resourcemanager/v1/cloud_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
@@ -100,7 +100,7 @@ interface ICloudServiceService_IUpdateAccessBindings extends grpc.MethodDefiniti
 
 export const CloudServiceService: ICloudServiceService;
 
-export interface ICloudServiceServer {
+export interface ICloudServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.GetCloudRequest, yandex_cloud_resourcemanager_v1_cloud_pb.Cloud>;
     list: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse>;
     update: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -139,7 +139,7 @@ export interface ICloudServiceClient {
 }
 
 export class CloudServiceClient extends grpc.Client implements ICloudServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.GetCloudRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_pb.Cloud) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.GetCloudRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_pb.Cloud) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.GetCloudRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_pb.Cloud) => void): grpc.ClientUnaryCall;

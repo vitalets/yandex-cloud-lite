@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_datasphere_v1_project_service_pb from "../../../../yandex/cloud/datasphere/v1/project_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
@@ -132,7 +132,7 @@ interface IProjectServiceService_IGetStateVariables extends grpc.MethodDefinitio
 
 export const ProjectServiceService: IProjectServiceService;
 
-export interface IProjectServiceServer {
+export interface IProjectServiceServer extends grpc.UntypedServiceImplementation {
     create: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.CreateProjectRequest, yandex_cloud_operation_operation_pb.Operation>;
     update: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.UpdateProjectRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.DeleteProjectRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -183,7 +183,7 @@ export interface IProjectServiceClient {
 }
 
 export class ProjectServiceClient extends grpc.Client implements IProjectServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: yandex_cloud_datasphere_v1_project_service_pb.CreateProjectRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_datasphere_v1_project_service_pb.CreateProjectRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_datasphere_v1_project_service_pb.CreateProjectRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

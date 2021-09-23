@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_elasticsearch_v1_auth_service_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/auth_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
@@ -87,7 +87,7 @@ interface IAuthServiceService_IDeleteProvider extends grpc.MethodDefinition<yand
 
 export const AuthServiceService: IAuthServiceService;
 
-export interface IAuthServiceServer {
+export interface IAuthServiceServer extends grpc.UntypedServiceImplementation {
     listProviders: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersRequest, yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersResponse>;
     getProvider: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.GetAuthProviderRequest, yandex_cloud_mdb_elasticsearch_v1_auth_pb.AuthProvider>;
     addProviders: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.AddAuthProvidersRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -122,7 +122,7 @@ export interface IAuthServiceClient {
 }
 
 export class AuthServiceClient extends grpc.Client implements IAuthServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public listProviders(request: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersResponse) => void): grpc.ClientUnaryCall;
     public listProviders(request: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersResponse) => void): grpc.ClientUnaryCall;
     public listProviders(request: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_auth_service_pb.ListAuthProvidersResponse) => void): grpc.ClientUnaryCall;

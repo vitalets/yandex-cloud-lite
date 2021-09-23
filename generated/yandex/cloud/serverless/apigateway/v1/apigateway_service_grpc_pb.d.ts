@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_serverless_apigateway_v1_apigateway_service_pb from "../../../../../yandex/cloud/serverless/apigateway/v1/apigateway_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -139,7 +139,7 @@ interface IApiGatewayServiceService_IUpdateAccessBindings extends grpc.MethodDef
 
 export const ApiGatewayServiceService: IApiGatewayServiceService;
 
-export interface IApiGatewayServiceServer {
+export interface IApiGatewayServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.GetApiGatewayRequest, yandex_cloud_serverless_apigateway_v1_apigateway_pb.ApiGateway>;
     list: grpc.handleUnaryCall<yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.ListApiGatewayRequest, yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.ListApiGatewayResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.CreateApiGatewayRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -194,7 +194,7 @@ export interface IApiGatewayServiceClient {
 }
 
 export class ApiGatewayServiceClient extends grpc.Client implements IApiGatewayServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.GetApiGatewayRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_apigateway_v1_apigateway_pb.ApiGateway) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.GetApiGatewayRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_apigateway_v1_apigateway_pb.ApiGateway) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_apigateway_v1_apigateway_service_pb.GetApiGatewayRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_apigateway_v1_apigateway_pb.ApiGateway) => void): grpc.ClientUnaryCall;

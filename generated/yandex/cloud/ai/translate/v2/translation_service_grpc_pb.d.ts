@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ai_translate_v2_translation_service_pb from "../../../../../yandex/cloud/ai/translate/v2/translation_service_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_ai_translate_v2_translation_pb from "../../../../../yandex/cloud/ai/translate/v2/translation_pb";
@@ -45,7 +45,7 @@ interface ITranslationServiceService_IListLanguages extends grpc.MethodDefinitio
 
 export const TranslationServiceService: ITranslationServiceService;
 
-export interface ITranslationServiceServer {
+export interface ITranslationServiceServer extends grpc.UntypedServiceImplementation {
     translate: grpc.handleUnaryCall<yandex_cloud_ai_translate_v2_translation_service_pb.TranslateRequest, yandex_cloud_ai_translate_v2_translation_service_pb.TranslateResponse>;
     detectLanguage: grpc.handleUnaryCall<yandex_cloud_ai_translate_v2_translation_service_pb.DetectLanguageRequest, yandex_cloud_ai_translate_v2_translation_service_pb.DetectLanguageResponse>;
     listLanguages: grpc.handleUnaryCall<yandex_cloud_ai_translate_v2_translation_service_pb.ListLanguagesRequest, yandex_cloud_ai_translate_v2_translation_service_pb.ListLanguagesResponse>;
@@ -64,7 +64,7 @@ export interface ITranslationServiceClient {
 }
 
 export class TranslationServiceClient extends grpc.Client implements ITranslationServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public translate(request: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateResponse) => void): grpc.ClientUnaryCall;
     public translate(request: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateResponse) => void): grpc.ClientUnaryCall;
     public translate(request: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_translate_v2_translation_service_pb.TranslateResponse) => void): grpc.ClientUnaryCall;

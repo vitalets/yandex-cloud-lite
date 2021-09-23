@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_zone_service_pb from "../../../../yandex/cloud/compute/v1/zone_service_pb";
 import * as yandex_cloud_compute_v1_zone_pb from "../../../../yandex/cloud/compute/v1/zone_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IZoneServiceService_IList extends grpc.MethodDefinition<yandex_cloud_c
 
 export const ZoneServiceService: IZoneServiceService;
 
-export interface IZoneServiceServer {
+export interface IZoneServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_zone_service_pb.GetZoneRequest, yandex_cloud_compute_v1_zone_pb.Zone>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_zone_service_pb.ListZonesRequest, yandex_cloud_compute_v1_zone_service_pb.ListZonesResponse>;
 }
@@ -50,7 +50,7 @@ export interface IZoneServiceClient {
 }
 
 export class ZoneServiceClient extends grpc.Client implements IZoneServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_zone_service_pb.GetZoneRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_zone_pb.Zone) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_zone_service_pb.GetZoneRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_zone_pb.Zone) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_zone_service_pb.GetZoneRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_zone_pb.Zone) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_service_account_service_pb from "../../../../yandex/cloud/iam/v1/service_account_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -109,7 +109,7 @@ interface IServiceAccountServiceService_IListOperations extends grpc.MethodDefin
 
 export const ServiceAccountServiceService: IServiceAccountServiceService;
 
-export interface IServiceAccountServiceServer {
+export interface IServiceAccountServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_service_account_service_pb.GetServiceAccountRequest, yandex_cloud_iam_v1_service_account_pb.ServiceAccount>;
     list: grpc.handleUnaryCall<yandex_cloud_iam_v1_service_account_service_pb.ListServiceAccountsRequest, yandex_cloud_iam_v1_service_account_service_pb.ListServiceAccountsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_iam_v1_service_account_service_pb.CreateServiceAccountRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -152,7 +152,7 @@ export interface IServiceAccountServiceClient {
 }
 
 export class ServiceAccountServiceClient extends grpc.Client implements IServiceAccountServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iam_v1_service_account_service_pb.GetServiceAccountRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_service_account_pb.ServiceAccount) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_service_account_service_pb.GetServiceAccountRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_service_account_pb.ServiceAccount) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_service_account_service_pb.GetServiceAccountRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_service_account_pb.ServiceAccount) => void): grpc.ClientUnaryCall;

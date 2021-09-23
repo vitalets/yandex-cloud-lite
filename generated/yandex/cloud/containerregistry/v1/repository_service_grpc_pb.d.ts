@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_containerregistry_v1_repository_service_pb from "../../../../yandex/cloud/containerregistry/v1/repository_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_access_access_pb from "../../../../yandex/cloud/access/access_pb";
@@ -98,7 +98,7 @@ interface IRepositoryServiceService_IUpdateAccessBindings extends grpc.MethodDef
 
 export const RepositoryServiceService: IRepositoryServiceService;
 
-export interface IRepositoryServiceServer {
+export interface IRepositoryServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_repository_service_pb.GetRepositoryRequest, yandex_cloud_containerregistry_v1_repository_pb.Repository>;
     getByName: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_repository_service_pb.GetRepositoryByNameRequest, yandex_cloud_containerregistry_v1_repository_pb.Repository>;
     list: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_repository_service_pb.ListRepositoriesRequest, yandex_cloud_containerregistry_v1_repository_service_pb.ListRepositoriesResponse>;
@@ -137,7 +137,7 @@ export interface IRepositoryServiceClient {
 }
 
 export class RepositoryServiceClient extends grpc.Client implements IRepositoryServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_containerregistry_v1_repository_service_pb.GetRepositoryRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_repository_pb.Repository) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_containerregistry_v1_repository_service_pb.GetRepositoryRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_repository_pb.Repository) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_containerregistry_v1_repository_service_pb.GetRepositoryRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_repository_pb.Repository) => void): grpc.ClientUnaryCall;

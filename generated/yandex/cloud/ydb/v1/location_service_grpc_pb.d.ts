@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ydb_v1_location_service_pb from "../../../../yandex/cloud/ydb/v1/location_service_pb";
 import * as yandex_cloud_ydb_v1_location_pb from "../../../../yandex/cloud/ydb/v1/location_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface ILocationServiceService_IList extends grpc.MethodDefinition<yandex_clo
 
 export const LocationServiceService: ILocationServiceService;
 
-export interface ILocationServiceServer {
+export interface ILocationServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_ydb_v1_location_service_pb.GetLocationRequest, yandex_cloud_ydb_v1_location_pb.Location>;
     list: grpc.handleUnaryCall<yandex_cloud_ydb_v1_location_service_pb.ListLocationsRequest, yandex_cloud_ydb_v1_location_service_pb.ListLocationsResponse>;
 }
@@ -50,7 +50,7 @@ export interface ILocationServiceClient {
 }
 
 export class LocationServiceClient extends grpc.Client implements ILocationServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_ydb_v1_location_service_pb.GetLocationRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_location_pb.Location) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_ydb_v1_location_service_pb.GetLocationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_location_pb.Location) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_ydb_v1_location_service_pb.GetLocationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_location_pb.Location) => void): grpc.ClientUnaryCall;

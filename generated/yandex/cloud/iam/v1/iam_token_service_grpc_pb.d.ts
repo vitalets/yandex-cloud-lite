@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_iam_token_service_pb from "../../../../yandex/cloud/iam/v1/iam_token_service_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IIamTokenServiceService_ICreateForServiceAccount extends grpc.MethodDe
 
 export const IamTokenServiceService: IIamTokenServiceService;
 
-export interface IIamTokenServiceServer {
+export interface IIamTokenServiceServer extends grpc.UntypedServiceImplementation {
     create: grpc.handleUnaryCall<yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenRequest, yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenResponse>;
     createForServiceAccount: grpc.handleUnaryCall<yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenForServiceAccountRequest, yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenResponse>;
 }
@@ -50,7 +50,7 @@ export interface IIamTokenServiceClient {
 }
 
 export class IamTokenServiceClient extends grpc.Client implements IIamTokenServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenResponse) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenResponse) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_iam_token_service_pb.CreateIamTokenResponse) => void): grpc.ClientUnaryCall;

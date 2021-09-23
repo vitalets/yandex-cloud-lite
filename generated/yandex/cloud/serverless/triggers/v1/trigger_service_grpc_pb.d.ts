@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_serverless_triggers_v1_trigger_service_pb from "../../../../../yandex/cloud/serverless/triggers/v1/trigger_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -98,7 +98,7 @@ interface ITriggerServiceService_IListOperations extends grpc.MethodDefinition<y
 
 export const TriggerServiceService: ITriggerServiceService;
 
-export interface ITriggerServiceServer {
+export interface ITriggerServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_serverless_triggers_v1_trigger_service_pb.GetTriggerRequest, yandex_cloud_serverless_triggers_v1_trigger_pb.Trigger>;
     list: grpc.handleUnaryCall<yandex_cloud_serverless_triggers_v1_trigger_service_pb.ListTriggersRequest, yandex_cloud_serverless_triggers_v1_trigger_service_pb.ListTriggersResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_serverless_triggers_v1_trigger_service_pb.CreateTriggerRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -137,7 +137,7 @@ export interface ITriggerServiceClient {
 }
 
 export class TriggerServiceClient extends grpc.Client implements ITriggerServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_serverless_triggers_v1_trigger_service_pb.GetTriggerRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_triggers_v1_trigger_pb.Trigger) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_triggers_v1_trigger_service_pb.GetTriggerRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_triggers_v1_trigger_pb.Trigger) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_triggers_v1_trigger_service_pb.GetTriggerRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_triggers_v1_trigger_pb.Trigger) => void): grpc.ClientUnaryCall;

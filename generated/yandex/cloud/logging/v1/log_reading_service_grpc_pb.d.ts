@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_logging_v1_log_reading_service_pb from "../../../../yandex/cloud/logging/v1/log_reading_service_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -26,7 +26,7 @@ interface ILogReadingServiceService_IRead extends grpc.MethodDefinition<yandex_c
 
 export const LogReadingServiceService: ILogReadingServiceService;
 
-export interface ILogReadingServiceServer {
+export interface ILogReadingServiceServer extends grpc.UntypedServiceImplementation {
     read: grpc.handleUnaryCall<yandex_cloud_logging_v1_log_reading_service_pb.ReadRequest, yandex_cloud_logging_v1_log_reading_service_pb.ReadResponse>;
 }
 
@@ -37,7 +37,7 @@ export interface ILogReadingServiceClient {
 }
 
 export class LogReadingServiceClient extends grpc.Client implements ILogReadingServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public read(request: yandex_cloud_logging_v1_log_reading_service_pb.ReadRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_reading_service_pb.ReadResponse) => void): grpc.ClientUnaryCall;
     public read(request: yandex_cloud_logging_v1_log_reading_service_pb.ReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_reading_service_pb.ReadResponse) => void): grpc.ClientUnaryCall;
     public read(request: yandex_cloud_logging_v1_log_reading_service_pb.ReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_reading_service_pb.ReadResponse) => void): grpc.ClientUnaryCall;

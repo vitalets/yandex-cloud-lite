@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_operation_operation_service_pb from "../../../yandex/cloud/operation/operation_service_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IOperationServiceService_ICancel extends grpc.MethodDefinition<yandex_
 
 export const OperationServiceService: IOperationServiceService;
 
-export interface IOperationServiceServer {
+export interface IOperationServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_operation_operation_service_pb.GetOperationRequest, yandex_cloud_operation_operation_pb.Operation>;
     cancel: grpc.handleUnaryCall<yandex_cloud_operation_operation_service_pb.CancelOperationRequest, yandex_cloud_operation_operation_pb.Operation>;
 }
@@ -50,7 +50,7 @@ export interface IOperationServiceClient {
 }
 
 export class OperationServiceClient extends grpc.Client implements IOperationServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_operation_operation_service_pb.GetOperationRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_operation_operation_service_pb.GetOperationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_operation_operation_service_pb.GetOperationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

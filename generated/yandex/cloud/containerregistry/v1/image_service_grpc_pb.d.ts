@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_containerregistry_v1_image_service_pb from "../../../../yandex/cloud/containerregistry/v1/image_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_containerregistry_v1_image_pb from "../../../../yandex/cloud/containerregistry/v1/image_pb";
@@ -47,7 +47,7 @@ interface IImageServiceService_IDelete extends grpc.MethodDefinition<yandex_clou
 
 export const ImageServiceService: IImageServiceService;
 
-export interface IImageServiceServer {
+export interface IImageServiceServer extends grpc.UntypedServiceImplementation {
     list: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_image_service_pb.ListImagesRequest, yandex_cloud_containerregistry_v1_image_service_pb.ListImagesResponse>;
     get: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_image_service_pb.GetImageRequest, yandex_cloud_containerregistry_v1_image_pb.Image>;
     delete: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_image_service_pb.DeleteImageRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -66,7 +66,7 @@ export interface IImageServiceClient {
 }
 
 export class ImageServiceClient extends grpc.Client implements IImageServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public list(request: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_image_service_pb.ListImagesResponse) => void): grpc.ClientUnaryCall;

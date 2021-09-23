@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_vpc_v1_address_service_pb from "../../../../yandex/cloud/vpc/v1/address_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -98,7 +98,7 @@ interface IAddressServiceService_IMove extends grpc.MethodDefinition<yandex_clou
 
 export const AddressServiceService: IAddressServiceService;
 
-export interface IAddressServiceServer {
+export interface IAddressServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_vpc_v1_address_service_pb.GetAddressRequest, yandex_cloud_vpc_v1_address_pb.Address>;
     getByValue: grpc.handleUnaryCall<yandex_cloud_vpc_v1_address_service_pb.GetAddressByValueRequest, yandex_cloud_vpc_v1_address_pb.Address>;
     list: grpc.handleUnaryCall<yandex_cloud_vpc_v1_address_service_pb.ListAddressesRequest, yandex_cloud_vpc_v1_address_service_pb.ListAddressesResponse>;
@@ -137,7 +137,7 @@ export interface IAddressServiceClient {
 }
 
 export class AddressServiceClient extends grpc.Client implements IAddressServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_vpc_v1_address_service_pb.GetAddressRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_address_pb.Address) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_address_service_pb.GetAddressRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_address_pb.Address) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_address_service_pb.GetAddressRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_address_pb.Address) => void): grpc.ClientUnaryCall;

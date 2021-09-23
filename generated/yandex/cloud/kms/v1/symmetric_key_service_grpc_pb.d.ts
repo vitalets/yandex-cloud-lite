@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_kms_v1_symmetric_key_service_pb from "../../../../yandex/cloud/kms/v1/symmetric_key_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
@@ -161,7 +161,7 @@ interface ISymmetricKeyServiceService_IUpdateAccessBindings extends grpc.MethodD
 
 export const SymmetricKeyServiceService: ISymmetricKeyServiceService;
 
-export interface ISymmetricKeyServiceServer {
+export interface ISymmetricKeyServiceServer extends grpc.UntypedServiceImplementation {
     create: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_key_service_pb.CreateSymmetricKeyRequest, yandex_cloud_operation_operation_pb.Operation>;
     get: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_key_service_pb.GetSymmetricKeyRequest, yandex_cloud_kms_v1_symmetric_key_pb.SymmetricKey>;
     list: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_key_service_pb.ListSymmetricKeysRequest, yandex_cloud_kms_v1_symmetric_key_service_pb.ListSymmetricKeysResponse>;
@@ -224,7 +224,7 @@ export interface ISymmetricKeyServiceClient {
 }
 
 export class SymmetricKeyServiceClient extends grpc.Client implements ISymmetricKeyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: yandex_cloud_kms_v1_symmetric_key_service_pb.CreateSymmetricKeyRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_kms_v1_symmetric_key_service_pb.CreateSymmetricKeyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_kms_v1_symmetric_key_service_pb.CreateSymmetricKeyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

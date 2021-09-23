@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb from "../../../../../yandex/cloud/mdb/clickhouse/v1/ml_model_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -68,7 +68,7 @@ interface IMlModelServiceService_IDelete extends grpc.MethodDefinition<yandex_cl
 
 export const MlModelServiceService: IMlModelServiceService;
 
-export interface IMlModelServiceServer {
+export interface IMlModelServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.GetMlModelRequest, yandex_cloud_mdb_clickhouse_v1_ml_model_pb.MlModel>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.ListMlModelsRequest, yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.ListMlModelsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.CreateMlModelRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -95,7 +95,7 @@ export interface IMlModelServiceClient {
 }
 
 export class MlModelServiceClient extends grpc.Client implements IMlModelServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.GetMlModelRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_clickhouse_v1_ml_model_pb.MlModel) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.GetMlModelRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_clickhouse_v1_ml_model_pb.MlModel) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_clickhouse_v1_ml_model_service_pb.GetMlModelRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_clickhouse_v1_ml_model_pb.MlModel) => void): grpc.ClientUnaryCall;

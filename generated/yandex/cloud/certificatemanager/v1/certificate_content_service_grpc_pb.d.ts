@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_certificatemanager_v1_certificate_content_service_pb from "../../../../yandex/cloud/certificatemanager/v1/certificate_content_service_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 
@@ -24,7 +24,7 @@ interface ICertificateContentServiceService_IGet extends grpc.MethodDefinition<y
 
 export const CertificateContentServiceService: ICertificateContentServiceService;
 
-export interface ICertificateContentServiceServer {
+export interface ICertificateContentServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentRequest, yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentResponse>;
 }
 
@@ -35,7 +35,7 @@ export interface ICertificateContentServiceClient {
 }
 
 export class CertificateContentServiceClient extends grpc.Client implements ICertificateContentServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentResponse) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentResponse) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentResponse) => void): grpc.ClientUnaryCall;

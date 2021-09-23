@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_placement_group_service_pb from "../../../../yandex/cloud/compute/v1/placement_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -89,7 +89,7 @@ interface IPlacementGroupServiceService_IListOperations extends grpc.MethodDefin
 
 export const PlacementGroupServiceService: IPlacementGroupServiceService;
 
-export interface IPlacementGroupServiceServer {
+export interface IPlacementGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_placement_group_service_pb.GetPlacementGroupRequest, yandex_cloud_compute_v1_placement_group_pb.PlacementGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_placement_group_service_pb.ListPlacementGroupsRequest, yandex_cloud_compute_v1_placement_group_service_pb.ListPlacementGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_compute_v1_placement_group_service_pb.CreatePlacementGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -124,7 +124,7 @@ export interface IPlacementGroupServiceClient {
 }
 
 export class PlacementGroupServiceClient extends grpc.Client implements IPlacementGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_placement_group_service_pb.GetPlacementGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_placement_group_pb.PlacementGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_placement_group_service_pb.GetPlacementGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_placement_group_pb.PlacementGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_placement_group_service_pb.GetPlacementGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_placement_group_pb.PlacementGroup) => void): grpc.ClientUnaryCall;

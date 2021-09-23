@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_kafka_v1_topic_service_pb from "../../../../../yandex/cloud/mdb/kafka/v1/topic_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -68,7 +68,7 @@ interface ITopicServiceService_IDelete extends grpc.MethodDefinition<yandex_clou
 
 export const TopicServiceService: ITopicServiceService;
 
-export interface ITopicServiceServer {
+export interface ITopicServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_topic_service_pb.GetTopicRequest, yandex_cloud_mdb_kafka_v1_topic_pb.Topic>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_topic_service_pb.ListTopicsRequest, yandex_cloud_mdb_kafka_v1_topic_service_pb.ListTopicsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_topic_service_pb.CreateTopicRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -95,7 +95,7 @@ export interface ITopicServiceClient {
 }
 
 export class TopicServiceClient extends grpc.Client implements ITopicServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_kafka_v1_topic_service_pb.GetTopicRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_topic_pb.Topic) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_kafka_v1_topic_service_pb.GetTopicRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_topic_pb.Topic) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_kafka_v1_topic_service_pb.GetTopicRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_topic_pb.Topic) => void): grpc.ClientUnaryCall;

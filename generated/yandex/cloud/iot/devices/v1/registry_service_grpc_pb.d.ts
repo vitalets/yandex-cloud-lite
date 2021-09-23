@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iot_devices_v1_registry_service_pb from "../../../../../yandex/cloud/iot/devices/v1/registry_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -158,7 +158,7 @@ interface IRegistryServiceService_IListOperations extends grpc.MethodDefinition<
 
 export const RegistryServiceService: IRegistryServiceService;
 
-export interface IRegistryServiceServer {
+export interface IRegistryServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_registry_service_pb.GetRegistryRequest, yandex_cloud_iot_devices_v1_registry_pb.Registry>;
     getByName: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_registry_service_pb.GetByNameRegistryRequest, yandex_cloud_iot_devices_v1_registry_pb.Registry>;
     list: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_registry_service_pb.ListRegistriesRequest, yandex_cloud_iot_devices_v1_registry_service_pb.ListRegistriesResponse>;
@@ -221,7 +221,7 @@ export interface IRegistryServiceClient {
 }
 
 export class RegistryServiceClient extends grpc.Client implements IRegistryServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iot_devices_v1_registry_service_pb.GetRegistryRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_registry_pb.Registry) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iot_devices_v1_registry_service_pb.GetRegistryRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_registry_pb.Registry) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iot_devices_v1_registry_service_pb.GetRegistryRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_registry_pb.Registry) => void): grpc.ClientUnaryCall;

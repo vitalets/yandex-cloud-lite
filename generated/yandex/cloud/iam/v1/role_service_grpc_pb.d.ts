@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_role_service_pb from "../../../../yandex/cloud/iam/v1/role_service_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_iam_v1_role_pb from "../../../../yandex/cloud/iam/v1/role_pb";
@@ -35,7 +35,7 @@ interface IRoleServiceService_IList extends grpc.MethodDefinition<yandex_cloud_i
 
 export const RoleServiceService: IRoleServiceService;
 
-export interface IRoleServiceServer {
+export interface IRoleServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_role_service_pb.GetRoleRequest, yandex_cloud_iam_v1_role_pb.Role>;
     list: grpc.handleUnaryCall<yandex_cloud_iam_v1_role_service_pb.ListRolesRequest, yandex_cloud_iam_v1_role_service_pb.ListRolesResponse>;
 }
@@ -50,7 +50,7 @@ export interface IRoleServiceClient {
 }
 
 export class RoleServiceClient extends grpc.Client implements IRoleServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iam_v1_role_service_pb.GetRoleRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_role_pb.Role) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_role_service_pb.GetRoleRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_role_pb.Role) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_role_service_pb.GetRoleRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_role_pb.Role) => void): grpc.ClientUnaryCall;

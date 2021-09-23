@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_apploadbalancer_v1_virtual_host_service_pb from "../../../../yandex/cloud/apploadbalancer/v1/virtual_host_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -88,7 +88,7 @@ interface IVirtualHostServiceService_IUpdateRoute extends grpc.MethodDefinition<
 
 export const VirtualHostServiceService: IVirtualHostServiceService;
 
-export interface IVirtualHostServiceServer {
+export interface IVirtualHostServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.GetVirtualHostRequest, yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost>;
     list: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.ListVirtualHostsRequest, yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.ListVirtualHostsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.CreateVirtualHostRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -123,7 +123,7 @@ export interface IVirtualHostServiceClient {
 }
 
 export class VirtualHostServiceClient extends grpc.Client implements IVirtualHostServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.GetVirtualHostRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.GetVirtualHostRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_apploadbalancer_v1_virtual_host_service_pb.GetVirtualHostRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost) => void): grpc.ClientUnaryCall;

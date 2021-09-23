@@ -10,10 +10,11 @@
   ],
   "scripts": {
     "lint": "eslint src test --ext .ts",
+    "tsc": "tsc --noEmit",
     "test": "echo tbd",
     "check": "ts-node scripts/check.ts",
     "update-proto": "./scripts/update-proto.sh",
-    "compile-proto": "./scripts/build-from-proto.sh",
+    "compile-proto": "./scripts/compile-proto.sh",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "release": "npm run lint && npm t && npm run build && npm version $VER && npm publish && git push --follow-tags --no-verify",
     "release-patch": "VER=patch npm run release",

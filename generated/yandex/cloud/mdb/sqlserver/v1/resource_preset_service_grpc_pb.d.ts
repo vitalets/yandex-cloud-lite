@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb from "../../../../../yandex/cloud/mdb/sqlserver/v1/resource_preset_service_pb";
 import * as yandex_cloud_mdb_sqlserver_v1_resource_preset_pb from "../../../../../yandex/cloud/mdb/sqlserver/v1/resource_preset_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IResourcePresetServiceService_IList extends grpc.MethodDefinition<yand
 
 export const ResourcePresetServiceService: IResourcePresetServiceService;
 
-export interface IResourcePresetServiceServer {
+export interface IResourcePresetServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.GetResourcePresetRequest, yandex_cloud_mdb_sqlserver_v1_resource_preset_pb.ResourcePreset>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.ListResourcePresetsRequest, yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.ListResourcePresetsResponse>;
 }
@@ -50,7 +50,7 @@ export interface IResourcePresetServiceClient {
 }
 
 export class ResourcePresetServiceClient extends grpc.Client implements IResourcePresetServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.GetResourcePresetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_resource_preset_pb.ResourcePreset) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.GetResourcePresetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_resource_preset_pb.ResourcePreset) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_sqlserver_v1_resource_preset_service_pb.GetResourcePresetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_resource_preset_pb.ResourcePreset) => void): grpc.ClientUnaryCall;

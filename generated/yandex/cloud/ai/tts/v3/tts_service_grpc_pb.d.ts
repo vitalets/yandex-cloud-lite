@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ai_tts_v3_tts_service_pb from "../../../../../yandex/cloud/ai/tts/v3/tts_service_pb";
 import * as yandex_cloud_ai_tts_v3_tts_pb from "../../../../../yandex/cloud/ai/tts/v3/tts_pb";
 
@@ -24,7 +24,7 @@ interface ISynthesizerService_IUtteranceSynthesis extends grpc.MethodDefinition<
 
 export const SynthesizerService: ISynthesizerService;
 
-export interface ISynthesizerServer {
+export interface ISynthesizerServer extends grpc.UntypedServiceImplementation {
     utteranceSynthesis: grpc.handleServerStreamingCall<yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisRequest, yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisResponse>;
 }
 
@@ -34,7 +34,7 @@ export interface ISynthesizerClient {
 }
 
 export class SynthesizerClient extends grpc.Client implements ISynthesizerClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public utteranceSynthesis(request: yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisResponse>;
     public utteranceSynthesis(request: yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<yandex_cloud_ai_tts_v3_tts_pb.UtteranceSynthesisResponse>;
 }

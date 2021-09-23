@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_loadbalancer_v1_target_group_service_pb from "../../../../yandex/cloud/loadbalancer/v1/target_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -98,7 +98,7 @@ interface ITargetGroupServiceService_IListOperations extends grpc.MethodDefiniti
 
 export const TargetGroupServiceService: ITargetGroupServiceService;
 
-export interface ITargetGroupServiceServer {
+export interface ITargetGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_target_group_service_pb.GetTargetGroupRequest, yandex_cloud_loadbalancer_v1_target_group_pb.TargetGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_target_group_service_pb.ListTargetGroupsRequest, yandex_cloud_loadbalancer_v1_target_group_service_pb.ListTargetGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_target_group_service_pb.CreateTargetGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -137,7 +137,7 @@ export interface ITargetGroupServiceClient {
 }
 
 export class TargetGroupServiceClient extends grpc.Client implements ITargetGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_loadbalancer_v1_target_group_service_pb.GetTargetGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_target_group_pb.TargetGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_loadbalancer_v1_target_group_service_pb.GetTargetGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_target_group_pb.TargetGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_loadbalancer_v1_target_group_service_pb.GetTargetGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_target_group_pb.TargetGroup) => void): grpc.ClientUnaryCall;

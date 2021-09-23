@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_user_account_service_pb from "../../../../yandex/cloud/iam/v1/user_account_service_pb";
 import * as yandex_cloud_iam_v1_user_account_pb from "../../../../yandex/cloud/iam/v1/user_account_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -25,7 +25,7 @@ interface IUserAccountServiceService_IGet extends grpc.MethodDefinition<yandex_c
 
 export const UserAccountServiceService: IUserAccountServiceService;
 
-export interface IUserAccountServiceServer {
+export interface IUserAccountServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_user_account_service_pb.GetUserAccountRequest, yandex_cloud_iam_v1_user_account_pb.UserAccount>;
 }
 
@@ -36,7 +36,7 @@ export interface IUserAccountServiceClient {
 }
 
 export class UserAccountServiceClient extends grpc.Client implements IUserAccountServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iam_v1_user_account_service_pb.GetUserAccountRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_user_account_service_pb.GetUserAccountRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_user_account_service_pb.GetUserAccountRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;

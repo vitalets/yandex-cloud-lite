@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_mysql_v1_backup_service_pb from "../../../../../yandex/cloud/mdb/mysql/v1/backup_service_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_mdb_mysql_v1_backup_pb from "../../../../../yandex/cloud/mdb/mysql/v1/backup_pb";
@@ -35,7 +35,7 @@ interface IBackupServiceService_IList extends grpc.MethodDefinition<yandex_cloud
 
 export const BackupServiceService: IBackupServiceService;
 
-export interface IBackupServiceServer {
+export interface IBackupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_mysql_v1_backup_service_pb.GetBackupRequest, yandex_cloud_mdb_mysql_v1_backup_pb.Backup>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_mysql_v1_backup_service_pb.ListBackupsRequest, yandex_cloud_mdb_mysql_v1_backup_service_pb.ListBackupsResponse>;
 }
@@ -50,7 +50,7 @@ export interface IBackupServiceClient {
 }
 
 export class BackupServiceClient extends grpc.Client implements IBackupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_mysql_v1_backup_service_pb.GetBackupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mysql_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_mysql_v1_backup_service_pb.GetBackupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mysql_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_mysql_v1_backup_service_pb.GetBackupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mysql_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_vpc_v1_security_group_service_pb from "../../../../yandex/cloud/vpc/v1/security_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -108,7 +108,7 @@ interface ISecurityGroupServiceService_IListOperations extends grpc.MethodDefini
 
 export const SecurityGroupServiceService: ISecurityGroupServiceService;
 
-export interface ISecurityGroupServiceServer {
+export interface ISecurityGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_vpc_v1_security_group_service_pb.GetSecurityGroupRequest, yandex_cloud_vpc_v1_security_group_pb.SecurityGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_vpc_v1_security_group_service_pb.ListSecurityGroupsRequest, yandex_cloud_vpc_v1_security_group_service_pb.ListSecurityGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_vpc_v1_security_group_service_pb.CreateSecurityGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -151,7 +151,7 @@ export interface ISecurityGroupServiceClient {
 }
 
 export class SecurityGroupServiceClient extends grpc.Client implements ISecurityGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_vpc_v1_security_group_service_pb.GetSecurityGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_security_group_pb.SecurityGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_security_group_service_pb.GetSecurityGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_security_group_pb.SecurityGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_security_group_service_pb.GetSecurityGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_security_group_pb.SecurityGroup) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_host_group_service_pb from "../../../../yandex/cloud/compute/v1/host_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -99,7 +99,7 @@ interface IHostGroupServiceService_IListHosts extends grpc.MethodDefinition<yand
 
 export const HostGroupServiceService: IHostGroupServiceService;
 
-export interface IHostGroupServiceServer {
+export interface IHostGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_host_group_service_pb.GetHostGroupRequest, yandex_cloud_compute_v1_host_group_pb.HostGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_host_group_service_pb.ListHostGroupsRequest, yandex_cloud_compute_v1_host_group_service_pb.ListHostGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_compute_v1_host_group_service_pb.CreateHostGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -138,7 +138,7 @@ export interface IHostGroupServiceClient {
 }
 
 export class HostGroupServiceClient extends grpc.Client implements IHostGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_host_group_service_pb.GetHostGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_host_group_pb.HostGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_host_group_service_pb.GetHostGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_host_group_pb.HostGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_host_group_service_pb.GetHostGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_host_group_pb.HostGroup) => void): grpc.ClientUnaryCall;

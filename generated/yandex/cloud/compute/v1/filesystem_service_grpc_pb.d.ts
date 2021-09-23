@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_filesystem_service_pb from "../../../../yandex/cloud/compute/v1/filesystem_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -78,7 +78,7 @@ interface IFilesystemServiceService_IListOperations extends grpc.MethodDefinitio
 
 export const FilesystemServiceService: IFilesystemServiceService;
 
-export interface IFilesystemServiceServer {
+export interface IFilesystemServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_filesystem_service_pb.GetFilesystemRequest, yandex_cloud_compute_v1_filesystem_pb.Filesystem>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_filesystem_service_pb.ListFilesystemsRequest, yandex_cloud_compute_v1_filesystem_service_pb.ListFilesystemsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_compute_v1_filesystem_service_pb.CreateFilesystemRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -109,7 +109,7 @@ export interface IFilesystemServiceClient {
 }
 
 export class FilesystemServiceClient extends grpc.Client implements IFilesystemServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_filesystem_service_pb.GetFilesystemRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_filesystem_pb.Filesystem) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_filesystem_service_pb.GetFilesystemRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_filesystem_pb.Filesystem) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_filesystem_service_pb.GetFilesystemRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_filesystem_pb.Filesystem) => void): grpc.ClientUnaryCall;

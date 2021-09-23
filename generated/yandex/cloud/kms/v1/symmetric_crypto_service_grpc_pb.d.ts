@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_kms_v1_symmetric_crypto_service_pb from "../../../../yandex/cloud/kms/v1/symmetric_crypto_service_pb";
 import * as yandex_cloud_kms_v1_symmetric_key_pb from "../../../../yandex/cloud/kms/v1/symmetric_key_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -55,7 +55,7 @@ interface ISymmetricCryptoServiceService_IGenerateDataKey extends grpc.MethodDef
 
 export const SymmetricCryptoServiceService: ISymmetricCryptoServiceService;
 
-export interface ISymmetricCryptoServiceServer {
+export interface ISymmetricCryptoServiceServer extends grpc.UntypedServiceImplementation {
     encrypt: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptRequest, yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptResponse>;
     decrypt: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricDecryptRequest, yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricDecryptResponse>;
     reEncrypt: grpc.handleUnaryCall<yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricReEncryptRequest, yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricReEncryptResponse>;
@@ -78,7 +78,7 @@ export interface ISymmetricCryptoServiceClient {
 }
 
 export class SymmetricCryptoServiceClient extends grpc.Client implements ISymmetricCryptoServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public encrypt(request: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptResponse) => void): grpc.ClientUnaryCall;
     public encrypt(request: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptResponse) => void): grpc.ClientUnaryCall;
     public encrypt(request: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_kms_v1_symmetric_crypto_service_pb.SymmetricEncryptResponse) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_api_key_service_pb from "../../../../yandex/cloud/iam/v1/api_key_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -78,7 +78,7 @@ interface IApiKeyServiceService_IListOperations extends grpc.MethodDefinition<ya
 
 export const ApiKeyServiceService: IApiKeyServiceService;
 
-export interface IApiKeyServiceServer {
+export interface IApiKeyServiceServer extends grpc.UntypedServiceImplementation {
     list: grpc.handleUnaryCall<yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysRequest, yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysResponse>;
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_api_key_service_pb.GetApiKeyRequest, yandex_cloud_iam_v1_api_key_pb.ApiKey>;
     create: grpc.handleUnaryCall<yandex_cloud_iam_v1_api_key_service_pb.CreateApiKeyRequest, yandex_cloud_iam_v1_api_key_service_pb.CreateApiKeyResponse>;
@@ -109,7 +109,7 @@ export interface IApiKeyServiceClient {
 }
 
 export class ApiKeyServiceClient extends grpc.Client implements IApiKeyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public list(request: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_api_key_service_pb.ListApiKeysResponse) => void): grpc.ClientUnaryCall;

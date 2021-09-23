@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iot_devices_v1_device_data_service_pb from "../../../../../yandex/cloud/iot/devices/v1/device_data_service_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 
@@ -24,7 +24,7 @@ interface IDeviceDataServiceService_IPublish extends grpc.MethodDefinition<yande
 
 export const DeviceDataServiceService: IDeviceDataServiceService;
 
-export interface IDeviceDataServiceServer {
+export interface IDeviceDataServiceServer extends grpc.UntypedServiceImplementation {
     publish: grpc.handleUnaryCall<yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataRequest, yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataResponse>;
 }
 
@@ -35,7 +35,7 @@ export interface IDeviceDataServiceClient {
 }
 
 export class DeviceDataServiceClient extends grpc.Client implements IDeviceDataServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public publish(request: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataResponse) => void): grpc.ClientUnaryCall;
     public publish(request: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataResponse) => void): grpc.ClientUnaryCall;
     public publish(request: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iot_devices_v1_device_data_service_pb.PublishDeviceDataResponse) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_mongodb_v1_backup_service_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/backup_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
@@ -47,7 +47,7 @@ interface IBackupServiceService_IDelete extends grpc.MethodDefinition<yandex_clo
 
 export const BackupServiceService: IBackupServiceService;
 
-export interface IBackupServiceServer {
+export interface IBackupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_mongodb_v1_backup_service_pb.GetBackupRequest, yandex_cloud_mdb_mongodb_v1_backup_pb.Backup>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_mongodb_v1_backup_service_pb.ListBackupsRequest, yandex_cloud_mdb_mongodb_v1_backup_service_pb.ListBackupsResponse>;
     delete: grpc.handleUnaryCall<yandex_cloud_mdb_mongodb_v1_backup_service_pb.DeleteBackupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -66,7 +66,7 @@ export interface IBackupServiceClient {
 }
 
 export class BackupServiceClient extends grpc.Client implements IBackupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_mongodb_v1_backup_service_pb.GetBackupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mongodb_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_mongodb_v1_backup_service_pb.GetBackupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mongodb_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_mongodb_v1_backup_service_pb.GetBackupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_mongodb_v1_backup_pb.Backup) => void): grpc.ClientUnaryCall;

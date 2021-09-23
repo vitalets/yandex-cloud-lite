@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_lockbox_v1_secret_service_pb from "../../../../yandex/cloud/lockbox/v1/secret_service_pb";
 import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
@@ -171,7 +171,7 @@ interface ISecretServiceService_IUpdateAccessBindings extends grpc.MethodDefinit
 
 export const SecretServiceService: ISecretServiceService;
 
-export interface ISecretServiceServer {
+export interface ISecretServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_lockbox_v1_secret_service_pb.GetSecretRequest, yandex_cloud_lockbox_v1_secret_pb.Secret>;
     list: grpc.handleUnaryCall<yandex_cloud_lockbox_v1_secret_service_pb.ListSecretsRequest, yandex_cloud_lockbox_v1_secret_service_pb.ListSecretsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_lockbox_v1_secret_service_pb.CreateSecretRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -238,7 +238,7 @@ export interface ISecretServiceClient {
 }
 
 export class SecretServiceClient extends grpc.Client implements ISecretServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_lockbox_v1_secret_service_pb.GetSecretRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_secret_pb.Secret) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_lockbox_v1_secret_service_pb.GetSecretRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_secret_pb.Secret) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_lockbox_v1_secret_service_pb.GetSecretRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_lockbox_v1_secret_pb.Secret) => void): grpc.ClientUnaryCall;

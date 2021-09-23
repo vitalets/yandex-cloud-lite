@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_datasphere_v1_app_token_service_pb from "../../../../yandex/cloud/datasphere/v1/app_token_service_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -24,7 +24,7 @@ interface IAppTokenServiceService_IValidate extends grpc.MethodDefinition<yandex
 
 export const AppTokenServiceService: IAppTokenServiceService;
 
-export interface IAppTokenServiceServer {
+export interface IAppTokenServiceServer extends grpc.UntypedServiceImplementation {
     validate: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_app_token_service_pb.AppTokenValidateRequest, google_protobuf_empty_pb.Empty>;
 }
 
@@ -35,7 +35,7 @@ export interface IAppTokenServiceClient {
 }
 
 export class AppTokenServiceClient extends grpc.Client implements IAppTokenServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public validate(request: yandex_cloud_datasphere_v1_app_token_service_pb.AppTokenValidateRequest, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
     public validate(request: yandex_cloud_datasphere_v1_app_token_service_pb.AppTokenValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
     public validate(request: yandex_cloud_datasphere_v1_app_token_service_pb.AppTokenValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;

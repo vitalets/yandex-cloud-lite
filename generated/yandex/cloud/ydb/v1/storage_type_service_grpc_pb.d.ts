@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ydb_v1_storage_type_service_pb from "../../../../yandex/cloud/ydb/v1/storage_type_service_pb";
 import * as yandex_cloud_ydb_v1_storage_type_pb from "../../../../yandex/cloud/ydb/v1/storage_type_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -35,7 +35,7 @@ interface IStorageTypeServiceService_IList extends grpc.MethodDefinition<yandex_
 
 export const StorageTypeServiceService: IStorageTypeServiceService;
 
-export interface IStorageTypeServiceServer {
+export interface IStorageTypeServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_ydb_v1_storage_type_service_pb.GetStorageTypeRequest, yandex_cloud_ydb_v1_storage_type_pb.StorageType>;
     list: grpc.handleUnaryCall<yandex_cloud_ydb_v1_storage_type_service_pb.ListStorageTypesRequest, yandex_cloud_ydb_v1_storage_type_service_pb.ListStorageTypesResponse>;
 }
@@ -50,7 +50,7 @@ export interface IStorageTypeServiceClient {
 }
 
 export class StorageTypeServiceClient extends grpc.Client implements IStorageTypeServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_ydb_v1_storage_type_service_pb.GetStorageTypeRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_storage_type_pb.StorageType) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_ydb_v1_storage_type_service_pb.GetStorageTypeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_storage_type_pb.StorageType) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_ydb_v1_storage_type_service_pb.GetStorageTypeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ydb_v1_storage_type_pb.StorageType) => void): grpc.ClientUnaryCall;

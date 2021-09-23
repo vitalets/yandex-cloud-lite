@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_logging_v1_log_group_service_pb from "../../../../yandex/cloud/logging/v1/log_group_service_pb";
 import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
@@ -131,7 +131,7 @@ interface ILogGroupServiceService_IUpdateAccessBindings extends grpc.MethodDefin
 
 export const LogGroupServiceService: ILogGroupServiceService;
 
-export interface ILogGroupServiceServer {
+export interface ILogGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupRequest, yandex_cloud_logging_v1_log_group_pb.LogGroup>;
     stats: grpc.handleUnaryCall<yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupStatsRequest, yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupStatsResponse>;
     list: grpc.handleUnaryCall<yandex_cloud_logging_v1_log_group_service_pb.ListLogGroupsRequest, yandex_cloud_logging_v1_log_group_service_pb.ListLogGroupsResponse>;
@@ -182,7 +182,7 @@ export interface ILogGroupServiceClient {
 }
 
 export class LogGroupServiceClient extends grpc.Client implements ILogGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_group_pb.LogGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_group_pb.LogGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_logging_v1_log_group_service_pb.GetLogGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_group_pb.LogGroup) => void): grpc.ClientUnaryCall;

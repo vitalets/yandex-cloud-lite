@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_vpc_v1_subnet_service_pb from "../../../../yandex/cloud/vpc/v1/subnet_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -99,7 +99,7 @@ interface ISubnetServiceService_IListUsedAddresses extends grpc.MethodDefinition
 
 export const SubnetServiceService: ISubnetServiceService;
 
-export interface ISubnetServiceServer {
+export interface ISubnetServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.GetSubnetRequest, yandex_cloud_vpc_v1_subnet_pb.Subnet>;
     list: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetsRequest, yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.CreateSubnetRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -138,7 +138,7 @@ export interface ISubnetServiceClient {
 }
 
 export class SubnetServiceClient extends grpc.Client implements ISubnetServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_vpc_v1_subnet_service_pb.GetSubnetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_subnet_pb.Subnet) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_subnet_service_pb.GetSubnetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_subnet_pb.Subnet) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_vpc_v1_subnet_service_pb.GetSubnetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_vpc_v1_subnet_pb.Subnet) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_endpoint_api_endpoint_service_pb from "../../../yandex/cloud/endpoint/api_endpoint_service_pb";
 import * as yandex_cloud_endpoint_api_endpoint_pb from "../../../yandex/cloud/endpoint/api_endpoint_pb";
 
@@ -34,7 +34,7 @@ interface IApiEndpointServiceService_IList extends grpc.MethodDefinition<yandex_
 
 export const ApiEndpointServiceService: IApiEndpointServiceService;
 
-export interface IApiEndpointServiceServer {
+export interface IApiEndpointServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_endpoint_api_endpoint_service_pb.GetApiEndpointRequest, yandex_cloud_endpoint_api_endpoint_pb.ApiEndpoint>;
     list: grpc.handleUnaryCall<yandex_cloud_endpoint_api_endpoint_service_pb.ListApiEndpointsRequest, yandex_cloud_endpoint_api_endpoint_service_pb.ListApiEndpointsResponse>;
 }
@@ -49,7 +49,7 @@ export interface IApiEndpointServiceClient {
 }
 
 export class ApiEndpointServiceClient extends grpc.Client implements IApiEndpointServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_endpoint_api_endpoint_service_pb.GetApiEndpointRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_endpoint_api_endpoint_pb.ApiEndpoint) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_endpoint_api_endpoint_service_pb.GetApiEndpointRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_endpoint_api_endpoint_pb.ApiEndpoint) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_endpoint_api_endpoint_service_pb.GetApiEndpointRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_endpoint_api_endpoint_pb.ApiEndpoint) => void): grpc.ClientUnaryCall;

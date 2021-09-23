@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_yandex_passport_user_account_service_pb from "../../../../yandex/cloud/iam/v1/yandex_passport_user_account_service_pb";
 import * as yandex_cloud_iam_v1_user_account_pb from "../../../../yandex/cloud/iam/v1/user_account_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
@@ -25,7 +25,7 @@ interface IYandexPassportUserAccountServiceService_IGetByLogin extends grpc.Meth
 
 export const YandexPassportUserAccountServiceService: IYandexPassportUserAccountServiceService;
 
-export interface IYandexPassportUserAccountServiceServer {
+export interface IYandexPassportUserAccountServiceServer extends grpc.UntypedServiceImplementation {
     getByLogin: grpc.handleUnaryCall<yandex_cloud_iam_v1_yandex_passport_user_account_service_pb.GetUserAccountByLoginRequest, yandex_cloud_iam_v1_user_account_pb.UserAccount>;
 }
 
@@ -36,7 +36,7 @@ export interface IYandexPassportUserAccountServiceClient {
 }
 
 export class YandexPassportUserAccountServiceClient extends grpc.Client implements IYandexPassportUserAccountServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public getByLogin(request: yandex_cloud_iam_v1_yandex_passport_user_account_service_pb.GetUserAccountByLoginRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;
     public getByLogin(request: yandex_cloud_iam_v1_yandex_passport_user_account_service_pb.GetUserAccountByLoginRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;
     public getByLogin(request: yandex_cloud_iam_v1_yandex_passport_user_account_service_pb.GetUserAccountByLoginRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_user_account_pb.UserAccount) => void): grpc.ClientUnaryCall;

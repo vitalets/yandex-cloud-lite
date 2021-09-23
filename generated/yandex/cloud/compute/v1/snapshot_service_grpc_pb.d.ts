@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_snapshot_service_pb from "../../../../yandex/cloud/compute/v1/snapshot_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -78,7 +78,7 @@ interface ISnapshotServiceService_IListOperations extends grpc.MethodDefinition<
 
 export const SnapshotServiceService: ISnapshotServiceService;
 
-export interface ISnapshotServiceServer {
+export interface ISnapshotServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_snapshot_service_pb.GetSnapshotRequest, yandex_cloud_compute_v1_snapshot_pb.Snapshot>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_snapshot_service_pb.ListSnapshotsRequest, yandex_cloud_compute_v1_snapshot_service_pb.ListSnapshotsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_compute_v1_snapshot_service_pb.CreateSnapshotRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -109,7 +109,7 @@ export interface ISnapshotServiceClient {
 }
 
 export class SnapshotServiceClient extends grpc.Client implements ISnapshotServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_snapshot_service_pb.GetSnapshotRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_snapshot_pb.Snapshot) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_snapshot_service_pb.GetSnapshotRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_snapshot_pb.Snapshot) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_snapshot_service_pb.GetSnapshotRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_snapshot_pb.Snapshot) => void): grpc.ClientUnaryCall;

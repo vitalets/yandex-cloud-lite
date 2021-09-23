@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_dataproc_v1_subcluster_service_pb from "../../../../yandex/cloud/dataproc/v1/subcluster_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../yandex/cloud/operation/operation_pb";
@@ -69,7 +69,7 @@ interface ISubclusterServiceService_IDelete extends grpc.MethodDefinition<yandex
 
 export const SubclusterServiceService: ISubclusterServiceService;
 
-export interface ISubclusterServiceServer {
+export interface ISubclusterServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_subcluster_service_pb.GetSubclusterRequest, yandex_cloud_dataproc_v1_subcluster_pb.Subcluster>;
     list: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_subcluster_service_pb.ListSubclustersRequest, yandex_cloud_dataproc_v1_subcluster_service_pb.ListSubclustersResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_subcluster_service_pb.CreateSubclusterRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -96,7 +96,7 @@ export interface ISubclusterServiceClient {
 }
 
 export class SubclusterServiceClient extends grpc.Client implements ISubclusterServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_dataproc_v1_subcluster_service_pb.GetSubclusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_subcluster_pb.Subcluster) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_dataproc_v1_subcluster_service_pb.GetSubclusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_subcluster_pb.Subcluster) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_dataproc_v1_subcluster_service_pb.GetSubclusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_subcluster_pb.Subcluster) => void): grpc.ClientUnaryCall;

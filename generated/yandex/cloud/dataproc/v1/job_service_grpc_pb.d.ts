@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_dataproc_v1_job_service_pb from "../../../../yandex/cloud/dataproc/v1/job_service_pb";
 import * as yandex_cloud_dataproc_v1_job_pb from "../../../../yandex/cloud/dataproc/v1/job_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../yandex/cloud/operation/operation_pb";
@@ -57,7 +57,7 @@ interface IJobServiceService_IListLog extends grpc.MethodDefinition<yandex_cloud
 
 export const JobServiceService: IJobServiceService;
 
-export interface IJobServiceServer {
+export interface IJobServiceServer extends grpc.UntypedServiceImplementation {
     list: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.ListJobsRequest, yandex_cloud_dataproc_v1_job_service_pb.ListJobsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.CreateJobRequest, yandex_cloud_operation_operation_pb.Operation>;
     get: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.GetJobRequest, yandex_cloud_dataproc_v1_job_pb.Job>;
@@ -80,7 +80,7 @@ export interface IJobServiceClient {
 }
 
 export class JobServiceClient extends grpc.Client implements IJobServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public list(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobsResponse) => void): grpc.ClientUnaryCall;

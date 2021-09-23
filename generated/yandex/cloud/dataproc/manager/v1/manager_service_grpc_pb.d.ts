@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_dataproc_manager_v1_manager_service_pb from "../../../../../yandex/cloud/dataproc/manager/v1/manager_service_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 
@@ -24,7 +24,7 @@ interface IDataprocManagerServiceService_IReport extends grpc.MethodDefinition<y
 
 export const DataprocManagerServiceService: IDataprocManagerServiceService;
 
-export interface IDataprocManagerServiceServer {
+export interface IDataprocManagerServiceServer extends grpc.UntypedServiceImplementation {
     report: grpc.handleUnaryCall<yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportRequest, yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportReply>;
 }
 
@@ -35,7 +35,7 @@ export interface IDataprocManagerServiceClient {
 }
 
 export class DataprocManagerServiceClient extends grpc.Client implements IDataprocManagerServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public report(request: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportReply) => void): grpc.ClientUnaryCall;
     public report(request: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportReply) => void): grpc.ClientUnaryCall;
     public report(request: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_manager_v1_manager_service_pb.ReportReply) => void): grpc.ClientUnaryCall;

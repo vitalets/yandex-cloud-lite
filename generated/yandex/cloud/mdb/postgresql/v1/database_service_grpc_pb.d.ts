@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_postgresql_v1_database_service_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/database_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -68,7 +68,7 @@ interface IDatabaseServiceService_IDelete extends grpc.MethodDefinition<yandex_c
 
 export const DatabaseServiceService: IDatabaseServiceService;
 
-export interface IDatabaseServiceServer {
+export interface IDatabaseServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_postgresql_v1_database_service_pb.GetDatabaseRequest, yandex_cloud_mdb_postgresql_v1_database_pb.Database>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_postgresql_v1_database_service_pb.ListDatabasesRequest, yandex_cloud_mdb_postgresql_v1_database_service_pb.ListDatabasesResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_postgresql_v1_database_service_pb.CreateDatabaseRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -95,7 +95,7 @@ export interface IDatabaseServiceClient {
 }
 
 export class DatabaseServiceClient extends grpc.Client implements IDatabaseServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_postgresql_v1_database_service_pb.GetDatabaseRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_postgresql_v1_database_pb.Database) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_postgresql_v1_database_service_pb.GetDatabaseRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_postgresql_v1_database_pb.Database) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_postgresql_v1_database_service_pb.GetDatabaseRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_postgresql_v1_database_pb.Database) => void): grpc.ClientUnaryCall;

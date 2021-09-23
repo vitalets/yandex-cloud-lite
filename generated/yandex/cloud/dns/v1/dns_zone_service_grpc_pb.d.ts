@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_dns_v1_dns_zone_service_pb from "../../../../yandex/cloud/dns/v1/dns_zone_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_access_access_pb from "../../../../yandex/cloud/access/access_pb";
@@ -149,7 +149,7 @@ interface IDnsZoneServiceService_IUpdateAccessBindings extends grpc.MethodDefini
 
 export const DnsZoneServiceService: IDnsZoneServiceService;
 
-export interface IDnsZoneServiceServer {
+export interface IDnsZoneServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_dns_v1_dns_zone_service_pb.GetDnsZoneRequest, yandex_cloud_dns_v1_dns_zone_pb.DnsZone>;
     list: grpc.handleUnaryCall<yandex_cloud_dns_v1_dns_zone_service_pb.ListDnsZonesRequest, yandex_cloud_dns_v1_dns_zone_service_pb.ListDnsZonesResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_dns_v1_dns_zone_service_pb.CreateDnsZoneRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -208,7 +208,7 @@ export interface IDnsZoneServiceClient {
 }
 
 export class DnsZoneServiceClient extends grpc.Client implements IDnsZoneServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_dns_v1_dns_zone_service_pb.GetDnsZoneRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dns_v1_dns_zone_pb.DnsZone) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_dns_v1_dns_zone_service_pb.GetDnsZoneRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dns_v1_dns_zone_pb.DnsZone) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_dns_v1_dns_zone_service_pb.GetDnsZoneRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dns_v1_dns_zone_pb.DnsZone) => void): grpc.ClientUnaryCall;

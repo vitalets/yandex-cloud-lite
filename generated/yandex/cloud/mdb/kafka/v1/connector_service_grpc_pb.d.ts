@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_kafka_v1_connector_service_pb from "../../../../../yandex/cloud/mdb/kafka/v1/connector_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
@@ -77,7 +77,7 @@ interface IConnectorServiceService_IPause extends grpc.MethodDefinition<yandex_c
 
 export const ConnectorServiceService: IConnectorServiceService;
 
-export interface IConnectorServiceServer {
+export interface IConnectorServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.GetConnectorRequest, yandex_cloud_mdb_kafka_v1_connector_pb.Connector>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.ListConnectorsRequest, yandex_cloud_mdb_kafka_v1_connector_service_pb.ListConnectorsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -108,7 +108,7 @@ export interface IConnectorServiceClient {
 }
 
 export class ConnectorServiceClient extends grpc.Client implements IConnectorServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.GetConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_connector_pb.Connector) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.GetConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_connector_pb.Connector) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.GetConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_connector_pb.Connector) => void): grpc.ClientUnaryCall;

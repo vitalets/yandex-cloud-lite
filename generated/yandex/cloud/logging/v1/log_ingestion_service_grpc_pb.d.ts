@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_logging_v1_log_ingestion_service_pb from "../../../../yandex/cloud/logging/v1/log_ingestion_service_pb";
 import * as google_rpc_status_pb from "../../../../google/rpc/status_pb";
 import * as yandex_cloud_logging_v1_log_entry_pb from "../../../../yandex/cloud/logging/v1/log_entry_pb";
@@ -27,7 +27,7 @@ interface ILogIngestionServiceService_IWrite extends grpc.MethodDefinition<yande
 
 export const LogIngestionServiceService: ILogIngestionServiceService;
 
-export interface ILogIngestionServiceServer {
+export interface ILogIngestionServiceServer extends grpc.UntypedServiceImplementation {
     write: grpc.handleUnaryCall<yandex_cloud_logging_v1_log_ingestion_service_pb.WriteRequest, yandex_cloud_logging_v1_log_ingestion_service_pb.WriteResponse>;
 }
 
@@ -38,7 +38,7 @@ export interface ILogIngestionServiceClient {
 }
 
 export class LogIngestionServiceClient extends grpc.Client implements ILogIngestionServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public write(request: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     public write(request: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     public write(request: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_logging_v1_log_ingestion_service_pb.WriteResponse) => void): grpc.ClientUnaryCall;

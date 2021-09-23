@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_awscompatibility_access_key_service_pb from "../../../../../yandex/cloud/iam/v1/awscompatibility/access_key_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -78,7 +78,7 @@ interface IAccessKeyServiceService_IListOperations extends grpc.MethodDefinition
 
 export const AccessKeyServiceService: IAccessKeyServiceService;
 
-export interface IAccessKeyServiceServer {
+export interface IAccessKeyServiceServer extends grpc.UntypedServiceImplementation {
     list: grpc.handleUnaryCall<yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysRequest, yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysResponse>;
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.GetAccessKeyRequest, yandex_cloud_iam_v1_awscompatibility_access_key_pb.AccessKey>;
     create: grpc.handleUnaryCall<yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.CreateAccessKeyRequest, yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.CreateAccessKeyResponse>;
@@ -109,7 +109,7 @@ export interface IAccessKeyServiceClient {
 }
 
 export class AccessKeyServiceClient extends grpc.Client implements IAccessKeyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public list(request: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_awscompatibility_access_key_service_pb.ListAccessKeysResponse) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_ai_vision_v1_vision_service_pb from "../../../../../yandex/cloud/ai/vision/v1/vision_service_pb";
 import * as yandex_cloud_ai_vision_v1_text_detection_pb from "../../../../../yandex/cloud/ai/vision/v1/text_detection_pb";
 import * as yandex_cloud_ai_vision_v1_classification_pb from "../../../../../yandex/cloud/ai/vision/v1/classification_pb";
@@ -29,7 +29,7 @@ interface IVisionServiceService_IBatchAnalyze extends grpc.MethodDefinition<yand
 
 export const VisionServiceService: IVisionServiceService;
 
-export interface IVisionServiceServer {
+export interface IVisionServiceServer extends grpc.UntypedServiceImplementation {
     batchAnalyze: grpc.handleUnaryCall<yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeRequest, yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeResponse>;
 }
 
@@ -40,7 +40,7 @@ export interface IVisionServiceClient {
 }
 
 export class VisionServiceClient extends grpc.Client implements IVisionServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public batchAnalyze(request: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeResponse) => void): grpc.ClientUnaryCall;
     public batchAnalyze(request: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeResponse) => void): grpc.ClientUnaryCall;
     public batchAnalyze(request: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_ai_vision_v1_vision_service_pb.BatchAnalyzeResponse) => void): grpc.ClientUnaryCall;

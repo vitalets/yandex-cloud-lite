@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb from "../../../../yandex/cloud/containerregistry/v1/lifecycle_policy_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_containerregistry_v1_image_pb from "../../../../yandex/cloud/containerregistry/v1/image_pb";
@@ -110,7 +110,7 @@ interface ILifecyclePolicyServiceService_IListDryRunResultAffectedImages extends
 
 export const LifecyclePolicyServiceService: ILifecyclePolicyServiceService;
 
-export interface ILifecyclePolicyServiceServer {
+export interface ILifecyclePolicyServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.GetLifecyclePolicyRequest, yandex_cloud_containerregistry_v1_lifecycle_policy_pb.LifecyclePolicy>;
     list: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.ListLifecyclePoliciesRequest, yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.ListLifecyclePoliciesResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.CreateLifecyclePolicyRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -153,7 +153,7 @@ export interface ILifecyclePolicyServiceClient {
 }
 
 export class LifecyclePolicyServiceClient extends grpc.Client implements ILifecyclePolicyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.GetLifecyclePolicyRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_lifecycle_policy_pb.LifecyclePolicy) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.GetLifecyclePolicyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_lifecycle_policy_pb.LifecyclePolicy) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_containerregistry_v1_lifecycle_policy_service_pb.GetLifecyclePolicyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_containerregistry_v1_lifecycle_policy_pb.LifecyclePolicy) => void): grpc.ClientUnaryCall;

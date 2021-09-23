@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_k8s_v1_node_group_service_pb from "../../../../yandex/cloud/k8s/v1/node_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -90,7 +90,7 @@ interface INodeGroupServiceService_IListNodes extends grpc.MethodDefinition<yand
 
 export const NodeGroupServiceService: INodeGroupServiceService;
 
-export interface INodeGroupServiceServer {
+export interface INodeGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_k8s_v1_node_group_service_pb.GetNodeGroupRequest, yandex_cloud_k8s_v1_node_group_pb.NodeGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_k8s_v1_node_group_service_pb.ListNodeGroupsRequest, yandex_cloud_k8s_v1_node_group_service_pb.ListNodeGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_k8s_v1_node_group_service_pb.CreateNodeGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -125,7 +125,7 @@ export interface INodeGroupServiceClient {
 }
 
 export class NodeGroupServiceClient extends grpc.Client implements INodeGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_k8s_v1_node_group_service_pb.GetNodeGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_node_group_pb.NodeGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_k8s_v1_node_group_service_pb.GetNodeGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_node_group_pb.NodeGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_k8s_v1_node_group_service_pb.GetNodeGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_k8s_v1_node_group_pb.NodeGroup) => void): grpc.ClientUnaryCall;

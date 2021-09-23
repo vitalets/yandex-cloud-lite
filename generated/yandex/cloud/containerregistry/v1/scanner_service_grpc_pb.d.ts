@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_containerregistry_v1_scanner_service_pb from "../../../../yandex/cloud/containerregistry/v1/scanner_service_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_containerregistry_v1_scanner_pb from "../../../../yandex/cloud/containerregistry/v1/scanner_pb";
@@ -67,7 +67,7 @@ interface IScannerServiceService_IListVulnerabilities extends grpc.MethodDefinit
 
 export const ScannerServiceService: IScannerServiceService;
 
-export interface IScannerServiceServer {
+export interface IScannerServiceServer extends grpc.UntypedServiceImplementation {
     scan: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_scanner_service_pb.ScanRequest, yandex_cloud_operation_operation_pb.Operation>;
     get: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_scanner_service_pb.GetScanResultRequest, yandex_cloud_containerregistry_v1_scanner_pb.ScanResult>;
     getLast: grpc.handleUnaryCall<yandex_cloud_containerregistry_v1_scanner_service_pb.GetLastScanResultRequest, yandex_cloud_containerregistry_v1_scanner_pb.ScanResult>;
@@ -94,7 +94,7 @@ export interface IScannerServiceClient {
 }
 
 export class ScannerServiceClient extends grpc.Client implements IScannerServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public scan(request: yandex_cloud_containerregistry_v1_scanner_service_pb.ScanRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public scan(request: yandex_cloud_containerregistry_v1_scanner_service_pb.ScanRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public scan(request: yandex_cloud_containerregistry_v1_scanner_service_pb.ScanRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

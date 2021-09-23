@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb from "../../../../yandex/cloud/loadbalancer/v1/network_load_balancer_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -148,7 +148,7 @@ interface INetworkLoadBalancerServiceService_IListOperations extends grpc.Method
 
 export const NetworkLoadBalancerServiceService: INetworkLoadBalancerServiceService;
 
-export interface INetworkLoadBalancerServiceServer {
+export interface INetworkLoadBalancerServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.GetNetworkLoadBalancerRequest, yandex_cloud_loadbalancer_v1_network_load_balancer_pb.NetworkLoadBalancer>;
     list: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.ListNetworkLoadBalancersRequest, yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.ListNetworkLoadBalancersResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.CreateNetworkLoadBalancerRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -207,7 +207,7 @@ export interface INetworkLoadBalancerServiceClient {
 }
 
 export class NetworkLoadBalancerServiceClient extends grpc.Client implements INetworkLoadBalancerServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.GetNetworkLoadBalancerRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_network_load_balancer_pb.NetworkLoadBalancer) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.GetNetworkLoadBalancerRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_network_load_balancer_pb.NetworkLoadBalancer) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_loadbalancer_v1_network_load_balancer_service_pb.GetNetworkLoadBalancerRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_loadbalancer_v1_network_load_balancer_pb.NetworkLoadBalancer) => void): grpc.ClientUnaryCall;

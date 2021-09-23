@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_sqlserver_v1_cluster_service_pb from "../../../../../yandex/cloud/mdb/sqlserver/v1/cluster_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
@@ -164,7 +164,7 @@ interface IClusterServiceService_IListHosts extends grpc.MethodDefinition<yandex
 
 export const ClusterServiceService: IClusterServiceService;
 
-export interface IClusterServiceServer {
+export interface IClusterServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.GetClusterRequest, yandex_cloud_mdb_sqlserver_v1_cluster_pb.Cluster>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.ListClustersRequest, yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.ListClustersResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.CreateClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -227,7 +227,7 @@ export interface IClusterServiceClient {
 }
 
 export class ClusterServiceClient extends grpc.Client implements IClusterServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.GetClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_cluster_pb.Cluster) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.GetClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_cluster_pb.Cluster) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_mdb_sqlserver_v1_cluster_service_pb.GetClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_sqlserver_v1_cluster_pb.Cluster) => void): grpc.ClientUnaryCall;

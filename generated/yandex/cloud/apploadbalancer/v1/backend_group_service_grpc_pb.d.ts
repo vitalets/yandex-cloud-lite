@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_apploadbalancer_v1_backend_group_service_pb from "../../../../yandex/cloud/apploadbalancer/v1/backend_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../yandex/cloud/api/operation_pb";
@@ -108,7 +108,7 @@ interface IBackendGroupServiceService_IListOperations extends grpc.MethodDefinit
 
 export const BackendGroupServiceService: IBackendGroupServiceService;
 
-export interface IBackendGroupServiceServer {
+export interface IBackendGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_backend_group_service_pb.GetBackendGroupRequest, yandex_cloud_apploadbalancer_v1_backend_group_pb.BackendGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_backend_group_service_pb.ListBackendGroupsRequest, yandex_cloud_apploadbalancer_v1_backend_group_service_pb.ListBackendGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_apploadbalancer_v1_backend_group_service_pb.CreateBackendGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -151,7 +151,7 @@ export interface IBackendGroupServiceClient {
 }
 
 export class BackendGroupServiceClient extends grpc.Client implements IBackendGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_apploadbalancer_v1_backend_group_service_pb.GetBackendGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_backend_group_pb.BackendGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_apploadbalancer_v1_backend_group_service_pb.GetBackendGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_backend_group_pb.BackendGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_apploadbalancer_v1_backend_group_service_pb.GetBackendGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_apploadbalancer_v1_backend_group_pb.BackendGroup) => void): grpc.ClientUnaryCall;

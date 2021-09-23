@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb from "../../../../../yandex/cloud/serverless/mdbproxy/v1/proxy_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
@@ -109,7 +109,7 @@ interface IProxyServiceService_IUpdateAccessBindings extends grpc.MethodDefiniti
 
 export const ProxyServiceService: IProxyServiceService;
 
-export interface IProxyServiceServer {
+export interface IProxyServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.GetProxyRequest, yandex_cloud_serverless_mdbproxy_v1_proxy_pb.Proxy>;
     list: grpc.handleUnaryCall<yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.ListProxyRequest, yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.ListProxyResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.CreateProxyRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -152,7 +152,7 @@ export interface IProxyServiceClient {
 }
 
 export class ProxyServiceClient extends grpc.Client implements IProxyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.GetProxyRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_mdbproxy_v1_proxy_pb.Proxy) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.GetProxyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_mdbproxy_v1_proxy_pb.Proxy) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_serverless_mdbproxy_v1_proxy_service_pb.GetProxyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_serverless_mdbproxy_v1_proxy_pb.Proxy) => void): grpc.ClientUnaryCall;

@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_iam_v1_key_service_pb from "../../../../yandex/cloud/iam/v1/key_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_iam_v1_key_pb from "../../../../yandex/cloud/iam/v1/key_pb";
@@ -78,7 +78,7 @@ interface IKeyServiceService_IListOperations extends grpc.MethodDefinition<yande
 
 export const KeyServiceService: IKeyServiceService;
 
-export interface IKeyServiceServer {
+export interface IKeyServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_iam_v1_key_service_pb.GetKeyRequest, yandex_cloud_iam_v1_key_pb.Key>;
     list: grpc.handleUnaryCall<yandex_cloud_iam_v1_key_service_pb.ListKeysRequest, yandex_cloud_iam_v1_key_service_pb.ListKeysResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_iam_v1_key_service_pb.CreateKeyRequest, yandex_cloud_iam_v1_key_service_pb.CreateKeyResponse>;
@@ -109,7 +109,7 @@ export interface IKeyServiceClient {
 }
 
 export class KeyServiceClient extends grpc.Client implements IKeyServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_iam_v1_key_service_pb.GetKeyRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_key_pb.Key) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_key_service_pb.GetKeyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_key_pb.Key) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_iam_v1_key_service_pb.GetKeyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_iam_v1_key_pb.Key) => void): grpc.ClientUnaryCall;

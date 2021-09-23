@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_compute_v1_instancegroup_instance_group_service_pb from "../../../../../yandex/cloud/compute/v1/instancegroup/instance_group_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_access_access_pb from "../../../../../yandex/cloud/access/access_pb";
@@ -209,7 +209,7 @@ interface IInstanceGroupServiceService_IPauseProcesses extends grpc.MethodDefini
 
 export const InstanceGroupServiceService: IInstanceGroupServiceService;
 
-export interface IInstanceGroupServiceServer {
+export interface IInstanceGroupServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.GetInstanceGroupRequest, yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup>;
     list: grpc.handleUnaryCall<yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.ListInstanceGroupsRequest, yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.ListInstanceGroupsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.CreateInstanceGroupRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -292,7 +292,7 @@ export interface IInstanceGroupServiceClient {
 }
 
 export class InstanceGroupServiceClient extends grpc.Client implements IInstanceGroupServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public get(request: yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.GetInstanceGroupRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.GetInstanceGroupRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup) => void): grpc.ClientUnaryCall;
     public get(request: yandex_cloud_compute_v1_instancegroup_instance_group_service_pb.GetInstanceGroupRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instancegroup_instance_group_pb.InstanceGroup) => void): grpc.ClientUnaryCall;
