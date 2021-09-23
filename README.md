@@ -2,7 +2,7 @@
 Minimal implementation of [Yandex Cloud SDK for Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
 ## Motivation
-The main reason is that you can access any Yandex Cloud services as soon as proto files appear in official [cloudapi repository](https://github.com/yandex-cloud/cloudapi).
+The main reason is that you can use GRPC API of any Yandex Cloud service as soon as proto files appear in [official repository](https://github.com/yandex-cloud/cloudapi).
 
 ## Installation
 ```
