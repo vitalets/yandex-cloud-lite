@@ -1,5 +1,5 @@
 # yandex-cloud-lite
-Alternative implementation of [Yandex Cloud SDK for Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+Minimal implementation of [Yandex Cloud SDK for Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
 ## Motivation
 The main reason is that you can access any Yandex Cloud services as soon as proto files apper in [cloudapi repository](https://github.com/yandex-cloud/cloudapi).
