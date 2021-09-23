@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build GRPC services from proto files.
-# Usage: ./scripts/build-from-proto.sh
+# Usage: ./scripts/compile-proto.sh
 
 PROTO_SRC=$(find ./proto/cloudapi-master -iname "*.proto")
 OUT_DIR=./generated
