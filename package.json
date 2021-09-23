@@ -11,8 +11,7 @@
   "scripts": {
     "lint": "eslint src test --ext .ts",
     "tsc": "tsc --noEmit",
-    "test": "echo tbd",
-    "check": "ts-node scripts/check.ts",
+    "test": "mocha -r ts-node/register test/setup.ts test/specs/*.ts",
     "update-proto": "./scripts/update-proto.sh",
     "compile-proto": "./scripts/compile-proto.sh",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
