@@ -23,7 +23,7 @@ type GrpcPromisedMethod<Req extends jspb.Message, Res extends jspb.Message> = {
     options?: Partial<grpc.CallOptions>
   ): Promise<ResAsObject<Res>>
 };
-type PromisedGrpcClient<T> = {
+export type PromisedGrpcClient<T> = {
   [K in keyof T]: T[K] extends GrpcAsyncMethod<infer Req, infer Res>
     ? GrpcPromisedMethod<Req, Res>
     : never

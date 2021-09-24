@@ -2,7 +2,9 @@ import * as grpc from '@grpc/grpc-js';
 import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
 import { createCredentials } from './credentials';
 import { getEnpoint } from './endpoints';
-import { promisifyGrpcClient } from './promisify';
+import { promisifyGrpcClient, PromisedGrpcClient } from './promisify';
+
+export { PromisedGrpcClient };
 
 type SessionOptions = {
   oauthToken?: string;
