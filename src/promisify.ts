@@ -7,12 +7,25 @@ import * as grpc from '@grpc/grpc-js';
 
 type GrpcCallback<Res extends jspb.Message> = (e: grpc.ServiceError | null, res: Res) => void;
 type GrpcAsyncMethod<Req extends jspb.Message, Res extends jspb.Message> = {
-  (req: Req, m: grpc.Metadata, o: Partial<grpc.CallOptions>, cb: GrpcCallback<Res>): void;
+  (
+    req: Req,
+    metadata: grpc.Metadata,
+    options: Partial<grpc.CallOptions>,
+    cb: GrpcCallback<Res>
+  ): void;
 };
-
-export type PromisedGrpcClient<T> = {
+type ReqAsObject<Req extends jspb.Message> = Partial<ReturnType<Req['toObject']>>;
+type ResAsObject<Res extends jspb.Message> = ReturnType<Res['toObject']>;
+type GrpcPromisedMethod<Req extends jspb.Message, Res extends jspb.Message> = {
+  (
+    req?: Req | ReqAsObject<Req>,
+    metadata?: grpc.Metadata,
+    options?: Partial<grpc.CallOptions>
+  ): Promise<ResAsObject<Res>>
+};
+type PromisedGrpcClient<T> = {
   [K in keyof T]: T[K] extends GrpcAsyncMethod<infer Req, infer Res>
-    ? (req?: Req | Partial<ReturnType<Req['toObject']>>) => Promise<ReturnType<Res['toObject']>>
+    ? GrpcPromisedMethod<Req, Res>
     : never
 }
 
@@ -21,16 +34,26 @@ export function promisifyGrpcClient<T extends grpc.Client>(client: T) {
   methods.forEach(key => {
     const method = client[key];
     if (typeof method === 'function') {
-      const fn = promisify(method).bind(client);
       // @ts-expect-error valid
-      client[key] = async (req?: jspb.Message | Record<string, unknown>) => {
-        if (!(req instanceof jspb.Message)) req = fromObject(method, req);
-        const res = await fn(req) as jspb.Message;
-        return res.toObject();
-      };
+      client[key] = promisifyGrpcMethod(client, method);
     }
   });
   return client as unknown as PromisedGrpcClient<T>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function promisifyGrpcMethod<T extends grpc.Client>(client: T, method: any) {
+  const fn = promisify(method).bind(client);
+  return async (
+    req?: jspb.Message | Record<string, unknown>,
+    metadata?: grpc.Metadata,
+    options?: Partial<grpc.CallOptions>
+  ) => {
+    if (!(req instanceof jspb.Message)) req = fromObject(method, req);
+    const args = [ req, metadata, options ].filter(Boolean);
+    const res = await fn(...args) as jspb.Message;
+    return res.toObject();
+  };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
