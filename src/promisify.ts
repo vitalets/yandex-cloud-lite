@@ -6,39 +6,48 @@ import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
 
 type GrpcCallback<Res extends jspb.Message> = (e: grpc.ServiceError | null, res: Res) => void;
-type GrpcAsyncMethod<Req extends jspb.Message, Res extends jspb.Message> = {
+type GrpcUnaryCall<Req extends jspb.Message, Res extends jspb.Message> = {
   (
     req: Req,
     metadata: grpc.Metadata,
     options: Partial<grpc.CallOptions>,
     cb: GrpcCallback<Res>
-  ): void;
+  ): grpc.ClientUnaryCall;
 };
+type GrpcMethodMeta = {
+  path: string;
+  requestStream: boolean;
+  responseStream: boolean;
+  requestType: jspb.Message;
+  responseType: jspb.Message;
+}
+// Here use Partial<...> because often optional request props are marked as required
 type ReqAsObject<Req extends jspb.Message> = Partial<ReturnType<Req['toObject']>>;
 type ResAsObject<Res extends jspb.Message> = ReturnType<Res['toObject']>;
-type GrpcPromisedMethod<Req extends jspb.Message, Res extends jspb.Message> = {
+type GrpcPromisedCall<Req extends jspb.Message, Res extends jspb.Message> = {
   (
     req?: Req | ReqAsObject<Req>,
     metadata?: grpc.Metadata,
     options?: Partial<grpc.CallOptions>
   ): Promise<ResAsObject<Res>>
 };
-export type PromisedGrpcClient<T> = {
-  [K in keyof T]: T[K] extends GrpcAsyncMethod<infer Req, infer Res>
-    ? GrpcPromisedMethod<Req, Res>
-    : never
+export type GrpcPromisedClient<T> = {
+  [K in keyof T]: T[K] extends GrpcUnaryCall<infer Req, infer Res>
+    ? GrpcPromisedCall<Req, Res>
+    : T[K]
 }
 
 export function promisifyGrpcClient<T extends grpc.Client>(client: T) {
   const methods = Object.keys(client.constructor.prototype) as (keyof typeof client)[];
   methods.forEach(key => {
     const method = client[key];
-    if (typeof method === 'function') {
+    const methodMeta = method as unknown as GrpcMethodMeta;
+    if (typeof method === 'function' && methodMeta.responseStream === false) {
       // @ts-expect-error valid
       client[key] = promisifyGrpcMethod(client, method);
     }
   });
-  return client as unknown as PromisedGrpcClient<T>;
+  return client as unknown as GrpcPromisedClient<T>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
