@@ -4,13 +4,6 @@
  */
 import * as grpc from '@grpc/grpc-js';
 
-const endpoints: Record<string, string> = {
-  'yandex.cloud.iam.v1.IamTokenService': 'iam.api.cloud.yandex.net:443',
-  'yandex.cloud.serverless.functions.v1.FunctionService': 'serverless-functions.api.cloud.yandex.net:443',
-  'yandex.cloud.logging.v1.LogReadingService': 'reader.logging.yandexcloud.net:443',
-  'yandex.cloud.serverless.apigateway.v1.ApiGatewayService': 'serverless-apigateway.api.cloud.yandex.net:443',
-};
-
 export function getEnpoint(ctor: typeof grpc.Client) {
   const serviceName = detectServiceName(ctor);
   const endpoint = endpoints[serviceName];
@@ -23,3 +16,12 @@ function detectServiceName(ctor: typeof grpc.Client) {
   if (!path) throw new Error(`Can't detect service name: ${ctor}`);
   return path.split('/')[1];
 }
+
+const endpoints: Record<string, string> = {
+  'yandex.cloud.iam.v1.IamTokenService': 'iam.api.cloud.yandex.net:443',
+  'yandex.cloud.serverless.functions.v1.FunctionService': 'serverless-functions.api.cloud.yandex.net:443',
+  'yandex.cloud.logging.v1.LogReadingService': 'reader.logging.yandexcloud.net:443',
+  'yandex.cloud.serverless.apigateway.v1.ApiGatewayService': 'serverless-apigateway.api.cloud.yandex.net:443',
+  'speechkit.tts.v3.Synthesizer': 'transcribe.api.cloud.yandex.net:443',
+  // Feel free to add endpoints via PR.
+};
