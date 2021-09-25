@@ -5,21 +5,29 @@ import { promisify } from 'util';
 import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
 
+interface GrpcStreamingCall<Req extends jspb.Message, Res extends jspb.Message> {
+  (
+    req: Req,
+    metadata: grpc.Metadata,
+    options: Partial<grpc.CallOptions>,
+  ): grpc.ClientReadableStream<Res>;
+}
 type GrpcCallback<Res extends jspb.Message> = (e: grpc.ServiceError | null, res: Res) => void;
-type GrpcUnaryCall<Req extends jspb.Message, Res extends jspb.Message> = {
+interface GrpcUnaryCall<Req extends jspb.Message, Res extends jspb.Message> {
   (
     req: Req,
     metadata: grpc.Metadata,
     options: Partial<grpc.CallOptions>,
     cb: GrpcCallback<Res>
   ): grpc.ClientUnaryCall;
-};
-type GrpcMethodMeta = {
+}
+interface GrpcUnaryCallWithMeta extends GrpcUnaryCall<jspb.Message, jspb.Message> {
   path: string;
   requestStream: boolean;
   responseStream: boolean;
-  requestType: jspb.Message;
-  responseType: jspb.Message;
+  // these two props are not show in d.ts but actually exist
+  requestType: new () => jspb.Message;
+  responseType: new () => jspb.Message;
 }
 // Here use Partial<...> because often optional request props are marked as required
 type ReqAsObject<Req extends jspb.Message> = Partial<ReturnType<Req['toObject']>>;
@@ -32,17 +40,19 @@ type GrpcPromisedCall<Req extends jspb.Message, Res extends jspb.Message> = {
   ): Promise<ResAsObject<Res>>
 };
 export type GrpcPromisedClient<T> = {
-  [K in keyof T]: T[K] extends GrpcUnaryCall<infer Req, infer Res>
-    ? GrpcPromisedCall<Req, Res>
-    : T[K]
+  // check streaming methods first as they extends unary calls
+  [K in keyof T]: T[K] extends GrpcStreamingCall<infer _Req, infer _Res>
+    ? T[K]
+    : T[K] extends GrpcUnaryCall<infer Req, infer Res>
+      ? GrpcPromisedCall<Req, Res>
+      : T[K]
 }
 
 export function promisifyGrpcClient<T extends grpc.Client>(client: T) {
   const methods = Object.keys(client.constructor.prototype) as (keyof typeof client)[];
   methods.forEach(key => {
-    const method = client[key];
-    const methodMeta = method as unknown as GrpcMethodMeta;
-    if (typeof method === 'function' && methodMeta.responseStream === false) {
+    const method = client[key] as unknown as GrpcUnaryCallWithMeta;
+    if (typeof method === 'function' && method.requestStream === false && method.responseStream === false) {
       // @ts-expect-error valid
       client[key] = promisifyGrpcMethod(client, method);
     }
@@ -50,8 +60,7 @@ export function promisifyGrpcClient<T extends grpc.Client>(client: T) {
   return client as unknown as GrpcPromisedClient<T>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function promisifyGrpcMethod<T extends grpc.Client>(client: T, method: any) {
+function promisifyGrpcMethod<T extends grpc.Client>(client: T, method: GrpcUnaryCallWithMeta) {
   const fn = promisify(method).bind(client);
   return async (
     req?: jspb.Message | Record<string, unknown>,
@@ -59,18 +68,17 @@ function promisifyGrpcMethod<T extends grpc.Client>(client: T, method: any) {
     options?: Partial<grpc.CallOptions>
   ) => {
     if (!(req instanceof jspb.Message)) req = fromObject(method, req);
-    const args = [ req, metadata, options ].filter(Boolean);
-    const res = await fn(...args) as jspb.Message;
+    const res = await fn(req, metadata || new grpc.Metadata(), options || {}) as jspb.Message;
     return res.toObject();
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function fromObject(method: any, obj?: Record<string, unknown>) {
+function fromObject(method: GrpcUnaryCallWithMeta, obj?: Record<string, unknown>) {
   const req = new method.requestType();
   if (obj) {
     Object.keys(obj).forEach(key => {
       const reqMethodName = `set${capitalizeFirstLetter(key)}`;
+      // @ts-expect-error valid
       req[reqMethodName](obj[key]);
     });
   }
