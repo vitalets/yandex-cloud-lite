@@ -33,6 +33,6 @@ export class Session {
     if (!this.options.oauthToken) throw new Error(`You should provide oauthToken`);
     const iamClient = this.createClient(IamTokenServiceClient, { useToken: false });
     const res = await iamClient.create({ yandexPassportOauthToken: this.options.oauthToken });
-    return res.iamToken;
+    return res.getIamToken();
   }
 }

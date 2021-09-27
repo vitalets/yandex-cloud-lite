@@ -31,13 +31,12 @@ interface GrpcUnaryCallWithMeta extends GrpcUnaryCall<jspb.Message, jspb.Message
 }
 // Here use Partial<...> because often optional request props are marked as required
 type ReqAsObject<Req extends jspb.Message> = Partial<ReturnType<Req['toObject']>>;
-type ResAsObject<Res extends jspb.Message> = ReturnType<Res['toObject']>;
 type GrpcPromisedCall<Req extends jspb.Message, Res extends jspb.Message> = {
   (
     req?: Req | ReqAsObject<Req>,
     metadata?: grpc.Metadata,
     options?: Partial<grpc.CallOptions>
-  ): Promise<ResAsObject<Res>>
+  ): Promise<Res>
 };
 export type GrpcPromisedClient<T> = {
   // check streaming methods first as they extends unary calls
@@ -69,7 +68,7 @@ function promisifyGrpcMethod<T extends grpc.Client>(client: T, method: GrpcUnary
   ) => {
     if (!(req instanceof jspb.Message)) req = fromObject(method, req);
     const res = await fn(req, metadata || new grpc.Metadata(), options || {}) as jspb.Message;
-    return res.toObject();
+    return res;
   };
 }
 

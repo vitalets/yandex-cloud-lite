@@ -11,7 +11,7 @@ describe('logs', () => {
     criteria.setPageSize(5);
     criteria.setLogGroupId(LOG_GROUP_ID);
     req.setCriteria(criteria);
-    const logs = await client.read(req);
-    assert.ok(logs.entriesList.length > 0);
+    const res = await client.read(req);
+    assert.ok(res.getEntriesList().length > 0);
   });
 });

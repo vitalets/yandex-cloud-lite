@@ -18,6 +18,6 @@ async function main() {
   const client = session.createClient(ApiGatewayServiceClient);
   const res = await client.list({ folderId: FOLDER_ID });
 
-  console.log(res);
+  console.log(res.toObject());
 }
 

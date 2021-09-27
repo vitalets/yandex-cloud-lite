@@ -5,7 +5,7 @@ const { FOLDER_ID = '' } = process.env;
 describe('functions', () => {
   it('list', async () => {
     const client = session.createClient(FunctionServiceClient);
-    const functions = await client.list({ folderId: FOLDER_ID });
-    assert.ok(functions.functionsList.length > 0);
+    const res = await client.list({ folderId: FOLDER_ID });
+    assert.ok(res.getFunctionsList().length > 0);
   });
 });

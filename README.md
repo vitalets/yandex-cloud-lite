@@ -19,8 +19,8 @@ listFunctions();
 async function listFunctions() {
   const session = new Session({ oauthToken: '<your_oauth_token>' });
   const client = session.createClient(FunctionServiceClient);
-  const functions = await client.list({ folderId: '<your_folder_id>' });
-  console.log(functions);
+  const res = await client.list({ folderId: '<your_folder_id>' });
+  console.log(res.toObject());
 }
 
 /*
