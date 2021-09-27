@@ -3,7 +3,7 @@
  * Getting list of all API gateways.
  *
  * Usage:
- * npx ts-node examples/unary-call.ts
+ * npx ts-node examples/list-gateways
  */
 import 'dotenv/config';
 import { Session } from '../src';
@@ -11,9 +11,9 @@ import { ApiGatewayServiceClient } from '../generated/yandex/cloud/serverless/ap
 
 const { YC_OAUTH_TOKEN = '', FOLDER_ID = '' } = process.env;
 
-main();
+listGateways();
 
-async function main() {
+async function listGateways() {
   const session = new Session({ oauthToken: YC_OAUTH_TOKEN });
   const client = session.createClient(ApiGatewayServiceClient);
   const res = await client.list({ folderId: FOLDER_ID });

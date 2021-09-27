@@ -6,7 +6,7 @@ import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { createCredentials } from './credentials';
 import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './promisify';
-import { sleep } from './utils';
+import { WaitOperation, WaitOperationOptions } from './wait-operation';
 
 export { GrpcPromisedClient };
 
@@ -37,20 +37,13 @@ export class Session {
   /**
    * Waits untils operation finishes
    */
-  async waitOperation<T extends typeof jspb.Message>(operation: Operation, responseClass: T) {
+  async waitOperation<T extends typeof jspb.Message>(
+    operation: Operation,
+    responseClass: T,
+    options?: WaitOperationOptions
+    ) {
     this.operationsClient = this.operationsClient || this.createClient(OperationServiceClient);
-    do {
-      const { error, done } = operation.toObject();
-      if (error) throw new Error(`${error.message} (code: ${error.code})`);
-      if (done) {
-        const response = operation.getResponse();
-        // eslint-disable-next-line max-depth
-        if (!response) throw new Error(`Empty operation response.`);
-        return responseClass.deserializeBinary(response.getValue_asU8()) as InstanceType<T>;
-      }
-      await sleep(100);
-      operation = await this.operationsClient.get({ operationId: operation.getId() });
-    } while (true);
+    return new WaitOperation(this.operationsClient, operation, responseClass, options).run();
   }
 
   private async requestIamToken() {

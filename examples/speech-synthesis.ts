@@ -1,9 +1,9 @@
 /**
  * Example of using response stream.
- * Convert text to speech.
- * 
+ * Synthes speech from text.
+ *
  * Usage:
- * npx ts-node examples/streaming-response.ts
+ * npx ts-node examples/speech-synthesis
  */
 import fs from 'fs';
 import { once } from 'events';
@@ -15,12 +15,9 @@ import { UtteranceSynthesisRequest, UtteranceSynthesisResponse } from '../genera
 
 const { YC_OAUTH_TOKEN = '', FOLDER_ID = '' } = process.env;
 
-const text = 'Привет! Как дела?';
-const outFile = 'examples/speech.ogg';
+speechSynthesis('Привет! Как дела?', 'examples/speech.ogg');
 
-main();
-
-async function main() {
+async function speechSynthesis(text: string, outFile: string) {
   const session = new Session({ oauthToken: YC_OAUTH_TOKEN });
   const client = session.createClient(SynthesizerClient);
   const req = new UtteranceSynthesisRequest();
