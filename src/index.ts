@@ -1,8 +1,12 @@
+import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
 import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
+import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
+import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { createCredentials } from './credentials';
 import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './promisify';
+import { sleep } from './utils';
 
 export { GrpcPromisedClient };
 
@@ -13,6 +17,7 @@ type SessionOptions = {
 
 export class Session {
   private iamTokenPromise?: Promise<string>;
+  private operationsClient?: GrpcPromisedClient<OperationServiceClient>;
 
   constructor(private options: SessionOptions) { }
 
@@ -27,6 +32,25 @@ export class Session {
     if (this.options.iamToken) return this.options.iamToken;
     if (!this.iamTokenPromise) this.iamTokenPromise = this.requestIamToken();
     return this.iamTokenPromise;
+  }
+
+  /**
+   * Waits untils operation finishes
+   */
+  async waitOperation<T extends typeof jspb.Message>(operation: Operation, responseClass: T) {
+    this.operationsClient = this.operationsClient || this.createClient(OperationServiceClient);
+    do {
+      const { error, done } = operation.toObject();
+      if (error) throw new Error(`${error.message} (code: ${error.code})`);
+      if (done) {
+        const response = operation.getResponse();
+        // eslint-disable-next-line max-depth
+        if (!response) throw new Error(`Empty operation response.`);
+        return responseClass.deserializeBinary(response.getValue_asU8()) as InstanceType<T>;
+      }
+      await sleep(100);
+      operation = await this.operationsClient.get({ operationId: operation.getId() });
+    } while (true);
   }
 
   private async requestIamToken() {
