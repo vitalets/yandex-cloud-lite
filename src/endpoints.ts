@@ -23,5 +23,6 @@ const endpoints: Record<string, string> = {
   'yandex.cloud.logging.v1.LogReadingService': 'reader.logging.yandexcloud.net:443',
   'yandex.cloud.serverless.apigateway.v1.ApiGatewayService': 'serverless-apigateway.api.cloud.yandex.net:443',
   'speechkit.tts.v3.Synthesizer': 'tts.api.cloud.yandex.net:443',
+  'yandex.cloud.operation.OperationService': 'operation.api.cloud.yandex.net:443',
   // Feel free to add endpoints via PR.
 };
