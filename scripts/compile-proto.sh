@@ -2,7 +2,6 @@
 # Build GRPC services from proto files.
 # Usage: ./scripts/compile-proto.sh
 
-PROTO_SRC=$(find ./proto/cloudapi-master -iname "*.proto")
 OUT_DIR=./generated
 
 mkdir -p $OUT_DIR
@@ -15,4 +14,7 @@ npx grpc_tools_node_protoc \
 --grpc_out="grpc_js:$OUT_DIR" \
 -I ./proto/cloudapi-master/third_party/googleapis \
 -I ./proto/cloudapi-master \
-$PROTO_SRC
+`find ./proto/cloudapi-master -iname "*.proto"`
+
+# Used with https://github.com/improbable-eng/ts-protoc-gen
+# --ts_out="service=grpc-node,mode=grpc-js:$OUT_DIR" \
