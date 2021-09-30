@@ -8,7 +8,7 @@
 
 * вместо устаревшего пакета [grpc](https://www.npmjs.com/package/grpc#nodejs-grpc-library) используется [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) (см. [#18](https://github.com/yandex-cloud/nodejs-sdk/issues/18))
 
-* для генерации js/ts вместо [protobufjs](https://github.com/protobufjs/protobuf.js) используется [google-protobuf](https://github.com/protocolbuffers/protobuf/tree/master/js). Обе либы не без изъянов, но есть [мнение]((https://github.com/protobufjs/protobuf.js/issues/1327)), что protobufjs умирает (хотя в комментах не все с этим согласны)
+* для генерации js/ts вместо [protobufjs](https://github.com/protobufjs/protobuf.js) используется [google-protobuf](https://github.com/protocolbuffers/protobuf/tree/master/js). Обе либы не без изъянов, но есть [мнение](https://github.com/protobufjs/protobuf.js/issues/1327), что protobufjs умирает (хотя в комментах не все с этим согласны)
 
 * нет зависимости от aws-sdk (см. [#30](https://github.com/yandex-cloud/nodejs-sdk/issues/18))
 
