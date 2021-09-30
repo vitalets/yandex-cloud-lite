@@ -1,5 +1,5 @@
 # yandex-cloud-lite
-Минимальный Node.js клиент для доступа к API сервисов Yandex Cloud по GRPC.
+Минимальный Node.js клиент для доступа к [API сервисов Yandex Cloud](https://cloud.yandex.ru/docs/api-design-guide) по GRPC.
 
 ## Зачем
 Отличия от официального клиента [nodejs-sdk](https://github.com/yandex-cloud/nodejs-sdk):
