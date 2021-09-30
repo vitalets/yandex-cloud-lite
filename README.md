@@ -1,15 +1,23 @@
 # yandex-cloud-lite
-Minimal GRPC client to access Yandex Cloud services from Node.js.
+Минимальный Node.js клиент для доступа к API сервисов Yandex Cloud по GRPC.
 
-## Motivation
-The main reason is that you can use GRPC API of any Yandex Cloud service as soon as proto files appear in [official repository](https://github.com/yandex-cloud/cloudapi).
+## Зачем
+Отличия от официального клиента [nodejs-sdk](https://github.com/yandex-cloud/nodejs-sdk):
 
-## Installation
+* можно работать с любыми сервисами, для которых есть  [proto-файлы](https://github.com/yandex-cloud/cloudapi). Например, API Gateway ([#25](https://github.com/yandex-cloud/nodejs-sdk/issues/25)) и Cloud logging ([#34](https://github.com/yandex-cloud/nodejs-sdk/issues/34))
+
+* вместо устаревшего пакета [grpc](https://www.npmjs.com/package/grpc#nodejs-grpc-library) используется [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) (см. [#18](https://github.com/yandex-cloud/nodejs-sdk/issues/18))
+
+* для генерации js/ts вместо [protobufjs](https://github.com/protobufjs/protobuf.js) используется [google-protobuf](https://github.com/protocolbuffers/protobuf/tree/master/js). Обе либы не без изъянов, но есть [мнение]((https://github.com/protobufjs/protobuf.js/issues/1327)), что protobufjs умирает (хотя в комментах не все с этим согласны)
+
+* нет зависимости от aws-sdk (см. [#30](https://github.com/yandex-cloud/nodejs-sdk/issues/18))
+
+## Установка
 ```
 npm i yandex-cloud-lite
 ```
 
-## Usage
+## Пример использования
 ```ts
 import { Session } from 'yandex-cloud-lite';
 import { FunctionServiceClient } from 'yandex-cloud-lite/generated/yandex/cloud/serverless/functions/v1/function_service_grpc_pb';
@@ -45,5 +53,5 @@ OUTPUT:
 */
 ```
 
-## License
+## Лицензия
 MIT @ [Vitaliy Potapov](https://github.com/vitalets)
