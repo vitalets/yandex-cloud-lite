@@ -4,7 +4,7 @@
 ## Зачем
 Отличия от официального клиента [nodejs-sdk](https://github.com/yandex-cloud/nodejs-sdk):
 
-* можно работать с любыми сервисами, для которых есть  [proto-файлы](https://github.com/yandex-cloud/cloudapi). Например, API Gateway ([#25](https://github.com/yandex-cloud/nodejs-sdk/issues/25)) и Cloud logging ([#34](https://github.com/yandex-cloud/nodejs-sdk/issues/34))
+* можно работать с любыми сервисами, как только для них появляются [proto-файлы](https://github.com/yandex-cloud/cloudapi). Например, API Gateway ([#25](https://github.com/yandex-cloud/nodejs-sdk/issues/25)) и Cloud logging ([#34](https://github.com/yandex-cloud/nodejs-sdk/issues/34))
 
 * вместо устаревшего пакета [grpc](https://www.npmjs.com/package/grpc#nodejs-grpc-library) используется [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) (см. [#18](https://github.com/yandex-cloud/nodejs-sdk/issues/18))
 
