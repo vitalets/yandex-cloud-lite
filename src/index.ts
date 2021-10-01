@@ -1,5 +1,7 @@
 import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
+import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
+import { Duration } from 'google-protobuf/google/protobuf/duration_pb';
 import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
 import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
@@ -8,7 +10,12 @@ import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './promisify';
 import { WaitOperation, WaitOperationOptions } from './wait-operation';
 
-export { GrpcPromisedClient };
+// re-export some useful types
+export {
+  Timestamp,
+  Duration,
+  GrpcPromisedClient,
+};
 
 type SessionOptions = {
   oauthToken?: string;
