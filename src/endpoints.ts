@@ -7,7 +7,10 @@ import * as grpc from '@grpc/grpc-js';
 export function getEnpoint(ctor: typeof grpc.Client) {
   const serviceName = detectServiceName(ctor);
   const endpoint = endpoints[serviceName];
-  if (!endpoint) throw new Error(`Service name "${serviceName}" not mapped to endpoint`);
+  if (!endpoint) throw new Error([
+    `Service name "${serviceName}" not mapped to endpoint.`,
+    `You can pass custom endpoint as second argument to session.createClient().`,
+  ].join(' '));
   return endpoint;
 }
 
