@@ -2,90 +2,51 @@ import * as jspb from 'google-protobuf';
 import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { GrpcPromisedClient } from './promisify';
-import { sleep } from './utils';
+import { backOff, IBackOffOptions } from 'exponential-backoff';
 
-export interface WaitOperationOptions {
-  timeout?: number;
-  maxDelay?: number;
-  minDelay?: number;
-}
+export type WaitOperationOptions = Partial<Pick<IBackOffOptions, 'startingDelay' | 'maxDelay' | 'numOfAttempts'>>;
 
-const defaults = {
-  timeout: 30000,
-  maxDelay: 5000,
-  minDelay: 100,
-};
+const OPERATION_NOT_DONE = 'operation-not-done';
 
 /**
- * Waits untils operation finishes.
+ * Waits untils operation done.
  */
-export class WaitOperation<ResponseClass extends typeof jspb.Message> {
-  private options: Required<WaitOperationOptions>;
-  private timer?: ReturnType<typeof setTimeout>;
-  private isTimeout = false;
-  private delay: number;
-
+export class WaitOperation<T extends typeof jspb.Message> {
   constructor(
     private client: GrpcPromisedClient<OperationServiceClient>,
     private operation: Operation,
-    private responseClass: ResponseClass,
-    options?: WaitOperationOptions
-  ) {
-    this.options = Object.assign({}, defaults, options);
-    this.delay = this.options.minDelay;
-  }
+    private OperationResponseMetadata: T,
+    private options: WaitOperationOptions = {}
+  ) { }
 
   async run() {
-    this.startTimer();
-    try {
-      do {
-        this.checkError();
-        this.checkTimeout();
-        // eslint-disable-next-line max-depth
-        if (this.operation.getDone()) return this.buildResponse();
-        await this.sleep();
-        await this.updateOperationStatus();
-      } while (true);
-    } finally {
-      this.clearTimer();
-    }
+    const backOffOptions = this.getBackoffOptions();
+    const fn = () => this.checkOperationStatus();
+    await backOff(fn, backOffOptions);
+    this.checkError();
+    return this.buildResponse();
   }
 
-  private startTimer() {
-    this.timer = setTimeout(() => this.isTimeout = true, this.options.timeout);
-  }
-
-  private clearTimer() {
-    this.timer && clearTimeout(this.timer);
+  private async checkOperationStatus() {
+    this.operation = await this.client.get({ operationId: this.operation.getId() });
+    if (!this.operation.getDone()) throw new Error(OPERATION_NOT_DONE);
   }
 
   private checkError() {
     const error = this.operation.getError();
-    if (error) {
-      throw new Error(`${error.getMessage()} (code: ${error.getCode()})`);
-    }
-  }
-
-  private checkTimeout() {
-    if (this.isTimeout) {
-      throw new Error(
-        `Timeout ${this.options.timeout} ms exceeded for operation : ${this.operation.getId()}`
-      );
-    }
+    if (error) throw new Error(`${error.getMessage()} (code: ${error.getCode()})`);
   }
 
   private buildResponse() {
     const response = this.operation.getResponse();
     if (!response) throw new Error(`Empty response for operation: ${this.operation.getId()}`);
-    return this.responseClass.deserializeBinary(response.getValue_asU8()) as InstanceType<ResponseClass>;
+    return this.OperationResponseMetadata.deserializeBinary(response.getValue_asU8()) as InstanceType<T>;
   }
 
-  private async updateOperationStatus() {
-    this.operation = await this.client.get({ operationId: this.operation.getId() });
-  }
-
-  private async sleep() {
-    await sleep(this.delay);
-    this.delay = Math.min(this.delay * 2, this.options.maxDelay);
+  private getBackoffOptions(): Partial<IBackOffOptions> {
+    return {
+      ...this.options,
+      retry: e => e.message === OPERATION_NOT_DONE,
+    };
   }
 }
