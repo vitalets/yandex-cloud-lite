@@ -19,10 +19,12 @@ function detectServiceName(ctor: typeof grpc.Client) {
 
 const endpoints: Record<string, string> = {
   'yandex.cloud.iam.v1.IamTokenService': 'iam.api.cloud.yandex.net:443',
-  'yandex.cloud.serverless.functions.v1.FunctionService': 'serverless-functions.api.cloud.yandex.net:443',
+  'yandex.cloud.iam.v1.ServiceAccountService': 'iam.api.cloud.yandex.net:443',
   'yandex.cloud.logging.v1.LogReadingService': 'reader.logging.yandexcloud.net:443',
+  'yandex.cloud.operation.OperationService': 'operation.api.cloud.yandex.net:443',
+  'yandex.cloud.serverless.functions.v1.FunctionService': 'serverless-functions.api.cloud.yandex.net:443',
   'yandex.cloud.serverless.apigateway.v1.ApiGatewayService': 'serverless-apigateway.api.cloud.yandex.net:443',
   'speechkit.tts.v3.Synthesizer': 'tts.api.cloud.yandex.net:443',
-  'yandex.cloud.operation.OperationService': 'operation.api.cloud.yandex.net:443',
   // Feel free to add endpoints via PR.
+  // You can always pass custom endpoint as second argument to session.createClient().
 };
