@@ -4,7 +4,7 @@ import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { GrpcPromisedClient } from './promisify';
 import { backOff, IBackOffOptions } from 'exponential-backoff';
 
-export type WaitOperationOptions = Partial<Pick<IBackOffOptions, 'startingDelay' | 'maxDelay' | 'numOfAttempts'>>;
+export type WaitOperationOptions = Partial<IBackOffOptions>;
 
 const OPERATION_NOT_DONE = 'operation-not-done';
 
