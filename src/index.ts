@@ -8,7 +8,7 @@ import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { createCredentials } from './credentials';
 import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './promisify';
-import { WaitOperation, WaitOperationOptions } from './wait-operation';
+import { WaitOperation, WaitOperationOptions } from './operation';
 
 // re-export some useful types
 export {

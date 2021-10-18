@@ -45,8 +45,8 @@ export class WaitOperation<T extends typeof jspb.Message> {
 
   private getBackoffOptions(): Partial<IBackOffOptions> {
     return {
-      ...this.options,
       retry: e => e.message === OPERATION_NOT_DONE,
+      ...this.options,
     };
   }
 }
