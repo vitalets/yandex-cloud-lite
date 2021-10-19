@@ -13,7 +13,7 @@
     "lint": "eslint src test --ext .ts",
     "tsc": "tsc --noEmit",
     "test": "mocha -r ts-node/register -t 5000 test/setup.ts test/specs/*.ts",
-    "update-proto": "./scripts/update-proto.sh",
+    "pull-proto": "./scripts/pull-proto.sh",
     "compile-proto": "./scripts/compile-proto.sh",
     "check": "ts-node scripts/check.ts",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
