@@ -1,7 +1,7 @@
 import * as jspb from 'google-protobuf';
 import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
-import { GrpcPromisedClient } from './promisify';
+import { GrpcPromisedClient } from './grpc-promisify';
 import { backOff, IBackOffOptions } from 'exponential-backoff';
 
 export type WaitOperationOptions = Partial<IBackOffOptions>;

@@ -3,9 +3,9 @@ import * as grpc from '@grpc/grpc-js';
 import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
 import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
-import { createCredentials } from './credentials';
+import { createCredentials } from './grpc-credentials';
 import { getEnpoint } from './endpoints';
-import { promisifyGrpcClient, GrpcPromisedClient } from './promisify';
+import { promisifyGrpcClient, GrpcPromisedClient } from './grpc-promisify';
 import { WaitOperation, WaitOperationOptions } from './operation';
 
 export type SessionOptions = {
