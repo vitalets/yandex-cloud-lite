@@ -10,7 +10,7 @@ declare global {
 
 before(() => {
   // default session
-  const session = new Session({ keyFile: '.secret-yc-key.json' });
+  const session = new Session({ keyFile: '.auth-secret-key.json' });
 
   Object.assign(global, {
     assert,
