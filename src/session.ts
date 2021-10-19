@@ -1,12 +1,11 @@
 import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
-import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { createCredentials } from './grpc-credentials';
 import { getEnpoint } from './endpoints';
-import { promisifyGrpcClient, GrpcPromisedClient } from './grpc-promisify';
-import { WaitOperation, WaitOperationOptions } from './operation';
-import * as iamTokenService from './iam-token';
+import { promisifyGrpcClient } from './grpc-promisify';
+import { OperationService, WaitOperationOptions } from './operation';
+import { IamTokenService } from './iam-token';
 
 export type SessionOptions = {
   iamToken?: string;
@@ -15,10 +14,12 @@ export type SessionOptions = {
 }
 
 export class Session {
-  private iamTokenPromise?: Promise<string>;
-  private operationsClient?: GrpcPromisedClient<OperationServiceClient>;
+  private iamTokenService: IamTokenService;
+  private operationService?: OperationService;
 
-  constructor(private options: SessionOptions) { }
+  constructor(public options: SessionOptions) {
+    this.iamTokenService = new IamTokenService(this);
+  }
 
   createClient<T extends typeof grpc.Client>(ctor: T, { endpoint = '', useToken = true } = {}) {
     const credentials = createCredentials(useToken ? () => this.getIamToken() : undefined);
@@ -28,27 +29,19 @@ export class Session {
   }
 
   async getIamToken(): Promise<string> {
-    if (!this.iamTokenPromise) this.iamTokenPromise = this.requestIamToken();
-    return this.iamTokenPromise;
+    return this.iamTokenService.getIamToken();
   }
 
   /**
    * Waits untils operation finishes
+   * todo: use Parameters<>?
    */
   async waitOperation<T extends typeof jspb.Message>(
     operation: Operation,
     responseClass: T,
-    options?: WaitOperationOptions
-    ) {
-    this.operationsClient = this.operationsClient || this.createClient(OperationServiceClient);
-    return new WaitOperation(this.operationsClient, operation, responseClass, options).run();
-  }
-
-  private async requestIamToken() {
-    const { iamToken, oauthToken, authKeyFile } = this.options;
-    if (iamToken) return iamToken;
-    if (oauthToken) return iamTokenService.requestByOauthToken(this, oauthToken);
-    if (authKeyFile) return iamTokenService.requestByAuthKeyFile(this, authKeyFile);
-    throw new Error(`You should provide one of: iamToken, oauthToken, authKeyFile`);
+    options: WaitOperationOptions = {}
+  ) {
+    this.operationService = this.operationService || new OperationService(this);
+    return this.operationService.wait(operation, responseClass, options);
   }
 }

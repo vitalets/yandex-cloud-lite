@@ -3,10 +3,27 @@ import { OperationServiceClient } from '../generated/yandex/cloud/operation/oper
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { GrpcPromisedClient } from './grpc-promisify';
 import { backOff, IBackOffOptions } from 'exponential-backoff';
+import { Session } from './session';
 
 export type WaitOperationOptions = Partial<IBackOffOptions>;
 
 const OPERATION_NOT_DONE = 'operation-not-done';
+
+export class OperationService {
+  api: GrpcPromisedClient<OperationServiceClient>;
+
+  constructor(public session: Session) {
+    this.api = session.createClient(OperationServiceClient);
+  }
+
+  async wait<T extends typeof jspb.Message>(
+    operation: Operation,
+    responseClass: T,
+    options: WaitOperationOptions = {}
+  ) {
+    return new WaitOperation(this.api, operation, responseClass, options).run();
+  }
+}
 
 /**
  * Waits untils operation done.
