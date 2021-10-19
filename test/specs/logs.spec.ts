@@ -1,7 +1,6 @@
 import { LogReadingServiceClient } from '../../generated/yandex/cloud/logging/v1/log_reading_service_grpc_pb';
 import { ReadRequest, Criteria } from '../../generated/yandex/cloud/logging/v1/log_reading_service_pb';
-
-const { LOG_GROUP_ID = '' } = process.env;
+import { LOG_GROUP_ID } from '../../.env.json';
 
 describe('logs', () => {
   it('read', async () => {

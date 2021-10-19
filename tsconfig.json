@@ -6,6 +6,7 @@
     "useUnknownInCatchVariables": false,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "allowJs": true,
     "esModuleInterop": true
   },

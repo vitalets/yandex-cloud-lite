@@ -25,7 +25,7 @@ import { FunctionServiceClient } from 'yandex-cloud-lite/generated/yandex/cloud/
 listFunctions();
 
 async function listFunctions() {
-  const session = new Session({ oauthToken: '<your_oauth_token>' });
+  const session = new Session({ keyFile: 'auth-key.json' });
   const client = session.createClient(FunctionServiceClient);
   const res = await client.list({ folderId: '<your_folder_id>' });
   console.log(res.toObject());
@@ -63,7 +63,7 @@ OUTPUT:
 
 2. Используя файл [авторизованных ключей](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) (удобно для сервисного аккаунта при разработке):
    ```ts
-   const session = new Session({ keyFile: 'key.json' });
+   const session = new Session({ keyFile: 'auth-key.json' });
    ```
 
 3. Используя [oauth token](https://cloud.yandex.ru/docs/iam/operations/iam-token/create) своего аккаунта на Яндексе:
