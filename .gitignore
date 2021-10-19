@@ -7,7 +7,7 @@ npm-debug.log
 
 # env
 .env*
-*secret*
+.auth*
 
 dist
 /todo.txt

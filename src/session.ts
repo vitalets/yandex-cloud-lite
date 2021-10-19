@@ -6,12 +6,12 @@ import { createCredentials } from './grpc-credentials';
 import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './grpc-promisify';
 import { WaitOperation, WaitOperationOptions } from './operation';
-import { requestIamTokenByKeyFile, requestIamTokenByOauthToken } from './iam-token';
+import * as iamTokenService from './iam-token';
 
 export type SessionOptions = {
-  oauthToken?: string;
   iamToken?: string;
-  keyFile?: string;
+  oauthToken?: string;
+  authKeyFile?: string;
 }
 
 export class Session {
@@ -45,10 +45,10 @@ export class Session {
   }
 
   private async requestIamToken() {
-    const { iamToken, oauthToken, keyFile } = this.options;
+    const { iamToken, oauthToken, authKeyFile } = this.options;
     if (iamToken) return iamToken;
-    if (oauthToken) return requestIamTokenByOauthToken(this, oauthToken);
-    if (keyFile) return requestIamTokenByKeyFile(this, keyFile);
-    throw new Error(`You should provide one of: iamToken, oauthToken, keyFile`);
+    if (oauthToken) return iamTokenService.requestByOauthToken(this, oauthToken);
+    if (authKeyFile) return iamTokenService.requestByAuthKeyFile(this, authKeyFile);
+    throw new Error(`You should provide one of: iamToken, oauthToken, authKeyFile`);
   }
 }

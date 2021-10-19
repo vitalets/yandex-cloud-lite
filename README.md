@@ -25,7 +25,7 @@ import { FunctionServiceClient } from 'yandex-cloud-lite/generated/yandex/cloud/
 listFunctions();
 
 async function listFunctions() {
-  const session = new Session({ keyFile: 'auth-key.json' });
+  const session = new Session({ authKeyFile: 'auth-key.json' });
   const client = session.createClient(FunctionServiceClient);
   const res = await client.list({ folderId: '<your_folder_id>' });
   console.log(res.toObject());
@@ -63,7 +63,7 @@ OUTPUT:
 
 2. Используя файл [авторизованных ключей](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) (для сервисного аккаунта):
    ```ts
-   const session = new Session({ keyFile: 'auth-key.json' });
+   const session = new Session({ authKeyFile: 'auth-key.json' });
    ```
    Создать такой файл можно командой:
    ```

@@ -14,26 +14,26 @@ export interface KeyData {
   private_key: string;
 }
 
-export async function requestIamTokenByOauthToken(session: Session, oauthToken: string) {
+export async function requestByOauthToken(session: Session, oauthToken: string) {
   const iamClient = session.createClient(IamTokenServiceClient, { useToken: false });
   const res = await iamClient.create({ yandexPassportOauthToken: oauthToken });
   return res.getIamToken();
 }
 
-export async function requestIamTokenByKeyFile(session: Session, keyFile: string) {
-  const keyData = await readKeyFile(keyFile);
+export async function requestByAuthKeyFile(session: Session, authKeyFile: string) {
+  const keyData = await readAuthKeyFile(authKeyFile);
   const jwt = getJwtRequest(keyData);
   const iamClient = session.createClient(IamTokenServiceClient, { useToken: false });
   const res = await iamClient.create({ jwt });
   return res.getIamToken();
 }
 
-async function readKeyFile(keyFile: string) {
-  const content = await fs.promises.readFile(keyFile, 'utf8');
+async function readAuthKeyFile(authKeyFile: string) {
+  const content = await fs.promises.readFile(authKeyFile, 'utf8');
   try {
     return JSON.parse(content) as KeyData;
   } catch (e) {
-    throw appendMessageToError(e, `keyFile: ${keyFile}`);
+    throw appendMessageToError(e, `file: ${authKeyFile}`);
   }
 }
 
