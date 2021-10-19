@@ -61,11 +61,14 @@ OUTPUT:
    const session = new Session({ iamToken: '<iam_token>' });
    ```
 
-2. Используя файл [авторизованных ключей](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) (удобно для сервисного аккаунта при разработке):
+2. Используя файл [авторизованных ключей](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) (для сервисного аккаунта):
    ```ts
    const session = new Session({ keyFile: 'auth-key.json' });
    ```
-
+   Создать такой файл можно командой:
+   ```
+   yc iam key create --service-account-name <service-account-name> -o auth-key.json
+   ```
 3. Используя [oauth token](https://cloud.yandex.ru/docs/iam/operations/iam-token/create) своего аккаунта на Яндексе:
    ```ts
    const session = new Session({ oauthToken: '<your_oauth_token>' });
