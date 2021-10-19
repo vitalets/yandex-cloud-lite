@@ -1,16 +1,17 @@
 import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
-import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
 import { OperationServiceClient } from '../generated/yandex/cloud/operation/operation_service_grpc_pb';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
 import { createCredentials } from './grpc-credentials';
 import { getEnpoint } from './endpoints';
 import { promisifyGrpcClient, GrpcPromisedClient } from './grpc-promisify';
 import { WaitOperation, WaitOperationOptions } from './operation';
+import { requestIamTokenByKeyFile, requestIamTokenByOauthToken } from './iam-token';
 
 export type SessionOptions = {
   oauthToken?: string;
   iamToken?: string;
+  keyFile?: string;
 }
 
 export class Session {
@@ -27,7 +28,6 @@ export class Session {
   }
 
   async getIamToken(): Promise<string> {
-    if (this.options.iamToken) return this.options.iamToken;
     if (!this.iamTokenPromise) this.iamTokenPromise = this.requestIamToken();
     return this.iamTokenPromise;
   }
@@ -45,9 +45,10 @@ export class Session {
   }
 
   private async requestIamToken() {
-    if (!this.options.oauthToken) throw new Error(`You should provide oauthToken`);
-    const iamClient = this.createClient(IamTokenServiceClient, { useToken: false });
-    const res = await iamClient.create({ yandexPassportOauthToken: this.options.oauthToken });
-    return res.getIamToken();
+    const { iamToken, oauthToken, keyFile } = this.options;
+    if (iamToken) return iamToken;
+    if (oauthToken) return requestIamTokenByOauthToken(this, oauthToken);
+    if (keyFile) return requestIamTokenByKeyFile(this, keyFile);
+    throw new Error(`You should provide one of: iamToken, oauthToken, keyFile`);
   }
 }

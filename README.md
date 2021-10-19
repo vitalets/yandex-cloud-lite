@@ -53,5 +53,24 @@ OUTPUT:
 */
 ```
 
+## Создание сессии
+Создать сессию можно одним из 3 способов:
+
+1. Используя готовый iamToken (например в cloud function):
+   ```ts
+   const session = new Session({ iamToken: '<iam_token>' });
+   ```
+
+2. Используя файл [авторизованных ключей](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) (удобно для сервисного аккаунта при разработке):
+   ```ts
+   const session = new Session({ keyFile: 'key.json' });
+   ```
+
+3. Используя [oauth token](https://cloud.yandex.ru/docs/iam/operations/iam-token/create) своего аккаунта на Яндексе:
+   ```ts
+   const session = new Session({ oauthToken: '<your_oauth_token>' });
+   ```
+
+
 ## Лицензия
 MIT @ [Vitaliy Potapov](https://github.com/vitalets)
