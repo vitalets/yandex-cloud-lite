@@ -12,7 +12,7 @@
   "scripts": {
     "lint": "eslint src test --ext .ts",
     "tsc": "tsc --noEmit",
-    "test": "mocha -r ts-node/register test/setup.ts test/specs/*.ts",
+    "test": "mocha -r ts-node/register -t 5000 test/setup.ts test/specs/*.ts",
     "update-proto": "./scripts/update-proto.sh",
     "compile-proto": "./scripts/compile-proto.sh",
     "check": "ts-node scripts/check.ts",

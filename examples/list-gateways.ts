@@ -9,14 +9,13 @@ import 'dotenv/config';
 import { Session } from '../src';
 import { ApiGatewayServiceClient } from '../generated/yandex/cloud/serverless/apigateway/v1/apigateway_service_grpc_pb';
 
-const { YC_OAUTH_TOKEN = '', FOLDER_ID = '' } = process.env;
-
 listGateways();
 
 async function listGateways() {
-  const session = new Session({ oauthToken: YC_OAUTH_TOKEN });
-  const client = session.createClient(ApiGatewayServiceClient);
-  const res = await client.list({ folderId: FOLDER_ID });
+  const session = new Session({ authKeyFile: 'auth-key.json' });
+  const { folderId } = await session.getServiceAccount() || {};
+  const api = session.createClient(ApiGatewayServiceClient);
+  const res = await api.list({ folderId });
 
   console.log(res.toObject());
 }

@@ -1,38 +1,30 @@
 /**
  * Getting iam token.
  */
-import fs from 'fs';
 import jwt from 'jsonwebtoken';
 import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
 import { GrpcPromisedClient } from './grpc-promisify';
 import { Session } from './session';
-import { appendMessageToError } from './utils';
-
-export interface KeyData {
-  id: string;
-  service_account_id: string;
-  public_key: string;
-  private_key: string;
-}
+import { AuthKeyFile, AuthKeyData } from './auth-key-file';
 
 export class IamTokenService {
   iamTokenPromise?: Promise<string>;
   api: GrpcPromisedClient<IamTokenServiceClient>;
-  keyData?: KeyData;
 
-  constructor(public session: Session) {
+  constructor(private session: Session, private authKeyFile?: AuthKeyFile) {
     this.api = session.createClient(IamTokenServiceClient, { useToken: false });
   }
 
-  async getIamToken(): Promise<string> {
-    return this.iamTokenPromise || (this.iamTokenPromise = this.requestIamToken());
+  async getIamToken() {
+    if (!this.iamTokenPromise) this.iamTokenPromise = this.requestIamToken();
+    return this.iamTokenPromise;
   }
 
   private async requestIamToken() {
     const { iamToken, oauthToken, authKeyFile } = this.session.options;
     if (iamToken) return iamToken;
     if (oauthToken) return this.requestByOauthToken(oauthToken);
-    if (authKeyFile) return this.requestByAuthKeyFile(authKeyFile);
+    if (authKeyFile) return this.requestByAuthKeyFile();
     throw new Error(`You should provide one of: iamToken, oauthToken, authKeyFile`);
   }
 
@@ -41,24 +33,14 @@ export class IamTokenService {
     return res.getIamToken();
   }
 
-  async requestByAuthKeyFile(authKeyFile: string) {
-    await this.readAuthKeyFile(authKeyFile);
-    const jwt = this.getJwtRequest();
+  async requestByAuthKeyFile() {
+    const authKeyData = await this.authKeyFile!.getData();
+    const jwt = this.getJwtRequest(authKeyData);
     const res = await this.api.create({ jwt });
     return res.getIamToken();
   }
 
-  private async readAuthKeyFile(authKeyFile: string) {
-    const content = await fs.promises.readFile(authKeyFile, 'utf8');
-    try {
-      this.keyData = JSON.parse(content);
-    } catch (e) {
-      throw appendMessageToError(e, `file: ${authKeyFile}`);
-    }
-  }
-
-  private getJwtRequest() {
-    const { id, service_account_id, private_key } = this.keyData!;
+  private getJwtRequest({ id, service_account_id, private_key }: AuthKeyData) {
     const now = Math.floor(Date.now() / 1000);
     const payload = {
       iss: service_account_id,
