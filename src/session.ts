@@ -1,13 +1,13 @@
 import * as jspb from 'google-protobuf';
 import * as grpc from '@grpc/grpc-js';
 import { Operation } from '../generated/yandex/cloud/operation/operation_pb';
-import { createCredentials } from './grpc-credentials';
+import { createCredentials } from './helpers/grpc-credentials';
+import { promisifyGrpcClient } from './helpers/grpc-promisify';
+import { AuthKeyFile } from './helpers/auth-key-file';
+import { OperationService, WaitOperationOptions } from './services/operation';
+import { IamTokenService } from './services/iam-token';
+import { ServiceAccountService } from './services/service-account';
 import { getEnpoint } from './endpoints';
-import { promisifyGrpcClient } from './grpc-promisify';
-import { OperationService, WaitOperationOptions } from './operation';
-import { IamTokenService } from './iam-token';
-import { ServiceAccountService } from './service-account';
-import { AuthKeyFile } from './auth-key-file';
 
 export type SessionOptions = {
   iamToken?: string;

@@ -1,8 +1,8 @@
-import { ServiceAccountServiceClient } from '../generated/yandex/cloud/iam/v1/service_account_service_grpc_pb';
-import { ServiceAccount } from '../generated/yandex/cloud/iam/v1/service_account_pb';
+import { ServiceAccountServiceClient } from '../../generated/yandex/cloud/iam/v1/service_account_service_grpc_pb';
+import { ServiceAccount } from '../../generated/yandex/cloud/iam/v1/service_account_pb';
 
-import { GrpcPromisedClient } from './grpc-promisify';
-import { Session } from './session';
+import { GrpcPromisedClient } from '../helpers/grpc-promisify';
+import { Session } from '../session';
 
 export class ServiceAccountService {
   api: GrpcPromisedClient<ServiceAccountServiceClient>;

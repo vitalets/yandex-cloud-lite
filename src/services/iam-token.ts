@@ -2,10 +2,10 @@
  * Getting iam token.
  */
 import jwt from 'jsonwebtoken';
-import { IamTokenServiceClient } from '../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
-import { GrpcPromisedClient } from './grpc-promisify';
-import { Session } from './session';
-import { AuthKeyFile, AuthKeyData } from './auth-key-file';
+import { IamTokenServiceClient } from '../../generated/yandex/cloud/iam/v1/iam_token_service_grpc_pb';
+import { GrpcPromisedClient } from '../helpers/grpc-promisify';
+import { Session } from '../session';
+import { AuthKeyFile, AuthKeyData } from '../helpers/auth-key-file';
 
 export class IamTokenService {
   iamTokenPromise?: Promise<string>;
