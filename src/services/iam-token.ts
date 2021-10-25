@@ -6,12 +6,17 @@ import { IamTokenServiceClient } from '../../generated/yandex/cloud/iam/v1/iam_t
 import { GrpcPromisedClient } from '../helpers/grpc-promisify';
 import { Session } from '../session';
 import { AuthKeyFile, AuthKeyData } from '../helpers/auth-key-file';
+import { CliConfig } from '../helpers/cli-config';
 
 export class IamTokenService {
   iamTokenPromise?: Promise<string>;
   api: GrpcPromisedClient<IamTokenServiceClient>;
 
-  constructor(private session: Session, private authKeyFile?: AuthKeyFile) {
+  constructor(
+    private session: Session,
+    private authKeyFile?: AuthKeyFile,
+    private cliConfig?: CliConfig,
+  ) {
     this.api = session.createClient(IamTokenServiceClient, { useToken: false });
   }
 
@@ -21,10 +26,11 @@ export class IamTokenService {
   }
 
   private async requestIamToken() {
-    const { iamToken, oauthToken, authKeyFile } = this.session.options;
+    const { iamToken, oauthToken, authKeyFile, useCliConfig } = this.session.options;
     if (iamToken) return iamToken;
     if (oauthToken) return this.requestByOauthToken(oauthToken);
     if (authKeyFile) return this.requestByAuthKeyFile();
+    if (useCliConfig) return this.requestByCliConfig();
     throw new Error(`You should provide one of: iamToken, oauthToken, authKeyFile`);
   }
 
@@ -38,6 +44,11 @@ export class IamTokenService {
     const jwt = this.getJwtRequest(authKeyData);
     const res = await this.api.create({ jwt });
     return res.getIamToken();
+  }
+
+  async requestByCliConfig() {
+    const { oauthToken } = await this.cliConfig!.getData();
+    return this.requestByOauthToken(oauthToken);
   }
 
   private getJwtRequest({ id, service_account_id, private_key }: AuthKeyData) {

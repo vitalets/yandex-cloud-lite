@@ -12,7 +12,7 @@ export class ServiceAccountService {
     this.api = session.createClient(ServiceAccountServiceClient);
   }
 
-  async get() {
+  async getData() {
     if (!this.saPromise) this.saPromise = this.requestServiceAccount();
     return this.saPromise;
   }

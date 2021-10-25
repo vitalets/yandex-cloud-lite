@@ -54,7 +54,7 @@ OUTPUT:
 ```
 
 ## Создание сессии
-Создать сессию можно одним из 3 способов:
+Создать сессию можно одним из следующих способов:
 
 1. Используя готовый iamToken (например в cloud function):
    ```ts
@@ -69,11 +69,15 @@ OUTPUT:
    ```
    yc iam key create --service-account-name <service-account-name> -o auth-key.json
    ```
-3. Используя [oauth token](https://cloud.yandex.ru/docs/iam/operations/iam-token/create) своего аккаунта на Яндексе:
+3. Используя конфиг [yc cli](https://cloud.yandex.ru/docs/cli/):
+   ```ts
+   const session = new Session({ useCliConfig: true });
+   ```
+
+4. Используя [oauth token](https://cloud.yandex.ru/docs/iam/operations/iam-token/create) своего аккаунта на Яндексе:
    ```ts
    const session = new Session({ oauthToken: '<your_oauth_token>' });
    ```
-
 
 ## Лицензия
 MIT @ [Vitaliy Potapov](https://github.com/vitalets)

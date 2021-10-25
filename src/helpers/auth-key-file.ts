@@ -12,13 +12,13 @@ export interface AuthKeyData {
 }
 
 export class AuthKeyFile {
-  authKeyDataPromise?: Promise<AuthKeyData>;
+  dataPromise?: Promise<AuthKeyData>;
 
   constructor(public authKeyFile: string) { }
 
   async getData() {
-    if (!this.authKeyDataPromise) this.authKeyDataPromise = this.readAuthKeyFile();
-    return this.authKeyDataPromise;
+    if (!this.dataPromise) this.dataPromise = this.readAuthKeyFile();
+    return this.dataPromise;
   }
 
   private async readAuthKeyFile() {

@@ -1,0 +1,6 @@
+profiles:
+  default:
+    token: XXX
+    cloud-id: yyy
+    folder-id: zzz
+    compute-default-zone: ru-central1-a
