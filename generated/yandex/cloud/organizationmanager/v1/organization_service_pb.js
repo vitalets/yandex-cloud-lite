@@ -729,7 +729,8 @@ proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.toObject = f
     updateMask: (f = msg.getUpdateMask()) && google_protobuf_field_mask_pb.FieldMask.toObject(includeInstance, f),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     description: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    title: jspb.Message.getFieldWithDefault(msg, 5, "")
+    title: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -786,6 +787,12 @@ proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.deserializeB
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setTitle(value);
+      break;
+    case 6:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -851,6 +858,10 @@ proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.serializeBin
       5,
       f
     );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(6, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -962,6 +973,28 @@ proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.prototype.ge
 proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.prototype.setTitle = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
 };
+
+
+/**
+ * map<string, string> labels = 6;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 6, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest} returns this
+ */
+proto.yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
 
 
 

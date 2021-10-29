@@ -258,7 +258,8 @@ proto.yandex.cloud.mdb.greenplum.v1.Host.Health = {
   UNKNOWN: 0,
   ALIVE: 1,
   DEAD: 2,
-  DEGRADED: 3
+  DEGRADED: 3,
+  UNBALANCED: 4
 };
 
 /**

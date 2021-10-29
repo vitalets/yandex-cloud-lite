@@ -133,6 +133,7 @@ export namespace Cluster {
     ALIVE = 1,
     DEAD = 2,
     DEGRADED = 3,
+    UNBALANCED = 4,
     }
 
     export enum Status {

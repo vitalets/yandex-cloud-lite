@@ -551,7 +551,8 @@ proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.toObject = functio
   var f, obj = {
     clusterId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     jobId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    status: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    applicationInfo: (f = msg.getApplicationInfo()) && yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -599,6 +600,11 @@ proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.deserializeBinaryF
     case 3:
       var value = /** @type {!proto.yandex.cloud.dataproc.manager.v1.Job.Status} */ (reader.readEnum());
       msg.setStatus(value);
+      break;
+    case 4:
+      var value = new yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo;
+      reader.readMessage(value,yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo.deserializeBinaryFromReader);
+      msg.setApplicationInfo(value);
       break;
     default:
       reader.skipField();
@@ -648,6 +654,14 @@ proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.serializeBinaryToW
     writer.writeEnum(
       3,
       f
+    );
+  }
+  f = message.getApplicationInfo();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo.serializeBinaryToWriter
     );
   }
 };
@@ -704,6 +718,43 @@ proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.getStatu
  */
 proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.setStatus = function(value) {
   return jspb.Message.setProto3EnumField(this, 3, value);
+};
+
+
+/**
+ * optional ApplicationInfo application_info = 4;
+ * @return {?proto.yandex.cloud.dataproc.manager.v1.ApplicationInfo}
+ */
+proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.getApplicationInfo = function() {
+  return /** @type{?proto.yandex.cloud.dataproc.manager.v1.ApplicationInfo} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo, 4));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.dataproc.manager.v1.ApplicationInfo|undefined} value
+ * @return {!proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest} returns this
+*/
+proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.setApplicationInfo = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest} returns this
+ */
+proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.clearApplicationInfo = function() {
+  return this.setApplicationInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.dataproc.manager.v1.UpdateJobStatusRequest.prototype.hasApplicationInfo = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

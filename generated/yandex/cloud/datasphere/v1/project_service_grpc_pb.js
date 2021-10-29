@@ -69,6 +69,28 @@ function deserialize_yandex_cloud_datasphere_v1_DeleteProjectRequest(buffer_arg)
   return yandex_cloud_datasphere_v1_project_service_pb.DeleteProjectRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_datasphere_v1_GetNotebookMetadataRequest(arg) {
+  if (!(arg instanceof yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.datasphere.v1.GetNotebookMetadataRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_datasphere_v1_GetNotebookMetadataRequest(buffer_arg) {
+  return yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_datasphere_v1_GetNotebookMetadataResponse(arg) {
+  if (!(arg instanceof yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse)) {
+    throw new Error('Expected argument of type yandex.cloud.datasphere.v1.GetNotebookMetadataResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_datasphere_v1_GetNotebookMetadataResponse(buffer_arg) {
+  return yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_datasphere_v1_GetProjectRequest(arg) {
   if (!(arg instanceof yandex_cloud_datasphere_v1_project_service_pb.GetProjectRequest)) {
     throw new Error('Expected argument of type yandex.cloud.datasphere.v1.GetProjectRequest');
@@ -346,6 +368,18 @@ getStateVariables: {
     requestDeserialize: deserialize_yandex_cloud_datasphere_v1_GetStateVariablesRequest,
     responseSerialize: serialize_yandex_cloud_datasphere_v1_GetStateVariablesResponse,
     responseDeserialize: deserialize_yandex_cloud_datasphere_v1_GetStateVariablesResponse,
+  },
+  // Returns metadata of the specified notebook.
+getNotebookMetadata: {
+    path: '/yandex.cloud.datasphere.v1.ProjectService/GetNotebookMetadata',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest,
+    responseType: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse,
+    requestSerialize: serialize_yandex_cloud_datasphere_v1_GetNotebookMetadataRequest,
+    requestDeserialize: deserialize_yandex_cloud_datasphere_v1_GetNotebookMetadataRequest,
+    responseSerialize: serialize_yandex_cloud_datasphere_v1_GetNotebookMetadataResponse,
+    responseDeserialize: deserialize_yandex_cloud_datasphere_v1_GetNotebookMetadataResponse,
   },
 };
 

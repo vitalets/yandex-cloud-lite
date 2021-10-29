@@ -22,6 +22,9 @@ export class Cloud extends jspb.Message {
     getOrganizationId(): string;
     setOrganizationId(value: string): Cloud;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Cloud.AsObject;
     static toObject(includeInstance: boolean, msg: Cloud): Cloud.AsObject;
@@ -39,5 +42,7 @@ export namespace Cloud {
         name: string,
         description: string,
         organizationId: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }

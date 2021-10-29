@@ -262,6 +262,11 @@ export class Listener extends jspb.Message {
     getTls(): TlsListener | undefined;
     setTls(value?: TlsListener): Listener;
 
+    hasTcp(): boolean;
+    clearTcp(): void;
+    getTcp(): TcpListener | undefined;
+    setTcp(value?: TcpListener): Listener;
+
     getListenerCase(): Listener.ListenerCase;
 
     serializeBinary(): Uint8Array;
@@ -280,12 +285,14 @@ export namespace Listener {
         endpointsList: Array<Endpoint.AsObject>,
         http?: HttpListener.AsObject,
         tls?: TlsListener.AsObject,
+        tcp?: TcpListener.AsObject,
     }
 
     export enum ListenerCase {
         LISTENER_NOT_SET = 0,
         HTTP = 3,
         TLS = 4,
+        TCP = 5,
     }
 
 }
@@ -374,6 +381,29 @@ export namespace TlsListener {
     }
 }
 
+export class TcpListener extends jspb.Message { 
+
+    hasHandler(): boolean;
+    clearHandler(): void;
+    getHandler(): StreamHandler | undefined;
+    setHandler(value?: StreamHandler): TcpListener;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TcpListener.AsObject;
+    static toObject(includeInstance: boolean, msg: TcpListener): TcpListener.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TcpListener, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TcpListener;
+    static deserializeBinaryFromReader(message: TcpListener, reader: jspb.BinaryReader): TcpListener;
+}
+
+export namespace TcpListener {
+    export type AsObject = {
+        handler?: StreamHandler.AsObject,
+    }
+}
+
 export class Http2Options extends jspb.Message { 
     getMaxConcurrentStreams(): number;
     setMaxConcurrentStreams(value: number): Http2Options;
@@ -391,6 +421,26 @@ export class Http2Options extends jspb.Message {
 export namespace Http2Options {
     export type AsObject = {
         maxConcurrentStreams: number,
+    }
+}
+
+export class StreamHandler extends jspb.Message { 
+    getBackendGroupId(): string;
+    setBackendGroupId(value: string): StreamHandler;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): StreamHandler.AsObject;
+    static toObject(includeInstance: boolean, msg: StreamHandler): StreamHandler.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: StreamHandler, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StreamHandler;
+    static deserializeBinaryFromReader(message: StreamHandler, reader: jspb.BinaryReader): StreamHandler;
+}
+
+export namespace StreamHandler {
+    export type AsObject = {
+        backendGroupId: string,
     }
 }
 
@@ -492,6 +542,11 @@ export class TlsHandler extends jspb.Message {
     clearHttpHandler(): void;
     getHttpHandler(): HttpHandler | undefined;
     setHttpHandler(value?: HttpHandler): TlsHandler;
+
+    hasStreamHandler(): boolean;
+    clearStreamHandler(): void;
+    getStreamHandler(): StreamHandler | undefined;
+    setStreamHandler(value?: StreamHandler): TlsHandler;
     clearCertificateIdsList(): void;
     getCertificateIdsList(): Array<string>;
     setCertificateIdsList(value: Array<string>): TlsHandler;
@@ -512,12 +567,14 @@ export class TlsHandler extends jspb.Message {
 export namespace TlsHandler {
     export type AsObject = {
         httpHandler?: HttpHandler.AsObject,
+        streamHandler?: StreamHandler.AsObject,
         certificateIdsList: Array<string>,
     }
 
     export enum HandlerCase {
         HANDLER_NOT_SET = 0,
         HTTP_HANDLER = 2,
+        STREAM_HANDLER = 4,
     }
 
 }

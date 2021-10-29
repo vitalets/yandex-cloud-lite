@@ -84,6 +84,57 @@ export namespace ListCloudsResponse {
     }
 }
 
+export class CreateCloudRequest extends jspb.Message { 
+    getOrganizationId(): string;
+    setOrganizationId(value: string): CreateCloudRequest;
+    getName(): string;
+    setName(value: string): CreateCloudRequest;
+    getDescription(): string;
+    setDescription(value: string): CreateCloudRequest;
+
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateCloudRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateCloudRequest): CreateCloudRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateCloudRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateCloudRequest;
+    static deserializeBinaryFromReader(message: CreateCloudRequest, reader: jspb.BinaryReader): CreateCloudRequest;
+}
+
+export namespace CreateCloudRequest {
+    export type AsObject = {
+        organizationId: string,
+        name: string,
+        description: string,
+
+        labelsMap: Array<[string, string]>,
+    }
+}
+
+export class CreateCloudMetadata extends jspb.Message { 
+    getCloudId(): string;
+    setCloudId(value: string): CreateCloudMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateCloudMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateCloudMetadata): CreateCloudMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CreateCloudMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateCloudMetadata;
+    static deserializeBinaryFromReader(message: CreateCloudMetadata, reader: jspb.BinaryReader): CreateCloudMetadata;
+}
+
+export namespace CreateCloudMetadata {
+    export type AsObject = {
+        cloudId: string,
+    }
+}
+
 export class ListCloudOperationsRequest extends jspb.Message { 
     getCloudId(): string;
     setCloudId(value: string): ListCloudOperationsRequest;
@@ -148,6 +199,9 @@ export class UpdateCloudRequest extends jspb.Message {
     getDescription(): string;
     setDescription(value: string): UpdateCloudRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateCloudRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateCloudRequest): UpdateCloudRequest.AsObject;
@@ -164,6 +218,8 @@ export namespace UpdateCloudRequest {
         updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
         name: string,
         description: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 

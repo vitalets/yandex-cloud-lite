@@ -28,6 +28,7 @@ interface IProjectServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     execute: IProjectServiceService_IExecute;
     getCellOutputs: IProjectServiceService_IGetCellOutputs;
     getStateVariables: IProjectServiceService_IGetStateVariables;
+    getNotebookMetadata: IProjectServiceService_IGetNotebookMetadata;
 }
 
 interface IProjectServiceService_ICreate extends grpc.MethodDefinition<yandex_cloud_datasphere_v1_project_service_pb.CreateProjectRequest, yandex_cloud_operation_operation_pb.Operation> {
@@ -129,6 +130,15 @@ interface IProjectServiceService_IGetStateVariables extends grpc.MethodDefinitio
     responseSerialize: grpc.serialize<yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse>;
 }
+interface IProjectServiceService_IGetNotebookMetadata extends grpc.MethodDefinition<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse> {
+    path: "/yandex.cloud.datasphere.v1.ProjectService/GetNotebookMetadata";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse>;
+}
 
 export const ProjectServiceService: IProjectServiceService;
 
@@ -144,6 +154,7 @@ export interface IProjectServiceServer extends grpc.UntypedServiceImplementation
     execute: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.ProjectExecutionRequest, yandex_cloud_operation_operation_pb.Operation>;
     getCellOutputs: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.CellOutputsRequest, yandex_cloud_datasphere_v1_project_service_pb.CellOutputsResponse>;
     getStateVariables: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse>;
+    getNotebookMetadata: grpc.handleUnaryCall<yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse>;
 }
 
 export interface IProjectServiceClient {
@@ -180,6 +191,9 @@ export interface IProjectServiceClient {
     getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
     getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
     getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
+    getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
+    getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
+    getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class ProjectServiceClient extends grpc.Client implements IProjectServiceClient {
@@ -217,4 +231,7 @@ export class ProjectServiceClient extends grpc.Client implements IProjectService
     public getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
     public getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
     public getStateVariables(request: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetStateVariablesResponse) => void): grpc.ClientUnaryCall;
+    public getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
+    public getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
+    public getNotebookMetadata(request: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_datasphere_v1_project_service_pb.GetNotebookMetadataResponse) => void): grpc.ClientUnaryCall;
 }

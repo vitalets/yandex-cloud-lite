@@ -223,6 +223,96 @@ export namespace UpdateSubnetMetadata {
     }
 }
 
+export class AddSubnetCidrBlocksRequest extends jspb.Message { 
+    getSubnetId(): string;
+    setSubnetId(value: string): AddSubnetCidrBlocksRequest;
+    clearV4CidrBlocksList(): void;
+    getV4CidrBlocksList(): Array<string>;
+    setV4CidrBlocksList(value: Array<string>): AddSubnetCidrBlocksRequest;
+    addV4CidrBlocks(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AddSubnetCidrBlocksRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: AddSubnetCidrBlocksRequest): AddSubnetCidrBlocksRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AddSubnetCidrBlocksRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AddSubnetCidrBlocksRequest;
+    static deserializeBinaryFromReader(message: AddSubnetCidrBlocksRequest, reader: jspb.BinaryReader): AddSubnetCidrBlocksRequest;
+}
+
+export namespace AddSubnetCidrBlocksRequest {
+    export type AsObject = {
+        subnetId: string,
+        v4CidrBlocksList: Array<string>,
+    }
+}
+
+export class AddSubnetCidrBlocksMetadata extends jspb.Message { 
+    getSubnetId(): string;
+    setSubnetId(value: string): AddSubnetCidrBlocksMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AddSubnetCidrBlocksMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: AddSubnetCidrBlocksMetadata): AddSubnetCidrBlocksMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AddSubnetCidrBlocksMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AddSubnetCidrBlocksMetadata;
+    static deserializeBinaryFromReader(message: AddSubnetCidrBlocksMetadata, reader: jspb.BinaryReader): AddSubnetCidrBlocksMetadata;
+}
+
+export namespace AddSubnetCidrBlocksMetadata {
+    export type AsObject = {
+        subnetId: string,
+    }
+}
+
+export class RemoveSubnetCidrBlocksRequest extends jspb.Message { 
+    getSubnetId(): string;
+    setSubnetId(value: string): RemoveSubnetCidrBlocksRequest;
+    clearV4CidrBlocksList(): void;
+    getV4CidrBlocksList(): Array<string>;
+    setV4CidrBlocksList(value: Array<string>): RemoveSubnetCidrBlocksRequest;
+    addV4CidrBlocks(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RemoveSubnetCidrBlocksRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: RemoveSubnetCidrBlocksRequest): RemoveSubnetCidrBlocksRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RemoveSubnetCidrBlocksRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RemoveSubnetCidrBlocksRequest;
+    static deserializeBinaryFromReader(message: RemoveSubnetCidrBlocksRequest, reader: jspb.BinaryReader): RemoveSubnetCidrBlocksRequest;
+}
+
+export namespace RemoveSubnetCidrBlocksRequest {
+    export type AsObject = {
+        subnetId: string,
+        v4CidrBlocksList: Array<string>,
+    }
+}
+
+export class RemoveSubnetCidrBlocksMetadata extends jspb.Message { 
+    getSubnetId(): string;
+    setSubnetId(value: string): RemoveSubnetCidrBlocksMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RemoveSubnetCidrBlocksMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: RemoveSubnetCidrBlocksMetadata): RemoveSubnetCidrBlocksMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RemoveSubnetCidrBlocksMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RemoveSubnetCidrBlocksMetadata;
+    static deserializeBinaryFromReader(message: RemoveSubnetCidrBlocksMetadata, reader: jspb.BinaryReader): RemoveSubnetCidrBlocksMetadata;
+}
+
+export namespace RemoveSubnetCidrBlocksMetadata {
+    export type AsObject = {
+        subnetId: string,
+    }
+}
+
 export class DeleteSubnetRequest extends jspb.Message { 
     getSubnetId(): string;
     setSubnetId(value: string): DeleteSubnetRequest;

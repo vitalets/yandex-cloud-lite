@@ -35,6 +35,11 @@ export class BackendGroup extends jspb.Message {
     getGrpc(): GrpcBackendGroup | undefined;
     setGrpc(value?: GrpcBackendGroup): BackendGroup;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): StreamBackendGroup | undefined;
+    setStream(value?: StreamBackendGroup): BackendGroup;
+
     hasCreatedAt(): boolean;
     clearCreatedAt(): void;
     getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
@@ -62,6 +67,7 @@ export namespace BackendGroup {
         labelsMap: Array<[string, string]>,
         http?: HttpBackendGroup.AsObject,
         grpc?: GrpcBackendGroup.AsObject,
+        stream?: StreamBackendGroup.AsObject,
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     }
 
@@ -69,6 +75,43 @@ export namespace BackendGroup {
         BACKEND_NOT_SET = 0,
         HTTP = 6,
         GRPC = 7,
+        STREAM = 10,
+    }
+
+}
+
+export class StreamBackendGroup extends jspb.Message { 
+    clearBackendsList(): void;
+    getBackendsList(): Array<StreamBackend>;
+    setBackendsList(value: Array<StreamBackend>): StreamBackendGroup;
+    addBackends(value?: StreamBackend, index?: number): StreamBackend;
+
+    hasConnection(): boolean;
+    clearConnection(): void;
+    getConnection(): ConnectionSessionAffinity | undefined;
+    setConnection(value?: ConnectionSessionAffinity): StreamBackendGroup;
+
+    getSessionAffinityCase(): StreamBackendGroup.SessionAffinityCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): StreamBackendGroup.AsObject;
+    static toObject(includeInstance: boolean, msg: StreamBackendGroup): StreamBackendGroup.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: StreamBackendGroup, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StreamBackendGroup;
+    static deserializeBinaryFromReader(message: StreamBackendGroup, reader: jspb.BinaryReader): StreamBackendGroup;
+}
+
+export namespace StreamBackendGroup {
+    export type AsObject = {
+        backendsList: Array<StreamBackend.AsObject>,
+        connection?: ConnectionSessionAffinity.AsObject,
+    }
+
+    export enum SessionAffinityCase {
+        SESSION_AFFINITY_NOT_SET = 0,
+        CONNECTION = 2,
     }
 
 }
@@ -266,6 +309,66 @@ export namespace LoadBalancingConfig {
         strictLocality: boolean,
         mode: LoadBalancingMode,
     }
+}
+
+export class StreamBackend extends jspb.Message { 
+    getName(): string;
+    setName(value: string): StreamBackend;
+
+    hasBackendWeight(): boolean;
+    clearBackendWeight(): void;
+    getBackendWeight(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setBackendWeight(value?: google_protobuf_wrappers_pb.Int64Value): StreamBackend;
+
+    hasLoadBalancingConfig(): boolean;
+    clearLoadBalancingConfig(): void;
+    getLoadBalancingConfig(): LoadBalancingConfig | undefined;
+    setLoadBalancingConfig(value?: LoadBalancingConfig): StreamBackend;
+    getPort(): number;
+    setPort(value: number): StreamBackend;
+
+    hasTargetGroups(): boolean;
+    clearTargetGroups(): void;
+    getTargetGroups(): TargetGroupsBackend | undefined;
+    setTargetGroups(value?: TargetGroupsBackend): StreamBackend;
+    clearHealthchecksList(): void;
+    getHealthchecksList(): Array<HealthCheck>;
+    setHealthchecksList(value: Array<HealthCheck>): StreamBackend;
+    addHealthchecks(value?: HealthCheck, index?: number): HealthCheck;
+
+    hasTls(): boolean;
+    clearTls(): void;
+    getTls(): BackendTls | undefined;
+    setTls(value?: BackendTls): StreamBackend;
+
+    getBackendTypeCase(): StreamBackend.BackendTypeCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): StreamBackend.AsObject;
+    static toObject(includeInstance: boolean, msg: StreamBackend): StreamBackend.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: StreamBackend, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StreamBackend;
+    static deserializeBinaryFromReader(message: StreamBackend, reader: jspb.BinaryReader): StreamBackend;
+}
+
+export namespace StreamBackend {
+    export type AsObject = {
+        name: string,
+        backendWeight?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        loadBalancingConfig?: LoadBalancingConfig.AsObject,
+        port: number,
+        targetGroups?: TargetGroupsBackend.AsObject,
+        healthchecksList: Array<HealthCheck.AsObject>,
+        tls?: BackendTls.AsObject,
+    }
+
+    export enum BackendTypeCase {
+        BACKEND_TYPE_NOT_SET = 0,
+        TARGET_GROUPS = 5,
+    }
+
 }
 
 export class HttpBackend extends jspb.Message { 

@@ -94,6 +94,9 @@ export class CreateServiceAccountRequest extends jspb.Message {
     getDescription(): string;
     setDescription(value: string): CreateServiceAccountRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateServiceAccountRequest.AsObject;
     static toObject(includeInstance: boolean, msg: CreateServiceAccountRequest): CreateServiceAccountRequest.AsObject;
@@ -109,6 +112,8 @@ export namespace CreateServiceAccountRequest {
         folderId: string,
         name: string,
         description: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 
@@ -145,6 +150,9 @@ export class UpdateServiceAccountRequest extends jspb.Message {
     getDescription(): string;
     setDescription(value: string): UpdateServiceAccountRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateServiceAccountRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateServiceAccountRequest): UpdateServiceAccountRequest.AsObject;
@@ -161,6 +169,8 @@ export namespace UpdateServiceAccountRequest {
         updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
         name: string,
         description: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 

@@ -4,6 +4,7 @@
 var grpc = require('@grpc/grpc-js');
 var yandex_cloud_mdb_greenplum_v1_cluster_service_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/cluster_service_pb.js');
 var google_api_annotations_pb = require('../../../../../google/api/annotations_pb.js');
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js');
 var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
 var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/operation/operation_pb.js');
 var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
@@ -143,6 +144,17 @@ function deserialize_yandex_cloud_mdb_greenplum_v1_StopClusterRequest(buffer_arg
   return yandex_cloud_mdb_greenplum_v1_cluster_service_pb.StopClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_mdb_greenplum_v1_UpdateClusterRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_greenplum_v1_UpdateClusterRequest(buffer_arg) {
+  return yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_operation_Operation(arg) {
   if (!(arg instanceof yandex_cloud_operation_operation_pb.Operation)) {
     throw new Error('Expected argument of type yandex.cloud.operation.Operation');
@@ -193,6 +205,18 @@ create: {
     responseType: yandex_cloud_operation_operation_pb.Operation,
     requestSerialize: serialize_yandex_cloud_mdb_greenplum_v1_CreateClusterRequest,
     requestDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_CreateClusterRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Updates the specified Greenplum cluster.
+update: {
+    path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Update',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_greenplum_v1_UpdateClusterRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_UpdateClusterRequest,
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },

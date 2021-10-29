@@ -6,6 +6,7 @@
 
 import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_greenplum_v1_cluster_service_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/cluster_service_pb";
+import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -17,6 +18,7 @@ interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     get: IClusterServiceService_IGet;
     list: IClusterServiceService_IList;
     create: IClusterServiceService_ICreate;
+    update: IClusterServiceService_IUpdate;
     delete: IClusterServiceService_IDelete;
     start: IClusterServiceService_IStart;
     stop: IClusterServiceService_IStop;
@@ -49,6 +51,15 @@ interface IClusterServiceService_ICreate extends grpc.MethodDefinition<yandex_cl
     responseStream: false;
     requestSerialize: grpc.serialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest>;
     requestDeserialize: grpc.deserialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
+interface IClusterServiceService_IUpdate extends grpc.MethodDefinition<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.greenplum.v1.ClusterService/Update";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest>;
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
@@ -113,6 +124,7 @@ export interface IClusterServiceServer extends grpc.UntypedServiceImplementation
     get: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.GetClusterRequest, yandex_cloud_mdb_greenplum_v1_cluster_pb.Cluster>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClustersRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClustersResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
+    update: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     start: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.StartClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     stop: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.StopClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -131,6 +143,9 @@ export interface IClusterServiceClient {
     create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
@@ -162,6 +177,9 @@ export class ClusterServiceClient extends grpc.Client implements IClusterService
     public create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.CreateClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.UpdateClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.DeleteClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

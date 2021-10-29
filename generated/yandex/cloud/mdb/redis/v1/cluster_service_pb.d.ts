@@ -552,6 +552,10 @@ export namespace RestoreClusterMetadata {
 export class StartClusterFailoverRequest extends jspb.Message { 
     getClusterId(): string;
     setClusterId(value: string): StartClusterFailoverRequest;
+    clearHostNamesList(): void;
+    getHostNamesList(): Array<string>;
+    setHostNamesList(value: Array<string>): StartClusterFailoverRequest;
+    addHostNames(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): StartClusterFailoverRequest.AsObject;
@@ -566,12 +570,17 @@ export class StartClusterFailoverRequest extends jspb.Message {
 export namespace StartClusterFailoverRequest {
     export type AsObject = {
         clusterId: string,
+        hostNamesList: Array<string>,
     }
 }
 
 export class StartClusterFailoverMetadata extends jspb.Message { 
     getClusterId(): string;
     setClusterId(value: string): StartClusterFailoverMetadata;
+    clearHostNamesList(): void;
+    getHostNamesList(): Array<string>;
+    setHostNamesList(value: Array<string>): StartClusterFailoverMetadata;
+    addHostNames(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): StartClusterFailoverMetadata.AsObject;
@@ -586,6 +595,7 @@ export class StartClusterFailoverMetadata extends jspb.Message {
 export namespace StartClusterFailoverMetadata {
     export type AsObject = {
         clusterId: string,
+        hostNamesList: Array<string>,
     }
 }
 

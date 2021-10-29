@@ -1181,6 +1181,13 @@ export class UpdateHostSpec extends jspb.Message {
     getConfigSpec(): ConfigHostSpec | undefined;
     setConfigSpec(value?: ConfigHostSpec): UpdateHostSpec;
 
+    hasUpdateMask(): boolean;
+    clearUpdateMask(): void;
+    getUpdateMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+    setUpdateMask(value?: google_protobuf_field_mask_pb.FieldMask): UpdateHostSpec;
+    getAssignPublicIp(): boolean;
+    setAssignPublicIp(value: boolean): UpdateHostSpec;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateHostSpec.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateHostSpec): UpdateHostSpec.AsObject;
@@ -1197,6 +1204,8 @@ export namespace UpdateHostSpec {
         replicationSource: string,
         priority?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         configSpec?: ConfigHostSpec.AsObject,
+        updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+        assignPublicIp: boolean,
     }
 }
 

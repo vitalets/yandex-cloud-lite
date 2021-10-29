@@ -284,6 +284,11 @@ export class NodeTemplate extends jspb.Message {
     getNetworkSettings(): NodeTemplate.NetworkSettings | undefined;
     setNetworkSettings(value?: NodeTemplate.NetworkSettings): NodeTemplate;
 
+    hasContainerRuntimeSettings(): boolean;
+    clearContainerRuntimeSettings(): void;
+    getContainerRuntimeSettings(): NodeTemplate.ContainerRuntimeSettings | undefined;
+    setContainerRuntimeSettings(value?: NodeTemplate.ContainerRuntimeSettings): NodeTemplate;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NodeTemplate.AsObject;
     static toObject(includeInstance: boolean, msg: NodeTemplate): NodeTemplate.AsObject;
@@ -306,6 +311,7 @@ export namespace NodeTemplate {
         networkInterfaceSpecsList: Array<NetworkInterfaceSpec.AsObject>,
         placementPolicy?: PlacementPolicy.AsObject,
         networkSettings?: NodeTemplate.NetworkSettings.AsObject,
+        containerRuntimeSettings?: NodeTemplate.ContainerRuntimeSettings.AsObject,
     }
 
 
@@ -332,6 +338,33 @@ export namespace NodeTemplate {
     TYPE_UNSPECIFIED = 0,
     STANDARD = 1,
     SOFTWARE_ACCELERATED = 2,
+        }
+
+    }
+
+    export class ContainerRuntimeSettings extends jspb.Message { 
+        getType(): NodeTemplate.ContainerRuntimeSettings.Type;
+        setType(value: NodeTemplate.ContainerRuntimeSettings.Type): ContainerRuntimeSettings;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): ContainerRuntimeSettings.AsObject;
+        static toObject(includeInstance: boolean, msg: ContainerRuntimeSettings): ContainerRuntimeSettings.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: ContainerRuntimeSettings, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): ContainerRuntimeSettings;
+        static deserializeBinaryFromReader(message: ContainerRuntimeSettings, reader: jspb.BinaryReader): ContainerRuntimeSettings;
+    }
+
+    export namespace ContainerRuntimeSettings {
+        export type AsObject = {
+            type: NodeTemplate.ContainerRuntimeSettings.Type,
+        }
+
+        export enum Type {
+    TYPE_UNSPECIFIED = 0,
+    DOCKER = 1,
+    CONTAINERD = 2,
         }
 
     }

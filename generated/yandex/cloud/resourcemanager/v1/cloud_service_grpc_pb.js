@@ -78,6 +78,17 @@ function deserialize_yandex_cloud_resourcemanager_v1_Cloud(buffer_arg) {
   return yandex_cloud_resourcemanager_v1_cloud_pb.Cloud.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_resourcemanager_v1_CreateCloudRequest(arg) {
+  if (!(arg instanceof yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.resourcemanager.v1.CreateCloudRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_resourcemanager_v1_CreateCloudRequest(buffer_arg) {
+  return yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_resourcemanager_v1_DeleteCloudRequest(arg) {
   if (!(arg instanceof yandex_cloud_resourcemanager_v1_cloud_service_pb.DeleteCloudRequest)) {
     throw new Error('Expected argument of type yandex.cloud.resourcemanager.v1.DeleteCloudRequest');
@@ -184,6 +195,18 @@ list: {
     responseSerialize: serialize_yandex_cloud_resourcemanager_v1_ListCloudsResponse,
     responseDeserialize: deserialize_yandex_cloud_resourcemanager_v1_ListCloudsResponse,
   },
+  // Creates a cloud in the specified organization.
+create: {
+    path: '/yandex.cloud.resourcemanager.v1.CloudService/Create',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_resourcemanager_v1_CreateCloudRequest,
+    requestDeserialize: deserialize_yandex_cloud_resourcemanager_v1_CreateCloudRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
   // Updates the specified cloud.
 update: {
     path: '/yandex.cloud.resourcemanager.v1.CloudService/Update',
@@ -197,8 +220,6 @@ update: {
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
   // Deletes the specified cloud.
-//
-// The method is temporarily unavailable.
 delete: {
     path: '/yandex.cloud.resourcemanager.v1.CloudService/Delete',
     requestStream: false,

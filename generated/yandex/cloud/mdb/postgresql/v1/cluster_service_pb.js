@@ -9341,7 +9341,9 @@ proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.toObject = function(includeI
     hostName: jspb.Message.getFieldWithDefault(msg, 1, ""),
     replicationSource: jspb.Message.getFieldWithDefault(msg, 2, ""),
     priority: (f = msg.getPriority()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
-    configSpec: (f = msg.getConfigSpec()) && proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.toObject(includeInstance, f)
+    configSpec: (f = msg.getConfigSpec()) && proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.toObject(includeInstance, f),
+    updateMask: (f = msg.getUpdateMask()) && google_protobuf_field_mask_pb.FieldMask.toObject(includeInstance, f),
+    assignPublicIp: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -9395,6 +9397,15 @@ proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.deserializeBinaryFromReader 
       var value = new proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec;
       reader.readMessage(value,proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.deserializeBinaryFromReader);
       msg.setConfigSpec(value);
+      break;
+    case 5:
+      var value = new google_protobuf_field_mask_pb.FieldMask;
+      reader.readMessage(value,google_protobuf_field_mask_pb.FieldMask.deserializeBinaryFromReader);
+      msg.setUpdateMask(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAssignPublicIp(value);
       break;
     default:
       reader.skipField();
@@ -9453,6 +9464,21 @@ proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.serializeBinaryToWriter = fu
       4,
       f,
       proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.serializeBinaryToWriter
+    );
+  }
+  f = message.getUpdateMask();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      google_protobuf_field_mask_pb.FieldMask.serializeBinaryToWriter
+    );
+  }
+  f = message.getAssignPublicIp();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
     );
   }
 };
@@ -9565,6 +9591,61 @@ proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.clearConfigSpec = 
  */
 proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.hasConfigSpec = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional google.protobuf.FieldMask update_mask = 5;
+ * @return {?proto.google.protobuf.FieldMask}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.getUpdateMask = function() {
+  return /** @type{?proto.google.protobuf.FieldMask} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_field_mask_pb.FieldMask, 5));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.FieldMask|undefined} value
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec} returns this
+*/
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.setUpdateMask = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec} returns this
+ */
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.clearUpdateMask = function() {
+  return this.setUpdateMask(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.hasUpdateMask = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional bool assign_public_ip = 6;
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.getAssignPublicIp = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec} returns this
+ */
+proto.yandex.cloud.mdb.postgresql.v1.UpdateHostSpec.prototype.setAssignPublicIp = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

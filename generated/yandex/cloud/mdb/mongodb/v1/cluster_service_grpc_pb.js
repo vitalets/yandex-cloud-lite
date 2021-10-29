@@ -19,6 +19,7 @@ var yandex_cloud_mdb_mongodb_v1_config_mongodb3_6_pb = require('../../../../../y
 var yandex_cloud_mdb_mongodb_v1_config_mongodb4_0_pb = require('../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_0_pb.js');
 var yandex_cloud_mdb_mongodb_v1_config_mongodb4_2_pb = require('../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_2_pb.js');
 var yandex_cloud_mdb_mongodb_v1_config_mongodb4_4_pb = require('../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_4_pb.js');
+var yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb = require('../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb5_0_pb.js');
 var yandex_cloud_mdb_mongodb_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/mongodb/v1/maintenance_pb.js');
 
 function serialize_yandex_cloud_mdb_mongodb_v1_AddClusterHostsRequest(arg) {

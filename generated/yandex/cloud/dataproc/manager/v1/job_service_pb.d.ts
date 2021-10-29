@@ -70,6 +70,11 @@ export class UpdateJobStatusRequest extends jspb.Message {
     getStatus(): yandex_cloud_dataproc_manager_v1_job_pb.Job.Status;
     setStatus(value: yandex_cloud_dataproc_manager_v1_job_pb.Job.Status): UpdateJobStatusRequest;
 
+    hasApplicationInfo(): boolean;
+    clearApplicationInfo(): void;
+    getApplicationInfo(): yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo | undefined;
+    setApplicationInfo(value?: yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo): UpdateJobStatusRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateJobStatusRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateJobStatusRequest): UpdateJobStatusRequest.AsObject;
@@ -85,6 +90,7 @@ export namespace UpdateJobStatusRequest {
         clusterId: string,
         jobId: string,
         status: yandex_cloud_dataproc_manager_v1_job_pb.Job.Status,
+        applicationInfo?: yandex_cloud_dataproc_manager_v1_job_pb.ApplicationInfo.AsObject,
     }
 }
 

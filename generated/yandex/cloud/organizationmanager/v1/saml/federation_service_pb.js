@@ -964,7 +964,8 @@ proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.toObject 
     ssoBinding: jspb.Message.getFieldWithDefault(msg, 7, 0),
     ssoUrl: jspb.Message.getFieldWithDefault(msg, 8, ""),
     securitySettings: (f = msg.getSecuritySettings()) && yandex_cloud_organizationmanager_v1_saml_federation_pb.FederationSecuritySettings.toObject(includeInstance, f),
-    caseInsensitiveNameIds: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
+    caseInsensitiveNameIds: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1042,6 +1043,12 @@ proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.deseriali
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCaseInsensitiveNameIds(value);
+      break;
+    case 11:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -1143,6 +1150,10 @@ proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.serialize
       10,
       f
     );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(11, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -1365,6 +1376,28 @@ proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.prototype
 };
 
 
+/**
+ * map<string, string> labels = 11;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 11, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest} returns this
+ */
+proto.yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
+
+
 
 
 
@@ -1537,7 +1570,8 @@ proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.toObject 
     ssoBinding: jspb.Message.getFieldWithDefault(msg, 8, 0),
     ssoUrl: jspb.Message.getFieldWithDefault(msg, 9, ""),
     securitySettings: (f = msg.getSecuritySettings()) && yandex_cloud_organizationmanager_v1_saml_federation_pb.FederationSecuritySettings.toObject(includeInstance, f),
-    caseInsensitiveNameIds: jspb.Message.getBooleanFieldWithDefault(msg, 12, false)
+    caseInsensitiveNameIds: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1620,6 +1654,12 @@ proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.deseriali
     case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCaseInsensitiveNameIds(value);
+      break;
+    case 13:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -1729,6 +1769,10 @@ proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.serialize
       12,
       f
     );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(13, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -1986,6 +2030,28 @@ proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.prototype
 proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.prototype.setCaseInsensitiveNameIds = function(value) {
   return jspb.Message.setProto3BooleanField(this, 12, value);
 };
+
+
+/**
+ * map<string, string> labels = 13;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 13, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest} returns this
+ */
+proto.yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
 
 
 

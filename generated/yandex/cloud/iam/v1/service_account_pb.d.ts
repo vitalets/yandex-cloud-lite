@@ -23,6 +23,9 @@ export class ServiceAccount extends jspb.Message {
     getDescription(): string;
     setDescription(value: string): ServiceAccount;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ServiceAccount.AsObject;
     static toObject(includeInstance: boolean, msg: ServiceAccount): ServiceAccount.AsObject;
@@ -40,5 +43,7 @@ export namespace ServiceAccount {
         createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
         name: string,
         description: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }

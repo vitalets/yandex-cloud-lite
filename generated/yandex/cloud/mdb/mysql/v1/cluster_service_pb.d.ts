@@ -1161,6 +1161,10 @@ export class UpdateHostSpec extends jspb.Message {
     clearUpdateMask(): void;
     getUpdateMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
     setUpdateMask(value?: google_protobuf_field_mask_pb.FieldMask): UpdateHostSpec;
+    getBackupPriority(): number;
+    setBackupPriority(value: number): UpdateHostSpec;
+    getAssignPublicIp(): boolean;
+    setAssignPublicIp(value: boolean): UpdateHostSpec;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateHostSpec.AsObject;
@@ -1177,6 +1181,8 @@ export namespace UpdateHostSpec {
         hostName: string,
         replicationSource: string,
         updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+        backupPriority: number,
+        assignPublicIp: boolean,
     }
 }
 

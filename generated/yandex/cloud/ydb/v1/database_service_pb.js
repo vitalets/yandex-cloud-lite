@@ -2324,7 +2324,8 @@ proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.toObject = function(includeInsta
     assignPublicIps: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
     locationId: jspb.Message.getFieldWithDefault(msg, 12, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    backupConfig: (f = msg.getBackupConfig()) && yandex_cloud_ydb_v1_backup_pb.BackupConfig.toObject(includeInstance, f)
+    backupConfig: (f = msg.getBackupConfig()) && yandex_cloud_ydb_v1_backup_pb.BackupConfig.toObject(includeInstance, f),
+    monitoringConfig: (f = msg.getMonitoringConfig()) && yandex_cloud_ydb_v1_database_pb.MonitoringConfig.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2433,6 +2434,11 @@ proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.deserializeBinaryFromReader = fu
       var value = new yandex_cloud_ydb_v1_backup_pb.BackupConfig;
       reader.readMessage(value,yandex_cloud_ydb_v1_backup_pb.BackupConfig.deserializeBinaryFromReader);
       msg.setBackupConfig(value);
+      break;
+    case 17:
+      var value = new yandex_cloud_ydb_v1_database_pb.MonitoringConfig;
+      reader.readMessage(value,yandex_cloud_ydb_v1_database_pb.MonitoringConfig.deserializeBinaryFromReader);
+      msg.setMonitoringConfig(value);
       break;
     default:
       reader.skipField();
@@ -2577,6 +2583,14 @@ proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.serializeBinaryToWriter = functi
       16,
       f,
       yandex_cloud_ydb_v1_backup_pb.BackupConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getMonitoringConfig();
+  if (f != null) {
+    writer.writeMessage(
+      17,
+      f,
+      yandex_cloud_ydb_v1_database_pb.MonitoringConfig.serializeBinaryToWriter
     );
   }
 };
@@ -3026,6 +3040,43 @@ proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.prototype.hasBackupConfig = func
 };
 
 
+/**
+ * optional MonitoringConfig monitoring_config = 17;
+ * @return {?proto.yandex.cloud.ydb.v1.MonitoringConfig}
+ */
+proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.prototype.getMonitoringConfig = function() {
+  return /** @type{?proto.yandex.cloud.ydb.v1.MonitoringConfig} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_ydb_v1_database_pb.MonitoringConfig, 17));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.ydb.v1.MonitoringConfig|undefined} value
+ * @return {!proto.yandex.cloud.ydb.v1.CreateDatabaseRequest} returns this
+*/
+proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.prototype.setMonitoringConfig = function(value) {
+  return jspb.Message.setWrapperField(this, 17, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.ydb.v1.CreateDatabaseRequest} returns this
+ */
+proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.prototype.clearMonitoringConfig = function() {
+  return this.setMonitoringConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.ydb.v1.CreateDatabaseRequest.prototype.hasMonitoringConfig = function() {
+  return jspb.Message.getField(this, 17) != null;
+};
+
+
 
 
 
@@ -3270,7 +3321,8 @@ proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.toObject = function(includeInsta
     assignPublicIps: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
     locationId: jspb.Message.getFieldWithDefault(msg, 14, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    backupConfig: (f = msg.getBackupConfig()) && yandex_cloud_ydb_v1_backup_pb.BackupConfig.toObject(includeInstance, f)
+    backupConfig: (f = msg.getBackupConfig()) && yandex_cloud_ydb_v1_backup_pb.BackupConfig.toObject(includeInstance, f),
+    monitoringConfig: (f = msg.getMonitoringConfig()) && yandex_cloud_ydb_v1_database_pb.MonitoringConfig.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3388,6 +3440,11 @@ proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.deserializeBinaryFromReader = fu
       var value = new yandex_cloud_ydb_v1_backup_pb.BackupConfig;
       reader.readMessage(value,yandex_cloud_ydb_v1_backup_pb.BackupConfig.deserializeBinaryFromReader);
       msg.setBackupConfig(value);
+      break;
+    case 19:
+      var value = new yandex_cloud_ydb_v1_database_pb.MonitoringConfig;
+      reader.readMessage(value,yandex_cloud_ydb_v1_database_pb.MonitoringConfig.deserializeBinaryFromReader);
+      msg.setMonitoringConfig(value);
       break;
     default:
       reader.skipField();
@@ -3547,6 +3604,14 @@ proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.serializeBinaryToWriter = functi
       18,
       f,
       yandex_cloud_ydb_v1_backup_pb.BackupConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getMonitoringConfig();
+  if (f != null) {
+    writer.writeMessage(
+      19,
+      f,
+      yandex_cloud_ydb_v1_database_pb.MonitoringConfig.serializeBinaryToWriter
     );
   }
 };
@@ -4048,6 +4113,43 @@ proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.clearBackupConfig = fu
  */
 proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.hasBackupConfig = function() {
   return jspb.Message.getField(this, 18) != null;
+};
+
+
+/**
+ * optional MonitoringConfig monitoring_config = 19;
+ * @return {?proto.yandex.cloud.ydb.v1.MonitoringConfig}
+ */
+proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.getMonitoringConfig = function() {
+  return /** @type{?proto.yandex.cloud.ydb.v1.MonitoringConfig} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_ydb_v1_database_pb.MonitoringConfig, 19));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.ydb.v1.MonitoringConfig|undefined} value
+ * @return {!proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest} returns this
+*/
+proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.setMonitoringConfig = function(value) {
+  return jspb.Message.setWrapperField(this, 19, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest} returns this
+ */
+proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.clearMonitoringConfig = function() {
+  return this.setMonitoringConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.ydb.v1.UpdateDatabaseRequest.prototype.hasMonitoringConfig = function() {
+  return jspb.Message.getField(this, 19) != null;
 };
 
 

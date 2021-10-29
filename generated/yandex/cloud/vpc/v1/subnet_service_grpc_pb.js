@@ -22,6 +22,17 @@ function deserialize_yandex_cloud_operation_Operation(buffer_arg) {
   return yandex_cloud_operation_operation_pb.Operation.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_vpc_v1_AddSubnetCidrBlocksRequest(arg) {
+  if (!(arg instanceof yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.vpc.v1.AddSubnetCidrBlocksRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_vpc_v1_AddSubnetCidrBlocksRequest(buffer_arg) {
+  return yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_vpc_v1_CreateSubnetRequest(arg) {
   if (!(arg instanceof yandex_cloud_vpc_v1_subnet_service_pb.CreateSubnetRequest)) {
     throw new Error('Expected argument of type yandex.cloud.vpc.v1.CreateSubnetRequest');
@@ -132,6 +143,17 @@ function deserialize_yandex_cloud_vpc_v1_MoveSubnetRequest(buffer_arg) {
   return yandex_cloud_vpc_v1_subnet_service_pb.MoveSubnetRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_vpc_v1_RemoveSubnetCidrBlocksRequest(arg) {
+  if (!(arg instanceof yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.vpc.v1.RemoveSubnetCidrBlocksRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_vpc_v1_RemoveSubnetCidrBlocksRequest(buffer_arg) {
+  return yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_vpc_v1_Subnet(arg) {
   if (!(arg instanceof yandex_cloud_vpc_v1_subnet_pb.Subnet)) {
     throw new Error('Expected argument of type yandex.cloud.vpc.v1.Subnet');
@@ -206,6 +228,32 @@ update: {
     responseType: yandex_cloud_operation_operation_pb.Operation,
     requestSerialize: serialize_yandex_cloud_vpc_v1_UpdateSubnetRequest,
     requestDeserialize: deserialize_yandex_cloud_vpc_v1_UpdateSubnetRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Adds CIDR blocks to the specified subnet.
+// Method starts an asynchronous operation that can be cancelled while it is in progress.
+addCidrBlocks: {
+    path: '/yandex.cloud.vpc.v1.SubnetService/AddCidrBlocks',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_vpc_v1_AddSubnetCidrBlocksRequest,
+    requestDeserialize: deserialize_yandex_cloud_vpc_v1_AddSubnetCidrBlocksRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Removes CIDR blocks from the specified subnet.
+// Method starts an asynchronous operation that can be cancelled while it is in progress.
+removeCidrBlocks: {
+    path: '/yandex.cloud.vpc.v1.SubnetService/RemoveCidrBlocks',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_vpc_v1_RemoveSubnetCidrBlocksRequest,
+    requestDeserialize: deserialize_yandex_cloud_vpc_v1_RemoveSubnetCidrBlocksRequest,
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },

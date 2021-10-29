@@ -18,6 +18,8 @@ interface ISubnetServiceService extends grpc.ServiceDefinition<grpc.UntypedServi
     list: ISubnetServiceService_IList;
     create: ISubnetServiceService_ICreate;
     update: ISubnetServiceService_IUpdate;
+    addCidrBlocks: ISubnetServiceService_IAddCidrBlocks;
+    removeCidrBlocks: ISubnetServiceService_IRemoveCidrBlocks;
     delete: ISubnetServiceService_IDelete;
     listOperations: ISubnetServiceService_IListOperations;
     move: ISubnetServiceService_IMove;
@@ -57,6 +59,24 @@ interface ISubnetServiceService_IUpdate extends grpc.MethodDefinition<yandex_clo
     responseStream: false;
     requestSerialize: grpc.serialize<yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest>;
     requestDeserialize: grpc.deserialize<yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
+interface ISubnetServiceService_IAddCidrBlocks extends grpc.MethodDefinition<yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.vpc.v1.SubnetService/AddCidrBlocks";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
+interface ISubnetServiceService_IRemoveCidrBlocks extends grpc.MethodDefinition<yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.vpc.v1.SubnetService/RemoveCidrBlocks";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest>;
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
@@ -104,6 +124,8 @@ export interface ISubnetServiceServer extends grpc.UntypedServiceImplementation 
     list: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetsRequest, yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.CreateSubnetRequest, yandex_cloud_operation_operation_pb.Operation>;
     update: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, yandex_cloud_operation_operation_pb.Operation>;
+    addCidrBlocks: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, yandex_cloud_operation_operation_pb.Operation>;
+    removeCidrBlocks: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, yandex_cloud_operation_operation_pb.Operation>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetOperationsRequest, yandex_cloud_vpc_v1_subnet_service_pb.ListSubnetOperationsResponse>;
     move: grpc.handleUnaryCall<yandex_cloud_vpc_v1_subnet_service_pb.MoveSubnetRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -123,6 +145,12 @@ export interface ISubnetServiceClient {
     update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
@@ -151,6 +179,12 @@ export class SubnetServiceClient extends grpc.Client implements ISubnetServiceCl
     public update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public update(request: yandex_cloud_vpc_v1_subnet_service_pb.UpdateSubnetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public addCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.AddSubnetCidrBlocksRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public removeCidrBlocks(request: yandex_cloud_vpc_v1_subnet_service_pb.RemoveSubnetCidrBlocksRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_vpc_v1_subnet_service_pb.DeleteSubnetRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

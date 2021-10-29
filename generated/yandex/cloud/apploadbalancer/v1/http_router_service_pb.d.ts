@@ -145,8 +145,6 @@ export class UpdateHttpRouterRequest extends jspb.Message {
     getVirtualHostsList(): Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost>;
     setVirtualHostsList(value: Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost>): UpdateHttpRouterRequest;
     addVirtualHosts(value?: yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost, index?: number): yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost;
-    getHttpsRedirect(): boolean;
-    setHttpsRedirect(value: boolean): UpdateHttpRouterRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateHttpRouterRequest.AsObject;
@@ -167,7 +165,6 @@ export namespace UpdateHttpRouterRequest {
 
         labelsMap: Array<[string, string]>,
         virtualHostsList: Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.AsObject>,
-        httpsRedirect: boolean,
     }
 }
 
@@ -205,8 +202,6 @@ export class CreateHttpRouterRequest extends jspb.Message {
     getVirtualHostsList(): Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost>;
     setVirtualHostsList(value: Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost>): CreateHttpRouterRequest;
     addVirtualHosts(value?: yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost, index?: number): yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost;
-    getHttpsRedirect(): boolean;
-    setHttpsRedirect(value: boolean): CreateHttpRouterRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateHttpRouterRequest.AsObject;
@@ -226,7 +221,6 @@ export namespace CreateHttpRouterRequest {
 
         labelsMap: Array<[string, string]>,
         virtualHostsList: Array<yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.AsObject>,
-        httpsRedirect: boolean,
     }
 }
 

@@ -606,3 +606,66 @@ export namespace GetStateVariablesResponse {
         variables?: google_protobuf_struct_pb.Struct.AsObject,
     }
 }
+
+export class GetNotebookMetadataRequest extends jspb.Message { 
+    getProjectId(): string;
+    setProjectId(value: string): GetNotebookMetadataRequest;
+    getNotebookPath(): string;
+    setNotebookPath(value: string): GetNotebookMetadataRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetNotebookMetadataRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetNotebookMetadataRequest): GetNotebookMetadataRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetNotebookMetadataRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetNotebookMetadataRequest;
+    static deserializeBinaryFromReader(message: GetNotebookMetadataRequest, reader: jspb.BinaryReader): GetNotebookMetadataRequest;
+}
+
+export namespace GetNotebookMetadataRequest {
+    export type AsObject = {
+        projectId: string,
+        notebookPath: string,
+    }
+}
+
+export class GetNotebookMetadataResponse extends jspb.Message { 
+    getNotebookId(): string;
+    setNotebookId(value: string): GetNotebookMetadataResponse;
+
+    hasCreatedAt(): boolean;
+    clearCreatedAt(): void;
+    getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): GetNotebookMetadataResponse;
+
+    hasModifiedAt(): boolean;
+    clearModifiedAt(): void;
+    getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): GetNotebookMetadataResponse;
+    getContentLength(): number;
+    setContentLength(value: number): GetNotebookMetadataResponse;
+    clearCellIdsList(): void;
+    getCellIdsList(): Array<string>;
+    setCellIdsList(value: Array<string>): GetNotebookMetadataResponse;
+    addCellIds(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetNotebookMetadataResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetNotebookMetadataResponse): GetNotebookMetadataResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetNotebookMetadataResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetNotebookMetadataResponse;
+    static deserializeBinaryFromReader(message: GetNotebookMetadataResponse, reader: jspb.BinaryReader): GetNotebookMetadataResponse;
+}
+
+export namespace GetNotebookMetadataResponse {
+    export type AsObject = {
+        notebookId: string,
+        createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        contentLength: number,
+        cellIdsList: Array<string>,
+    }
+}

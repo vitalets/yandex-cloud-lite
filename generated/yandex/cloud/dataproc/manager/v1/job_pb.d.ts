@@ -54,6 +54,11 @@ export class Job extends jspb.Message {
     getHiveJob(): HiveJob | undefined;
     setHiveJob(value?: HiveJob): Job;
 
+    hasApplicationInfo(): boolean;
+    clearApplicationInfo(): void;
+    getApplicationInfo(): ApplicationInfo | undefined;
+    setApplicationInfo(value?: ApplicationInfo): Job;
+
     getJobSpecCase(): Job.JobSpecCase;
 
     serializeBinary(): Uint8Array;
@@ -80,6 +85,7 @@ export namespace Job {
         sparkJob?: SparkJob.AsObject,
         pysparkJob?: PysparkJob.AsObject,
         hiveJob?: HiveJob.AsObject,
+        applicationInfo?: ApplicationInfo.AsObject,
     }
 
     export enum Status {
@@ -100,6 +106,54 @@ export namespace Job {
         HIVE_JOB = 11,
     }
 
+}
+
+export class ApplicationAttempt extends jspb.Message { 
+    getId(): string;
+    setId(value: string): ApplicationAttempt;
+    getAmContainerId(): string;
+    setAmContainerId(value: string): ApplicationAttempt;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ApplicationAttempt.AsObject;
+    static toObject(includeInstance: boolean, msg: ApplicationAttempt): ApplicationAttempt.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ApplicationAttempt, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ApplicationAttempt;
+    static deserializeBinaryFromReader(message: ApplicationAttempt, reader: jspb.BinaryReader): ApplicationAttempt;
+}
+
+export namespace ApplicationAttempt {
+    export type AsObject = {
+        id: string,
+        amContainerId: string,
+    }
+}
+
+export class ApplicationInfo extends jspb.Message { 
+    getId(): string;
+    setId(value: string): ApplicationInfo;
+    clearApplicationAttemptsList(): void;
+    getApplicationAttemptsList(): Array<ApplicationAttempt>;
+    setApplicationAttemptsList(value: Array<ApplicationAttempt>): ApplicationInfo;
+    addApplicationAttempts(value?: ApplicationAttempt, index?: number): ApplicationAttempt;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ApplicationInfo.AsObject;
+    static toObject(includeInstance: boolean, msg: ApplicationInfo): ApplicationInfo.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ApplicationInfo, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ApplicationInfo;
+    static deserializeBinaryFromReader(message: ApplicationInfo, reader: jspb.BinaryReader): ApplicationInfo;
+}
+
+export namespace ApplicationInfo {
+    export type AsObject = {
+        id: string,
+        applicationAttemptsList: Array<ApplicationAttempt.AsObject>,
+    }
 }
 
 export class MapreduceJob extends jspb.Message { 
@@ -189,6 +243,18 @@ export class SparkJob extends jspb.Message {
     setMainJarFileUri(value: string): SparkJob;
     getMainClass(): string;
     setMainClass(value: string): SparkJob;
+    clearPackagesList(): void;
+    getPackagesList(): Array<string>;
+    setPackagesList(value: Array<string>): SparkJob;
+    addPackages(value: string, index?: number): string;
+    clearRepositoriesList(): void;
+    getRepositoriesList(): Array<string>;
+    setRepositoriesList(value: Array<string>): SparkJob;
+    addRepositories(value: string, index?: number): string;
+    clearExcludePackagesList(): void;
+    getExcludePackagesList(): Array<string>;
+    setExcludePackagesList(value: Array<string>): SparkJob;
+    addExcludePackages(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SparkJob.AsObject;
@@ -210,6 +276,9 @@ export namespace SparkJob {
         propertiesMap: Array<[string, string]>,
         mainJarFileUri: string,
         mainClass: string,
+        packagesList: Array<string>,
+        repositoriesList: Array<string>,
+        excludePackagesList: Array<string>,
     }
 }
 
@@ -239,6 +308,18 @@ export class PysparkJob extends jspb.Message {
     getPythonFileUrisList(): Array<string>;
     setPythonFileUrisList(value: Array<string>): PysparkJob;
     addPythonFileUris(value: string, index?: number): string;
+    clearPackagesList(): void;
+    getPackagesList(): Array<string>;
+    setPackagesList(value: Array<string>): PysparkJob;
+    addPackages(value: string, index?: number): string;
+    clearRepositoriesList(): void;
+    getRepositoriesList(): Array<string>;
+    setRepositoriesList(value: Array<string>): PysparkJob;
+    addRepositories(value: string, index?: number): string;
+    clearExcludePackagesList(): void;
+    getExcludePackagesList(): Array<string>;
+    setExcludePackagesList(value: Array<string>): PysparkJob;
+    addExcludePackages(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): PysparkJob.AsObject;
@@ -260,6 +341,9 @@ export namespace PysparkJob {
         propertiesMap: Array<[string, string]>,
         mainPythonFileUri: string,
         pythonFileUrisList: Array<string>,
+        packagesList: Array<string>,
+        repositoriesList: Array<string>,
+        excludePackagesList: Array<string>,
     }
 }
 

@@ -1116,8 +1116,7 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.toObject = functio
     description: jspb.Message.getFieldWithDefault(msg, 4, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     virtualHostsList: jspb.Message.toObjectList(msg.getVirtualHostsList(),
-    yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.toObject, includeInstance),
-    httpsRedirect: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
+    yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1181,10 +1180,6 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.deserializeBinaryF
       var value = new yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.deserializeBinaryFromReader);
       msg.addVirtualHosts(value);
-      break;
-    case 7:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHttpsRedirect(value);
       break;
     default:
       reader.skipField();
@@ -1254,13 +1249,6 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.serializeBinaryToW
       6,
       f,
       yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.serializeBinaryToWriter
-    );
-  }
-  f = message.getHttpsRedirect();
-  if (f) {
-    writer.writeBool(
-      7,
-      f
     );
   }
 };
@@ -1414,24 +1402,6 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.prototype.addVirtu
  */
 proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.prototype.clearVirtualHostsList = function() {
   return this.setVirtualHostsList([]);
-};
-
-
-/**
- * optional bool https_redirect = 7;
- * @return {boolean}
- */
-proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.prototype.getHttpsRedirect = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest} returns this
- */
-proto.yandex.cloud.apploadbalancer.v1.UpdateHttpRouterRequest.prototype.setHttpsRedirect = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -1609,8 +1579,7 @@ proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.toObject = functio
     description: jspb.Message.getFieldWithDefault(msg, 3, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     virtualHostsList: jspb.Message.toObjectList(msg.getVirtualHostsList(),
-    yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.toObject, includeInstance),
-    httpsRedirect: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
+    yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1669,10 +1638,6 @@ proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.deserializeBinaryF
       var value = new yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.deserializeBinaryFromReader);
       msg.addVirtualHosts(value);
-      break;
-    case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHttpsRedirect(value);
       break;
     default:
       reader.skipField();
@@ -1734,13 +1699,6 @@ proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.serializeBinaryToW
       5,
       f,
       yandex_cloud_apploadbalancer_v1_virtual_host_pb.VirtualHost.serializeBinaryToWriter
-    );
-  }
-  f = message.getHttpsRedirect();
-  if (f) {
-    writer.writeBool(
-      6,
-      f
     );
   }
 };
@@ -1857,24 +1815,6 @@ proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.prototype.addVirtu
  */
 proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.prototype.clearVirtualHostsList = function() {
   return this.setVirtualHostsList([]);
-};
-
-
-/**
- * optional bool https_redirect = 6;
- * @return {boolean}
- */
-proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.prototype.getHttpsRedirect = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest} returns this
- */
-proto.yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest.prototype.setHttpsRedirect = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

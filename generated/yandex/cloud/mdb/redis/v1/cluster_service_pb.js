@@ -506,7 +506,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.repeatedFields_, null);
 };
 goog.inherits(proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -527,7 +527,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.repeatedFields_, null);
 };
 goog.inherits(proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -5016,6 +5016,13 @@ proto.yandex.cloud.mdb.redis.v1.RestoreClusterMetadata.prototype.setBackupId = f
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -5047,7 +5054,8 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.toObject =
  */
 proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clusterId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    clusterId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    hostNamesList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -5088,6 +5096,10 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.deserializeBinaryFro
       var value = /** @type {string} */ (reader.readString());
       msg.setClusterId(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addHostNames(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -5124,6 +5136,13 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.serializeBinaryToWri
       f
     );
   }
+  f = message.getHostNamesList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -5145,6 +5164,50 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.setCluster
 };
 
 
+/**
+ * repeated string host_names = 2;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.getHostNamesList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.setHostNamesList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.addHostNames = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverRequest.prototype.clearHostNamesList = function() {
+  return this.setHostNamesList([]);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.repeatedFields_ = [2];
 
 
 
@@ -5177,7 +5240,8 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.toObject 
  */
 proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clusterId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    clusterId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    hostNamesList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -5218,6 +5282,10 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.deserializeBinaryFr
       var value = /** @type {string} */ (reader.readString());
       msg.setClusterId(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addHostNames(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -5254,6 +5322,13 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.serializeBinaryToWr
       f
     );
   }
+  f = message.getHostNamesList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -5272,6 +5347,43 @@ proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.getCluste
  */
 proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.setClusterId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated string host_names = 2;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.getHostNamesList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.setHostNamesList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.addHostNames = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata} returns this
+ */
+proto.yandex.cloud.mdb.redis.v1.StartClusterFailoverMetadata.prototype.clearHostNamesList = function() {
+  return this.setHostNamesList([]);
 };
 
 

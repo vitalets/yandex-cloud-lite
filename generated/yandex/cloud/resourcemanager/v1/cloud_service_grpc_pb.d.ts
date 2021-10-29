@@ -17,6 +17,7 @@ import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation
 interface ICloudServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     get: ICloudServiceService_IGet;
     list: ICloudServiceService_IList;
+    create: ICloudServiceService_ICreate;
     update: ICloudServiceService_IUpdate;
     delete: ICloudServiceService_IDelete;
     listOperations: ICloudServiceService_IListOperations;
@@ -42,6 +43,15 @@ interface ICloudServiceService_IList extends grpc.MethodDefinition<yandex_cloud_
     requestDeserialize: grpc.deserialize<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest>;
     responseSerialize: grpc.serialize<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse>;
+}
+interface ICloudServiceService_ICreate extends grpc.MethodDefinition<yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.resourcemanager.v1.CloudService/Create";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
 interface ICloudServiceService_IUpdate extends grpc.MethodDefinition<yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, yandex_cloud_operation_operation_pb.Operation> {
     path: "/yandex.cloud.resourcemanager.v1.CloudService/Update";
@@ -103,6 +113,7 @@ export const CloudServiceService: ICloudServiceService;
 export interface ICloudServiceServer extends grpc.UntypedServiceImplementation {
     get: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.GetCloudRequest, yandex_cloud_resourcemanager_v1_cloud_pb.Cloud>;
     list: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse>;
+    create: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, yandex_cloud_operation_operation_pb.Operation>;
     update: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.DeleteCloudRequest, yandex_cloud_operation_operation_pb.Operation>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudOperationsRequest, yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudOperationsResponse>;
@@ -118,6 +129,9 @@ export interface ICloudServiceClient {
     list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
     list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
     list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
+    create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
@@ -146,6 +160,9 @@ export class CloudServiceClient extends grpc.Client implements ICloudServiceClie
     public list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
     public list(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_resourcemanager_v1_cloud_service_pb.ListCloudsResponse) => void): grpc.ClientUnaryCall;
+    public create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public create(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.CreateCloudRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public update(request: yandex_cloud_resourcemanager_v1_cloud_service_pb.UpdateCloudRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

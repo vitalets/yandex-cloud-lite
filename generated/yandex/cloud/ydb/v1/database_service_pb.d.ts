@@ -330,6 +330,11 @@ export class CreateDatabaseRequest extends jspb.Message {
     getBackupConfig(): yandex_cloud_ydb_v1_backup_pb.BackupConfig | undefined;
     setBackupConfig(value?: yandex_cloud_ydb_v1_backup_pb.BackupConfig): CreateDatabaseRequest;
 
+    hasMonitoringConfig(): boolean;
+    clearMonitoringConfig(): void;
+    getMonitoringConfig(): yandex_cloud_ydb_v1_database_pb.MonitoringConfig | undefined;
+    setMonitoringConfig(value?: yandex_cloud_ydb_v1_database_pb.MonitoringConfig): CreateDatabaseRequest;
+
     getDatabaseTypeCase(): CreateDatabaseRequest.DatabaseTypeCase;
 
     serializeBinary(): Uint8Array;
@@ -361,6 +366,7 @@ export namespace CreateDatabaseRequest {
 
         labelsMap: Array<[string, string]>,
         backupConfig?: yandex_cloud_ydb_v1_backup_pb.BackupConfig.AsObject,
+        monitoringConfig?: yandex_cloud_ydb_v1_database_pb.MonitoringConfig.AsObject,
     }
 
     export enum DatabaseTypeCase {
@@ -461,6 +467,11 @@ export class UpdateDatabaseRequest extends jspb.Message {
     getBackupConfig(): yandex_cloud_ydb_v1_backup_pb.BackupConfig | undefined;
     setBackupConfig(value?: yandex_cloud_ydb_v1_backup_pb.BackupConfig): UpdateDatabaseRequest;
 
+    hasMonitoringConfig(): boolean;
+    clearMonitoringConfig(): void;
+    getMonitoringConfig(): yandex_cloud_ydb_v1_database_pb.MonitoringConfig | undefined;
+    setMonitoringConfig(value?: yandex_cloud_ydb_v1_database_pb.MonitoringConfig): UpdateDatabaseRequest;
+
     getDatabaseTypeCase(): UpdateDatabaseRequest.DatabaseTypeCase;
 
     serializeBinary(): Uint8Array;
@@ -494,6 +505,7 @@ export namespace UpdateDatabaseRequest {
 
         labelsMap: Array<[string, string]>,
         backupConfig?: yandex_cloud_ydb_v1_backup_pb.BackupConfig.AsObject,
+        monitoringConfig?: yandex_cloud_ydb_v1_database_pb.MonitoringConfig.AsObject,
     }
 
     export enum DatabaseTypeCase {

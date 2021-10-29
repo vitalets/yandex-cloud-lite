@@ -416,7 +416,16 @@ detachDisk: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Attaches the disk to the instance.
+  // Attaches the filesystem to the instance.
+//
+// The instance and the filesystem must reside in the same availability zone.
+//
+// To attach a filesystem, the instance must have a `STOPPED` status ([Instance.status]).
+// To check the instance status, make a [InstanceService.Get] request.
+// To stop the running instance, make a [InstanceService.Stop] request.
+//
+// To use the instance with an attached filesystem, the latter must be mounted.
+// For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
 attachFilesystem: {
     path: '/yandex.cloud.compute.v1.InstanceService/AttachFilesystem',
     requestStream: false,
@@ -428,7 +437,11 @@ attachFilesystem: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Detaches the disk from the instance.
+  // Detaches the filesystem from the instance.
+//
+// To detach a filesystem, the instance must have a `STOPPED` status ([Instance.status]).
+// To check the instance status, make a [InstanceService.Get] request.
+// To stop the running instance, make a [InstanceService.Stop] request.
 detachFilesystem: {
     path: '/yandex.cloud.compute.v1.InstanceService/DetachFilesystem',
     requestStream: false,

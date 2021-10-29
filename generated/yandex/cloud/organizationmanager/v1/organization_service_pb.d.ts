@@ -98,6 +98,9 @@ export class UpdateOrganizationRequest extends jspb.Message {
     getTitle(): string;
     setTitle(value: string): UpdateOrganizationRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateOrganizationRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateOrganizationRequest): UpdateOrganizationRequest.AsObject;
@@ -115,6 +118,8 @@ export namespace UpdateOrganizationRequest {
         name: string,
         description: string,
         title: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 

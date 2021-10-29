@@ -21,6 +21,7 @@ import * as yandex_cloud_mdb_mongodb_v1_config_mongodb3_6_pb from "../../../../.
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_0_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_0_pb";
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_2_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_2_pb";
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_4_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_4_pb";
+import * as yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb5_0_pb";
 import * as yandex_cloud_mdb_mongodb_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/maintenance_pb";
 
 interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

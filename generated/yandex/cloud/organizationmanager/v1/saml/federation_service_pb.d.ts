@@ -115,6 +115,9 @@ export class CreateFederationRequest extends jspb.Message {
     getCaseInsensitiveNameIds(): boolean;
     setCaseInsensitiveNameIds(value: boolean): CreateFederationRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateFederationRequest.AsObject;
     static toObject(includeInstance: boolean, msg: CreateFederationRequest): CreateFederationRequest.AsObject;
@@ -137,6 +140,8 @@ export namespace CreateFederationRequest {
         ssoUrl: string,
         securitySettings?: yandex_cloud_organizationmanager_v1_saml_federation_pb.FederationSecuritySettings.AsObject,
         caseInsensitiveNameIds: boolean,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 
@@ -193,6 +198,9 @@ export class UpdateFederationRequest extends jspb.Message {
     getCaseInsensitiveNameIds(): boolean;
     setCaseInsensitiveNameIds(value: boolean): UpdateFederationRequest;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateFederationRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateFederationRequest): UpdateFederationRequest.AsObject;
@@ -216,6 +224,8 @@ export namespace UpdateFederationRequest {
         ssoUrl: string,
         securitySettings?: yandex_cloud_organizationmanager_v1_saml_federation_pb.FederationSecuritySettings.AsObject,
         caseInsensitiveNameIds: boolean,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 

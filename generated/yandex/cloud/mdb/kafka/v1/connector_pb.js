@@ -567,7 +567,8 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.toObject = functi
   var f, obj = {
     sourceCluster: (f = msg.getSourceCluster()) && proto.yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec.toObject(includeInstance, f),
     targetCluster: (f = msg.getTargetCluster()) && proto.yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec.toObject(includeInstance, f),
-    topics: jspb.Message.getFieldWithDefault(msg, 3, "")
+    topics: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    replicationFactor: (f = msg.getReplicationFactor()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -617,6 +618,11 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.deserializeBinary
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setTopics(value);
+      break;
+    case 4:
+      var value = new google_protobuf_wrappers_pb.Int64Value;
+      reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
+      msg.setReplicationFactor(value);
       break;
     default:
       reader.skipField();
@@ -668,6 +674,14 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.serializeBinaryTo
     writer.writeString(
       3,
       f
+    );
+  }
+  f = message.getReplicationFactor();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
     );
   }
 };
@@ -762,6 +776,43 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.getTopi
  */
 proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.setTopics = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional google.protobuf.Int64Value replication_factor = 4;
+ * @return {?proto.google.protobuf.Int64Value}
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.getReplicationFactor = function() {
+  return /** @type{?proto.google.protobuf.Int64Value} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.Int64Value, 4));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Int64Value|undefined} value
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec} returns this
+*/
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.setReplicationFactor = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec} returns this
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.clearReplicationFactor = function() {
+  return this.setReplicationFactor(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec.prototype.hasReplicationFactor = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -1807,7 +1858,8 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.toObject = function(i
   var f, obj = {
     sourceCluster: (f = msg.getSourceCluster()) && proto.yandex.cloud.mdb.kafka.v1.ClusterConnection.toObject(includeInstance, f),
     targetCluster: (f = msg.getTargetCluster()) && proto.yandex.cloud.mdb.kafka.v1.ClusterConnection.toObject(includeInstance, f),
-    topics: jspb.Message.getFieldWithDefault(msg, 3, "")
+    topics: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    replicationFactor: (f = msg.getReplicationFactor()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1857,6 +1909,11 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.deserializeBinaryFrom
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setTopics(value);
+      break;
+    case 4:
+      var value = new google_protobuf_wrappers_pb.Int64Value;
+      reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
+      msg.setReplicationFactor(value);
       break;
     default:
       reader.skipField();
@@ -1908,6 +1965,14 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.serializeBinaryToWrit
     writer.writeString(
       3,
       f
+    );
+  }
+  f = message.getReplicationFactor();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
     );
   }
 };
@@ -2002,6 +2067,43 @@ proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.getTopics =
  */
 proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.setTopics = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional google.protobuf.Int64Value replication_factor = 4;
+ * @return {?proto.google.protobuf.Int64Value}
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.getReplicationFactor = function() {
+  return /** @type{?proto.google.protobuf.Int64Value} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.Int64Value, 4));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Int64Value|undefined} value
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker} returns this
+*/
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.setReplicationFactor = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker} returns this
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.clearReplicationFactor = function() {
+  return this.setReplicationFactor(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker.prototype.hasReplicationFactor = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

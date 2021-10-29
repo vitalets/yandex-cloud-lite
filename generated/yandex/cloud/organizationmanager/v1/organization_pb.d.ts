@@ -22,6 +22,9 @@ export class Organization extends jspb.Message {
     getTitle(): string;
     setTitle(value: string): Organization;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Organization.AsObject;
     static toObject(includeInstance: boolean, msg: Organization): Organization.AsObject;
@@ -39,5 +42,7 @@ export namespace Organization {
         name: string,
         description: string,
         title: string,
+
+        labelsMap: Array<[string, string]>,
     }
 }

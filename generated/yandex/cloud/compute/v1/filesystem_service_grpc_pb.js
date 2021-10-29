@@ -121,11 +121,11 @@ function deserialize_yandex_cloud_operation_Operation(buffer_arg) {
 }
 
 
-// A set of methods for managing Filesystem resources.
+// A set of methods for managing filesystems.
 var FilesystemServiceService = exports.FilesystemServiceService = {
-  // Returns the specified Filesystem resource.
+  // Returns the specified filesystem.
 //
-// To get the list of available Filesystem resources, make a [List] request.
+// To get the list of available filesystems, make a [List] request.
 get: {
     path: '/yandex.cloud.compute.v1.FilesystemService/Get',
     requestStream: false,
@@ -137,7 +137,7 @@ get: {
     responseSerialize: serialize_yandex_cloud_compute_v1_Filesystem,
     responseDeserialize: deserialize_yandex_cloud_compute_v1_Filesystem,
   },
-  // Retrieves the list of Filesystem resources in the specified folder.
+  // Lists filesystems in the specified folder.
 list: {
     path: '/yandex.cloud.compute.v1.FilesystemService/List',
     requestStream: false,
@@ -150,9 +150,6 @@ list: {
     responseDeserialize: deserialize_yandex_cloud_compute_v1_ListFilesystemsResponse,
   },
   // Creates a filesystem in the specified folder.
-//
-// You can create an empty filesystem or restore it from a snapshot or an image.
-// Method starts an asynchronous operation that can be cancelled while it is in progress.
 create: {
     path: '/yandex.cloud.compute.v1.FilesystemService/Create',
     requestStream: false,

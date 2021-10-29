@@ -44,6 +44,9 @@ export class Federation extends jspb.Message {
     getCaseInsensitiveNameIds(): boolean;
     setCaseInsensitiveNameIds(value: boolean): Federation;
 
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Federation.AsObject;
     static toObject(includeInstance: boolean, msg: Federation): Federation.AsObject;
@@ -68,6 +71,8 @@ export namespace Federation {
         ssoUrl: string,
         securitySettings?: FederationSecuritySettings.AsObject,
         caseInsensitiveNameIds: boolean,
+
+        labelsMap: Array<[string, string]>,
     }
 }
 

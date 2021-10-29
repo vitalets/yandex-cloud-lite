@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -184,6 +185,77 @@ export class CreateClusterMetadata extends jspb.Message {
 }
 
 export namespace CreateClusterMetadata {
+    export type AsObject = {
+        clusterId: string,
+    }
+}
+
+export class UpdateClusterRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): UpdateClusterRequest;
+
+    hasUpdateMask(): boolean;
+    clearUpdateMask(): void;
+    getUpdateMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+    setUpdateMask(value?: google_protobuf_field_mask_pb.FieldMask): UpdateClusterRequest;
+    getDescription(): string;
+    setDescription(value: string): UpdateClusterRequest;
+
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+    getName(): string;
+    setName(value: string): UpdateClusterRequest;
+
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig | undefined;
+    setConfig(value?: yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig): UpdateClusterRequest;
+    clearSecurityGroupIdsList(): void;
+    getSecurityGroupIdsList(): Array<string>;
+    setSecurityGroupIdsList(value: Array<string>): UpdateClusterRequest;
+    addSecurityGroupIds(value: string, index?: number): string;
+    getDeletionProtection(): boolean;
+    setDeletionProtection(value: boolean): UpdateClusterRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateClusterRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateClusterRequest): UpdateClusterRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateClusterRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateClusterRequest;
+    static deserializeBinaryFromReader(message: UpdateClusterRequest, reader: jspb.BinaryReader): UpdateClusterRequest;
+}
+
+export namespace UpdateClusterRequest {
+    export type AsObject = {
+        clusterId: string,
+        updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+        description: string,
+
+        labelsMap: Array<[string, string]>,
+        name: string,
+        config?: yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig.AsObject,
+        securityGroupIdsList: Array<string>,
+        deletionProtection: boolean,
+    }
+}
+
+export class UpdateClusterMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): UpdateClusterMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateClusterMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateClusterMetadata): UpdateClusterMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateClusterMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateClusterMetadata;
+    static deserializeBinaryFromReader(message: UpdateClusterMetadata, reader: jspb.BinaryReader): UpdateClusterMetadata;
+}
+
+export namespace UpdateClusterMetadata {
     export type AsObject = {
         clusterId: string,
     }

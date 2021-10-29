@@ -220,8 +220,6 @@ update: {
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
   // Deletes the specified folder.
-//
-// The method is temporarily unavailable.
 delete: {
     path: '/yandex.cloud.resourcemanager.v1.FolderService/Delete',
     requestStream: false,

@@ -845,7 +845,8 @@ proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.toObject = function(includ
   var f, obj = {
     folderId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 3, "")
+    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -893,6 +894,12 @@ proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.deserializeBinaryFromReade
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
+      break;
+    case 4:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -943,6 +950,10 @@ proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.serializeBinaryToWriter = 
       3,
       f
     );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -999,6 +1010,28 @@ proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.prototype.getDescription =
 proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.prototype.setDescription = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
+
+
+/**
+ * map<string, string> labels = 4;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 4, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.iam.v1.CreateServiceAccountRequest} returns this
+ */
+proto.yandex.cloud.iam.v1.CreateServiceAccountRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
 
 
 
@@ -1166,7 +1199,8 @@ proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.toObject = function(includ
     serviceAccountId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     updateMask: (f = msg.getUpdateMask()) && google_protobuf_field_mask_pb.FieldMask.toObject(includeInstance, f),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 4, "")
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -1219,6 +1253,12 @@ proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.deserializeBinaryFromReade
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
+      break;
+    case 5:
+      var value = msg.getLabelsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -1277,6 +1317,10 @@ proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.serializeBinaryToWriter = 
       4,
       f
     );
+  }
+  f = message.getLabelsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(5, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -1370,6 +1414,28 @@ proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.prototype.getDescription =
 proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.prototype.setDescription = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
+
+
+/**
+ * map<string, string> labels = 5;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.prototype.getLabelsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 5, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest} returns this
+ */
+proto.yandex.cloud.iam.v1.UpdateServiceAccountRequest.prototype.clearLabelsMap = function() {
+  this.getLabelsMap().clear();
+  return this;};
 
 
 

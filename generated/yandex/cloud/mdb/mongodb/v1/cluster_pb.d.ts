@@ -12,6 +12,7 @@ import * as yandex_cloud_mdb_mongodb_v1_config_mongodb3_6_pb from "../../../../.
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_0_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_0_pb";
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_2_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_2_pb";
 import * as yandex_cloud_mdb_mongodb_v1_config_mongodb4_4_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb4_4_pb";
+import * as yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/config/mongodb5_0_pb";
 import * as yandex_cloud_mdb_mongodb_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/mongodb/v1/maintenance_pb";
 
 export class Cluster extends jspb.Message { 
@@ -177,6 +178,11 @@ export class ClusterConfig extends jspb.Message {
     getMongodb44(): Mongodb4_4 | undefined;
     setMongodb44(value?: Mongodb4_4): ClusterConfig;
 
+    hasMongodb50(): boolean;
+    clearMongodb50(): void;
+    getMongodb50(): Mongodb5_0 | undefined;
+    setMongodb50(value?: Mongodb5_0): ClusterConfig;
+
     hasBackupWindowStart(): boolean;
     clearBackupWindowStart(): void;
     getBackupWindowStart(): google_type_timeofday_pb.TimeOfDay | undefined;
@@ -212,6 +218,7 @@ export namespace ClusterConfig {
         mongodb40?: Mongodb4_0.AsObject,
         mongodb42?: Mongodb4_2.AsObject,
         mongodb44?: Mongodb4_4.AsObject,
+        mongodb50?: Mongodb5_0.AsObject,
         backupWindowStart?: google_type_timeofday_pb.TimeOfDay.AsObject,
         backupRetainPeriodDays?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         access?: Access.AsObject,
@@ -223,6 +230,7 @@ export namespace ClusterConfig {
         MONGODB_4_0 = 4,
         MONGODB_4_2 = 7,
         MONGODB_4_4 = 8,
+        MONGODB_5_0 = 10,
     }
 
 }
@@ -881,6 +889,171 @@ export namespace Mongodb4_4 {
         export type AsObject = {
             configMongos?: yandex_cloud_mdb_mongodb_v1_config_mongodb4_4_pb.MongosConfigSet4_4.AsObject,
             configMongocfg?: yandex_cloud_mdb_mongodb_v1_config_mongodb4_4_pb.MongoCfgConfigSet4_4.AsObject,
+            resources?: Resources.AsObject,
+        }
+    }
+
+}
+
+export class Mongodb5_0 extends jspb.Message { 
+
+    hasMongod(): boolean;
+    clearMongod(): void;
+    getMongod(): Mongodb5_0.Mongod | undefined;
+    setMongod(value?: Mongodb5_0.Mongod): Mongodb5_0;
+
+    hasMongocfg(): boolean;
+    clearMongocfg(): void;
+    getMongocfg(): Mongodb5_0.MongoCfg | undefined;
+    setMongocfg(value?: Mongodb5_0.MongoCfg): Mongodb5_0;
+
+    hasMongos(): boolean;
+    clearMongos(): void;
+    getMongos(): Mongodb5_0.Mongos | undefined;
+    setMongos(value?: Mongodb5_0.Mongos): Mongodb5_0;
+
+    hasMongoinfra(): boolean;
+    clearMongoinfra(): void;
+    getMongoinfra(): Mongodb5_0.MongoInfra | undefined;
+    setMongoinfra(value?: Mongodb5_0.MongoInfra): Mongodb5_0;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Mongodb5_0.AsObject;
+    static toObject(includeInstance: boolean, msg: Mongodb5_0): Mongodb5_0.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Mongodb5_0, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Mongodb5_0;
+    static deserializeBinaryFromReader(message: Mongodb5_0, reader: jspb.BinaryReader): Mongodb5_0;
+}
+
+export namespace Mongodb5_0 {
+    export type AsObject = {
+        mongod?: Mongodb5_0.Mongod.AsObject,
+        mongocfg?: Mongodb5_0.MongoCfg.AsObject,
+        mongos?: Mongodb5_0.Mongos.AsObject,
+        mongoinfra?: Mongodb5_0.MongoInfra.AsObject,
+    }
+
+
+    export class Mongod extends jspb.Message { 
+
+        hasConfig(): boolean;
+        clearConfig(): void;
+        getConfig(): yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongodConfigSet5_0 | undefined;
+        setConfig(value?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongodConfigSet5_0): Mongod;
+
+        hasResources(): boolean;
+        clearResources(): void;
+        getResources(): Resources | undefined;
+        setResources(value?: Resources): Mongod;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Mongod.AsObject;
+        static toObject(includeInstance: boolean, msg: Mongod): Mongod.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: Mongod, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Mongod;
+        static deserializeBinaryFromReader(message: Mongod, reader: jspb.BinaryReader): Mongod;
+    }
+
+    export namespace Mongod {
+        export type AsObject = {
+            config?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongodConfigSet5_0.AsObject,
+            resources?: Resources.AsObject,
+        }
+    }
+
+    export class MongoCfg extends jspb.Message { 
+
+        hasConfig(): boolean;
+        clearConfig(): void;
+        getConfig(): yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0 | undefined;
+        setConfig(value?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0): MongoCfg;
+
+        hasResources(): boolean;
+        clearResources(): void;
+        getResources(): Resources | undefined;
+        setResources(value?: Resources): MongoCfg;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): MongoCfg.AsObject;
+        static toObject(includeInstance: boolean, msg: MongoCfg): MongoCfg.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: MongoCfg, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): MongoCfg;
+        static deserializeBinaryFromReader(message: MongoCfg, reader: jspb.BinaryReader): MongoCfg;
+    }
+
+    export namespace MongoCfg {
+        export type AsObject = {
+            config?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0.AsObject,
+            resources?: Resources.AsObject,
+        }
+    }
+
+    export class Mongos extends jspb.Message { 
+
+        hasConfig(): boolean;
+        clearConfig(): void;
+        getConfig(): yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0 | undefined;
+        setConfig(value?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0): Mongos;
+
+        hasResources(): boolean;
+        clearResources(): void;
+        getResources(): Resources | undefined;
+        setResources(value?: Resources): Mongos;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Mongos.AsObject;
+        static toObject(includeInstance: boolean, msg: Mongos): Mongos.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: Mongos, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Mongos;
+        static deserializeBinaryFromReader(message: Mongos, reader: jspb.BinaryReader): Mongos;
+    }
+
+    export namespace Mongos {
+        export type AsObject = {
+            config?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0.AsObject,
+            resources?: Resources.AsObject,
+        }
+    }
+
+    export class MongoInfra extends jspb.Message { 
+
+        hasConfigMongos(): boolean;
+        clearConfigMongos(): void;
+        getConfigMongos(): yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0 | undefined;
+        setConfigMongos(value?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0): MongoInfra;
+
+        hasConfigMongocfg(): boolean;
+        clearConfigMongocfg(): void;
+        getConfigMongocfg(): yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0 | undefined;
+        setConfigMongocfg(value?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0): MongoInfra;
+
+        hasResources(): boolean;
+        clearResources(): void;
+        getResources(): Resources | undefined;
+        setResources(value?: Resources): MongoInfra;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): MongoInfra.AsObject;
+        static toObject(includeInstance: boolean, msg: MongoInfra): MongoInfra.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: MongoInfra, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): MongoInfra;
+        static deserializeBinaryFromReader(message: MongoInfra, reader: jspb.BinaryReader): MongoInfra;
+    }
+
+    export namespace MongoInfra {
+        export type AsObject = {
+            configMongos?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongosConfigSet5_0.AsObject,
+            configMongocfg?: yandex_cloud_mdb_mongodb_v1_config_mongodb5_0_pb.MongoCfgConfigSet5_0.AsObject,
             resources?: Resources.AsObject,
         }
     }

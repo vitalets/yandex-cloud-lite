@@ -66,6 +66,11 @@ export class ConnectorConfigMirrorMakerSpec extends jspb.Message {
     getTopics(): string;
     setTopics(value: string): ConnectorConfigMirrorMakerSpec;
 
+    hasReplicationFactor(): boolean;
+    clearReplicationFactor(): void;
+    getReplicationFactor(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setReplicationFactor(value?: google_protobuf_wrappers_pb.Int64Value): ConnectorConfigMirrorMakerSpec;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ConnectorConfigMirrorMakerSpec.AsObject;
     static toObject(includeInstance: boolean, msg: ConnectorConfigMirrorMakerSpec): ConnectorConfigMirrorMakerSpec.AsObject;
@@ -81,6 +86,7 @@ export namespace ConnectorConfigMirrorMakerSpec {
         sourceCluster?: ClusterConnectionSpec.AsObject,
         targetCluster?: ClusterConnectionSpec.AsObject,
         topics: string,
+        replicationFactor?: google_protobuf_wrappers_pb.Int64Value.AsObject,
     }
 }
 
@@ -256,6 +262,11 @@ export class ConnectorConfigMirrorMaker extends jspb.Message {
     getTopics(): string;
     setTopics(value: string): ConnectorConfigMirrorMaker;
 
+    hasReplicationFactor(): boolean;
+    clearReplicationFactor(): void;
+    getReplicationFactor(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setReplicationFactor(value?: google_protobuf_wrappers_pb.Int64Value): ConnectorConfigMirrorMaker;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ConnectorConfigMirrorMaker.AsObject;
     static toObject(includeInstance: boolean, msg: ConnectorConfigMirrorMaker): ConnectorConfigMirrorMaker.AsObject;
@@ -271,6 +282,7 @@ export namespace ConnectorConfigMirrorMaker {
         sourceCluster?: ClusterConnection.AsObject,
         targetCluster?: ClusterConnection.AsObject,
         topics: string,
+        replicationFactor?: google_protobuf_wrappers_pb.Int64Value.AsObject,
     }
 }
 
