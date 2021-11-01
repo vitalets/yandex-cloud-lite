@@ -17,7 +17,7 @@
     "compile-proto": "./scripts/compile-proto.sh",
     "check": "ts-node scripts/check.ts",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
-    "release": "npm run lint && npm t && npm run build && np",
+    "release": "npm run lint && npm t && npm run build && np --yolo --no-release-draft",
     "release-patch": "VER=patch npm run release",
     "release-minor": "VER=minor npm run release"
   },
