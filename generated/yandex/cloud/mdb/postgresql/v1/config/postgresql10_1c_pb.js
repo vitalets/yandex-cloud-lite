@@ -1876,7 +1876,9 @@ proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C.PgHintPlanDebu
 proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C.SharedPreloadLibraries = {
   SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: 0,
   SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN: 1,
-  SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: 2
+  SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: 2,
+  SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: 3,
+  SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: 4
 };
 
 /**

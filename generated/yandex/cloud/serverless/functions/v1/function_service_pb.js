@@ -3761,7 +3761,7 @@ proto.yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse.protot
  * @private {!Array<number>}
  * @const
  */
-proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.repeatedFields_ = [13];
+proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.repeatedFields_ = [13,18];
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -3834,7 +3834,9 @@ proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.toObject
     environmentMap: (f = msg.getEnvironmentMap()) ? f.toObject(includeInstance, undefined) : [],
     tagList: (f = jspb.Message.getRepeatedField(msg, 13)) == null ? undefined : f,
     connectivity: (f = msg.getConnectivity()) && yandex_cloud_serverless_functions_v1_function_pb.Connectivity.toObject(includeInstance, f),
-    namedServiceAccountsMap: (f = msg.getNamedServiceAccountsMap()) ? f.toObject(includeInstance, undefined) : []
+    namedServiceAccountsMap: (f = msg.getNamedServiceAccountsMap()) ? f.toObject(includeInstance, undefined) : [],
+    secretsList: jspb.Message.toObjectList(msg.getSecretsList(),
+    yandex_cloud_serverless_functions_v1_function_pb.Secret.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3934,6 +3936,11 @@ proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.deserial
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
          });
+      break;
+    case 18:
+      var value = new yandex_cloud_serverless_functions_v1_function_pb.Secret;
+      reader.readMessage(value,yandex_cloud_serverless_functions_v1_function_pb.Secret.deserializeBinaryFromReader);
+      msg.addSecrets(value);
       break;
     default:
       reader.skipField();
@@ -4059,6 +4066,14 @@ proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.serializ
   f = message.getNamedServiceAccountsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(15, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getSecretsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      18,
+      f,
+      yandex_cloud_serverless_functions_v1_function_pb.Secret.serializeBinaryToWriter
+    );
   }
 };
 
@@ -4476,6 +4491,44 @@ proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototyp
 proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototype.clearNamedServiceAccountsMap = function() {
   this.getNamedServiceAccountsMap().clear();
   return this;};
+
+
+/**
+ * repeated Secret secrets = 18;
+ * @return {!Array<!proto.yandex.cloud.serverless.functions.v1.Secret>}
+ */
+proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototype.getSecretsList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.serverless.functions.v1.Secret>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_serverless_functions_v1_function_pb.Secret, 18));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.serverless.functions.v1.Secret>} value
+ * @return {!proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest} returns this
+*/
+proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototype.setSecretsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 18, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.serverless.functions.v1.Secret=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.serverless.functions.v1.Secret}
+ */
+proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototype.addSecrets = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 18, opt_value, proto.yandex.cloud.serverless.functions.v1.Secret, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest} returns this
+ */
+proto.yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest.prototype.clearSecretsList = function() {
+  return this.setSecretsList([]);
+};
 
 
 

@@ -52,7 +52,7 @@ service SubnetService {
   rpc AddCidrBlocks (AddSubnetCidrBlocksRequest) returns (operation.Operation) {
     option (google.api.http) = {post: "/vpc/v1/subnets/{subnet_id}:add-cidr-blocks" body: "*"};
     option (yandex.cloud.api.operation) = {
-      metadata: "AddSubnetCidrBlocksMetadata"
+      metadata: "UpdateSubnetMetadata"
       response: "Subnet"
     };
   }
@@ -62,7 +62,7 @@ service SubnetService {
   rpc RemoveCidrBlocks (RemoveSubnetCidrBlocksRequest) returns (operation.Operation) {
     option (google.api.http) = {post: "/vpc/v1/subnets/{subnet_id}:remove-cidr-blocks" body: "*"};
     option (yandex.cloud.api.operation) = {
-      metadata: "RemoveSubnetCidrBlocksMetadata"
+      metadata: "UpdateSubnetMetadata"
       response: "Subnet"
     };
   }
@@ -118,8 +118,8 @@ message ListSubnetsRequest {
   // A filter expression that filters resources listed in the response.
   // The expression must specify:
   // 1. The field name. Currently you can use filtering only on [Subnet.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   string filter = 4 [(length) = "<=1000"];
 }
 

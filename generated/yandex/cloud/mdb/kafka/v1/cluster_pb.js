@@ -21,6 +21,8 @@ var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/time
 goog.object.extend(proto, google_protobuf_timestamp_pb);
 var yandex_cloud_mdb_kafka_v1_common_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/common_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_kafka_v1_common_pb);
+var yandex_cloud_mdb_kafka_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/maintenance_pb.js');
+goog.object.extend(proto, yandex_cloud_mdb_kafka_v1_maintenance_pb);
 goog.exportSymbol('proto.yandex.cloud.mdb.kafka.v1.Cluster', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.kafka.v1.Cluster.Environment', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.kafka.v1.Cluster.Health', null, global);
@@ -301,7 +303,9 @@ proto.yandex.cloud.mdb.kafka.v1.Cluster.toObject = function(includeInstance, msg
     status: jspb.Message.getFieldWithDefault(msg, 12, 0),
     securityGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 13)) == null ? undefined : f,
     hostGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 14)) == null ? undefined : f,
-    deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 15, false)
+    deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 15, false),
+    maintenanceWindow: (f = msg.getMaintenanceWindow()) && yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow.toObject(includeInstance, f),
+    plannedOperation: (f = msg.getPlannedOperation()) && yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceOperation.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -402,6 +406,16 @@ proto.yandex.cloud.mdb.kafka.v1.Cluster.deserializeBinaryFromReader = function(m
     case 15:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDeletionProtection(value);
+      break;
+    case 16:
+      var value = new yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow;
+      reader.readMessage(value,yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow.deserializeBinaryFromReader);
+      msg.setMaintenanceWindow(value);
+      break;
+    case 17:
+      var value = new yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceOperation;
+      reader.readMessage(value,yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceOperation.deserializeBinaryFromReader);
+      msg.setPlannedOperation(value);
       break;
     default:
       reader.skipField();
@@ -535,6 +549,22 @@ proto.yandex.cloud.mdb.kafka.v1.Cluster.serializeBinaryToWriter = function(messa
     writer.writeBool(
       15,
       f
+    );
+  }
+  f = message.getMaintenanceWindow();
+  if (f != null) {
+    writer.writeMessage(
+      16,
+      f,
+      yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow.serializeBinaryToWriter
+    );
+  }
+  f = message.getPlannedOperation();
+  if (f != null) {
+    writer.writeMessage(
+      17,
+      f,
+      yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceOperation.serializeBinaryToWriter
     );
   }
 };
@@ -940,6 +970,80 @@ proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.getDeletionProtection = functi
  */
 proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.setDeletionProtection = function(value) {
   return jspb.Message.setProto3BooleanField(this, 15, value);
+};
+
+
+/**
+ * optional MaintenanceWindow maintenance_window = 16;
+ * @return {?proto.yandex.cloud.mdb.kafka.v1.MaintenanceWindow}
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.getMaintenanceWindow = function() {
+  return /** @type{?proto.yandex.cloud.mdb.kafka.v1.MaintenanceWindow} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow, 16));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.mdb.kafka.v1.MaintenanceWindow|undefined} value
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.Cluster} returns this
+*/
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.setMaintenanceWindow = function(value) {
+  return jspb.Message.setWrapperField(this, 16, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.Cluster} returns this
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.clearMaintenanceWindow = function() {
+  return this.setMaintenanceWindow(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.hasMaintenanceWindow = function() {
+  return jspb.Message.getField(this, 16) != null;
+};
+
+
+/**
+ * optional MaintenanceOperation planned_operation = 17;
+ * @return {?proto.yandex.cloud.mdb.kafka.v1.MaintenanceOperation}
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.getPlannedOperation = function() {
+  return /** @type{?proto.yandex.cloud.mdb.kafka.v1.MaintenanceOperation} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceOperation, 17));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.mdb.kafka.v1.MaintenanceOperation|undefined} value
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.Cluster} returns this
+*/
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.setPlannedOperation = function(value) {
+  return jspb.Message.setWrapperField(this, 17, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.kafka.v1.Cluster} returns this
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.clearPlannedOperation = function() {
+  return this.setPlannedOperation(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.kafka.v1.Cluster.prototype.hasPlannedOperation = function() {
+  return jspb.Message.getField(this, 17) != null;
 };
 
 

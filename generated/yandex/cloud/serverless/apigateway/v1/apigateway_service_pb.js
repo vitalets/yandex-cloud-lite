@@ -1007,7 +1007,8 @@ proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.toObject = f
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 3, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    openapiSpec: jspb.Message.getFieldWithDefault(msg, 5, "")
+    openapiSpec: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    connectivity: (f = msg.getConnectivity()) && yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1065,6 +1066,11 @@ proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.deserializeB
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setOpenapiSpec(value);
+      break;
+    case 6:
+      var value = new yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity;
+      reader.readMessage(value,yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.deserializeBinaryFromReader);
+      msg.setConnectivity(value);
       break;
     default:
       reader.skipField();
@@ -1125,6 +1131,14 @@ proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.serializeBin
     writer.writeString(
       5,
       f
+    );
+  }
+  f = message.getConnectivity();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.serializeBinaryToWriter
     );
   }
 };
@@ -1242,6 +1256,43 @@ proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.prototype.ha
 };
 
 
+/**
+ * optional Connectivity connectivity = 6;
+ * @return {?proto.yandex.cloud.serverless.apigateway.v1.Connectivity}
+ */
+proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.prototype.getConnectivity = function() {
+  return /** @type{?proto.yandex.cloud.serverless.apigateway.v1.Connectivity} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity, 6));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.serverless.apigateway.v1.Connectivity|undefined} value
+ * @return {!proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest} returns this
+*/
+proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.prototype.setConnectivity = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest} returns this
+ */
+proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.prototype.clearConnectivity = function() {
+  return this.setConnectivity(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest.prototype.hasConnectivity = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -1304,7 +1355,8 @@ proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.toObject = f
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     description: jspb.Message.getFieldWithDefault(msg, 4, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
-    openapiSpec: jspb.Message.getFieldWithDefault(msg, 6, "")
+    openapiSpec: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    connectivity: (f = msg.getConnectivity()) && yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1367,6 +1419,11 @@ proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.deserializeB
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setOpenapiSpec(value);
+      break;
+    case 7:
+      var value = new yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity;
+      reader.readMessage(value,yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.deserializeBinaryFromReader);
+      msg.setConnectivity(value);
       break;
     default:
       reader.skipField();
@@ -1435,6 +1492,14 @@ proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.serializeBin
     writer.writeString(
       6,
       f
+    );
+  }
+  f = message.getConnectivity();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.serializeBinaryToWriter
     );
   }
 };
@@ -1586,6 +1651,43 @@ proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.cl
  */
 proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.hasOpenapiSpec = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional Connectivity connectivity = 7;
+ * @return {?proto.yandex.cloud.serverless.apigateway.v1.Connectivity}
+ */
+proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.getConnectivity = function() {
+  return /** @type{?proto.yandex.cloud.serverless.apigateway.v1.Connectivity} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity, 7));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.serverless.apigateway.v1.Connectivity|undefined} value
+ * @return {!proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest} returns this
+*/
+proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.setConnectivity = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest} returns this
+ */
+proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.clearConnectivity = function() {
+  return this.setConnectivity(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.serverless.apigateway.v1.UpdateApiGatewayRequest.prototype.hasConnectivity = function() {
+  return jspb.Message.getField(this, 7) != null;
 };
 
 

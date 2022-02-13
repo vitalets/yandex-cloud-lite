@@ -16,6 +16,7 @@ import * as yandex_cloud_mdb_postgresql_v1_config_postgresql11_pb from "../../..
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql11_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql12_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql13_pb";
+import * as yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql14_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host9_6_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host9_6_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host10_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_pb";
@@ -24,6 +25,7 @@ import * as yandex_cloud_mdb_postgresql_v1_config_host11_pb from "../../../../..
 import * as yandex_cloud_mdb_postgresql_v1_config_host11_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host11_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host12_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host13_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host13_pb";
+import * as yandex_cloud_mdb_postgresql_v1_config_host14_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host14_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/maintenance_pb";
 
@@ -205,6 +207,11 @@ export class ClusterConfig extends jspb.Message {
     getPostgresqlConfig13(): yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfigSet13 | undefined;
     setPostgresqlConfig13(value?: yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfigSet13): ClusterConfig;
 
+    hasPostgresqlConfig14(): boolean;
+    clearPostgresqlConfig14(): void;
+    getPostgresqlConfig14(): yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfigSet14 | undefined;
+    setPostgresqlConfig14(value?: yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfigSet14): ClusterConfig;
+
     hasPoolerConfig(): boolean;
     clearPoolerConfig(): void;
     getPoolerConfig(): ConnectionPoolerConfig | undefined;
@@ -263,6 +270,7 @@ export namespace ClusterConfig {
         postgresqlConfig12?: yandex_cloud_mdb_postgresql_v1_config_postgresql12_pb.PostgresqlConfigSet12.AsObject,
         postgresqlConfig121c?: yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb.PostgresqlConfigSet12_1C.AsObject,
         postgresqlConfig13?: yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfigSet13.AsObject,
+        postgresqlConfig14?: yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfigSet14.AsObject,
         poolerConfig?: ConnectionPoolerConfig.AsObject,
         resources?: Resources.AsObject,
         autofailover?: google_protobuf_wrappers_pb.BoolValue.AsObject,
@@ -282,6 +290,7 @@ export namespace ClusterConfig {
         POSTGRESQL_CONFIG_12 = 11,
         POSTGRESQL_CONFIG_12_1C = 14,
         POSTGRESQL_CONFIG_13 = 15,
+        POSTGRESQL_CONFIG_14 = 16,
     }
 
 }
@@ -450,6 +459,11 @@ export class HostConfig extends jspb.Message {
     getPostgresqlConfig13(): yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13 | undefined;
     setPostgresqlConfig13(value?: yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13): HostConfig;
 
+    hasPostgresqlConfig14(): boolean;
+    clearPostgresqlConfig14(): void;
+    getPostgresqlConfig14(): yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14 | undefined;
+    setPostgresqlConfig14(value?: yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14): HostConfig;
+
     getPostgresqlConfigCase(): HostConfig.PostgresqlConfigCase;
 
     serializeBinary(): Uint8Array;
@@ -472,6 +486,7 @@ export namespace HostConfig {
         postgresqlConfig12?: yandex_cloud_mdb_postgresql_v1_config_host12_pb.PostgresqlHostConfig12.AsObject,
         postgresqlConfig121c?: yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb.PostgresqlHostConfig12_1C.AsObject,
         postgresqlConfig13?: yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13.AsObject,
+        postgresqlConfig14?: yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14.AsObject,
     }
 
     export enum PostgresqlConfigCase {
@@ -484,6 +499,7 @@ export namespace HostConfig {
         POSTGRESQL_CONFIG_12 = 5,
         POSTGRESQL_CONFIG_12_1C = 7,
         POSTGRESQL_CONFIG_13 = 8,
+        POSTGRESQL_CONFIG_14 = 9,
     }
 
 }

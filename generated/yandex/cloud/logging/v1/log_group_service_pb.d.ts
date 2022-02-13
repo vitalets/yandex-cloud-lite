@@ -123,6 +123,8 @@ export class CreateLogGroupRequest extends jspb.Message {
     clearRetentionPeriod(): void;
     getRetentionPeriod(): google_protobuf_duration_pb.Duration | undefined;
     setRetentionPeriod(value?: google_protobuf_duration_pb.Duration): CreateLogGroupRequest;
+    getDataStream(): string;
+    setDataStream(value: string): CreateLogGroupRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateLogGroupRequest.AsObject;
@@ -142,6 +144,7 @@ export namespace CreateLogGroupRequest {
 
         labelsMap: Array<[string, string]>,
         retentionPeriod?: google_protobuf_duration_pb.Duration.AsObject,
+        dataStream: string,
     }
 }
 
@@ -185,6 +188,8 @@ export class UpdateLogGroupRequest extends jspb.Message {
     clearRetentionPeriod(): void;
     getRetentionPeriod(): google_protobuf_duration_pb.Duration | undefined;
     setRetentionPeriod(value?: google_protobuf_duration_pb.Duration): UpdateLogGroupRequest;
+    getDataStream(): string;
+    setDataStream(value: string): UpdateLogGroupRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateLogGroupRequest.AsObject;
@@ -205,6 +210,7 @@ export namespace UpdateLogGroupRequest {
 
         labelsMap: Array<[string, string]>,
         retentionPeriod?: google_protobuf_duration_pb.Duration.AsObject,
+        dataStream: string,
     }
 }
 

@@ -497,6 +497,10 @@ export class CreateFunctionVersionRequest extends jspb.Message {
 
     getNamedServiceAccountsMap(): jspb.Map<string, string>;
     clearNamedServiceAccountsMap(): void;
+    clearSecretsList(): void;
+    getSecretsList(): Array<yandex_cloud_serverless_functions_v1_function_pb.Secret>;
+    setSecretsList(value: Array<yandex_cloud_serverless_functions_v1_function_pb.Secret>): CreateFunctionVersionRequest;
+    addSecrets(value?: yandex_cloud_serverless_functions_v1_function_pb.Secret, index?: number): yandex_cloud_serverless_functions_v1_function_pb.Secret;
 
     getPackageSourceCase(): CreateFunctionVersionRequest.PackageSourceCase;
 
@@ -528,6 +532,7 @@ export namespace CreateFunctionVersionRequest {
         connectivity?: yandex_cloud_serverless_functions_v1_function_pb.Connectivity.AsObject,
 
         namedServiceAccountsMap: Array<[string, string]>,
+        secretsList: Array<yandex_cloud_serverless_functions_v1_function_pb.Secret.AsObject>,
     }
 
     export enum PackageSourceCase {

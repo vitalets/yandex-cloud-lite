@@ -1214,7 +1214,7 @@ proto.yandex.cloud.apploadbalancer.v1.DeleteBackendGroupMetadata.prototype.setBa
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.oneofGroups_ = [[6,7]];
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.oneofGroups_ = [[6,7,8]];
 
 /**
  * @enum {number}
@@ -1222,7 +1222,8 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.oneofGroups_ = [
 proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.BackendCase = {
   BACKEND_NOT_SET: 0,
   HTTP: 6,
-  GRPC: 7
+  GRPC: 7,
+  STREAM: 8
 };
 
 /**
@@ -1269,7 +1270,8 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.toObject = funct
     description: jspb.Message.getFieldWithDefault(msg, 4, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     http: (f = msg.getHttp()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackendGroup.toObject(includeInstance, f),
-    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.toObject(includeInstance, f)
+    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.toObject(includeInstance, f),
+    stream: (f = msg.getStream()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1338,6 +1340,11 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.deserializeBinar
       var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.deserializeBinaryFromReader);
       msg.setGrpc(value);
+      break;
+    case 8:
+      var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup;
+      reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.deserializeBinaryFromReader);
+      msg.setStream(value);
       break;
     default:
       reader.skipField();
@@ -1415,6 +1422,14 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.serializeBinaryT
       7,
       f,
       yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getStream();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.serializeBinaryToWriter
     );
   }
 };
@@ -1607,6 +1622,43 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.prototype.hasGrp
 };
 
 
+/**
+ * optional StreamBackendGroup stream = 8;
+ * @return {?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup}
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.prototype.getStream = function() {
+  return /** @type{?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup, 8));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup|undefined} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest} returns this
+*/
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.prototype.setStream = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 8, proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.prototype.clearStream = function() {
+  return this.setStream(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupRequest.prototype.hasStream = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
 
 
 
@@ -1746,7 +1798,7 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendGroupMetadata.prototype.setBa
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.oneofGroups_ = [[5,6]];
+proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.oneofGroups_ = [[5,6,7]];
 
 /**
  * @enum {number}
@@ -1754,7 +1806,8 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.oneofGroups_ = [
 proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.BackendCase = {
   BACKEND_NOT_SET: 0,
   HTTP: 5,
-  GRPC: 6
+  GRPC: 6,
+  STREAM: 7
 };
 
 /**
@@ -1800,7 +1853,8 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.toObject = funct
     description: jspb.Message.getFieldWithDefault(msg, 3, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     http: (f = msg.getHttp()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackendGroup.toObject(includeInstance, f),
-    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.toObject(includeInstance, f)
+    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.toObject(includeInstance, f),
+    stream: (f = msg.getStream()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1864,6 +1918,11 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.deserializeBinar
       var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.deserializeBinaryFromReader);
       msg.setGrpc(value);
+      break;
+    case 7:
+      var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup;
+      reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.deserializeBinaryFromReader);
+      msg.setStream(value);
       break;
     default:
       reader.skipField();
@@ -1933,6 +1992,14 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.serializeBinaryT
       6,
       f,
       yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getStream();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.serializeBinaryToWriter
     );
   }
 };
@@ -2088,6 +2155,43 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.prototype.hasGrp
 };
 
 
+/**
+ * optional StreamBackendGroup stream = 7;
+ * @return {?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup}
+ */
+proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.prototype.getStream = function() {
+  return /** @type{?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup, 7));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.apploadbalancer.v1.StreamBackendGroup|undefined} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest} returns this
+*/
+proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.prototype.setStream = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 7, proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.prototype.clearStream = function() {
+  return this.setStream(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupRequest.prototype.hasStream = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
 
 
 
@@ -2227,7 +2331,7 @@ proto.yandex.cloud.apploadbalancer.v1.CreateBackendGroupMetadata.prototype.setBa
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.oneofGroups_ = [[2,3]];
+proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.oneofGroups_ = [[2,3,5]];
 
 /**
  * @enum {number}
@@ -2235,7 +2339,8 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.oneofGroups_ = [[2,3]];
 proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.BackendCase = {
   BACKEND_NOT_SET: 0,
   HTTP: 2,
-  GRPC: 3
+  GRPC: 3,
+  STREAM: 5
 };
 
 /**
@@ -2278,7 +2383,8 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.toObject = function(incl
   var f, obj = {
     backendGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     http: (f = msg.getHttp()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackend.toObject(includeInstance, f),
-    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.toObject(includeInstance, f)
+    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.toObject(includeInstance, f),
+    stream: (f = msg.getStream()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2328,6 +2434,11 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.deserializeBinaryFromRea
       var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.deserializeBinaryFromReader);
       msg.setGrpc(value);
+      break;
+    case 5:
+      var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend;
+      reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.deserializeBinaryFromReader);
+      msg.setStream(value);
       break;
     default:
       reader.skipField();
@@ -2379,6 +2490,14 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.serializeBinaryToWriter 
       3,
       f,
       yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.serializeBinaryToWriter
+    );
+  }
+  f = message.getStream();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.serializeBinaryToWriter
     );
   }
 };
@@ -2473,6 +2592,43 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.clearGrpc = fu
  */
 proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.hasGrpc = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional StreamBackend stream = 5;
+ * @return {?proto.yandex.cloud.apploadbalancer.v1.StreamBackend}
+ */
+proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.getStream = function() {
+  return /** @type{?proto.yandex.cloud.apploadbalancer.v1.StreamBackend} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend, 5));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.apploadbalancer.v1.StreamBackend|undefined} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest} returns this
+*/
+proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.setStream = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 5, proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.clearStream = function() {
+  return this.setStream(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.AddBackendRequest.prototype.hasStream = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
@@ -2645,7 +2801,7 @@ proto.yandex.cloud.apploadbalancer.v1.AddBackendMetadata.prototype.setBackendNam
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.oneofGroups_ = [[3,4]];
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.oneofGroups_ = [[3,4,5]];
 
 /**
  * @enum {number}
@@ -2653,7 +2809,8 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.oneofGroups_ = [[3,4]
 proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.BackendCase = {
   BACKEND_NOT_SET: 0,
   HTTP: 3,
-  GRPC: 4
+  GRPC: 4,
+  STREAM: 5
 };
 
 /**
@@ -2697,7 +2854,8 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.toObject = function(i
     backendGroupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     updateMask: (f = msg.getUpdateMask()) && google_protobuf_field_mask_pb.FieldMask.toObject(includeInstance, f),
     http: (f = msg.getHttp()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackend.toObject(includeInstance, f),
-    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.toObject(includeInstance, f)
+    grpc: (f = msg.getGrpc()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.toObject(includeInstance, f),
+    stream: (f = msg.getStream()) && yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2752,6 +2910,11 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.deserializeBinaryFrom
       var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.deserializeBinaryFromReader);
       msg.setGrpc(value);
+      break;
+    case 5:
+      var value = new yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend;
+      reader.readMessage(value,yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.deserializeBinaryFromReader);
+      msg.setStream(value);
       break;
     default:
       reader.skipField();
@@ -2811,6 +2974,14 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.serializeBinaryToWrit
       4,
       f,
       yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.serializeBinaryToWriter
+    );
+  }
+  f = message.getStream();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.serializeBinaryToWriter
     );
   }
 };
@@ -2942,6 +3113,43 @@ proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.clearGrpc =
  */
 proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.hasGrpc = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional StreamBackend stream = 5;
+ * @return {?proto.yandex.cloud.apploadbalancer.v1.StreamBackend}
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.getStream = function() {
+  return /** @type{?proto.yandex.cloud.apploadbalancer.v1.StreamBackend} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend, 5));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.apploadbalancer.v1.StreamBackend|undefined} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest} returns this
+*/
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.setStream = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 5, proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.clearStream = function() {
+  return this.setStream(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.UpdateBackendRequest.prototype.hasStream = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

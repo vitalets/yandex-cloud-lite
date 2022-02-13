@@ -30,8 +30,9 @@ function deserialize_yandex_cloud_marketplace_v1_metering_WriteImageProductUsage
 }
 
 
+// A set of methods for managing image product's usage.
 var ImageProductUsageServiceService = exports.ImageProductUsageServiceService = {
-  // Writes image product's usage (authenticated by user's service account)
+  // Writes image product's usage. Authentication is by user's service account.
 write: {
     path: '/yandex.cloud.marketplace.v1.metering.ImageProductUsageService/Write',
     requestStream: false,

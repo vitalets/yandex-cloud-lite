@@ -176,6 +176,17 @@ function deserialize_yandex_cloud_compute_v1_ListInstancesResponse(buffer_arg) {
   return yandex_cloud_compute_v1_instance_service_pb.ListInstancesResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_compute_v1_MoveInstanceRequest(arg) {
+  if (!(arg instanceof yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.compute.v1.MoveInstanceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_compute_v1_MoveInstanceRequest(buffer_arg) {
+  return yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_compute_v1_RemoveInstanceOneToOneNatRequest(arg) {
   if (!(arg instanceof yandex_cloud_compute_v1_instance_service_pb.RemoveInstanceOneToOneNatRequest)) {
     throw new Error('Expected argument of type yandex.cloud.compute.v1.RemoveInstanceOneToOneNatRequest');
@@ -500,6 +511,18 @@ listOperations: {
     requestDeserialize: deserialize_yandex_cloud_compute_v1_ListInstanceOperationsRequest,
     responseSerialize: serialize_yandex_cloud_compute_v1_ListInstanceOperationsResponse,
     responseDeserialize: deserialize_yandex_cloud_compute_v1_ListInstanceOperationsResponse,
+  },
+  // Moves the specified instance between folders
+move: {
+    path: '/yandex.cloud.compute.v1.InstanceService/Move',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_compute_v1_MoveInstanceRequest,
+    requestDeserialize: deserialize_yandex_cloud_compute_v1_MoveInstanceRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
 };
 

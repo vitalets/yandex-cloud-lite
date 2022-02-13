@@ -84,6 +84,11 @@ export class Cluster extends jspb.Message {
     setHostGroupIdsList(value: Array<string>): Cluster;
     addHostGroupIds(value: string, index?: number): string;
 
+    hasClusterConfig(): boolean;
+    clearClusterConfig(): void;
+    getClusterConfig(): ClusterConfigSet | undefined;
+    setClusterConfig(value?: ClusterConfigSet): Cluster;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Cluster.AsObject;
     static toObject(includeInstance: boolean, msg: Cluster): Cluster.AsObject;
@@ -120,6 +125,7 @@ export namespace Cluster {
         userName: string,
         deletionProtection: boolean,
         hostGroupIdsList: Array<string>,
+        clusterConfig?: ClusterConfigSet.AsObject,
     }
 
     export enum Environment {
@@ -145,6 +151,50 @@ export namespace Cluster {
     STOPPING = 5,
     STOPPED = 6,
     STARTING = 7,
+    }
+
+}
+
+export class ClusterConfigSet extends jspb.Message { 
+
+    hasGreenplumConfigSet617(): boolean;
+    clearGreenplumConfigSet617(): void;
+    getGreenplumConfigSet617(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_17 | undefined;
+    setGreenplumConfigSet617(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_17): ClusterConfigSet;
+
+    hasGreenplumConfigSet619(): boolean;
+    clearGreenplumConfigSet619(): void;
+    getGreenplumConfigSet619(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_19 | undefined;
+    setGreenplumConfigSet619(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_19): ClusterConfigSet;
+
+    hasPool(): boolean;
+    clearPool(): void;
+    getPool(): yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfigSet | undefined;
+    setPool(value?: yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfigSet): ClusterConfigSet;
+
+    getGreenplumConfigCase(): ClusterConfigSet.GreenplumConfigCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ClusterConfigSet.AsObject;
+    static toObject(includeInstance: boolean, msg: ClusterConfigSet): ClusterConfigSet.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ClusterConfigSet, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ClusterConfigSet;
+    static deserializeBinaryFromReader(message: ClusterConfigSet, reader: jspb.BinaryReader): ClusterConfigSet;
+}
+
+export namespace ClusterConfigSet {
+    export type AsObject = {
+        greenplumConfigSet617?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_17.AsObject,
+        greenplumConfigSet619?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfigSet6_19.AsObject,
+        pool?: yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfigSet.AsObject,
+    }
+
+    export enum GreenplumConfigCase {
+        GREENPLUM_CONFIG_NOT_SET = 0,
+        GREENPLUM_CONFIG_SET_6_17 = 1,
+        GREENPLUM_CONFIG_SET_6_19 = 2,
     }
 
 }

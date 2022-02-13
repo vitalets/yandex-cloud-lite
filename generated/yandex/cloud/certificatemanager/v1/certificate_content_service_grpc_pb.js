@@ -4,7 +4,6 @@
 var grpc = require('@grpc/grpc-js');
 var yandex_cloud_certificatemanager_v1_certificate_content_service_pb = require('../../../../yandex/cloud/certificatemanager/v1/certificate_content_service_pb.js');
 var google_api_annotations_pb = require('../../../../google/api/annotations_pb.js');
-var yandex_cloud_validation_pb = require('../../../../yandex/cloud/validation_pb.js');
 
 function serialize_yandex_cloud_certificatemanager_v1_GetCertificateContentRequest(arg) {
   if (!(arg instanceof yandex_cloud_certificatemanager_v1_certificate_content_service_pb.GetCertificateContentRequest)) {

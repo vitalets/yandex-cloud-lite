@@ -285,8 +285,8 @@ message ListClustersRequest {
   // A filter expression that filters resources listed in the response.
   // The expression must specify:
   // 1. The field name. Currently you can only use filtering with the [Cluster.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
   string filter = 4 [(length) = "<=1000"];
 }
 
@@ -471,9 +471,15 @@ message BackupClusterMetadata {
 }
 
 message RestoreClusterRequest {
-  // ID of the backup to create a cluster from.
+  // ID of the backup to restore from. This backup will be used to create one cluster shard.
   // To get the backup ID, use a [ClusterService.ListBackups] request.
   string backup_id = 1 [(required) = true];
+
+  // Additional IDs of the backups to restore from.
+  // Each additional backup is responsible for restoring separate shard.
+  // Restored cluster will have len(additional_backup_ids)+1 shards in total.
+  // To get the backup ID, use a [ClusterService.ListBackups] request.
+  repeated string additional_backup_ids = 13;
 
   // Name of the new ClickHouse cluster. The name must be unique within the folder.
   string name = 2 [(required) = true, (length) = "<=63", (pattern) = "[a-zA-Z0-9_-]*"];
@@ -645,8 +651,8 @@ message StreamClusterLogsRequest {
   // A filter expression that filters resources listed in the response.
   // The expression must specify:
   // 1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
-  // 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
   // Examples of a filter:
   // - `message.hostname='node1.db.cloud.yandex.net'`
   // - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
@@ -1083,6 +1089,9 @@ message ConfigSpec {
 
   // Password for user 'admin' that has SQL user management access.
   string admin_password = 9;
+
+  // Whether cluster should use embedded Keeper instead of Zookeeper
+  google.protobuf.BoolValue embedded_keeper = 10;
 }
 
 message ShardConfigSpec {

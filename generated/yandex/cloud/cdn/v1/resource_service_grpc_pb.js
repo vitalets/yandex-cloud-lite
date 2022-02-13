@@ -186,7 +186,7 @@ delete: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Get Provider's CNAME (edge endpoint) binded to specified folder id.
+  // Get Provider's CNAME (edge endpoint) bind to specified folder id.
 // Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
 getProviderCName: {
     path: '/yandex.cloud.cdn.v1.ResourceService/GetProviderCName',

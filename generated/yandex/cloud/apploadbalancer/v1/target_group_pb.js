@@ -486,7 +486,8 @@ proto.yandex.cloud.apploadbalancer.v1.Target.prototype.toObject = function(opt_i
 proto.yandex.cloud.apploadbalancer.v1.Target.toObject = function(includeInstance, msg) {
   var f, obj = {
     ipAddress: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    subnetId: jspb.Message.getFieldWithDefault(msg, 3, "")
+    subnetId: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    privateIpv4Address: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -531,6 +532,10 @@ proto.yandex.cloud.apploadbalancer.v1.Target.deserializeBinaryFromReader = funct
       var value = /** @type {string} */ (reader.readString());
       msg.setSubnetId(value);
       break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setPrivateIpv4Address(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -571,6 +576,13 @@ proto.yandex.cloud.apploadbalancer.v1.Target.serializeBinaryToWriter = function(
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getPrivateIpv4Address();
+  if (f) {
+    writer.writeBool(
+      4,
       f
     );
   }
@@ -628,6 +640,24 @@ proto.yandex.cloud.apploadbalancer.v1.Target.prototype.getSubnetId = function() 
  */
 proto.yandex.cloud.apploadbalancer.v1.Target.prototype.setSubnetId = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional bool private_ipv4_address = 4;
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.Target.prototype.getPrivateIpv4Address = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.Target} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.Target.prototype.setPrivateIpv4Address = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 

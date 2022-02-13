@@ -2570,7 +2570,8 @@ proto.speechkit.tts.v3.UtteranceSynthesisRequest.toObject = function(includeInst
     hintsList: jspb.Message.toObjectList(msg.getHintsList(),
     proto.speechkit.tts.v3.Hints.toObject, includeInstance),
     outputAudioSpec: (f = msg.getOutputAudioSpec()) && proto.speechkit.tts.v3.AudioFormatOptions.toObject(includeInstance, f),
-    loudnessNormalizationType: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    loudnessNormalizationType: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    unsafeMode: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -2633,6 +2634,10 @@ proto.speechkit.tts.v3.UtteranceSynthesisRequest.deserializeBinaryFromReader = f
     case 6:
       var value = /** @type {!proto.speechkit.tts.v3.UtteranceSynthesisRequest.LoudnessNormalizationType} */ (reader.readEnum());
       msg.setLoudnessNormalizationType(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setUnsafeMode(value);
       break;
     default:
       reader.skipField();
@@ -2705,6 +2710,13 @@ proto.speechkit.tts.v3.UtteranceSynthesisRequest.serializeBinaryToWriter = funct
   if (f !== 0.0) {
     writer.writeEnum(
       6,
+      f
+    );
+  }
+  f = message.getUnsafeMode();
+  if (f) {
+    writer.writeBool(
+      7,
       f
     );
   }
@@ -2901,6 +2913,24 @@ proto.speechkit.tts.v3.UtteranceSynthesisRequest.prototype.getLoudnessNormalizat
  */
 proto.speechkit.tts.v3.UtteranceSynthesisRequest.prototype.setLoudnessNormalizationType = function(value) {
   return jspb.Message.setProto3EnumField(this, 6, value);
+};
+
+
+/**
+ * optional bool unsafe_mode = 7;
+ * @return {boolean}
+ */
+proto.speechkit.tts.v3.UtteranceSynthesisRequest.prototype.getUnsafeMode = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.speechkit.tts.v3.UtteranceSynthesisRequest} returns this
+ */
+proto.speechkit.tts.v3.UtteranceSynthesisRequest.prototype.setUnsafeMode = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 

@@ -17,8 +17,6 @@ var global = Function('return this')();
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
-var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
-goog.object.extend(proto, yandex_cloud_validation_pb);
 goog.exportSymbol('proto.yandex.cloud.iot.devices.v1.DeviceAlias', null, global);
 goog.exportSymbol('proto.yandex.cloud.iot.devices.v1.Registry', null, global);
 goog.exportSymbol('proto.yandex.cloud.iot.devices.v1.Registry.Status', null, global);

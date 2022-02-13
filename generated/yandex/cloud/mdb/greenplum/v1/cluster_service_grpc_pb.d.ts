@@ -7,10 +7,12 @@
 import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_greenplum_v1_cluster_service_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/cluster_service_pb";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
+import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_mdb_greenplum_v1_cluster_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/cluster_pb";
+import * as yandex_cloud_mdb_greenplum_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/maintenance_pb";
 import * as yandex_cloud_mdb_greenplum_v1_config_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/config_pb";
 import * as yandex_cloud_mdb_greenplum_v1_host_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/host_pb";
 
@@ -25,6 +27,7 @@ interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     listOperations: IClusterServiceService_IListOperations;
     listMasterHosts: IClusterServiceService_IListMasterHosts;
     listSegmentHosts: IClusterServiceService_IListSegmentHosts;
+    listLogs: IClusterServiceService_IListLogs;
 }
 
 interface IClusterServiceService_IGet extends grpc.MethodDefinition<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.GetClusterRequest, yandex_cloud_mdb_greenplum_v1_cluster_pb.Cluster> {
@@ -117,6 +120,15 @@ interface IClusterServiceService_IListSegmentHosts extends grpc.MethodDefinition
     responseSerialize: grpc.serialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse>;
 }
+interface IClusterServiceService_IListLogs extends grpc.MethodDefinition<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse> {
+    path: "/yandex.cloud.mdb.greenplum.v1.ClusterService/ListLogs";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse>;
+}
 
 export const ClusterServiceService: IClusterServiceService;
 
@@ -131,6 +143,7 @@ export interface IClusterServiceServer extends grpc.UntypedServiceImplementation
     listOperations: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterOperationsRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterOperationsResponse>;
     listMasterHosts: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse>;
     listSegmentHosts: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse>;
+    listLogs: grpc.handleUnaryCall<yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse>;
 }
 
 export interface IClusterServiceClient {
@@ -164,6 +177,9 @@ export interface IClusterServiceClient {
     listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
     listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
     listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
+    listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
+    listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
+    listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class ClusterServiceClient extends grpc.Client implements IClusterServiceClient {
@@ -198,4 +214,7 @@ export class ClusterServiceClient extends grpc.Client implements IClusterService
     public listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
     public listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
     public listSegmentHosts(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse) => void): grpc.ClientUnaryCall;
+    public listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
+    public listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
+    public listLogs(request: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
 }

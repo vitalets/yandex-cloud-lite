@@ -13,6 +13,7 @@ import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/clou
 import * as yandex_cloud_mdb_kafka_v1_cluster_pb from "../../../../../yandex/cloud/mdb/kafka/v1/cluster_pb";
 import * as yandex_cloud_mdb_kafka_v1_topic_pb from "../../../../../yandex/cloud/mdb/kafka/v1/topic_pb";
 import * as yandex_cloud_mdb_kafka_v1_user_pb from "../../../../../yandex/cloud/mdb/kafka/v1/user_pb";
+import * as yandex_cloud_mdb_kafka_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/kafka/v1/maintenance_pb";
 
 export class GetClusterRequest extends jspb.Message { 
     getClusterId(): string;
@@ -130,6 +131,11 @@ export class CreateClusterRequest extends jspb.Message {
     getDeletionProtection(): boolean;
     setDeletionProtection(value: boolean): CreateClusterRequest;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow): CreateClusterRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateClusterRequest.AsObject;
     static toObject(includeInstance: boolean, msg: CreateClusterRequest): CreateClusterRequest.AsObject;
@@ -156,6 +162,7 @@ export namespace CreateClusterRequest {
         securityGroupIdsList: Array<string>,
         hostGroupIdsList: Array<string>,
         deletionProtection: boolean,
+        maintenanceWindow?: yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow.AsObject,
     }
 }
 
@@ -206,6 +213,11 @@ export class UpdateClusterRequest extends jspb.Message {
     getDeletionProtection(): boolean;
     setDeletionProtection(value: boolean): UpdateClusterRequest;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow): UpdateClusterRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateClusterRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateClusterRequest): UpdateClusterRequest.AsObject;
@@ -227,6 +239,7 @@ export namespace UpdateClusterRequest {
         name: string,
         securityGroupIdsList: Array<string>,
         deletionProtection: boolean,
+        maintenanceWindow?: yandex_cloud_mdb_kafka_v1_maintenance_pb.MaintenanceWindow.AsObject,
     }
 }
 
@@ -689,5 +702,68 @@ export class StopClusterMetadata extends jspb.Message {
 export namespace StopClusterMetadata {
     export type AsObject = {
         clusterId: string,
+    }
+}
+
+export class RescheduleMaintenanceRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): RescheduleMaintenanceRequest;
+    getRescheduleType(): RescheduleMaintenanceRequest.RescheduleType;
+    setRescheduleType(value: RescheduleMaintenanceRequest.RescheduleType): RescheduleMaintenanceRequest;
+
+    hasDelayedUntil(): boolean;
+    clearDelayedUntil(): void;
+    getDelayedUntil(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setDelayedUntil(value?: google_protobuf_timestamp_pb.Timestamp): RescheduleMaintenanceRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RescheduleMaintenanceRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: RescheduleMaintenanceRequest): RescheduleMaintenanceRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RescheduleMaintenanceRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RescheduleMaintenanceRequest;
+    static deserializeBinaryFromReader(message: RescheduleMaintenanceRequest, reader: jspb.BinaryReader): RescheduleMaintenanceRequest;
+}
+
+export namespace RescheduleMaintenanceRequest {
+    export type AsObject = {
+        clusterId: string,
+        rescheduleType: RescheduleMaintenanceRequest.RescheduleType,
+        delayedUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+
+    export enum RescheduleType {
+    RESCHEDULE_TYPE_UNSPECIFIED = 0,
+    IMMEDIATE = 1,
+    NEXT_AVAILABLE_WINDOW = 2,
+    SPECIFIC_TIME = 3,
+    }
+
+}
+
+export class RescheduleMaintenanceMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): RescheduleMaintenanceMetadata;
+
+    hasDelayedUntil(): boolean;
+    clearDelayedUntil(): void;
+    getDelayedUntil(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setDelayedUntil(value?: google_protobuf_timestamp_pb.Timestamp): RescheduleMaintenanceMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RescheduleMaintenanceMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: RescheduleMaintenanceMetadata): RescheduleMaintenanceMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RescheduleMaintenanceMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RescheduleMaintenanceMetadata;
+    static deserializeBinaryFromReader(message: RescheduleMaintenanceMetadata, reader: jspb.BinaryReader): RescheduleMaintenanceMetadata;
+}
+
+export namespace RescheduleMaintenanceMetadata {
+    export type AsObject = {
+        clusterId: string,
+        delayedUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     }
 }

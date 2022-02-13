@@ -17,8 +17,6 @@ var global = Function('return this')();
 
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
 goog.object.extend(proto, google_protobuf_wrappers_pb);
-var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
-goog.object.extend(proto, yandex_cloud_validation_pb);
 var yandex_cloud_mdb_kafka_v1_common_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/common_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_kafka_v1_common_pb);
 goog.exportSymbol('proto.yandex.cloud.mdb.kafka.v1.Topic', null, global);

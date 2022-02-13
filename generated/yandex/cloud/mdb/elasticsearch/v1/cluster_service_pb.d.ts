@@ -10,9 +10,11 @@ import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/t
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
+import * as yandex_cloud_mdb_elasticsearch_v1_backup_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/backup_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_cluster_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/cluster_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_user_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/user_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_config_elasticsearch_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/config/elasticsearch_pb";
+import * as yandex_cloud_mdb_elasticsearch_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/maintenance_pb";
 
 export class GetClusterRequest extends jspb.Message { 
     getClusterId(): string;
@@ -124,6 +126,11 @@ export class CreateClusterRequest extends jspb.Message {
     getDeletionProtection(): boolean;
     setDeletionProtection(value: boolean): CreateClusterRequest;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow): CreateClusterRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateClusterRequest.AsObject;
     static toObject(includeInstance: boolean, msg: CreateClusterRequest): CreateClusterRequest.AsObject;
@@ -149,6 +156,7 @@ export namespace CreateClusterRequest {
         securityGroupIdsList: Array<string>,
         serviceAccountId: string,
         deletionProtection: boolean,
+        maintenanceWindow?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow.AsObject,
     }
 }
 
@@ -201,6 +209,11 @@ export class UpdateClusterRequest extends jspb.Message {
     getDeletionProtection(): boolean;
     setDeletionProtection(value: boolean): UpdateClusterRequest;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow): UpdateClusterRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateClusterRequest.AsObject;
     static toObject(includeInstance: boolean, msg: UpdateClusterRequest): UpdateClusterRequest.AsObject;
@@ -223,6 +236,7 @@ export namespace UpdateClusterRequest {
         securityGroupIdsList: Array<string>,
         serviceAccountId: string,
         deletionProtection: boolean,
+        maintenanceWindow?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow.AsObject,
     }
 }
 
@@ -997,5 +1011,244 @@ export namespace DeleteClusterHostsMetadata {
     export type AsObject = {
         clusterId: string,
         hostNamesList: Array<string>,
+    }
+}
+
+export class RescheduleMaintenanceRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): RescheduleMaintenanceRequest;
+    getRescheduleType(): RescheduleMaintenanceRequest.RescheduleType;
+    setRescheduleType(value: RescheduleMaintenanceRequest.RescheduleType): RescheduleMaintenanceRequest;
+
+    hasDelayedUntil(): boolean;
+    clearDelayedUntil(): void;
+    getDelayedUntil(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setDelayedUntil(value?: google_protobuf_timestamp_pb.Timestamp): RescheduleMaintenanceRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RescheduleMaintenanceRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: RescheduleMaintenanceRequest): RescheduleMaintenanceRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RescheduleMaintenanceRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RescheduleMaintenanceRequest;
+    static deserializeBinaryFromReader(message: RescheduleMaintenanceRequest, reader: jspb.BinaryReader): RescheduleMaintenanceRequest;
+}
+
+export namespace RescheduleMaintenanceRequest {
+    export type AsObject = {
+        clusterId: string,
+        rescheduleType: RescheduleMaintenanceRequest.RescheduleType,
+        delayedUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+
+    export enum RescheduleType {
+    RESCHEDULE_TYPE_UNSPECIFIED = 0,
+    IMMEDIATE = 1,
+    NEXT_AVAILABLE_WINDOW = 2,
+    SPECIFIC_TIME = 3,
+    }
+
+}
+
+export class RescheduleMaintenanceMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): RescheduleMaintenanceMetadata;
+
+    hasDelayedUntil(): boolean;
+    clearDelayedUntil(): void;
+    getDelayedUntil(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setDelayedUntil(value?: google_protobuf_timestamp_pb.Timestamp): RescheduleMaintenanceMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RescheduleMaintenanceMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: RescheduleMaintenanceMetadata): RescheduleMaintenanceMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RescheduleMaintenanceMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RescheduleMaintenanceMetadata;
+    static deserializeBinaryFromReader(message: RescheduleMaintenanceMetadata, reader: jspb.BinaryReader): RescheduleMaintenanceMetadata;
+}
+
+export namespace RescheduleMaintenanceMetadata {
+    export type AsObject = {
+        clusterId: string,
+        delayedUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    }
+}
+
+export class RestoreClusterRequest extends jspb.Message { 
+    getBackupId(): string;
+    setBackupId(value: string): RestoreClusterRequest;
+    getName(): string;
+    setName(value: string): RestoreClusterRequest;
+    getDescription(): string;
+    setDescription(value: string): RestoreClusterRequest;
+
+    getLabelsMap(): jspb.Map<string, string>;
+    clearLabelsMap(): void;
+    getEnvironment(): yandex_cloud_mdb_elasticsearch_v1_cluster_pb.Cluster.Environment;
+    setEnvironment(value: yandex_cloud_mdb_elasticsearch_v1_cluster_pb.Cluster.Environment): RestoreClusterRequest;
+
+    hasConfigSpec(): boolean;
+    clearConfigSpec(): void;
+    getConfigSpec(): ConfigSpec | undefined;
+    setConfigSpec(value?: ConfigSpec): RestoreClusterRequest;
+    clearHostSpecsList(): void;
+    getHostSpecsList(): Array<HostSpec>;
+    setHostSpecsList(value: Array<HostSpec>): RestoreClusterRequest;
+    addHostSpecs(value?: HostSpec, index?: number): HostSpec;
+    getNetworkId(): string;
+    setNetworkId(value: string): RestoreClusterRequest;
+    clearSecurityGroupIdsList(): void;
+    getSecurityGroupIdsList(): Array<string>;
+    setSecurityGroupIdsList(value: Array<string>): RestoreClusterRequest;
+    addSecurityGroupIds(value: string, index?: number): string;
+    getServiceAccountId(): string;
+    setServiceAccountId(value: string): RestoreClusterRequest;
+    getDeletionProtection(): boolean;
+    setDeletionProtection(value: boolean): RestoreClusterRequest;
+    getFolderId(): string;
+    setFolderId(value: string): RestoreClusterRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RestoreClusterRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: RestoreClusterRequest): RestoreClusterRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RestoreClusterRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RestoreClusterRequest;
+    static deserializeBinaryFromReader(message: RestoreClusterRequest, reader: jspb.BinaryReader): RestoreClusterRequest;
+}
+
+export namespace RestoreClusterRequest {
+    export type AsObject = {
+        backupId: string,
+        name: string,
+        description: string,
+
+        labelsMap: Array<[string, string]>,
+        environment: yandex_cloud_mdb_elasticsearch_v1_cluster_pb.Cluster.Environment,
+        configSpec?: ConfigSpec.AsObject,
+        hostSpecsList: Array<HostSpec.AsObject>,
+        networkId: string,
+        securityGroupIdsList: Array<string>,
+        serviceAccountId: string,
+        deletionProtection: boolean,
+        folderId: string,
+    }
+}
+
+export class RestoreClusterMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): RestoreClusterMetadata;
+    getBackupId(): string;
+    setBackupId(value: string): RestoreClusterMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RestoreClusterMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: RestoreClusterMetadata): RestoreClusterMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RestoreClusterMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RestoreClusterMetadata;
+    static deserializeBinaryFromReader(message: RestoreClusterMetadata, reader: jspb.BinaryReader): RestoreClusterMetadata;
+}
+
+export namespace RestoreClusterMetadata {
+    export type AsObject = {
+        clusterId: string,
+        backupId: string,
+    }
+}
+
+export class BackupClusterRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): BackupClusterRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BackupClusterRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: BackupClusterRequest): BackupClusterRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BackupClusterRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BackupClusterRequest;
+    static deserializeBinaryFromReader(message: BackupClusterRequest, reader: jspb.BinaryReader): BackupClusterRequest;
+}
+
+export namespace BackupClusterRequest {
+    export type AsObject = {
+        clusterId: string,
+    }
+}
+
+export class BackupClusterMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): BackupClusterMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BackupClusterMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: BackupClusterMetadata): BackupClusterMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BackupClusterMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BackupClusterMetadata;
+    static deserializeBinaryFromReader(message: BackupClusterMetadata, reader: jspb.BinaryReader): BackupClusterMetadata;
+}
+
+export namespace BackupClusterMetadata {
+    export type AsObject = {
+        clusterId: string,
+    }
+}
+
+export class ListClusterBackupsRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): ListClusterBackupsRequest;
+    getPageSize(): number;
+    setPageSize(value: number): ListClusterBackupsRequest;
+    getPageToken(): string;
+    setPageToken(value: string): ListClusterBackupsRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListClusterBackupsRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ListClusterBackupsRequest): ListClusterBackupsRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListClusterBackupsRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListClusterBackupsRequest;
+    static deserializeBinaryFromReader(message: ListClusterBackupsRequest, reader: jspb.BinaryReader): ListClusterBackupsRequest;
+}
+
+export namespace ListClusterBackupsRequest {
+    export type AsObject = {
+        clusterId: string,
+        pageSize: number,
+        pageToken: string,
+    }
+}
+
+export class ListClusterBackupsResponse extends jspb.Message { 
+    clearBackupsList(): void;
+    getBackupsList(): Array<yandex_cloud_mdb_elasticsearch_v1_backup_pb.Backup>;
+    setBackupsList(value: Array<yandex_cloud_mdb_elasticsearch_v1_backup_pb.Backup>): ListClusterBackupsResponse;
+    addBackups(value?: yandex_cloud_mdb_elasticsearch_v1_backup_pb.Backup, index?: number): yandex_cloud_mdb_elasticsearch_v1_backup_pb.Backup;
+    getNextPageToken(): string;
+    setNextPageToken(value: string): ListClusterBackupsResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListClusterBackupsResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ListClusterBackupsResponse): ListClusterBackupsResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListClusterBackupsResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListClusterBackupsResponse;
+    static deserializeBinaryFromReader(message: ListClusterBackupsResponse, reader: jspb.BinaryReader): ListClusterBackupsResponse;
+}
+
+export namespace ListClusterBackupsResponse {
+    export type AsObject = {
+        backupsList: Array<yandex_cloud_mdb_elasticsearch_v1_backup_pb.Backup.AsObject>,
+        nextPageToken: string,
     }
 }

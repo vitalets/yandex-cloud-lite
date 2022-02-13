@@ -523,6 +523,49 @@ export namespace TargetGroupsBackend {
     }
 }
 
+export class PlaintextTransportSettings extends jspb.Message { 
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): PlaintextTransportSettings.AsObject;
+    static toObject(includeInstance: boolean, msg: PlaintextTransportSettings): PlaintextTransportSettings.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: PlaintextTransportSettings, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): PlaintextTransportSettings;
+    static deserializeBinaryFromReader(message: PlaintextTransportSettings, reader: jspb.BinaryReader): PlaintextTransportSettings;
+}
+
+export namespace PlaintextTransportSettings {
+    export type AsObject = {
+    }
+}
+
+export class SecureTransportSettings extends jspb.Message { 
+    getSni(): string;
+    setSni(value: string): SecureTransportSettings;
+
+    hasValidationContext(): boolean;
+    clearValidationContext(): void;
+    getValidationContext(): yandex_cloud_apploadbalancer_v1_tls_pb.ValidationContext | undefined;
+    setValidationContext(value?: yandex_cloud_apploadbalancer_v1_tls_pb.ValidationContext): SecureTransportSettings;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SecureTransportSettings.AsObject;
+    static toObject(includeInstance: boolean, msg: SecureTransportSettings): SecureTransportSettings.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SecureTransportSettings, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SecureTransportSettings;
+    static deserializeBinaryFromReader(message: SecureTransportSettings, reader: jspb.BinaryReader): SecureTransportSettings;
+}
+
+export namespace SecureTransportSettings {
+    export type AsObject = {
+        sni: string,
+        validationContext?: yandex_cloud_apploadbalancer_v1_tls_pb.ValidationContext.AsObject,
+    }
+}
+
 export class BackendTls extends jspb.Message { 
     getSni(): string;
     setSni(value: string): BackendTls;
@@ -604,7 +647,18 @@ export class HealthCheck extends jspb.Message {
     getGrpc(): HealthCheck.GrpcHealthCheck | undefined;
     setGrpc(value?: HealthCheck.GrpcHealthCheck): HealthCheck;
 
+    hasPlaintext(): boolean;
+    clearPlaintext(): void;
+    getPlaintext(): PlaintextTransportSettings | undefined;
+    setPlaintext(value?: PlaintextTransportSettings): HealthCheck;
+
+    hasTls(): boolean;
+    clearTls(): void;
+    getTls(): SecureTransportSettings | undefined;
+    setTls(value?: SecureTransportSettings): HealthCheck;
+
     getHealthcheckCase(): HealthCheck.HealthcheckCase;
+    getTransportSettingsCase(): HealthCheck.TransportSettingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): HealthCheck.AsObject;
@@ -627,6 +681,8 @@ export namespace HealthCheck {
         stream?: HealthCheck.StreamHealthCheck.AsObject,
         http?: HealthCheck.HttpHealthCheck.AsObject,
         grpc?: HealthCheck.GrpcHealthCheck.AsObject,
+        plaintext?: PlaintextTransportSettings.AsObject,
+        tls?: SecureTransportSettings.AsObject,
     }
 
 
@@ -711,6 +767,12 @@ export namespace HealthCheck {
         STREAM = 7,
         HTTP = 8,
         GRPC = 9,
+    }
+
+    export enum TransportSettingsCase {
+        TRANSPORT_SETTINGS_NOT_SET = 0,
+        PLAINTEXT = 10,
+        TLS = 11,
     }
 
 }

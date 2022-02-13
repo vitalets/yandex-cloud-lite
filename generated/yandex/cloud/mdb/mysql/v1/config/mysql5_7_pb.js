@@ -22,6 +22,8 @@ goog.object.extend(proto, yandex_cloud_validation_pb);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.AuthPlugin', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.BinlogRowImage', null, global);
+goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType', null, global);
+goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.SQLMode', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.SlaveParallelType', null, global);
 goog.exportSymbol('proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.TransactionIsolation', null, global);
@@ -74,7 +76,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.repeatedFields_ = [6];
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.repeatedFields_ = [6,61];
 
 
 
@@ -161,7 +163,15 @@ proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.toObject = function(includ
     waitTimeout: (f = msg.getWaitTimeout()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
     mdbOfflineModeEnableLag: (f = msg.getMdbOfflineModeEnableLag()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
     mdbOfflineModeDisableLag: (f = msg.getMdbOfflineModeDisableLag()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
-    rangeOptimizerMaxMemSize: (f = msg.getRangeOptimizerMaxMemSize()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f)
+    rangeOptimizerMaxMemSize: (f = msg.getRangeOptimizerMaxMemSize()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
+    slowQueryLog: (f = msg.getSlowQueryLog()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
+    slowQueryLogAlwaysWriteTime: (f = msg.getSlowQueryLogAlwaysWriteTime()) && google_protobuf_wrappers_pb.DoubleValue.toObject(includeInstance, f),
+    logSlowRateType: jspb.Message.getFieldWithDefault(msg, 58, 0),
+    logSlowRateLimit: (f = msg.getLogSlowRateLimit()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
+    logSlowSpStatements: (f = msg.getLogSlowSpStatements()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
+    logSlowFilterList: (f = jspb.Message.getRepeatedField(msg, 61)) == null ? undefined : f,
+    mdbPriorityChoiceMaxLag: (f = msg.getMdbPriorityChoiceMaxLag()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f),
+    innodbPageSize: (f = msg.getInnodbPageSize()) && google_protobuf_wrappers_pb.Int64Value.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -466,6 +476,46 @@ proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.deserializeBinaryFromReade
       var value = new google_protobuf_wrappers_pb.Int64Value;
       reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
       msg.setRangeOptimizerMaxMemSize(value);
+      break;
+    case 56:
+      var value = new google_protobuf_wrappers_pb.BoolValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
+      msg.setSlowQueryLog(value);
+      break;
+    case 57:
+      var value = new google_protobuf_wrappers_pb.DoubleValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.DoubleValue.deserializeBinaryFromReader);
+      msg.setSlowQueryLogAlwaysWriteTime(value);
+      break;
+    case 58:
+      var value = /** @type {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType} */ (reader.readEnum());
+      msg.setLogSlowRateType(value);
+      break;
+    case 59:
+      var value = new google_protobuf_wrappers_pb.Int64Value;
+      reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
+      msg.setLogSlowRateLimit(value);
+      break;
+    case 60:
+      var value = new google_protobuf_wrappers_pb.BoolValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
+      msg.setLogSlowSpStatements(value);
+      break;
+    case 61:
+      var values = /** @type {!Array<!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addLogSlowFilter(values[i]);
+      }
+      break;
+    case 62:
+      var value = new google_protobuf_wrappers_pb.Int64Value;
+      reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
+      msg.setMdbPriorityChoiceMaxLag(value);
+      break;
+    case 63:
+      var value = new google_protobuf_wrappers_pb.Int64Value;
+      reader.readMessage(value,google_protobuf_wrappers_pb.Int64Value.deserializeBinaryFromReader);
+      msg.setInnodbPageSize(value);
       break;
     default:
       reader.skipField();
@@ -928,6 +978,68 @@ proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.serializeBinaryToWriter = 
       google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
     );
   }
+  f = message.getSlowQueryLog();
+  if (f != null) {
+    writer.writeMessage(
+      56,
+      f,
+      google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getSlowQueryLogAlwaysWriteTime();
+  if (f != null) {
+    writer.writeMessage(
+      57,
+      f,
+      google_protobuf_wrappers_pb.DoubleValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getLogSlowRateType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      58,
+      f
+    );
+  }
+  f = message.getLogSlowRateLimit();
+  if (f != null) {
+    writer.writeMessage(
+      59,
+      f,
+      google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
+    );
+  }
+  f = message.getLogSlowSpStatements();
+  if (f != null) {
+    writer.writeMessage(
+      60,
+      f,
+      google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getLogSlowFilterList();
+  if (f.length > 0) {
+    writer.writePackedEnum(
+      61,
+      f
+    );
+  }
+  f = message.getMdbPriorityChoiceMaxLag();
+  if (f != null) {
+    writer.writeMessage(
+      62,
+      f,
+      google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
+    );
+  }
+  f = message.getInnodbPageSize();
+  if (f != null) {
+    writer.writeMessage(
+      63,
+      f,
+      google_protobuf_wrappers_pb.Int64Value.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -1006,6 +1118,28 @@ proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.SlaveParallelType = {
   SLAVE_PARALLEL_TYPE_UNSPECIFIED: 0,
   DATABASE: 1,
   LOGICAL_CLOCK: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType = {
+  LOG_SLOW_RATE_TYPE_UNSPECIFIED: 0,
+  SESSION: 1,
+  QUERY: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType = {
+  LOG_SLOW_FILTER_TYPE_UNSPECIFIED: 0,
+  FULL_SCAN: 1,
+  FULL_JOIN: 2,
+  TMP_TABLE: 3,
+  TMP_TABLE_ON_DISK: 4,
+  FILESORT: 5,
+  FILESORT_ON_DISK: 6
 };
 
 /**
@@ -2907,6 +3041,283 @@ proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearRangeOptimi
  */
 proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasRangeOptimizerMaxMemSize = function() {
   return jspb.Message.getField(this, 55) != null;
+};
+
+
+/**
+ * optional google.protobuf.BoolValue slow_query_log = 56;
+ * @return {?proto.google.protobuf.BoolValue}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getSlowQueryLog = function() {
+  return /** @type{?proto.google.protobuf.BoolValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.BoolValue, 56));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.BoolValue|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setSlowQueryLog = function(value) {
+  return jspb.Message.setWrapperField(this, 56, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearSlowQueryLog = function() {
+  return this.setSlowQueryLog(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasSlowQueryLog = function() {
+  return jspb.Message.getField(this, 56) != null;
+};
+
+
+/**
+ * optional google.protobuf.DoubleValue slow_query_log_always_write_time = 57;
+ * @return {?proto.google.protobuf.DoubleValue}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getSlowQueryLogAlwaysWriteTime = function() {
+  return /** @type{?proto.google.protobuf.DoubleValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.DoubleValue, 57));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.DoubleValue|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setSlowQueryLogAlwaysWriteTime = function(value) {
+  return jspb.Message.setWrapperField(this, 57, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearSlowQueryLogAlwaysWriteTime = function() {
+  return this.setSlowQueryLogAlwaysWriteTime(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasSlowQueryLogAlwaysWriteTime = function() {
+  return jspb.Message.getField(this, 57) != null;
+};
+
+
+/**
+ * optional LogSlowRateType log_slow_rate_type = 58;
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getLogSlowRateType = function() {
+  return /** @type {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType} */ (jspb.Message.getFieldWithDefault(this, 58, 0));
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowRateType} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setLogSlowRateType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 58, value);
+};
+
+
+/**
+ * optional google.protobuf.Int64Value log_slow_rate_limit = 59;
+ * @return {?proto.google.protobuf.Int64Value}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getLogSlowRateLimit = function() {
+  return /** @type{?proto.google.protobuf.Int64Value} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.Int64Value, 59));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Int64Value|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setLogSlowRateLimit = function(value) {
+  return jspb.Message.setWrapperField(this, 59, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearLogSlowRateLimit = function() {
+  return this.setLogSlowRateLimit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasLogSlowRateLimit = function() {
+  return jspb.Message.getField(this, 59) != null;
+};
+
+
+/**
+ * optional google.protobuf.BoolValue log_slow_sp_statements = 60;
+ * @return {?proto.google.protobuf.BoolValue}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getLogSlowSpStatements = function() {
+  return /** @type{?proto.google.protobuf.BoolValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.BoolValue, 60));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.BoolValue|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setLogSlowSpStatements = function(value) {
+  return jspb.Message.setWrapperField(this, 60, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearLogSlowSpStatements = function() {
+  return this.setLogSlowSpStatements(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasLogSlowSpStatements = function() {
+  return jspb.Message.getField(this, 60) != null;
+};
+
+
+/**
+ * repeated LogSlowFilterType log_slow_filter = 61;
+ * @return {!Array<!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType>}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getLogSlowFilterList = function() {
+  return /** @type {!Array<!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType>} */ (jspb.Message.getRepeatedField(this, 61));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType>} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setLogSlowFilterList = function(value) {
+  return jspb.Message.setField(this, 61, value || []);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.LogSlowFilterType} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.addLogSlowFilter = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 61, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearLogSlowFilterList = function() {
+  return this.setLogSlowFilterList([]);
+};
+
+
+/**
+ * optional google.protobuf.Int64Value mdb_priority_choice_max_lag = 62;
+ * @return {?proto.google.protobuf.Int64Value}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getMdbPriorityChoiceMaxLag = function() {
+  return /** @type{?proto.google.protobuf.Int64Value} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.Int64Value, 62));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Int64Value|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setMdbPriorityChoiceMaxLag = function(value) {
+  return jspb.Message.setWrapperField(this, 62, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearMdbPriorityChoiceMaxLag = function() {
+  return this.setMdbPriorityChoiceMaxLag(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasMdbPriorityChoiceMaxLag = function() {
+  return jspb.Message.getField(this, 62) != null;
+};
+
+
+/**
+ * optional google.protobuf.Int64Value innodb_page_size = 63;
+ * @return {?proto.google.protobuf.Int64Value}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.getInnodbPageSize = function() {
+  return /** @type{?proto.google.protobuf.Int64Value} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.Int64Value, 63));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Int64Value|undefined} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+*/
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.setInnodbPageSize = function(value) {
+  return jspb.Message.setWrapperField(this, 63, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.clearInnodbPageSize = function() {
+  return this.setInnodbPageSize(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7.prototype.hasInnodbPageSize = function() {
+  return jspb.Message.getField(this, 63) != null;
 };
 
 

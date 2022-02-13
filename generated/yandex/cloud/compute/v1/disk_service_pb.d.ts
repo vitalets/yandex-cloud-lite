@@ -331,3 +331,52 @@ export namespace ListDiskOperationsResponse {
         nextPageToken: string,
     }
 }
+
+export class MoveDiskRequest extends jspb.Message { 
+    getDiskId(): string;
+    setDiskId(value: string): MoveDiskRequest;
+    getDestinationFolderId(): string;
+    setDestinationFolderId(value: string): MoveDiskRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): MoveDiskRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: MoveDiskRequest): MoveDiskRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: MoveDiskRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MoveDiskRequest;
+    static deserializeBinaryFromReader(message: MoveDiskRequest, reader: jspb.BinaryReader): MoveDiskRequest;
+}
+
+export namespace MoveDiskRequest {
+    export type AsObject = {
+        diskId: string,
+        destinationFolderId: string,
+    }
+}
+
+export class MoveDiskMetadata extends jspb.Message { 
+    getDiskId(): string;
+    setDiskId(value: string): MoveDiskMetadata;
+    getSourceFolderId(): string;
+    setSourceFolderId(value: string): MoveDiskMetadata;
+    getDestinationFolderId(): string;
+    setDestinationFolderId(value: string): MoveDiskMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): MoveDiskMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: MoveDiskMetadata): MoveDiskMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: MoveDiskMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MoveDiskMetadata;
+    static deserializeBinaryFromReader(message: MoveDiskMetadata, reader: jspb.BinaryReader): MoveDiskMetadata;
+}
+
+export namespace MoveDiskMetadata {
+    export type AsObject = {
+        diskId: string,
+        sourceFolderId: string,
+        destinationFolderId: string,
+    }
+}

@@ -21,17 +21,17 @@ service ApiGatewayService {
   //
   // To get the list of all available API gateways, make a [List] request.
   rpc Get (GetApiGatewayRequest) returns (ApiGateway) {
-    option (google.api.http) = { get: "/apigateways/v1/apigateways/{api_gateway_id}" };
+    option (google.api.http) = {get: "/apigateways/v1/apigateways/{api_gateway_id}"};
   }
 
   // Retrieves the list of API gateways in the specified folder.
   rpc List (ListApiGatewayRequest) returns (ListApiGatewayResponse) {
-    option (google.api.http) = { get: "/apigateways/v1/apigateways" };
+    option (google.api.http) = {get: "/apigateways/v1/apigateways"};
   }
 
   // Creates an API gateway in the specified folder.
   rpc Create (CreateApiGatewayRequest) returns (operation.Operation) {
-    option (google.api.http) = { post: "/apigateways/v1/apigateways" body: "*" };
+    option (google.api.http) = {post: "/apigateways/v1/apigateways" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "CreateApiGatewayMetadata"
       response: "ApiGateway"
@@ -40,7 +40,7 @@ service ApiGatewayService {
 
   // Updates the specified API gateway.
   rpc Update (UpdateApiGatewayRequest) returns (operation.Operation) {
-    option (google.api.http) = { patch: "/apigateways/v1/apigateways/{api_gateway_id}" body: "*" };
+    option (google.api.http) = {patch: "/apigateways/v1/apigateways/{api_gateway_id}" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "UpdateApiGatewayMetadata"
       response: "ApiGateway"
@@ -49,7 +49,7 @@ service ApiGatewayService {
 
   // Deletes the specified API gateway.
   rpc Delete (DeleteApiGatewayRequest) returns (operation.Operation) {
-    option (google.api.http) = { delete: "/apigateways/v1/apigateways/{api_gateway_id}" };
+    option (google.api.http) = {delete: "/apigateways/v1/apigateways/{api_gateway_id}"};
     option (yandex.cloud.api.operation) = {
       metadata: "DeleteApiGatewayMetadata"
       response: "google.protobuf.Empty"
@@ -58,7 +58,7 @@ service ApiGatewayService {
 
   // Attaches domain to the specified API gateway.
   rpc AddDomain (AddDomainRequest) returns (operation.Operation) {
-    option (google.api.http) = { post: "/apigateways/v1/apigateways/{api_gateway_id}:addDomain" body: "*" };
+    option (google.api.http) = {post: "/apigateways/v1/apigateways/{api_gateway_id}:addDomain" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "AddDomainMetadata"
       response: "google.protobuf.Empty"
@@ -67,7 +67,7 @@ service ApiGatewayService {
 
   // Detaches domain from the specified API gateway.
   rpc RemoveDomain (RemoveDomainRequest) returns (operation.Operation) {
-    option (google.api.http) = { post: "/apigateways/v1/apigateways/{api_gateway_id}:removeDomain" body: "*" };
+    option (google.api.http) = {post: "/apigateways/v1/apigateways/{api_gateway_id}:removeDomain" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "RemoveDomainMetadata"
       response: "google.protobuf.Empty"
@@ -76,22 +76,22 @@ service ApiGatewayService {
 
   // Returns the OpenAPI specification of specified API gateway.
   rpc GetOpenapiSpec (GetOpenapiSpecRequest) returns (GetOpenapiSpecResponse) {
-    option (google.api.http) = { get: "/apigateways/v1/apigateways/{api_gateway_id}:spec" };
+    option (google.api.http) = {get: "/apigateways/v1/apigateways/{api_gateway_id}:spec"};
   }
 
   // Lists operations for the specified API gateway.
   rpc ListOperations (ListOperationsRequest) returns (ListOperationsResponse) {
-    option (google.api.http) = { get: "/apigateways/v1/apigateways/{api_gateway_id}/operations" };
+    option (google.api.http) = {get: "/apigateways/v1/apigateways/{api_gateway_id}/operations"};
   }
 
   // Lists existing access bindings for the specified API gateway.
   rpc ListAccessBindings (access.ListAccessBindingsRequest) returns (access.ListAccessBindingsResponse) {
-    option (google.api.http) = { get: "/apigateways/v1/apigateways/{resource_id}:listAccessBindings" };
+    option (google.api.http) = {get: "/apigateways/v1/apigateways/{resource_id}:listAccessBindings"};
   }
 
   // Sets access bindings for the specified API gateway.
   rpc SetAccessBindings (access.SetAccessBindingsRequest) returns (operation.Operation) {
-    option (google.api.http) = { post: "/apigateways/v1/apigateways/{resource_id}:setAccessBindings" body: "*" };
+    option (google.api.http) = {post: "/apigateways/v1/apigateways/{resource_id}:setAccessBindings" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "access.SetAccessBindingsMetadata"
       response: "google.protobuf.Empty"
@@ -100,7 +100,7 @@ service ApiGatewayService {
 
   // Updates access bindings for the specified API gateway.
   rpc UpdateAccessBindings (access.UpdateAccessBindingsRequest) returns (operation.Operation) {
-    option (google.api.http) = { patch: "/apigateways/v1/apigateways/{resource_id}:updateAccessBindings" body: "*" };
+    option (google.api.http) = {patch: "/apigateways/v1/apigateways/{resource_id}:updateAccessBindings" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "access.UpdateAccessBindingsMetadata"
       response: "google.protobuf.Empty"
@@ -136,9 +136,8 @@ message ListApiGatewayRequest {
   //
   // The expression must specify:
   // 1. The field name. Currently filtering can only be applied to the [ApiGateway.name] field.
-  // 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
-  // for lists of values.
-  // 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`.
   // Example of a filter: `name=my-apigw`.
   string filter = 4;
 }
@@ -178,6 +177,9 @@ message CreateApiGatewayRequest {
     // The text of specification, JSON or YAML.
     string openapi_spec = 5;
   }
+
+  // Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
+  Connectivity connectivity = 6;
 }
 
 message UpdateApiGatewayRequest {
@@ -209,6 +211,9 @@ message UpdateApiGatewayRequest {
     // The text of specification, JSON or YAML.
     string openapi_spec = 6;
   }
+
+  // Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
+  Connectivity connectivity = 7;
 }
 
 message DeleteApiGatewayRequest {
@@ -280,9 +285,8 @@ message ListOperationsRequest {
   //
   // The expression must specify:
   // 1. The field name. Currently filtering can be applied to the [operation.Operation.done], [operation.Operation.created_by] field.
-  // 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
-  // for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   // Examples of a filter: `done=false`, `created_by='John.Doe'`.
   string filter = 4 [(length) = "<=1000"];
 }

@@ -25,6 +25,7 @@ import * as yandex_cloud_mdb_postgresql_v1_config_postgresql11_1c_pb from "../..
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql12_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql13_pb";
+import * as yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql14_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host9_6_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host9_6_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host10_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host10_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_1c_pb";
@@ -33,6 +34,7 @@ import * as yandex_cloud_mdb_postgresql_v1_config_host11_1c_pb from "../../../..
 import * as yandex_cloud_mdb_postgresql_v1_config_host12_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_1c_pb";
 import * as yandex_cloud_mdb_postgresql_v1_config_host13_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host13_pb";
+import * as yandex_cloud_mdb_postgresql_v1_config_host14_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/config/host14_pb";
 import * as yandex_cloud_mdb_postgresql_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/postgresql/v1/maintenance_pb";
 
 interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

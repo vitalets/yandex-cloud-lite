@@ -5,10 +5,12 @@ var grpc = require('@grpc/grpc-js');
 var yandex_cloud_mdb_greenplum_v1_cluster_service_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/cluster_service_pb.js');
 var google_api_annotations_pb = require('../../../../../google/api/annotations_pb.js');
 var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js');
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
 var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/operation/operation_pb.js');
 var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
 var yandex_cloud_mdb_greenplum_v1_cluster_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/cluster_pb.js');
+var yandex_cloud_mdb_greenplum_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/maintenance_pb.js');
 var yandex_cloud_mdb_greenplum_v1_config_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/config_pb.js');
 var yandex_cloud_mdb_greenplum_v1_host_pb = require('../../../../../yandex/cloud/mdb/greenplum/v1/host_pb.js');
 
@@ -76,6 +78,28 @@ function serialize_yandex_cloud_mdb_greenplum_v1_ListClusterHostsResponse(arg) {
 
 function deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterHostsResponse(buffer_arg) {
   return yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterHostsResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.greenplum.v1.ListClusterLogsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsRequest(buffer_arg) {
+  return yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsResponse(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsResponse(buffer_arg) {
+  return yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_yandex_cloud_mdb_greenplum_v1_ListClusterOperationsRequest(arg) {
@@ -167,11 +191,11 @@ function deserialize_yandex_cloud_operation_Operation(buffer_arg) {
 }
 
 
-// A set of methods for managing Greenplum clusters.
+// A set of methods for managing Greenplum® clusters.
 var ClusterServiceService = exports.ClusterServiceService = {
-  // Returns the specified Greenplum cluster.
+  // Returns the specified Greenplum® cluster.
 //
-// To get the list of available Greenplum clusters, make a [List] request.
+// To get the list of available Greenplum® clusters, make a [List] request.
 get: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Get',
     requestStream: false,
@@ -183,8 +207,7 @@ get: {
     responseSerialize: serialize_yandex_cloud_mdb_greenplum_v1_Cluster,
     responseDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_Cluster,
   },
-  // Retrieves a list of Greenplum clusters that belong
-// to the specified folder.
+  // Retrieves a list of Greenplum® clusters that belong to the specified folder.
 list: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/List',
     requestStream: false,
@@ -196,7 +219,7 @@ list: {
     responseSerialize: serialize_yandex_cloud_mdb_greenplum_v1_ListClustersResponse,
     responseDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_ListClustersResponse,
   },
-  // Creates a Greenplum cluster in the specified folder.
+  // Creates a Greenplum® cluster in the specified folder.
 create: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Create',
     requestStream: false,
@@ -208,7 +231,7 @@ create: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Updates the specified Greenplum cluster.
+  // Updates the specified Greenplum® cluster.
 update: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Update',
     requestStream: false,
@@ -220,7 +243,7 @@ update: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Deletes the specified Greenplum cluster.
+  // Deletes the specified Greenplum® cluster.
 delete: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Delete',
     requestStream: false,
@@ -232,7 +255,7 @@ delete: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Starts the specified Greenplum cluster.
+  // Starts the specified Greenplum® cluster.
 start: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Start',
     requestStream: false,
@@ -244,7 +267,7 @@ start: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
-  // Stops the specified Greenplum cluster.
+  // Stops the specified Greenplum® cluster.
 stop: {
     path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/Stop',
     requestStream: false,
@@ -291,6 +314,18 @@ listSegmentHosts: {
     requestDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterHostsRequest,
     responseSerialize: serialize_yandex_cloud_mdb_greenplum_v1_ListClusterHostsResponse,
     responseDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterHostsResponse,
+  },
+  // Retrieves logs for the specified Greenplum® cluster.
+listLogs: {
+    path: '/yandex.cloud.mdb.greenplum.v1.ClusterService/ListLogs',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsRequest,
+    responseType: yandex_cloud_mdb_greenplum_v1_cluster_service_pb.ListClusterLogsResponse,
+    requestSerialize: serialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsRequest,
+    responseSerialize: serialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsResponse,
+    responseDeserialize: deserialize_yandex_cloud_mdb_greenplum_v1_ListClusterLogsResponse,
   },
 };
 

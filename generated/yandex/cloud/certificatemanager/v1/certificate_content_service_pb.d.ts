@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 
 export class GetCertificateContentResponse extends jspb.Message { 
     getCertificateId(): string;

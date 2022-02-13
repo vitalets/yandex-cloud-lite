@@ -503,6 +503,7 @@ proto.yandex.cloud.dataproc.v1.Subcluster.toObject = function(includeInstance, m
     resources: (f = msg.getResources()) && yandex_cloud_dataproc_v1_common_pb.Resources.toObject(includeInstance, f),
     subnetId: jspb.Message.getFieldWithDefault(msg, 7, ""),
     hostsCount: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    assignPublicIp: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
     autoscalingConfig: (f = msg.getAutoscalingConfig()) && proto.yandex.cloud.dataproc.v1.AutoscalingConfig.toObject(includeInstance, f),
     instanceGroupId: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
@@ -574,6 +575,10 @@ proto.yandex.cloud.dataproc.v1.Subcluster.deserializeBinaryFromReader = function
     case 8:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setHostsCount(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAssignPublicIp(value);
       break;
     case 10:
       var value = new proto.yandex.cloud.dataproc.v1.AutoscalingConfig;
@@ -668,6 +673,13 @@ proto.yandex.cloud.dataproc.v1.Subcluster.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeInt64(
       8,
+      f
+    );
+  }
+  f = message.getAssignPublicIp();
+  if (f) {
+    writer.writeBool(
+      9,
       f
     );
   }
@@ -868,6 +880,24 @@ proto.yandex.cloud.dataproc.v1.Subcluster.prototype.getHostsCount = function() {
  */
 proto.yandex.cloud.dataproc.v1.Subcluster.prototype.setHostsCount = function(value) {
   return jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional bool assign_public_ip = 9;
+ * @return {boolean}
+ */
+proto.yandex.cloud.dataproc.v1.Subcluster.prototype.getAssignPublicIp = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.dataproc.v1.Subcluster} returns this
+ */
+proto.yandex.cloud.dataproc.v1.Subcluster.prototype.setAssignPublicIp = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 

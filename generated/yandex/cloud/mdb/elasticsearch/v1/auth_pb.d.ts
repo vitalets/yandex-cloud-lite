@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 
 export class AuthProviders extends jspb.Message { 

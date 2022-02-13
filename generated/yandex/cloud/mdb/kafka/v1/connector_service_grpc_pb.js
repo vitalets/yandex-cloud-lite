@@ -4,6 +4,7 @@
 var grpc = require('@grpc/grpc-js');
 var yandex_cloud_mdb_kafka_v1_connector_service_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/connector_service_pb.js');
 var google_api_annotations_pb = require('../../../../../google/api/annotations_pb.js');
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js');
 var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
 var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/operation/operation_pb.js');
 var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
@@ -97,6 +98,17 @@ function deserialize_yandex_cloud_mdb_kafka_v1_ResumeConnectorRequest(buffer_arg
   return yandex_cloud_mdb_kafka_v1_connector_service_pb.ResumeConnectorRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_mdb_kafka_v1_UpdateConnectorRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.kafka.v1.UpdateConnectorRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_kafka_v1_UpdateConnectorRequest(buffer_arg) {
+  return yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_operation_Operation(arg) {
   if (!(arg instanceof yandex_cloud_operation_operation_pb.Operation)) {
     throw new Error('Expected argument of type yandex.cloud.operation.Operation');
@@ -146,6 +158,18 @@ create: {
     responseType: yandex_cloud_operation_operation_pb.Operation,
     requestSerialize: serialize_yandex_cloud_mdb_kafka_v1_CreateConnectorRequest,
     requestDeserialize: deserialize_yandex_cloud_mdb_kafka_v1_CreateConnectorRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Updates an Apache Kafka connector in the specified cluster.
+update: {
+    path: '/yandex.cloud.mdb.kafka.v1.ConnectorService/Update',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_kafka_v1_UpdateConnectorRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_kafka_v1_UpdateConnectorRequest,
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },

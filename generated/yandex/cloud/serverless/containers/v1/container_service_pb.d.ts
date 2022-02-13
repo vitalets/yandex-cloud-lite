@@ -351,6 +351,10 @@ export class DeployContainerRevisionRequest extends jspb.Message {
     setImageSpec(value?: ImageSpec): DeployContainerRevisionRequest;
     getConcurrency(): number;
     setConcurrency(value: number): DeployContainerRevisionRequest;
+    clearSecretsList(): void;
+    getSecretsList(): Array<yandex_cloud_serverless_containers_v1_container_pb.Secret>;
+    setSecretsList(value: Array<yandex_cloud_serverless_containers_v1_container_pb.Secret>): DeployContainerRevisionRequest;
+    addSecrets(value?: yandex_cloud_serverless_containers_v1_container_pb.Secret, index?: number): yandex_cloud_serverless_containers_v1_container_pb.Secret;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): DeployContainerRevisionRequest.AsObject;
@@ -371,6 +375,7 @@ export namespace DeployContainerRevisionRequest {
         serviceAccountId: string,
         imageSpec?: ImageSpec.AsObject,
         concurrency: number,
+        secretsList: Array<yandex_cloud_serverless_containers_v1_container_pb.Secret.AsObject>,
     }
 }
 

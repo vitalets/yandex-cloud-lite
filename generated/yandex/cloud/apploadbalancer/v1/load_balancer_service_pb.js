@@ -5236,7 +5236,7 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.repeatedFields_ = [2];
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.oneofGroups_ = [[3,4]];
+proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.oneofGroups_ = [[3,4,5]];
 
 /**
  * @enum {number}
@@ -5244,7 +5244,8 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.oneofGroups_ = [[3,4]];
 proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.ListenerCase = {
   LISTENER_NOT_SET: 0,
   HTTP: 3,
-  TLS: 4
+  TLS: 4,
+  STREAM: 5
 };
 
 /**
@@ -5289,7 +5290,8 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.toObject = function(includeIn
     endpointSpecsList: jspb.Message.toObjectList(msg.getEndpointSpecsList(),
     proto.yandex.cloud.apploadbalancer.v1.EndpointSpec.toObject, includeInstance),
     http: (f = msg.getHttp()) && yandex_cloud_apploadbalancer_v1_load_balancer_pb.HttpListener.toObject(includeInstance, f),
-    tls: (f = msg.getTls()) && yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener.toObject(includeInstance, f)
+    tls: (f = msg.getTls()) && yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener.toObject(includeInstance, f),
+    stream: (f = msg.getStream()) && yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -5344,6 +5346,11 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.deserializeBinaryFromReader =
       var value = new yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener;
       reader.readMessage(value,yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener.deserializeBinaryFromReader);
       msg.setTls(value);
+      break;
+    case 5:
+      var value = new yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener;
+      reader.readMessage(value,yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener.deserializeBinaryFromReader);
+      msg.setStream(value);
       break;
     default:
       reader.skipField();
@@ -5403,6 +5410,14 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.serializeBinaryToWriter = fun
       4,
       f,
       yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener.serializeBinaryToWriter
+    );
+  }
+  f = message.getStream();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener.serializeBinaryToWriter
     );
   }
 };
@@ -5535,6 +5550,43 @@ proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.clearTls = function
  */
 proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.hasTls = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional StreamListener stream = 5;
+ * @return {?proto.yandex.cloud.apploadbalancer.v1.StreamListener}
+ */
+proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.getStream = function() {
+  return /** @type{?proto.yandex.cloud.apploadbalancer.v1.StreamListener} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener, 5));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.apploadbalancer.v1.StreamListener|undefined} value
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.ListenerSpec} returns this
+*/
+proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.setStream = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 5, proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.apploadbalancer.v1.ListenerSpec} returns this
+ */
+proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.clearStream = function() {
+  return this.setStream(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.apploadbalancer.v1.ListenerSpec.prototype.hasStream = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

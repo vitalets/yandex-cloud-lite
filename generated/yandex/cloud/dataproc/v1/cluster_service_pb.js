@@ -1136,6 +1136,7 @@ proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.toObject = function(in
     resources: (f = msg.getResources()) && yandex_cloud_dataproc_v1_common_pb.Resources.toObject(includeInstance, f),
     subnetId: jspb.Message.getFieldWithDefault(msg, 4, ""),
     hostsCount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    assignPublicIp: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     autoscalingConfig: (f = msg.getAutoscalingConfig()) && yandex_cloud_dataproc_v1_subcluster_pb.AutoscalingConfig.toObject(includeInstance, f)
   };
 
@@ -1193,6 +1194,10 @@ proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.deserializeBinaryFromR
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setHostsCount(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAssignPublicIp(value);
       break;
     case 7:
       var value = new yandex_cloud_dataproc_v1_subcluster_pb.AutoscalingConfig;
@@ -1261,6 +1266,13 @@ proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.serializeBinaryToWrite
   if (f !== 0) {
     writer.writeInt64(
       5,
+      f
+    );
+  }
+  f = message.getAssignPublicIp();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -1381,6 +1393,24 @@ proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.prototype.getHostsCoun
  */
 proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.prototype.setHostsCount = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional bool assign_public_ip = 6;
+ * @return {boolean}
+ */
+proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.prototype.getAssignPublicIp = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec} returns this
+ */
+proto.yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec.prototype.setAssignPublicIp = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

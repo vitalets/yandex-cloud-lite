@@ -1269,7 +1269,7 @@ proto.yandex.cloud.mdb.sqlserver.v1.ListClustersResponse.prototype.setNextPageTo
  * @private {!Array<number>}
  * @const
  */
-proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.repeatedFields_ = [7,8,9,11];
+proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.repeatedFields_ = [7,8,9,11,14];
 
 
 
@@ -1317,7 +1317,8 @@ proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.toObject = function(inc
     networkId: jspb.Message.getFieldWithDefault(msg, 10, ""),
     securityGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f,
     deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
-    sqlcollation: jspb.Message.getFieldWithDefault(msg, 13, "")
+    sqlcollation: jspb.Message.getFieldWithDefault(msg, 13, ""),
+    hostGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 14)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1411,6 +1412,10 @@ proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.deserializeBinaryFromRe
     case 13:
       var value = /** @type {string} */ (reader.readString());
       msg.setSqlcollation(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addHostGroupIds(value);
       break;
     default:
       reader.skipField();
@@ -1530,6 +1535,13 @@ proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.serializeBinaryToWriter
   if (f.length > 0) {
     writer.writeString(
       13,
+      f
+    );
+  }
+  f = message.getHostGroupIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      14,
       f
     );
   }
@@ -1869,6 +1881,43 @@ proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.getSqlcollati
  */
 proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.setSqlcollation = function(value) {
   return jspb.Message.setProto3StringField(this, 13, value);
+};
+
+
+/**
+ * repeated string host_group_ids = 14;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.getHostGroupIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 14));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.setHostGroupIdsList = function(value) {
+  return jspb.Message.setField(this, 14, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.addHostGroupIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 14, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.CreateClusterRequest.prototype.clearHostGroupIdsList = function() {
+  return this.setHostGroupIdsList([]);
 };
 
 
@@ -3069,7 +3118,7 @@ proto.yandex.cloud.mdb.sqlserver.v1.BackupClusterMetadata.prototype.setClusterId
  * @private {!Array<number>}
  * @const
  */
-proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.repeatedFields_ = [9,12];
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.repeatedFields_ = [9,12,14];
 
 
 
@@ -3113,7 +3162,9 @@ proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.toObject = function(in
     proto.yandex.cloud.mdb.sqlserver.v1.HostSpec.toObject, includeInstance),
     networkId: jspb.Message.getFieldWithDefault(msg, 10, ""),
     folderId: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    securityGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f
+    securityGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f,
+    deletionProtection: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
+    hostGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 14)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -3198,6 +3249,14 @@ proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.deserializeBinaryFromR
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.addSecurityGroupIds(value);
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeletionProtection(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addHostGroupIds(value);
       break;
     default:
       reader.skipField();
@@ -3302,6 +3361,20 @@ proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.serializeBinaryToWrite
   if (f.length > 0) {
     writer.writeRepeatedString(
       12,
+      f
+    );
+  }
+  f = message.getDeletionProtection();
+  if (f) {
+    writer.writeBool(
+      13,
+      f
+    );
+  }
+  f = message.getHostGroupIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      14,
       f
     );
   }
@@ -3584,6 +3657,61 @@ proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.addSecurityG
  */
 proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.clearSecurityGroupIdsList = function() {
   return this.setSecurityGroupIdsList([]);
+};
+
+
+/**
+ * optional bool deletion_protection = 13;
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.getDeletionProtection = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.setDeletionProtection = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 13, value);
+};
+
+
+/**
+ * repeated string host_group_ids = 14;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.getHostGroupIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 14));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.setHostGroupIdsList = function(value) {
+  return jspb.Message.setField(this, 14, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.addHostGroupIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 14, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.sqlserver.v1.RestoreClusterRequest.prototype.clearHostGroupIdsList = function() {
+  return this.setHostGroupIdsList([]);
 };
 
 

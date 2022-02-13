@@ -6,7 +6,6 @@
 
 import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_certificatemanager_v1_certificate_content_service_pb from "../../../../yandex/cloud/certificatemanager/v1/certificate_content_service_pb";
-import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 
 interface ICertificateContentServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     get: ICertificateContentServiceService_IGet;

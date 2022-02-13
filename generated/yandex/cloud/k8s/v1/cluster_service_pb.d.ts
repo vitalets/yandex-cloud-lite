@@ -243,6 +243,11 @@ export class UpdateClusterRequest extends jspb.Message {
     getNetworkPolicy(): yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy | undefined;
     setNetworkPolicy(value?: yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy): UpdateClusterRequest;
 
+    hasIpAllocationPolicy(): boolean;
+    clearIpAllocationPolicy(): void;
+    getIpAllocationPolicy(): yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy | undefined;
+    setIpAllocationPolicy(value?: yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy): UpdateClusterRequest;
+
     getInternetGatewayCase(): UpdateClusterRequest.InternetGatewayCase;
 
     serializeBinary(): Uint8Array;
@@ -268,6 +273,7 @@ export namespace UpdateClusterRequest {
         serviceAccountId: string,
         nodeServiceAccountId: string,
         networkPolicy?: yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy.AsObject,
+        ipAllocationPolicy?: yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy.AsObject,
     }
 
     export enum InternetGatewayCase {

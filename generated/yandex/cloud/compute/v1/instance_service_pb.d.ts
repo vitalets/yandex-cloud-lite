@@ -1290,6 +1290,55 @@ export namespace DnsRecordSpec {
     }
 }
 
+export class MoveInstanceRequest extends jspb.Message { 
+    getInstanceId(): string;
+    setInstanceId(value: string): MoveInstanceRequest;
+    getDestinationFolderId(): string;
+    setDestinationFolderId(value: string): MoveInstanceRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): MoveInstanceRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: MoveInstanceRequest): MoveInstanceRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: MoveInstanceRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MoveInstanceRequest;
+    static deserializeBinaryFromReader(message: MoveInstanceRequest, reader: jspb.BinaryReader): MoveInstanceRequest;
+}
+
+export namespace MoveInstanceRequest {
+    export type AsObject = {
+        instanceId: string,
+        destinationFolderId: string,
+    }
+}
+
+export class MoveInstanceMetadata extends jspb.Message { 
+    getInstanceId(): string;
+    setInstanceId(value: string): MoveInstanceMetadata;
+    getSourceFolderId(): string;
+    setSourceFolderId(value: string): MoveInstanceMetadata;
+    getDestinationFolderId(): string;
+    setDestinationFolderId(value: string): MoveInstanceMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): MoveInstanceMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: MoveInstanceMetadata): MoveInstanceMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: MoveInstanceMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MoveInstanceMetadata;
+    static deserializeBinaryFromReader(message: MoveInstanceMetadata, reader: jspb.BinaryReader): MoveInstanceMetadata;
+}
+
+export namespace MoveInstanceMetadata {
+    export type AsObject = {
+        instanceId: string,
+        sourceFolderId: string,
+        destinationFolderId: string,
+    }
+}
+
 export enum InstanceView {
     BASIC = 0,
     FULL = 1,

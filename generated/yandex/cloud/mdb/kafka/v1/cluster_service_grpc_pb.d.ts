@@ -14,6 +14,7 @@ import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/clou
 import * as yandex_cloud_mdb_kafka_v1_cluster_pb from "../../../../../yandex/cloud/mdb/kafka/v1/cluster_pb";
 import * as yandex_cloud_mdb_kafka_v1_topic_pb from "../../../../../yandex/cloud/mdb/kafka/v1/topic_pb";
 import * as yandex_cloud_mdb_kafka_v1_user_pb from "../../../../../yandex/cloud/mdb/kafka/v1/user_pb";
+import * as yandex_cloud_mdb_kafka_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/kafka/v1/maintenance_pb";
 
 interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     get: IClusterServiceService_IGet;
@@ -24,6 +25,7 @@ interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     move: IClusterServiceService_IMove;
     start: IClusterServiceService_IStart;
     stop: IClusterServiceService_IStop;
+    rescheduleMaintenance: IClusterServiceService_IRescheduleMaintenance;
     listLogs: IClusterServiceService_IListLogs;
     streamLogs: IClusterServiceService_IStreamLogs;
     listOperations: IClusterServiceService_IListOperations;
@@ -102,6 +104,15 @@ interface IClusterServiceService_IStop extends grpc.MethodDefinition<yandex_clou
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
+interface IClusterServiceService_IRescheduleMaintenance extends grpc.MethodDefinition<yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.kafka.v1.ClusterService/RescheduleMaintenance";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 interface IClusterServiceService_IListLogs extends grpc.MethodDefinition<yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse> {
     path: "/yandex.cloud.mdb.kafka.v1.ClusterService/ListLogs";
     requestStream: false;
@@ -150,6 +161,7 @@ export interface IClusterServiceServer extends grpc.UntypedServiceImplementation
     move: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.MoveClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     start: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.StartClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     stop: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
+    rescheduleMaintenance: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, yandex_cloud_operation_operation_pb.Operation>;
     listLogs: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse>;
     streamLogs: grpc.handleServerStreamingCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.StreamClusterLogsRequest, yandex_cloud_mdb_kafka_v1_cluster_service_pb.StreamLogRecord>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterOperationsRequest, yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterOperationsResponse>;
@@ -181,6 +193,9 @@ export interface IClusterServiceClient {
     stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
@@ -220,6 +235,9 @@ export class ClusterServiceClient extends grpc.Client implements IClusterService
     public stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public stop(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_kafka_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;

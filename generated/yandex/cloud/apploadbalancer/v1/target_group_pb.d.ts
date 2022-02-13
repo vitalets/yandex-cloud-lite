@@ -61,6 +61,8 @@ export class Target extends jspb.Message {
     setIpAddress(value: string): Target;
     getSubnetId(): string;
     setSubnetId(value: string): Target;
+    getPrivateIpv4Address(): boolean;
+    setPrivateIpv4Address(value: boolean): Target;
 
     getAddressTypeCase(): Target.AddressTypeCase;
 
@@ -78,6 +80,7 @@ export namespace Target {
     export type AsObject = {
         ipAddress: string,
         subnetId: string,
+        privateIpv4Address: boolean,
     }
 
     export enum AddressTypeCase {

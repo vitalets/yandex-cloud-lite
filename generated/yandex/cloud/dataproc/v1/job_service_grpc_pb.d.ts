@@ -16,6 +16,7 @@ interface IJobServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceI
     create: IJobServiceService_ICreate;
     get: IJobServiceService_IGet;
     listLog: IJobServiceService_IListLog;
+    cancel: IJobServiceService_ICancel;
 }
 
 interface IJobServiceService_IList extends grpc.MethodDefinition<yandex_cloud_dataproc_v1_job_service_pb.ListJobsRequest, yandex_cloud_dataproc_v1_job_service_pb.ListJobsResponse> {
@@ -54,6 +55,15 @@ interface IJobServiceService_IListLog extends grpc.MethodDefinition<yandex_cloud
     responseSerialize: grpc.serialize<yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse>;
 }
+interface IJobServiceService_ICancel extends grpc.MethodDefinition<yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.dataproc.v1.JobService/Cancel";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 
 export const JobServiceService: IJobServiceService;
 
@@ -62,6 +72,7 @@ export interface IJobServiceServer extends grpc.UntypedServiceImplementation {
     create: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.CreateJobRequest, yandex_cloud_operation_operation_pb.Operation>;
     get: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.GetJobRequest, yandex_cloud_dataproc_v1_job_pb.Job>;
     listLog: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse>;
+    cancel: grpc.handleUnaryCall<yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, yandex_cloud_operation_operation_pb.Operation>;
 }
 
 export interface IJobServiceClient {
@@ -77,6 +88,9 @@ export interface IJobServiceClient {
     listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
     listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
     listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
+    cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }
 
 export class JobServiceClient extends grpc.Client implements IJobServiceClient {
@@ -93,4 +107,7 @@ export class JobServiceClient extends grpc.Client implements IJobServiceClient {
     public listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
     public listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
     public listLog(request: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_dataproc_v1_job_service_pb.ListJobLogResponse) => void): grpc.ClientUnaryCall;
+    public cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public cancel(request: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }

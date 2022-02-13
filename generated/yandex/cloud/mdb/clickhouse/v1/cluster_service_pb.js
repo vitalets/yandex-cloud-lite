@@ -5196,7 +5196,7 @@ proto.yandex.cloud.mdb.clickhouse.v1.BackupClusterMetadata.prototype.setClusterI
  * @private {!Array<number>}
  * @const
  */
-proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.repeatedFields_ = [7,11];
+proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.repeatedFields_ = [13,7,11];
 
 
 
@@ -5230,6 +5230,7 @@ proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.toObject = 
 proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     backupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    additionalBackupIdsList: (f = jspb.Message.getRepeatedField(msg, 13)) == null ? undefined : f,
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 3, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
@@ -5280,6 +5281,10 @@ proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.deserializeBinaryFrom
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setBackupId(value);
+      break;
+    case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addAdditionalBackupIds(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
@@ -5358,6 +5363,13 @@ proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.serializeBinaryToWrit
   if (f.length > 0) {
     writer.writeString(
       1,
+      f
+    );
+  }
+  f = message.getAdditionalBackupIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      13,
       f
     );
   }
@@ -5448,6 +5460,43 @@ proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.getBackupId
  */
 proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.setBackupId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated string additional_backup_ids = 13;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.getAdditionalBackupIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 13));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.setAdditionalBackupIdsList = function(value) {
+  return jspb.Message.setField(this, 13, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.addAdditionalBackupIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 13, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.RestoreClusterRequest.prototype.clearAdditionalBackupIdsList = function() {
+  return this.setAdditionalBackupIdsList([]);
 };
 
 
@@ -13899,7 +13948,8 @@ proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.toObject = function(includeInsta
     cloudStorage: (f = msg.getCloudStorage()) && yandex_cloud_mdb_clickhouse_v1_cluster_pb.CloudStorage.toObject(includeInstance, f),
     sqlDatabaseManagement: (f = msg.getSqlDatabaseManagement()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
     sqlUserManagement: (f = msg.getSqlUserManagement()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
-    adminPassword: jspb.Message.getFieldWithDefault(msg, 9, "")
+    adminPassword: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    embeddedKeeper: (f = msg.getEmbeddedKeeper()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -13978,6 +14028,11 @@ proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.deserializeBinaryFromReader = fu
     case 9:
       var value = /** @type {string} */ (reader.readString());
       msg.setAdminPassword(value);
+      break;
+    case 10:
+      var value = new google_protobuf_wrappers_pb.BoolValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
+      msg.setEmbeddedKeeper(value);
       break;
     default:
       reader.skipField();
@@ -14076,6 +14131,14 @@ proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.serializeBinaryToWriter = functi
     writer.writeString(
       9,
       f
+    );
+  }
+  f = message.getEmbeddedKeeper();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
     );
   }
 };
@@ -14726,6 +14789,43 @@ proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.getAdminPassword = fun
  */
 proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.setAdminPassword = function(value) {
   return jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional google.protobuf.BoolValue embedded_keeper = 10;
+ * @return {?proto.google.protobuf.BoolValue}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.getEmbeddedKeeper = function() {
+  return /** @type{?proto.google.protobuf.BoolValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.BoolValue, 10));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.BoolValue|undefined} value
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec} returns this
+*/
+proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.setEmbeddedKeeper = function(value) {
+  return jspb.Message.setWrapperField(this, 10, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.clearEmbeddedKeeper = function() {
+  return this.setEmbeddedKeeper(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ConfigSpec.prototype.hasEmbeddedKeeper = function() {
+  return jspb.Message.getField(this, 10) != null;
 };
 
 

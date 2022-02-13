@@ -437,7 +437,8 @@ proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.toObject = function(incl
   var f, obj = {
     pageSize: jspb.Message.getFieldWithDefault(msg, 1, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    filter: jspb.Message.getFieldWithDefault(msg, 3, "")
+    filter: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -486,6 +487,10 @@ proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.deserializeBinaryFromRea
       var value = /** @type {string} */ (reader.readString());
       msg.setFilter(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setOrganizationId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -533,6 +538,13 @@ proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.serializeBinaryToWriter 
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getOrganizationId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -590,6 +602,24 @@ proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.prototype.getFilter = fu
  */
 proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.prototype.setFilter = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string organization_id = 4;
+ * @return {string}
+ */
+proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.prototype.getOrganizationId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest} returns this
+ */
+proto.yandex.cloud.resourcemanager.v1.ListCloudsRequest.prototype.setOrganizationId = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

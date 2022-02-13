@@ -98,6 +98,17 @@ function deserialize_yandex_cloud_compute_v1_ListDisksResponse(buffer_arg) {
   return yandex_cloud_compute_v1_disk_service_pb.ListDisksResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_yandex_cloud_compute_v1_MoveDiskRequest(arg) {
+  if (!(arg instanceof yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.compute.v1.MoveDiskRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_compute_v1_MoveDiskRequest(buffer_arg) {
+  return yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_compute_v1_UpdateDiskRequest(arg) {
   if (!(arg instanceof yandex_cloud_compute_v1_disk_service_pb.UpdateDiskRequest)) {
     throw new Error('Expected argument of type yandex.cloud.compute.v1.UpdateDiskRequest');
@@ -204,6 +215,18 @@ listOperations: {
     requestDeserialize: deserialize_yandex_cloud_compute_v1_ListDiskOperationsRequest,
     responseSerialize: serialize_yandex_cloud_compute_v1_ListDiskOperationsResponse,
     responseDeserialize: deserialize_yandex_cloud_compute_v1_ListDiskOperationsResponse,
+  },
+  // Moves disk between folders.
+move: {
+    path: '/yandex.cloud.compute.v1.DiskService/Move',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_compute_v1_MoveDiskRequest,
+    requestDeserialize: deserialize_yandex_cloud_compute_v1_MoveDiskRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
 };
 

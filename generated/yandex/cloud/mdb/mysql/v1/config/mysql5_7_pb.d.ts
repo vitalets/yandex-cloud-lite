@@ -263,6 +263,42 @@ export class MysqlConfig5_7 extends jspb.Message {
     getRangeOptimizerMaxMemSize(): google_protobuf_wrappers_pb.Int64Value | undefined;
     setRangeOptimizerMaxMemSize(value?: google_protobuf_wrappers_pb.Int64Value): MysqlConfig5_7;
 
+    hasSlowQueryLog(): boolean;
+    clearSlowQueryLog(): void;
+    getSlowQueryLog(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setSlowQueryLog(value?: google_protobuf_wrappers_pb.BoolValue): MysqlConfig5_7;
+
+    hasSlowQueryLogAlwaysWriteTime(): boolean;
+    clearSlowQueryLogAlwaysWriteTime(): void;
+    getSlowQueryLogAlwaysWriteTime(): google_protobuf_wrappers_pb.DoubleValue | undefined;
+    setSlowQueryLogAlwaysWriteTime(value?: google_protobuf_wrappers_pb.DoubleValue): MysqlConfig5_7;
+    getLogSlowRateType(): MysqlConfig5_7.LogSlowRateType;
+    setLogSlowRateType(value: MysqlConfig5_7.LogSlowRateType): MysqlConfig5_7;
+
+    hasLogSlowRateLimit(): boolean;
+    clearLogSlowRateLimit(): void;
+    getLogSlowRateLimit(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setLogSlowRateLimit(value?: google_protobuf_wrappers_pb.Int64Value): MysqlConfig5_7;
+
+    hasLogSlowSpStatements(): boolean;
+    clearLogSlowSpStatements(): void;
+    getLogSlowSpStatements(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setLogSlowSpStatements(value?: google_protobuf_wrappers_pb.BoolValue): MysqlConfig5_7;
+    clearLogSlowFilterList(): void;
+    getLogSlowFilterList(): Array<MysqlConfig5_7.LogSlowFilterType>;
+    setLogSlowFilterList(value: Array<MysqlConfig5_7.LogSlowFilterType>): MysqlConfig5_7;
+    addLogSlowFilter(value: MysqlConfig5_7.LogSlowFilterType, index?: number): MysqlConfig5_7.LogSlowFilterType;
+
+    hasMdbPriorityChoiceMaxLag(): boolean;
+    clearMdbPriorityChoiceMaxLag(): void;
+    getMdbPriorityChoiceMaxLag(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setMdbPriorityChoiceMaxLag(value?: google_protobuf_wrappers_pb.Int64Value): MysqlConfig5_7;
+
+    hasInnodbPageSize(): boolean;
+    clearInnodbPageSize(): void;
+    getInnodbPageSize(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setInnodbPageSize(value?: google_protobuf_wrappers_pb.Int64Value): MysqlConfig5_7;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): MysqlConfig5_7.AsObject;
     static toObject(includeInstance: boolean, msg: MysqlConfig5_7): MysqlConfig5_7.AsObject;
@@ -330,6 +366,14 @@ export namespace MysqlConfig5_7 {
         mdbOfflineModeEnableLag?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         mdbOfflineModeDisableLag?: google_protobuf_wrappers_pb.Int64Value.AsObject,
         rangeOptimizerMaxMemSize?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        slowQueryLog?: google_protobuf_wrappers_pb.BoolValue.AsObject,
+        slowQueryLogAlwaysWriteTime?: google_protobuf_wrappers_pb.DoubleValue.AsObject,
+        logSlowRateType: MysqlConfig5_7.LogSlowRateType,
+        logSlowRateLimit?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        logSlowSpStatements?: google_protobuf_wrappers_pb.BoolValue.AsObject,
+        logSlowFilterList: Array<MysqlConfig5_7.LogSlowFilterType>,
+        mdbPriorityChoiceMaxLag?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        innodbPageSize?: google_protobuf_wrappers_pb.Int64Value.AsObject,
     }
 
     export enum SQLMode {
@@ -392,6 +436,22 @@ export namespace MysqlConfig5_7 {
     SLAVE_PARALLEL_TYPE_UNSPECIFIED = 0,
     DATABASE = 1,
     LOGICAL_CLOCK = 2,
+    }
+
+    export enum LogSlowRateType {
+    LOG_SLOW_RATE_TYPE_UNSPECIFIED = 0,
+    SESSION = 1,
+    QUERY = 2,
+    }
+
+    export enum LogSlowFilterType {
+    LOG_SLOW_FILTER_TYPE_UNSPECIFIED = 0,
+    FULL_SCAN = 1,
+    FULL_JOIN = 2,
+    TMP_TABLE = 3,
+    TMP_TABLE_ON_DISK = 4,
+    FILESORT = 5,
+    FILESORT_ON_DISK = 6,
     }
 
 }

@@ -64,6 +64,7 @@ goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpe
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ResourcesSpec', null, global);
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy', null, global);
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale', null, global);
+goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType', null, global);
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule', null, global);
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule', null, global);
 goog.exportSymbol('proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule.MetricType', null, global);
@@ -3205,7 +3206,8 @@ proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.toObject = fun
     initialSize: jspb.Message.getFieldWithDefault(msg, 6, 0),
     cpuUtilizationRule: (f = msg.getCpuUtilizationRule()) && proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule.toObject(includeInstance, f),
     customRulesList: jspb.Message.toObjectList(msg.getCustomRulesList(),
-    proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule.toObject, includeInstance)
+    proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule.toObject, includeInstance),
+    autoScaleType: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -3278,6 +3280,10 @@ proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.deserializeBin
       var value = new proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule;
       reader.readMessage(value,proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule.deserializeBinaryFromReader);
       msg.addCustomRules(value);
+      break;
+    case 9:
+      var value = /** @type {!proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType} */ (reader.readEnum());
+      msg.setAutoScaleType(value);
       break;
     default:
       reader.skipField();
@@ -3369,8 +3375,24 @@ proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.serializeBinar
       proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule.serializeBinaryToWriter
     );
   }
+  f = message.getAutoScaleType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      9,
+      f
+    );
+  }
 };
 
+
+/**
+ * @enum {number}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType = {
+  AUTO_SCALE_TYPE_UNSPECIFIED: 0,
+  ZONAL: 1,
+  REGIONAL: 2
+};
 
 /**
  * optional int64 min_zone_size = 1;
@@ -3609,6 +3631,24 @@ proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.prototype.addC
  */
 proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.prototype.clearCustomRulesList = function() {
   return this.setCustomRulesList([]);
+};
+
+
+/**
+ * optional AutoScaleType auto_scale_type = 9;
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType}
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.prototype.getAutoScaleType = function() {
+  return /** @type {!proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.AutoScaleType} value
+ * @return {!proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale} returns this
+ */
+proto.yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale.prototype.setAutoScaleType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 9, value);
 };
 
 
@@ -10032,7 +10072,8 @@ proto.yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status = {
   RUNNING_ACTUAL: 21,
   RUNNING_OUTDATED: 22,
   STOPPED: 23,
-  DELETED: 24
+  DELETED: 24,
+  PREPARING_RESOURCES: 25
 };
 
 /**

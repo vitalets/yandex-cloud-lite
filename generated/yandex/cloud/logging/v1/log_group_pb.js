@@ -82,7 +82,8 @@ proto.yandex.cloud.logging.v1.LogGroup.toObject = function(includeInstance, msg)
     description: jspb.Message.getFieldWithDefault(msg, 6, ""),
     labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : [],
     status: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    retentionPeriod: (f = msg.getRetentionPeriod()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f)
+    retentionPeriod: (f = msg.getRetentionPeriod()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
+    dataStream: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
   if (includeInstance) {
@@ -158,6 +159,10 @@ proto.yandex.cloud.logging.v1.LogGroup.deserializeBinaryFromReader = function(ms
       var value = new google_protobuf_duration_pb.Duration;
       reader.readMessage(value,google_protobuf_duration_pb.Duration.deserializeBinaryFromReader);
       msg.setRetentionPeriod(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDataStream(value);
       break;
     default:
       reader.skipField();
@@ -248,6 +253,13 @@ proto.yandex.cloud.logging.v1.LogGroup.serializeBinaryToWriter = function(messag
       9,
       f,
       google_protobuf_duration_pb.Duration.serializeBinaryToWriter
+    );
+  }
+  f = message.getDataStream();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
     );
   }
 };
@@ -465,6 +477,24 @@ proto.yandex.cloud.logging.v1.LogGroup.prototype.clearRetentionPeriod = function
  */
 proto.yandex.cloud.logging.v1.LogGroup.prototype.hasRetentionPeriod = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional string data_stream = 10;
+ * @return {string}
+ */
+proto.yandex.cloud.logging.v1.LogGroup.prototype.getDataStream = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.yandex.cloud.logging.v1.LogGroup} returns this
+ */
+proto.yandex.cloud.logging.v1.LogGroup.prototype.setDataStream = function(value) {
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 

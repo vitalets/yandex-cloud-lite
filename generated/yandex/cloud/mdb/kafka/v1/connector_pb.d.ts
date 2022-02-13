@@ -52,6 +52,48 @@ export namespace ConnectorSpec {
 
 }
 
+export class UpdateConnectorSpec extends jspb.Message { 
+
+    hasTasksMax(): boolean;
+    clearTasksMax(): void;
+    getTasksMax(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setTasksMax(value?: google_protobuf_wrappers_pb.Int64Value): UpdateConnectorSpec;
+
+    getPropertiesMap(): jspb.Map<string, string>;
+    clearPropertiesMap(): void;
+
+    hasConnectorConfigMirrormaker(): boolean;
+    clearConnectorConfigMirrormaker(): void;
+    getConnectorConfigMirrormaker(): ConnectorConfigMirrorMakerSpec | undefined;
+    setConnectorConfigMirrormaker(value?: ConnectorConfigMirrorMakerSpec): UpdateConnectorSpec;
+
+    getConnectorConfigCase(): UpdateConnectorSpec.ConnectorConfigCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateConnectorSpec.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateConnectorSpec): UpdateConnectorSpec.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateConnectorSpec, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateConnectorSpec;
+    static deserializeBinaryFromReader(message: UpdateConnectorSpec, reader: jspb.BinaryReader): UpdateConnectorSpec;
+}
+
+export namespace UpdateConnectorSpec {
+    export type AsObject = {
+        tasksMax?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+
+        propertiesMap: Array<[string, string]>,
+        connectorConfigMirrormaker?: ConnectorConfigMirrorMakerSpec.AsObject,
+    }
+
+    export enum ConnectorConfigCase {
+        CONNECTOR_CONFIG_NOT_SET = 0,
+        CONNECTOR_CONFIG_MIRRORMAKER = 10,
+    }
+
+}
+
 export class ConnectorConfigMirrorMakerSpec extends jspb.Message { 
 
     hasSourceCluster(): boolean;

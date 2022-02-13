@@ -9,6 +9,17 @@ var yandex_cloud_operation_operation_pb = require('../../../../yandex/cloud/oper
 var yandex_cloud_validation_pb = require('../../../../yandex/cloud/validation_pb.js');
 var yandex_cloud_api_operation_pb = require('../../../../yandex/cloud/api/operation_pb.js');
 
+function serialize_yandex_cloud_dataproc_v1_CancelJobRequest(arg) {
+  if (!(arg instanceof yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.dataproc.v1.CancelJobRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_dataproc_v1_CancelJobRequest(buffer_arg) {
+  return yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_yandex_cloud_dataproc_v1_CreateJobRequest(arg) {
   if (!(arg instanceof yandex_cloud_dataproc_v1_job_service_pb.CreateJobRequest)) {
     throw new Error('Expected argument of type yandex.cloud.dataproc.v1.CreateJobRequest');
@@ -147,6 +158,18 @@ listLog: {
     requestDeserialize: deserialize_yandex_cloud_dataproc_v1_ListJobLogRequest,
     responseSerialize: serialize_yandex_cloud_dataproc_v1_ListJobLogResponse,
     responseDeserialize: deserialize_yandex_cloud_dataproc_v1_ListJobLogResponse,
+  },
+  // Cancels the specified Dataproc job.
+cancel: {
+    path: '/yandex.cloud.dataproc.v1.JobService/Cancel',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_dataproc_v1_job_service_pb.CancelJobRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_dataproc_v1_CancelJobRequest,
+    requestDeserialize: deserialize_yandex_cloud_dataproc_v1_CancelJobRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
 };
 

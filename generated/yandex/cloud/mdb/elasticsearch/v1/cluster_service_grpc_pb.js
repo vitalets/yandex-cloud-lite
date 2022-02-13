@@ -9,9 +9,11 @@ var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/time
 var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
 var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
 var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/operation/operation_pb.js');
+var yandex_cloud_mdb_elasticsearch_v1_backup_pb = require('../../../../../yandex/cloud/mdb/elasticsearch/v1/backup_pb.js');
 var yandex_cloud_mdb_elasticsearch_v1_cluster_pb = require('../../../../../yandex/cloud/mdb/elasticsearch/v1/cluster_pb.js');
 var yandex_cloud_mdb_elasticsearch_v1_user_pb = require('../../../../../yandex/cloud/mdb/elasticsearch/v1/user_pb.js');
 var yandex_cloud_mdb_elasticsearch_v1_config_elasticsearch_pb = require('../../../../../yandex/cloud/mdb/elasticsearch/v1/config/elasticsearch_pb.js');
+var yandex_cloud_mdb_elasticsearch_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/elasticsearch/v1/maintenance_pb.js');
 
 function serialize_yandex_cloud_mdb_elasticsearch_v1_AddClusterHostsRequest(arg) {
   if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.AddClusterHostsRequest)) {
@@ -22,6 +24,17 @@ function serialize_yandex_cloud_mdb_elasticsearch_v1_AddClusterHostsRequest(arg)
 
 function deserialize_yandex_cloud_mdb_elasticsearch_v1_AddClusterHostsRequest(buffer_arg) {
   return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.AddClusterHostsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_elasticsearch_v1_BackupClusterRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.elasticsearch.v1.BackupClusterRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_elasticsearch_v1_BackupClusterRequest(buffer_arg) {
+  return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_yandex_cloud_mdb_elasticsearch_v1_Cluster(arg) {
@@ -77,6 +90,28 @@ function serialize_yandex_cloud_mdb_elasticsearch_v1_GetClusterRequest(arg) {
 
 function deserialize_yandex_cloud_mdb_elasticsearch_v1_GetClusterRequest(buffer_arg) {
   return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.GetClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.elasticsearch.v1.ListClusterBackupsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsRequest(buffer_arg) {
+  return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsResponse(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.elasticsearch.v1.ListClusterBackupsResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsResponse(buffer_arg) {
+  return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterHostsRequest(arg) {
@@ -176,6 +211,28 @@ function serialize_yandex_cloud_mdb_elasticsearch_v1_MoveClusterRequest(arg) {
 
 function deserialize_yandex_cloud_mdb_elasticsearch_v1_MoveClusterRequest(buffer_arg) {
   return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.MoveClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_elasticsearch_v1_RescheduleMaintenanceRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.elasticsearch.v1.RescheduleMaintenanceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_elasticsearch_v1_RescheduleMaintenanceRequest(buffer_arg) {
+  return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_elasticsearch_v1_RestoreClusterRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.elasticsearch.v1.RestoreClusterRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_elasticsearch_v1_RestoreClusterRequest(buffer_arg) {
+  return yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_yandex_cloud_mdb_elasticsearch_v1_StartClusterRequest(arg) {
@@ -345,6 +402,42 @@ stop: {
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },
+  // Create a backup for the specified ElasticSearch cluster.
+backup: {
+    path: '/yandex.cloud.mdb.elasticsearch.v1.ClusterService/Backup',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_BackupClusterRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_BackupClusterRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Returns the list of available backups for the specified Elasticsearch cluster.
+listBackups: {
+    path: '/yandex.cloud.mdb.elasticsearch.v1.ClusterService/ListBackups',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest,
+    responseType: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse,
+    requestSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsRequest,
+    responseSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsResponse,
+    responseDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_ListClusterBackupsResponse,
+  },
+  // Creates a new ElasticSearch cluster from the specified backup.
+restore: {
+    path: '/yandex.cloud.mdb.elasticsearch.v1.ClusterService/Restore',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_RestoreClusterRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_RestoreClusterRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
   // Retrieves logs for the specified Elasticsearch cluster.
 //
 // For more information about logs, see the [Logs](/docs/managed-elasticsearch/operations/cluster-logs) section in the documentation.
@@ -416,6 +509,18 @@ deleteHosts: {
     responseType: yandex_cloud_operation_operation_pb.Operation,
     requestSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_DeleteClusterHostsRequest,
     requestDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_DeleteClusterHostsRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Reschedule planned maintenance operation.
+rescheduleMaintenance: {
+    path: '/yandex.cloud.mdb.elasticsearch.v1.ClusterService/RescheduleMaintenance',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_elasticsearch_v1_RescheduleMaintenanceRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_elasticsearch_v1_RescheduleMaintenanceRequest,
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },

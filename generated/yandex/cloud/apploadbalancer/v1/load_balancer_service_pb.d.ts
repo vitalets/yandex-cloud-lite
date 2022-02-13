@@ -654,6 +654,11 @@ export class ListenerSpec extends jspb.Message {
     getTls(): yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener | undefined;
     setTls(value?: yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener): ListenerSpec;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener | undefined;
+    setStream(value?: yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener): ListenerSpec;
+
     getListenerCase(): ListenerSpec.ListenerCase;
 
     serializeBinary(): Uint8Array;
@@ -672,12 +677,14 @@ export namespace ListenerSpec {
         endpointSpecsList: Array<EndpointSpec.AsObject>,
         http?: yandex_cloud_apploadbalancer_v1_load_balancer_pb.HttpListener.AsObject,
         tls?: yandex_cloud_apploadbalancer_v1_load_balancer_pb.TlsListener.AsObject,
+        stream?: yandex_cloud_apploadbalancer_v1_load_balancer_pb.StreamListener.AsObject,
     }
 
     export enum ListenerCase {
         LISTENER_NOT_SET = 0,
         HTTP = 3,
         TLS = 4,
+        STREAM = 5,
     }
 
 }

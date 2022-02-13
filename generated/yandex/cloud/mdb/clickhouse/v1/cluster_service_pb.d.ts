@@ -528,6 +528,10 @@ export namespace BackupClusterMetadata {
 export class RestoreClusterRequest extends jspb.Message { 
     getBackupId(): string;
     setBackupId(value: string): RestoreClusterRequest;
+    clearAdditionalBackupIdsList(): void;
+    getAdditionalBackupIdsList(): Array<string>;
+    setAdditionalBackupIdsList(value: Array<string>): RestoreClusterRequest;
+    addAdditionalBackupIds(value: string, index?: number): string;
     getName(): string;
     setName(value: string): RestoreClusterRequest;
     getDescription(): string;
@@ -570,6 +574,7 @@ export class RestoreClusterRequest extends jspb.Message {
 export namespace RestoreClusterRequest {
     export type AsObject = {
         backupId: string,
+        additionalBackupIdsList: Array<string>,
         name: string,
         description: string,
 
@@ -1749,6 +1754,11 @@ export class ConfigSpec extends jspb.Message {
     getAdminPassword(): string;
     setAdminPassword(value: string): ConfigSpec;
 
+    hasEmbeddedKeeper(): boolean;
+    clearEmbeddedKeeper(): void;
+    getEmbeddedKeeper(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setEmbeddedKeeper(value?: google_protobuf_wrappers_pb.BoolValue): ConfigSpec;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ConfigSpec.AsObject;
     static toObject(includeInstance: boolean, msg: ConfigSpec): ConfigSpec.AsObject;
@@ -1770,6 +1780,7 @@ export namespace ConfigSpec {
         sqlDatabaseManagement?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         sqlUserManagement?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         adminPassword: string,
+        embeddedKeeper?: google_protobuf_wrappers_pb.BoolValue.AsObject,
     }
 
 

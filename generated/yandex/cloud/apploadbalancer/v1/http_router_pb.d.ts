@@ -7,7 +7,6 @@
 import * as jspb from "google-protobuf";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_apploadbalancer_v1_virtual_host_pb from "../../../../yandex/cloud/apploadbalancer/v1/virtual_host_pb";
-import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 
 export class HttpRouter extends jspb.Message { 
     getId(): string;

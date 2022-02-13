@@ -101,6 +101,8 @@ export class CreateSubclusterConfigSpec extends jspb.Message {
     setSubnetId(value: string): CreateSubclusterConfigSpec;
     getHostsCount(): number;
     setHostsCount(value: number): CreateSubclusterConfigSpec;
+    getAssignPublicIp(): boolean;
+    setAssignPublicIp(value: boolean): CreateSubclusterConfigSpec;
 
     hasAutoscalingConfig(): boolean;
     clearAutoscalingConfig(): void;
@@ -124,6 +126,7 @@ export namespace CreateSubclusterConfigSpec {
         resources?: yandex_cloud_dataproc_v1_common_pb.Resources.AsObject,
         subnetId: string,
         hostsCount: number,
+        assignPublicIp: boolean,
         autoscalingConfig?: yandex_cloud_dataproc_v1_subcluster_pb.AutoscalingConfig.AsObject,
     }
 }

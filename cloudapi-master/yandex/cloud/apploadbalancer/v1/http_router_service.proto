@@ -20,17 +20,17 @@ service HttpRouterService {
   //
   // To get the list of all available HTTP routers, make a [List] request.
   rpc Get(GetHttpRouterRequest) returns (HttpRouter) {
-    option (google.api.http) = { get: "/apploadbalancer/v1/httpRouters/{http_router_id}" };
+    option (google.api.http) = {get: "/apploadbalancer/v1/httpRouters/{http_router_id}"};
   }
 
   // Lists HTTP routers in the specified folder.
   rpc List(ListHttpRoutersRequest) returns (ListHttpRoutersResponse) {
-    option (google.api.http) = { get: "/apploadbalancer/v1/httpRouters" };
+    option (google.api.http) = {get: "/apploadbalancer/v1/httpRouters"};
   }
 
   // Creates an HTTP router in the specified folder.
   rpc Create(CreateHttpRouterRequest) returns (operation.Operation) {
-    option (google.api.http) = { post: "/apploadbalancer/v1/httpRouters" body: "*" };
+    option (google.api.http) = {post: "/apploadbalancer/v1/httpRouters" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "CreateHttpRouterMetadata"
       response: "HttpRouter"
@@ -39,7 +39,7 @@ service HttpRouterService {
 
   // Updates the specified HTTP router.
   rpc Update(UpdateHttpRouterRequest) returns (operation.Operation) {
-    option (google.api.http) = { patch: "/apploadbalancer/v1/httpRouters/{http_router_id}" body: "*" };
+    option (google.api.http) = {patch: "/apploadbalancer/v1/httpRouters/{http_router_id}" body: "*"};
     option (yandex.cloud.api.operation) = {
       metadata: "UpdateHttpRouterMetadata"
       response: "HttpRouter"
@@ -48,7 +48,7 @@ service HttpRouterService {
 
   // Deletes the specified HTTP router.
   rpc Delete(DeleteHttpRouterRequest) returns (operation.Operation) {
-    option (google.api.http) = { delete: "/apploadbalancer/v1/httpRouters/{http_router_id}" };
+    option (google.api.http) = {delete: "/apploadbalancer/v1/httpRouters/{http_router_id}"};
     option (yandex.cloud.api.operation) = {
       metadata: "DeleteHttpRouterMetadata"
       response: "google.protobuf.Empty"
@@ -57,7 +57,7 @@ service HttpRouterService {
 
   // Lists operations for the specified HTTP router.
   rpc ListOperations (ListHttpRouterOperationsRequest) returns (ListHttpRouterOperationsResponse) {
-    option (google.api.http) = { get: "/apploadbalancer/v1/httpRouters/{http_router_id}/operations" };
+    option (google.api.http) = {get: "/apploadbalancer/v1/httpRouters/{http_router_id}/operations"};
   }
 }
 
@@ -88,8 +88,8 @@ message ListHttpRoutersRequest {
   //
   // The expression must specify:
   // 1. The field name. Currently you can use filtering only on [HttpRouter.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   // Example of a filter: `name=my-http-router`.
   string filter = 4 [(length) = "<=1000"];
 }

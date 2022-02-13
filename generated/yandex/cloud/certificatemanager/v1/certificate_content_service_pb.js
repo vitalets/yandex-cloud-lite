@@ -17,8 +17,6 @@ var global = Function('return this')();
 
 var google_api_annotations_pb = require('../../../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
-var yandex_cloud_validation_pb = require('../../../../yandex/cloud/validation_pb.js');
-goog.object.extend(proto, yandex_cloud_validation_pb);
 goog.exportSymbol('proto.yandex.cloud.certificatemanager.v1.GetCertificateContentRequest', null, global);
 goog.exportSymbol('proto.yandex.cloud.certificatemanager.v1.GetCertificateContentResponse', null, global);
 /**

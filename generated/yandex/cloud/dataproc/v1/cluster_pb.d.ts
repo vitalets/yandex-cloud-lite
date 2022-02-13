@@ -143,6 +143,10 @@ export class HadoopConfig extends jspb.Message {
     getSshPublicKeysList(): Array<string>;
     setSshPublicKeysList(value: Array<string>): HadoopConfig;
     addSshPublicKeys(value: string, index?: number): string;
+    clearInitializationActionsList(): void;
+    getInitializationActionsList(): Array<InitializationAction>;
+    setInitializationActionsList(value: Array<InitializationAction>): HadoopConfig;
+    addInitializationActions(value?: InitializationAction, index?: number): InitializationAction;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): HadoopConfig.AsObject;
@@ -160,6 +164,7 @@ export namespace HadoopConfig {
 
         propertiesMap: Array<[string, string]>,
         sshPublicKeysList: Array<string>,
+        initializationActionsList: Array<InitializationAction.AsObject>,
     }
 
     export enum Service {
@@ -204,5 +209,33 @@ export namespace ClusterConfig {
     export type AsObject = {
         versionId: string,
         hadoop?: HadoopConfig.AsObject,
+    }
+}
+
+export class InitializationAction extends jspb.Message { 
+    getUri(): string;
+    setUri(value: string): InitializationAction;
+    clearArgsList(): void;
+    getArgsList(): Array<string>;
+    setArgsList(value: Array<string>): InitializationAction;
+    addArgs(value: string, index?: number): string;
+    getTimeout(): number;
+    setTimeout(value: number): InitializationAction;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): InitializationAction.AsObject;
+    static toObject(includeInstance: boolean, msg: InitializationAction): InitializationAction.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: InitializationAction, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): InitializationAction;
+    static deserializeBinaryFromReader(message: InitializationAction, reader: jspb.BinaryReader): InitializationAction;
+}
+
+export namespace InitializationAction {
+    export type AsObject = {
+        uri: string,
+        argsList: Array<string>,
+        timeout: number,
     }
 }

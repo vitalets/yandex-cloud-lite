@@ -55,7 +55,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.yandex.cloud.datasphere.v1.Project.Settings = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.datasphere.v1.Project.Settings.repeatedFields_, null);
 };
 goog.inherits(proto.yandex.cloud.datasphere.v1.Project.Settings, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -277,6 +277,13 @@ proto.yandex.cloud.datasphere.v1.Project.serializeBinaryToWriter = function(mess
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.datasphere.v1.Project.Settings.repeatedFields_ = [5];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -311,7 +318,8 @@ proto.yandex.cloud.datasphere.v1.Project.Settings.toObject = function(includeIns
     serviceAccountId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     subnetId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     dataProcClusterId: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    commitMode: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    commitMode: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    securityGroupIdsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -363,6 +371,10 @@ proto.yandex.cloud.datasphere.v1.Project.Settings.deserializeBinaryFromReader = 
     case 4:
       var value = /** @type {!proto.yandex.cloud.datasphere.v1.Project.Settings.CommitMode} */ (reader.readEnum());
       msg.setCommitMode(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addSecurityGroupIds(value);
       break;
     default:
       reader.skipField();
@@ -418,6 +430,13 @@ proto.yandex.cloud.datasphere.v1.Project.Settings.serializeBinaryToWriter = func
   if (f !== 0.0) {
     writer.writeEnum(
       4,
+      f
+    );
+  }
+  f = message.getSecurityGroupIdsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      5,
       f
     );
   }
@@ -502,6 +521,43 @@ proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.getCommitMode = func
  */
 proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.setCommitMode = function(value) {
   return jspb.Message.setProto3EnumField(this, 4, value);
+};
+
+
+/**
+ * repeated string security_group_ids = 5;
+ * @return {!Array<string>}
+ */
+proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.getSecurityGroupIdsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.yandex.cloud.datasphere.v1.Project.Settings} returns this
+ */
+proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.setSecurityGroupIdsList = function(value) {
+  return jspb.Message.setField(this, 5, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.datasphere.v1.Project.Settings} returns this
+ */
+proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.addSecurityGroupIds = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.datasphere.v1.Project.Settings} returns this
+ */
+proto.yandex.cloud.datasphere.v1.Project.Settings.prototype.clearSecurityGroupIdsList = function() {
+  return this.setSecurityGroupIdsList([]);
 };
 
 

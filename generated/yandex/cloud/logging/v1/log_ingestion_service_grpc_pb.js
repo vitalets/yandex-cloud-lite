@@ -3,7 +3,6 @@
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var yandex_cloud_logging_v1_log_ingestion_service_pb = require('../../../../yandex/cloud/logging/v1/log_ingestion_service_pb.js');
-var google_api_annotations_pb = require('../../../../google/api/annotations_pb.js');
 var google_rpc_status_pb = require('../../../../google/rpc/status_pb.js');
 var yandex_cloud_logging_v1_log_entry_pb = require('../../../../yandex/cloud/logging/v1/log_entry_pb.js');
 var yandex_cloud_logging_v1_log_resource_pb = require('../../../../yandex/cloud/logging/v1/log_resource_pb.js');

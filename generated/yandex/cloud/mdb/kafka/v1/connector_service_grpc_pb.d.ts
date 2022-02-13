@@ -6,6 +6,7 @@
 
 import * as grpc from "@grpc/grpc-js";
 import * as yandex_cloud_mdb_kafka_v1_connector_service_pb from "../../../../../yandex/cloud/mdb/kafka/v1/connector_service_pb";
+import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -15,6 +16,7 @@ interface IConnectorServiceService extends grpc.ServiceDefinition<grpc.UntypedSe
     get: IConnectorServiceService_IGet;
     list: IConnectorServiceService_IList;
     create: IConnectorServiceService_ICreate;
+    update: IConnectorServiceService_IUpdate;
     delete: IConnectorServiceService_IDelete;
     resume: IConnectorServiceService_IResume;
     pause: IConnectorServiceService_IPause;
@@ -44,6 +46,15 @@ interface IConnectorServiceService_ICreate extends grpc.MethodDefinition<yandex_
     responseStream: false;
     requestSerialize: grpc.serialize<yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest>;
     requestDeserialize: grpc.deserialize<yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
+interface IConnectorServiceService_IUpdate extends grpc.MethodDefinition<yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.kafka.v1.ConnectorService/Update";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest>;
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
@@ -81,6 +92,7 @@ export interface IConnectorServiceServer extends grpc.UntypedServiceImplementati
     get: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.GetConnectorRequest, yandex_cloud_mdb_kafka_v1_connector_pb.Connector>;
     list: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.ListConnectorsRequest, yandex_cloud_mdb_kafka_v1_connector_service_pb.ListConnectorsResponse>;
     create: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
+    update: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
     resume: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.ResumeConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
     pause: grpc.handleUnaryCall<yandex_cloud_mdb_kafka_v1_connector_service_pb.PauseConnectorRequest, yandex_cloud_operation_operation_pb.Operation>;
@@ -96,6 +108,9 @@ export interface IConnectorServiceClient {
     create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
@@ -118,6 +133,9 @@ export class ConnectorServiceClient extends grpc.Client implements IConnectorSer
     public create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public create(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.CreateConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public update(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.UpdateConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public delete(request: yandex_cloud_mdb_kafka_v1_connector_service_pb.DeleteConnectorRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;

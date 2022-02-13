@@ -1348,7 +1348,8 @@ proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.toObject = function(includeIn
     access: (f = msg.getAccess()) && proto.yandex.cloud.mdb.clickhouse.v1.Access.toObject(includeInstance, f),
     cloudStorage: (f = msg.getCloudStorage()) && proto.yandex.cloud.mdb.clickhouse.v1.CloudStorage.toObject(includeInstance, f),
     sqlDatabaseManagement: (f = msg.getSqlDatabaseManagement()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
-    sqlUserManagement: (f = msg.getSqlUserManagement()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f)
+    sqlUserManagement: (f = msg.getSqlUserManagement()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
+    embeddedKeeper: (f = msg.getEmbeddedKeeper()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1423,6 +1424,11 @@ proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.deserializeBinaryFromReader =
       var value = new google_protobuf_wrappers_pb.BoolValue;
       reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
       msg.setSqlUserManagement(value);
+      break;
+    case 9:
+      var value = new google_protobuf_wrappers_pb.BoolValue;
+      reader.readMessage(value,google_protobuf_wrappers_pb.BoolValue.deserializeBinaryFromReader);
+      msg.setEmbeddedKeeper(value);
       break;
     default:
       reader.skipField();
@@ -1512,6 +1518,14 @@ proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.serializeBinaryToWriter = fun
   if (f != null) {
     writer.writeMessage(
       8,
+      f,
+      google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
+    );
+  }
+  f = message.getEmbeddedKeeper();
+  if (f != null) {
+    writer.writeMessage(
+      9,
       f,
       google_protobuf_wrappers_pb.BoolValue.serializeBinaryToWriter
     );
@@ -2146,6 +2160,43 @@ proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.clearSqlUserManagem
  */
 proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.hasSqlUserManagement = function() {
   return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional google.protobuf.BoolValue embedded_keeper = 9;
+ * @return {?proto.google.protobuf.BoolValue}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.getEmbeddedKeeper = function() {
+  return /** @type{?proto.google.protobuf.BoolValue} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_wrappers_pb.BoolValue, 9));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.BoolValue|undefined} value
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig} returns this
+*/
+proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.setEmbeddedKeeper = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.clearEmbeddedKeeper = function() {
+  return this.setEmbeddedKeeper(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.ClusterConfig.prototype.hasEmbeddedKeeper = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
@@ -3883,7 +3934,9 @@ proto.yandex.cloud.mdb.clickhouse.v1.Access.toObject = function(includeInstance,
     dataLens: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
     webSql: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
     metrika: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    serverless: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
+    serverless: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    dataTransfer: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    yandexQuery: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -3935,6 +3988,14 @@ proto.yandex.cloud.mdb.clickhouse.v1.Access.deserializeBinaryFromReader = functi
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setServerless(value);
+      break;
+    case 5:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDataTransfer(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setYandexQuery(value);
       break;
     default:
       reader.skipField();
@@ -3990,6 +4051,20 @@ proto.yandex.cloud.mdb.clickhouse.v1.Access.serializeBinaryToWriter = function(m
   if (f) {
     writer.writeBool(
       4,
+      f
+    );
+  }
+  f = message.getDataTransfer();
+  if (f) {
+    writer.writeBool(
+      5,
+      f
+    );
+  }
+  f = message.getYandexQuery();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -4065,6 +4140,42 @@ proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.getServerless = function()
  */
 proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.setServerless = function(value) {
   return jspb.Message.setProto3BooleanField(this, 4, value);
+};
+
+
+/**
+ * optional bool data_transfer = 5;
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.getDataTransfer = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.Access} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.setDataTransfer = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 5, value);
+};
+
+
+/**
+ * optional bool yandex_query = 6;
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.getYandexQuery = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.mdb.clickhouse.v1.Access} returns this
+ */
+proto.yandex.cloud.mdb.clickhouse.v1.Access.prototype.setYandexQuery = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

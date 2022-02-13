@@ -5,8 +5,6 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
-import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_validation_pb from "../../../../yandex/cloud/validation_pb";
 
 export class LogEntryResource extends jspb.Message { 

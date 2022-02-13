@@ -145,8 +145,8 @@ message ListNetworkLoadBalancersRequest {
   // A filter expression that filters resources listed in the response.
   // The expression must specify:
   // 1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   string filter = 4 [(length) = "<=1000"];
 }
 
@@ -188,7 +188,7 @@ message CreateNetworkLoadBalancerRequest {
   repeated ListenerSpec listener_specs = 7 [(size) = "<=1000"];
 
   // List of attached target groups for the network load balancer.
-  repeated AttachedTargetGroup attached_target_groups = 8 [(size) = "<=5"];
+  repeated AttachedTargetGroup attached_target_groups = 8 [(size) = "<=1000"];
 }
 
 message CreateNetworkLoadBalancerMetadata {
@@ -220,7 +220,7 @@ message UpdateNetworkLoadBalancerRequest {
   repeated ListenerSpec listener_specs = 6 [(size) = "<=1000"];
 
   // A list of attached target groups for the network load balancer.
-  repeated AttachedTargetGroup attached_target_groups = 7 [(size) = "<=5"];
+  repeated AttachedTargetGroup attached_target_groups = 7 [(size) = "<=1000"];
 }
 
 message UpdateNetworkLoadBalancerMetadata {

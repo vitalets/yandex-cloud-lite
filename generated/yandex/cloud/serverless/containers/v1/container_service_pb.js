@@ -312,7 +312,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.repeatedFields_, null);
 };
 goog.inherits(proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -2596,6 +2596,13 @@ proto.yandex.cloud.serverless.containers.v1.ListContainersRevisionsResponse.prot
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.repeatedFields_ = [10];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -2633,7 +2640,9 @@ proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.toObj
     executionTimeout: (f = msg.getExecutionTimeout()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
     serviceAccountId: jspb.Message.getFieldWithDefault(msg, 7, ""),
     imageSpec: (f = msg.getImageSpec()) && proto.yandex.cloud.serverless.containers.v1.ImageSpec.toObject(includeInstance, f),
-    concurrency: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    concurrency: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    secretsList: jspb.Message.toObjectList(msg.getSecretsList(),
+    yandex_cloud_serverless_containers_v1_container_pb.Secret.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2700,6 +2709,11 @@ proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.deser
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setConcurrency(value);
+      break;
+    case 10:
+      var value = new yandex_cloud_serverless_containers_v1_container_pb.Secret;
+      reader.readMessage(value,yandex_cloud_serverless_containers_v1_container_pb.Secret.deserializeBinaryFromReader);
+      msg.addSecrets(value);
       break;
     default:
       reader.skipField();
@@ -2780,6 +2794,14 @@ proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.seria
     writer.writeInt64(
       9,
       f
+    );
+  }
+  f = message.getSecretsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      10,
+      f,
+      yandex_cloud_serverless_containers_v1_container_pb.Secret.serializeBinaryToWriter
     );
   }
 };
@@ -2965,6 +2987,44 @@ proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.proto
  */
 proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.prototype.setConcurrency = function(value) {
   return jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * repeated Secret secrets = 10;
+ * @return {!Array<!proto.yandex.cloud.serverless.containers.v1.Secret>}
+ */
+proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.prototype.getSecretsList = function() {
+  return /** @type{!Array<!proto.yandex.cloud.serverless.containers.v1.Secret>} */ (
+    jspb.Message.getRepeatedWrapperField(this, yandex_cloud_serverless_containers_v1_container_pb.Secret, 10));
+};
+
+
+/**
+ * @param {!Array<!proto.yandex.cloud.serverless.containers.v1.Secret>} value
+ * @return {!proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest} returns this
+*/
+proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.prototype.setSecretsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 10, value);
+};
+
+
+/**
+ * @param {!proto.yandex.cloud.serverless.containers.v1.Secret=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.yandex.cloud.serverless.containers.v1.Secret}
+ */
+proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.prototype.addSecrets = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.yandex.cloud.serverless.containers.v1.Secret, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest} returns this
+ */
+proto.yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest.prototype.clearSecretsList = function() {
+  return this.setSecretsList([]);
 };
 
 

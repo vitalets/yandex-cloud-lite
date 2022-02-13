@@ -95,6 +95,8 @@ export namespace Job {
     RUNNING = 3,
     ERROR = 4,
     DONE = 5,
+    CANCELLED = 6,
+    CANCELLING = 7,
     }
 
 

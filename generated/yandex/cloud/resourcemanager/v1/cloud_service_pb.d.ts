@@ -40,6 +40,8 @@ export class ListCloudsRequest extends jspb.Message {
     setPageToken(value: string): ListCloudsRequest;
     getFilter(): string;
     setFilter(value: string): ListCloudsRequest;
+    getOrganizationId(): string;
+    setOrganizationId(value: string): ListCloudsRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ListCloudsRequest.AsObject;
@@ -56,6 +58,7 @@ export namespace ListCloudsRequest {
         pageSize: number,
         pageToken: string,
         filter: string,
+        organizationId: string,
     }
 }
 

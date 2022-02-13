@@ -368,6 +368,8 @@ export class UtteranceSynthesisRequest extends jspb.Message {
     setOutputAudioSpec(value?: AudioFormatOptions): UtteranceSynthesisRequest;
     getLoudnessNormalizationType(): UtteranceSynthesisRequest.LoudnessNormalizationType;
     setLoudnessNormalizationType(value: UtteranceSynthesisRequest.LoudnessNormalizationType): UtteranceSynthesisRequest;
+    getUnsafeMode(): boolean;
+    setUnsafeMode(value: boolean): UtteranceSynthesisRequest;
 
     getUtteranceCase(): UtteranceSynthesisRequest.UtteranceCase;
 
@@ -389,6 +391,7 @@ export namespace UtteranceSynthesisRequest {
         hintsList: Array<Hints.AsObject>,
         outputAudioSpec?: AudioFormatOptions.AsObject,
         loudnessNormalizationType: UtteranceSynthesisRequest.LoudnessNormalizationType,
+        unsafeMode: boolean,
     }
 
     export enum LoudnessNormalizationType {

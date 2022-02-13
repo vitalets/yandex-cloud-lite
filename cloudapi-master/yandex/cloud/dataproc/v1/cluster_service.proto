@@ -116,8 +116,8 @@ message ListClustersRequest {
   //
   // The expression must specify:
   // 1. The field name. Currently you can use filtering only on [Cluster.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   // Example of a filter: `name=my-cluster`.
   string filter = 4 [(length) = "<=1000"];
 }
@@ -150,7 +150,8 @@ message CreateSubclusterConfigSpec {
   // Number of hosts in the subcluster.
   int64 hosts_count = 5 [(required) = true, (value) = ">=1"];
 
-  reserved 6;
+  // Assign public ip addresses for all hosts in subcluter.
+  bool assign_public_ip = 6;
 
   // Configuration for instance group based subclusters
   AutoscalingConfig autoscaling_config = 7;
@@ -384,8 +385,8 @@ message ListClusterHostsRequest {
   //
   // The expression must specify:
   // 1. The field name. Currently you can use filtering only on [Cluster.name] field.
-  // 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-  // 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+  // 2. An `=` operator.
+  // 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
   // Example of a filter: `name=my-host`
   string filter = 4 [(length) = "<=1000"];
 }

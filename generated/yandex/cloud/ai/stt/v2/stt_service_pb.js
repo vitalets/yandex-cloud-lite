@@ -1506,7 +1506,8 @@ proto.yandex.cloud.ai.stt.v2.RecognitionSpec.toObject = function(includeInstance
     partialResults: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     singleUtterance: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
     audioChannelCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    rawResults: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
+    rawResults: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+    literatureText: jspb.Message.getBooleanFieldWithDefault(msg, 11, false)
   };
 
   if (includeInstance) {
@@ -1578,6 +1579,10 @@ proto.yandex.cloud.ai.stt.v2.RecognitionSpec.deserializeBinaryFromReader = funct
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setRawResults(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setLiteratureText(value);
       break;
     default:
       reader.skipField();
@@ -1671,6 +1676,13 @@ proto.yandex.cloud.ai.stt.v2.RecognitionSpec.serializeBinaryToWriter = function(
       f
     );
   }
+  f = message.getLiteratureText();
+  if (f) {
+    writer.writeBool(
+      11,
+      f
+    );
+  }
 };
 
 
@@ -1680,7 +1692,8 @@ proto.yandex.cloud.ai.stt.v2.RecognitionSpec.serializeBinaryToWriter = function(
 proto.yandex.cloud.ai.stt.v2.RecognitionSpec.AudioEncoding = {
   AUDIO_ENCODING_UNSPECIFIED: 0,
   LINEAR16_PCM: 1,
-  OGG_OPUS: 2
+  OGG_OPUS: 2,
+  MP3: 3
 };
 
 /**
@@ -1842,6 +1855,24 @@ proto.yandex.cloud.ai.stt.v2.RecognitionSpec.prototype.getRawResults = function(
  */
 proto.yandex.cloud.ai.stt.v2.RecognitionSpec.prototype.setRawResults = function(value) {
   return jspb.Message.setProto3BooleanField(this, 10, value);
+};
+
+
+/**
+ * optional bool literature_text = 11;
+ * @return {boolean}
+ */
+proto.yandex.cloud.ai.stt.v2.RecognitionSpec.prototype.getLiteratureText = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.yandex.cloud.ai.stt.v2.RecognitionSpec} returns this
+ */
+proto.yandex.cloud.ai.stt.v2.RecognitionSpec.prototype.setLiteratureText = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 

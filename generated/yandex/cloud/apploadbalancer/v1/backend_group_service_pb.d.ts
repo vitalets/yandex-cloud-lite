@@ -151,6 +151,11 @@ export class UpdateBackendGroupRequest extends jspb.Message {
     getGrpc(): yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup | undefined;
     setGrpc(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup): UpdateBackendGroupRequest;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup | undefined;
+    setStream(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup): UpdateBackendGroupRequest;
+
     getBackendCase(): UpdateBackendGroupRequest.BackendCase;
 
     serializeBinary(): Uint8Array;
@@ -173,12 +178,14 @@ export namespace UpdateBackendGroupRequest {
         labelsMap: Array<[string, string]>,
         http?: yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackendGroup.AsObject,
         grpc?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.AsObject,
+        stream?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.AsObject,
     }
 
     export enum BackendCase {
         BACKEND_NOT_SET = 0,
         HTTP = 6,
         GRPC = 7,
+        STREAM = 8,
     }
 
 }
@@ -224,6 +231,11 @@ export class CreateBackendGroupRequest extends jspb.Message {
     getGrpc(): yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup | undefined;
     setGrpc(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup): CreateBackendGroupRequest;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup | undefined;
+    setStream(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup): CreateBackendGroupRequest;
+
     getBackendCase(): CreateBackendGroupRequest.BackendCase;
 
     serializeBinary(): Uint8Array;
@@ -245,12 +257,14 @@ export namespace CreateBackendGroupRequest {
         labelsMap: Array<[string, string]>,
         http?: yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackendGroup.AsObject,
         grpc?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackendGroup.AsObject,
+        stream?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackendGroup.AsObject,
     }
 
     export enum BackendCase {
         BACKEND_NOT_SET = 0,
         HTTP = 5,
         GRPC = 6,
+        STREAM = 7,
     }
 
 }
@@ -289,6 +303,11 @@ export class AddBackendRequest extends jspb.Message {
     getGrpc(): yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend | undefined;
     setGrpc(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend): AddBackendRequest;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend | undefined;
+    setStream(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend): AddBackendRequest;
+
     getBackendCase(): AddBackendRequest.BackendCase;
 
     serializeBinary(): Uint8Array;
@@ -306,12 +325,14 @@ export namespace AddBackendRequest {
         backendGroupId: string,
         http?: yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackend.AsObject,
         grpc?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.AsObject,
+        stream?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.AsObject,
     }
 
     export enum BackendCase {
         BACKEND_NOT_SET = 0,
         HTTP = 2,
         GRPC = 3,
+        STREAM = 5,
     }
 
 }
@@ -358,6 +379,11 @@ export class UpdateBackendRequest extends jspb.Message {
     getGrpc(): yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend | undefined;
     setGrpc(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend): UpdateBackendRequest;
 
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend | undefined;
+    setStream(value?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend): UpdateBackendRequest;
+
     getBackendCase(): UpdateBackendRequest.BackendCase;
 
     serializeBinary(): Uint8Array;
@@ -376,12 +402,14 @@ export namespace UpdateBackendRequest {
         updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
         http?: yandex_cloud_apploadbalancer_v1_backend_group_pb.HttpBackend.AsObject,
         grpc?: yandex_cloud_apploadbalancer_v1_backend_group_pb.GrpcBackend.AsObject,
+        stream?: yandex_cloud_apploadbalancer_v1_backend_group_pb.StreamBackend.AsObject,
     }
 
     export enum BackendCase {
         BACKEND_NOT_SET = 0,
         HTTP = 3,
         GRPC = 4,
+        STREAM = 5,
     }
 
 }

@@ -2017,7 +2017,8 @@ proto.yandex.cloud.k8s.v1.UpdateClusterRequest.toObject = function(includeInstan
     masterSpec: (f = msg.getMasterSpec()) && proto.yandex.cloud.k8s.v1.MasterUpdateSpec.toObject(includeInstance, f),
     serviceAccountId: jspb.Message.getFieldWithDefault(msg, 9, ""),
     nodeServiceAccountId: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    networkPolicy: (f = msg.getNetworkPolicy()) && yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy.toObject(includeInstance, f)
+    networkPolicy: (f = msg.getNetworkPolicy()) && yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy.toObject(includeInstance, f),
+    ipAllocationPolicy: (f = msg.getIpAllocationPolicy()) && yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2098,6 +2099,11 @@ proto.yandex.cloud.k8s.v1.UpdateClusterRequest.deserializeBinaryFromReader = fun
       var value = new yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy;
       reader.readMessage(value,yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy.deserializeBinaryFromReader);
       msg.setNetworkPolicy(value);
+      break;
+    case 11:
+      var value = new yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy;
+      reader.readMessage(value,yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy.deserializeBinaryFromReader);
+      msg.setIpAllocationPolicy(value);
       break;
     default:
       reader.skipField();
@@ -2196,6 +2202,14 @@ proto.yandex.cloud.k8s.v1.UpdateClusterRequest.serializeBinaryToWriter = functio
       10,
       f,
       yandex_cloud_k8s_v1_cluster_pb.NetworkPolicy.serializeBinaryToWriter
+    );
+  }
+  f = message.getIpAllocationPolicy();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy.serializeBinaryToWriter
     );
   }
 };
@@ -2457,6 +2471,43 @@ proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.clearNetworkPolicy = fu
  */
 proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.hasNetworkPolicy = function() {
   return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * optional IPAllocationPolicy ip_allocation_policy = 11;
+ * @return {?proto.yandex.cloud.k8s.v1.IPAllocationPolicy}
+ */
+proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.getIpAllocationPolicy = function() {
+  return /** @type{?proto.yandex.cloud.k8s.v1.IPAllocationPolicy} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_k8s_v1_cluster_pb.IPAllocationPolicy, 11));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.k8s.v1.IPAllocationPolicy|undefined} value
+ * @return {!proto.yandex.cloud.k8s.v1.UpdateClusterRequest} returns this
+*/
+proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.setIpAllocationPolicy = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.k8s.v1.UpdateClusterRequest} returns this
+ */
+proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.clearIpAllocationPolicy = function() {
+  return this.setIpAllocationPolicy(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.k8s.v1.UpdateClusterRequest.prototype.hasIpAllocationPolicy = function() {
+  return jspb.Message.getField(this, 11) != null;
 };
 
 

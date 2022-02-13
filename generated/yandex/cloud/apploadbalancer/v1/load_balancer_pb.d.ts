@@ -262,10 +262,10 @@ export class Listener extends jspb.Message {
     getTls(): TlsListener | undefined;
     setTls(value?: TlsListener): Listener;
 
-    hasTcp(): boolean;
-    clearTcp(): void;
-    getTcp(): TcpListener | undefined;
-    setTcp(value?: TcpListener): Listener;
+    hasStream(): boolean;
+    clearStream(): void;
+    getStream(): StreamListener | undefined;
+    setStream(value?: StreamListener): Listener;
 
     getListenerCase(): Listener.ListenerCase;
 
@@ -285,14 +285,14 @@ export namespace Listener {
         endpointsList: Array<Endpoint.AsObject>,
         http?: HttpListener.AsObject,
         tls?: TlsListener.AsObject,
-        tcp?: TcpListener.AsObject,
+        stream?: StreamListener.AsObject,
     }
 
     export enum ListenerCase {
         LISTENER_NOT_SET = 0,
         HTTP = 3,
         TLS = 4,
-        TCP = 5,
+        STREAM = 5,
     }
 
 }
@@ -381,24 +381,24 @@ export namespace TlsListener {
     }
 }
 
-export class TcpListener extends jspb.Message { 
+export class StreamListener extends jspb.Message { 
 
     hasHandler(): boolean;
     clearHandler(): void;
     getHandler(): StreamHandler | undefined;
-    setHandler(value?: StreamHandler): TcpListener;
+    setHandler(value?: StreamHandler): StreamListener;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): TcpListener.AsObject;
-    static toObject(includeInstance: boolean, msg: TcpListener): TcpListener.AsObject;
+    toObject(includeInstance?: boolean): StreamListener.AsObject;
+    static toObject(includeInstance: boolean, msg: StreamListener): StreamListener.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: TcpListener, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): TcpListener;
-    static deserializeBinaryFromReader(message: TcpListener, reader: jspb.BinaryReader): TcpListener;
+    static serializeBinaryToWriter(message: StreamListener, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StreamListener;
+    static deserializeBinaryFromReader(message: StreamListener, reader: jspb.BinaryReader): StreamListener;
 }
 
-export namespace TcpListener {
+export namespace StreamListener {
     export type AsObject = {
         handler?: StreamHandler.AsObject,
     }

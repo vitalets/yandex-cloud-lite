@@ -7,6 +7,7 @@
 import * as jspb from "google-protobuf";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_config_elasticsearch_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/config/elasticsearch_pb";
+import * as yandex_cloud_mdb_elasticsearch_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/maintenance_pb";
 
 export class Cluster extends jspb.Message { 
     getId(): string;
@@ -51,6 +52,16 @@ export class Cluster extends jspb.Message {
     getDeletionProtection(): boolean;
     setDeletionProtection(value: boolean): Cluster;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow): Cluster;
+
+    hasPlannedOperation(): boolean;
+    clearPlannedOperation(): void;
+    getPlannedOperation(): yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceOperation | undefined;
+    setPlannedOperation(value?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceOperation): Cluster;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Cluster.AsObject;
     static toObject(includeInstance: boolean, msg: Cluster): Cluster.AsObject;
@@ -79,6 +90,8 @@ export namespace Cluster {
         securityGroupIdsList: Array<string>,
         serviceAccountId: string,
         deletionProtection: boolean,
+        maintenanceWindow?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceWindow.AsObject,
+        plannedOperation?: yandex_cloud_mdb_elasticsearch_v1_maintenance_pb.MaintenanceOperation.AsObject,
     }
 
     export enum Environment {

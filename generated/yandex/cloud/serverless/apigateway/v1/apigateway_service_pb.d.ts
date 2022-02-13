@@ -102,6 +102,11 @@ export class CreateApiGatewayRequest extends jspb.Message {
     getOpenapiSpec(): string;
     setOpenapiSpec(value: string): CreateApiGatewayRequest;
 
+    hasConnectivity(): boolean;
+    clearConnectivity(): void;
+    getConnectivity(): yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity | undefined;
+    setConnectivity(value?: yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity): CreateApiGatewayRequest;
+
     getSpecCase(): CreateApiGatewayRequest.SpecCase;
 
     serializeBinary(): Uint8Array;
@@ -122,6 +127,7 @@ export namespace CreateApiGatewayRequest {
 
         labelsMap: Array<[string, string]>,
         openapiSpec: string,
+        connectivity?: yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.AsObject,
     }
 
     export enum SpecCase {
@@ -152,6 +158,11 @@ export class UpdateApiGatewayRequest extends jspb.Message {
     getOpenapiSpec(): string;
     setOpenapiSpec(value: string): UpdateApiGatewayRequest;
 
+    hasConnectivity(): boolean;
+    clearConnectivity(): void;
+    getConnectivity(): yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity | undefined;
+    setConnectivity(value?: yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity): UpdateApiGatewayRequest;
+
     getSpecCase(): UpdateApiGatewayRequest.SpecCase;
 
     serializeBinary(): Uint8Array;
@@ -173,6 +184,7 @@ export namespace UpdateApiGatewayRequest {
 
         labelsMap: Array<[string, string]>,
         openapiSpec: string,
+        connectivity?: yandex_cloud_serverless_apigateway_v1_apigateway_pb.Connectivity.AsObject,
     }
 
     export enum SpecCase {

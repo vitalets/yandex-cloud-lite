@@ -506,7 +506,9 @@ proto.yandex.cloud.dataproc.v1.Job.Status = {
   PENDING: 2,
   RUNNING: 3,
   ERROR: 4,
-  DONE: 5
+  DONE: 5,
+  CANCELLED: 6,
+  CANCELLING: 7
 };
 
 /**

@@ -34,6 +34,8 @@ export class LogGroup extends jspb.Message {
     clearRetentionPeriod(): void;
     getRetentionPeriod(): google_protobuf_duration_pb.Duration | undefined;
     setRetentionPeriod(value?: google_protobuf_duration_pb.Duration): LogGroup;
+    getDataStream(): string;
+    setDataStream(value: string): LogGroup;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): LogGroup.AsObject;
@@ -57,6 +59,7 @@ export namespace LogGroup {
         labelsMap: Array<[string, string]>,
         status: LogGroup.Status,
         retentionPeriod?: google_protobuf_duration_pb.Duration.AsObject,
+        dataStream: string,
     }
 
     export enum Status {

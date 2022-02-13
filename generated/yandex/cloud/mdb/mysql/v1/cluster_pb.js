@@ -1610,7 +1610,9 @@ proto.yandex.cloud.mdb.mysql.v1.Host.toObject = function(includeInstance, msg) {
     proto.yandex.cloud.mdb.mysql.v1.Service.toObject, includeInstance),
     subnetId: jspb.Message.getFieldWithDefault(msg, 8, ""),
     assignPublicIp: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
-    replicationSource: jspb.Message.getFieldWithDefault(msg, 10, "")
+    replicationSource: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    backupPriority: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    priority: jspb.Message.getFieldWithDefault(msg, 12, 0)
   };
 
   if (includeInstance) {
@@ -1688,6 +1690,14 @@ proto.yandex.cloud.mdb.mysql.v1.Host.deserializeBinaryFromReader = function(msg,
     case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setReplicationSource(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setBackupPriority(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPriority(value);
       break;
     default:
       reader.skipField();
@@ -1787,6 +1797,20 @@ proto.yandex.cloud.mdb.mysql.v1.Host.serializeBinaryToWriter = function(message,
   if (f.length > 0) {
     writer.writeString(
       10,
+      f
+    );
+  }
+  f = message.getBackupPriority();
+  if (f !== 0) {
+    writer.writeInt64(
+      11,
+      f
+    );
+  }
+  f = message.getPriority();
+  if (f !== 0) {
+    writer.writeInt64(
+      12,
       f
     );
   }
@@ -2028,6 +2052,42 @@ proto.yandex.cloud.mdb.mysql.v1.Host.prototype.getReplicationSource = function()
  */
 proto.yandex.cloud.mdb.mysql.v1.Host.prototype.setReplicationSource = function(value) {
   return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * optional int64 backup_priority = 11;
+ * @return {number}
+ */
+proto.yandex.cloud.mdb.mysql.v1.Host.prototype.getBackupPriority = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.Host} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.Host.prototype.setBackupPriority = function(value) {
+  return jspb.Message.setProto3IntField(this, 11, value);
+};
+
+
+/**
+ * optional int64 priority = 12;
+ * @return {number}
+ */
+proto.yandex.cloud.mdb.mysql.v1.Host.prototype.getPriority = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.yandex.cloud.mdb.mysql.v1.Host} returns this
+ */
+proto.yandex.cloud.mdb.mysql.v1.Host.prototype.setPriority = function(value) {
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 

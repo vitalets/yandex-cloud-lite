@@ -97,6 +97,10 @@ export class Revision extends jspb.Message {
     setServiceAccountId(value: string): Revision;
     getStatus(): Revision.Status;
     setStatus(value: Revision.Status): Revision;
+    clearSecretsList(): void;
+    getSecretsList(): Array<Secret>;
+    setSecretsList(value: Array<Secret>): Revision;
+    addSecrets(value?: Secret, index?: number): Secret;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Revision.AsObject;
@@ -120,6 +124,7 @@ export namespace Revision {
         concurrency: number,
         serviceAccountId: string,
         status: Revision.Status,
+        secretsList: Array<Secret.AsObject>,
     }
 
     export enum Status {
@@ -242,4 +247,44 @@ export namespace Resources {
         cores: number,
         coreFraction: number,
     }
+}
+
+export class Secret extends jspb.Message { 
+    getId(): string;
+    setId(value: string): Secret;
+    getVersionId(): string;
+    setVersionId(value: string): Secret;
+    getKey(): string;
+    setKey(value: string): Secret;
+
+    hasEnvironmentVariable(): boolean;
+    clearEnvironmentVariable(): void;
+    getEnvironmentVariable(): string;
+    setEnvironmentVariable(value: string): Secret;
+
+    getReferenceCase(): Secret.ReferenceCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Secret.AsObject;
+    static toObject(includeInstance: boolean, msg: Secret): Secret.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Secret, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Secret;
+    static deserializeBinaryFromReader(message: Secret, reader: jspb.BinaryReader): Secret;
+}
+
+export namespace Secret {
+    export type AsObject = {
+        id: string,
+        versionId: string,
+        key: string,
+        environmentVariable: string,
+    }
+
+    export enum ReferenceCase {
+        REFERENCE_NOT_SET = 0,
+        ENVIRONMENT_VARIABLE = 4,
+    }
+
 }

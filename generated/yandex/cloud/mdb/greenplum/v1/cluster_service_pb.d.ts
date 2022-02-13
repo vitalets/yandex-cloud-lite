@@ -6,10 +6,12 @@
 
 import * as jspb from "google-protobuf";
 import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
+import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_mdb_greenplum_v1_cluster_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/cluster_pb";
+import * as yandex_cloud_mdb_greenplum_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/maintenance_pb";
 import * as yandex_cloud_mdb_greenplum_v1_config_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/config_pb";
 import * as yandex_cloud_mdb_greenplum_v1_host_pb from "../../../../../yandex/cloud/mdb/greenplum/v1/host_pb";
 
@@ -137,6 +139,16 @@ export class CreateClusterRequest extends jspb.Message {
     setHostGroupIdsList(value: Array<string>): CreateClusterRequest;
     addHostGroupIds(value: string, index?: number): string;
 
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow): CreateClusterRequest;
+
+    hasConfigSpec(): boolean;
+    clearConfigSpec(): void;
+    getConfigSpec(): ConfigSpec | undefined;
+    setConfigSpec(value?: ConfigSpec): CreateClusterRequest;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateClusterRequest.AsObject;
     static toObject(includeInstance: boolean, msg: CreateClusterRequest): CreateClusterRequest.AsObject;
@@ -167,7 +179,53 @@ export namespace CreateClusterRequest {
         securityGroupIdsList: Array<string>,
         deletionProtection: boolean,
         hostGroupIdsList: Array<string>,
+        maintenanceWindow?: yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow.AsObject,
+        configSpec?: ConfigSpec.AsObject,
     }
+}
+
+export class ConfigSpec extends jspb.Message { 
+
+    hasGreenplumConfig617(): boolean;
+    clearGreenplumConfig617(): void;
+    getGreenplumConfig617(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_17 | undefined;
+    setGreenplumConfig617(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_17): ConfigSpec;
+
+    hasGreenplumConfig619(): boolean;
+    clearGreenplumConfig619(): void;
+    getGreenplumConfig619(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_19 | undefined;
+    setGreenplumConfig619(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_19): ConfigSpec;
+
+    hasPool(): boolean;
+    clearPool(): void;
+    getPool(): yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfig | undefined;
+    setPool(value?: yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfig): ConfigSpec;
+
+    getGreenplumConfigCase(): ConfigSpec.GreenplumConfigCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ConfigSpec.AsObject;
+    static toObject(includeInstance: boolean, msg: ConfigSpec): ConfigSpec.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ConfigSpec, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ConfigSpec;
+    static deserializeBinaryFromReader(message: ConfigSpec, reader: jspb.BinaryReader): ConfigSpec;
+}
+
+export namespace ConfigSpec {
+    export type AsObject = {
+        greenplumConfig617?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_17.AsObject,
+        greenplumConfig619?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumConfig6_19.AsObject,
+        pool?: yandex_cloud_mdb_greenplum_v1_config_pb.ConnectionPoolerConfig.AsObject,
+    }
+
+    export enum GreenplumConfigCase {
+        GREENPLUM_CONFIG_NOT_SET = 0,
+        GREENPLUM_CONFIG_6_17 = 1,
+        GREENPLUM_CONFIG_6_19 = 2,
+    }
+
 }
 
 export class CreateClusterMetadata extends jspb.Message { 
@@ -210,6 +268,21 @@ export class UpdateClusterRequest extends jspb.Message {
     clearConfig(): void;
     getConfig(): yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig | undefined;
     setConfig(value?: yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig): UpdateClusterRequest;
+
+    hasMasterConfig(): boolean;
+    clearMasterConfig(): void;
+    getMasterConfig(): MasterSubclusterConfigSpec | undefined;
+    setMasterConfig(value?: MasterSubclusterConfigSpec): UpdateClusterRequest;
+
+    hasSegmentConfig(): boolean;
+    clearSegmentConfig(): void;
+    getSegmentConfig(): SegmentSubclusterConfigSpec | undefined;
+    setSegmentConfig(value?: SegmentSubclusterConfigSpec): UpdateClusterRequest;
+
+    hasMaintenanceWindow(): boolean;
+    clearMaintenanceWindow(): void;
+    getMaintenanceWindow(): yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow | undefined;
+    setMaintenanceWindow(value?: yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow): UpdateClusterRequest;
     clearSecurityGroupIdsList(): void;
     getSecurityGroupIdsList(): Array<string>;
     setSecurityGroupIdsList(value: Array<string>): UpdateClusterRequest;
@@ -236,6 +309,9 @@ export namespace UpdateClusterRequest {
         labelsMap: Array<[string, string]>,
         name: string,
         config?: yandex_cloud_mdb_greenplum_v1_cluster_pb.GreenplumConfig.AsObject,
+        masterConfig?: MasterSubclusterConfigSpec.AsObject,
+        segmentConfig?: SegmentSubclusterConfigSpec.AsObject,
+        maintenanceWindow?: yandex_cloud_mdb_greenplum_v1_maintenance_pb.MaintenanceWindow.AsObject,
         securityGroupIdsList: Array<string>,
         deletionProtection: boolean,
     }
@@ -490,11 +566,6 @@ export class MasterSubclusterConfigSpec extends jspb.Message {
     getResources(): yandex_cloud_mdb_greenplum_v1_config_pb.Resources | undefined;
     setResources(value?: yandex_cloud_mdb_greenplum_v1_config_pb.Resources): MasterSubclusterConfigSpec;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumMasterConfig | undefined;
-    setConfig(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumMasterConfig): MasterSubclusterConfigSpec;
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): MasterSubclusterConfigSpec.AsObject;
     static toObject(includeInstance: boolean, msg: MasterSubclusterConfigSpec): MasterSubclusterConfigSpec.AsObject;
@@ -508,7 +579,6 @@ export class MasterSubclusterConfigSpec extends jspb.Message {
 export namespace MasterSubclusterConfigSpec {
     export type AsObject = {
         resources?: yandex_cloud_mdb_greenplum_v1_config_pb.Resources.AsObject,
-        config?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumMasterConfig.AsObject,
     }
 }
 
@@ -518,11 +588,6 @@ export class SegmentSubclusterConfigSpec extends jspb.Message {
     clearResources(): void;
     getResources(): yandex_cloud_mdb_greenplum_v1_config_pb.Resources | undefined;
     setResources(value?: yandex_cloud_mdb_greenplum_v1_config_pb.Resources): SegmentSubclusterConfigSpec;
-
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumSegmentConfig | undefined;
-    setConfig(value?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumSegmentConfig): SegmentSubclusterConfigSpec;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SegmentSubclusterConfigSpec.AsObject;
@@ -537,6 +602,117 @@ export class SegmentSubclusterConfigSpec extends jspb.Message {
 export namespace SegmentSubclusterConfigSpec {
     export type AsObject = {
         resources?: yandex_cloud_mdb_greenplum_v1_config_pb.Resources.AsObject,
-        config?: yandex_cloud_mdb_greenplum_v1_config_pb.GreenplumSegmentConfig.AsObject,
     }
+}
+
+export class ListClusterLogsResponse extends jspb.Message { 
+    clearLogsList(): void;
+    getLogsList(): Array<LogRecord>;
+    setLogsList(value: Array<LogRecord>): ListClusterLogsResponse;
+    addLogs(value?: LogRecord, index?: number): LogRecord;
+    getNextPageToken(): string;
+    setNextPageToken(value: string): ListClusterLogsResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListClusterLogsResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ListClusterLogsResponse): ListClusterLogsResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListClusterLogsResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListClusterLogsResponse;
+    static deserializeBinaryFromReader(message: ListClusterLogsResponse, reader: jspb.BinaryReader): ListClusterLogsResponse;
+}
+
+export namespace ListClusterLogsResponse {
+    export type AsObject = {
+        logsList: Array<LogRecord.AsObject>,
+        nextPageToken: string,
+    }
+}
+
+export class LogRecord extends jspb.Message { 
+
+    hasTimestamp(): boolean;
+    clearTimestamp(): void;
+    getTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): LogRecord;
+
+    getMessageMap(): jspb.Map<string, string>;
+    clearMessageMap(): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): LogRecord.AsObject;
+    static toObject(includeInstance: boolean, msg: LogRecord): LogRecord.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: LogRecord, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): LogRecord;
+    static deserializeBinaryFromReader(message: LogRecord, reader: jspb.BinaryReader): LogRecord;
+}
+
+export namespace LogRecord {
+    export type AsObject = {
+        timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+
+        messageMap: Array<[string, string]>,
+    }
+}
+
+export class ListClusterLogsRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): ListClusterLogsRequest;
+    clearColumnFilterList(): void;
+    getColumnFilterList(): Array<string>;
+    setColumnFilterList(value: Array<string>): ListClusterLogsRequest;
+    addColumnFilter(value: string, index?: number): string;
+    getServiceType(): ListClusterLogsRequest.ServiceType;
+    setServiceType(value: ListClusterLogsRequest.ServiceType): ListClusterLogsRequest;
+
+    hasFromTime(): boolean;
+    clearFromTime(): void;
+    getFromTime(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setFromTime(value?: google_protobuf_timestamp_pb.Timestamp): ListClusterLogsRequest;
+
+    hasToTime(): boolean;
+    clearToTime(): void;
+    getToTime(): google_protobuf_timestamp_pb.Timestamp | undefined;
+    setToTime(value?: google_protobuf_timestamp_pb.Timestamp): ListClusterLogsRequest;
+    getPageSize(): number;
+    setPageSize(value: number): ListClusterLogsRequest;
+    getPageToken(): string;
+    setPageToken(value: string): ListClusterLogsRequest;
+    getAlwaysNextPageToken(): boolean;
+    setAlwaysNextPageToken(value: boolean): ListClusterLogsRequest;
+    getFilter(): string;
+    setFilter(value: string): ListClusterLogsRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListClusterLogsRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ListClusterLogsRequest): ListClusterLogsRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListClusterLogsRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListClusterLogsRequest;
+    static deserializeBinaryFromReader(message: ListClusterLogsRequest, reader: jspb.BinaryReader): ListClusterLogsRequest;
+}
+
+export namespace ListClusterLogsRequest {
+    export type AsObject = {
+        clusterId: string,
+        columnFilterList: Array<string>,
+        serviceType: ListClusterLogsRequest.ServiceType,
+        fromTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        toTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+        pageSize: number,
+        pageToken: string,
+        alwaysNextPageToken: boolean,
+        filter: string,
+    }
+
+    export enum ServiceType {
+    SERVICE_TYPE_UNSPECIFIED = 0,
+    GREENPLUM = 1,
+    GREENPLUM_POOLER = 2,
+    }
+
 }

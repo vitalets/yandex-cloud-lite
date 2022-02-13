@@ -11,9 +11,11 @@ import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/t
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
+import * as yandex_cloud_mdb_elasticsearch_v1_backup_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/backup_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_cluster_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/cluster_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_user_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/user_pb";
 import * as yandex_cloud_mdb_elasticsearch_v1_config_elasticsearch_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/config/elasticsearch_pb";
+import * as yandex_cloud_mdb_elasticsearch_v1_maintenance_pb from "../../../../../yandex/cloud/mdb/elasticsearch/v1/maintenance_pb";
 
 interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     get: IClusterServiceService_IGet;
@@ -24,12 +26,16 @@ interface IClusterServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
     move: IClusterServiceService_IMove;
     start: IClusterServiceService_IStart;
     stop: IClusterServiceService_IStop;
+    backup: IClusterServiceService_IBackup;
+    listBackups: IClusterServiceService_IListBackups;
+    restore: IClusterServiceService_IRestore;
     listLogs: IClusterServiceService_IListLogs;
     streamLogs: IClusterServiceService_IStreamLogs;
     listOperations: IClusterServiceService_IListOperations;
     listHosts: IClusterServiceService_IListHosts;
     addHosts: IClusterServiceService_IAddHosts;
     deleteHosts: IClusterServiceService_IDeleteHosts;
+    rescheduleMaintenance: IClusterServiceService_IRescheduleMaintenance;
 }
 
 interface IClusterServiceService_IGet extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.GetClusterRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_pb.Cluster> {
@@ -104,6 +110,33 @@ interface IClusterServiceService_IStop extends grpc.MethodDefinition<yandex_clou
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
+interface IClusterServiceService_IBackup extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.elasticsearch.v1.ClusterService/Backup";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
+interface IClusterServiceService_IListBackups extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse> {
+    path: "/yandex.cloud.mdb.elasticsearch.v1.ClusterService/ListBackups";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse>;
+}
+interface IClusterServiceService_IRestore extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.elasticsearch.v1.ClusterService/Restore";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 interface IClusterServiceService_IListLogs extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse> {
     path: "/yandex.cloud.mdb.elasticsearch.v1.ClusterService/ListLogs";
     requestStream: false;
@@ -158,6 +191,15 @@ interface IClusterServiceService_IDeleteHosts extends grpc.MethodDefinition<yand
     responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
     responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
 }
+interface IClusterServiceService_IRescheduleMaintenance extends grpc.MethodDefinition<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.mdb.elasticsearch.v1.ClusterService/RescheduleMaintenance";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 
 export const ClusterServiceService: IClusterServiceService;
 
@@ -170,12 +212,16 @@ export interface IClusterServiceServer extends grpc.UntypedServiceImplementation
     move: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.MoveClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     start: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StartClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     stop: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
+    backup: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
+    listBackups: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse>;
+    restore: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, yandex_cloud_operation_operation_pb.Operation>;
     listLogs: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse>;
     streamLogs: grpc.handleServerStreamingCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StreamClusterLogsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StreamLogRecord>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterOperationsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterOperationsResponse>;
     listHosts: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterHostsRequest, yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterHostsResponse>;
     addHosts: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.AddClusterHostsRequest, yandex_cloud_operation_operation_pb.Operation>;
     deleteHosts: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, yandex_cloud_operation_operation_pb.Operation>;
+    rescheduleMaintenance: grpc.handleUnaryCall<yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, yandex_cloud_operation_operation_pb.Operation>;
 }
 
 export interface IClusterServiceClient {
@@ -203,6 +249,15 @@ export interface IClusterServiceClient {
     stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
@@ -220,6 +275,9 @@ export interface IClusterServiceClient {
     deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }
 
 export class ClusterServiceClient extends grpc.Client implements IClusterServiceClient {
@@ -248,6 +306,15 @@ export class ClusterServiceClient extends grpc.Client implements IClusterService
     public stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public stop(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.StopClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public backup(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.BackupClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    public listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    public listBackups(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterBackupsResponse) => void): grpc.ClientUnaryCall;
+    public restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public restore(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RestoreClusterRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
     public listLogs(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.ListClusterLogsResponse) => void): grpc.ClientUnaryCall;
@@ -265,4 +332,7 @@ export class ClusterServiceClient extends grpc.Client implements IClusterService
     public deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
     public deleteHosts(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.DeleteClusterHostsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public rescheduleMaintenance(request: yandex_cloud_mdb_elasticsearch_v1_cluster_service_pb.RescheduleMaintenanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }

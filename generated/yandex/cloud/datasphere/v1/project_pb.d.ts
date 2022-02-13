@@ -64,6 +64,10 @@ export namespace Project {
         setDataProcClusterId(value: string): Settings;
         getCommitMode(): Project.Settings.CommitMode;
         setCommitMode(value: Project.Settings.CommitMode): Settings;
+        clearSecurityGroupIdsList(): void;
+        getSecurityGroupIdsList(): Array<string>;
+        setSecurityGroupIdsList(value: Array<string>): Settings;
+        addSecurityGroupIds(value: string, index?: number): string;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): Settings.AsObject;
@@ -81,6 +85,7 @@ export namespace Project {
             subnetId: string,
             dataProcClusterId: string,
             commitMode: Project.Settings.CommitMode,
+            securityGroupIdsList: Array<string>,
         }
 
         export enum CommitMode {

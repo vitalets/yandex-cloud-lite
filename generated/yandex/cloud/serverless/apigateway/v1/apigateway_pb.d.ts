@@ -6,7 +6,6 @@
 
 import * as jspb from "google-protobuf";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
-import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
 
 export class ApiGateway extends jspb.Message { 
     getId(): string;
@@ -36,6 +35,11 @@ export class ApiGateway extends jspb.Message {
     setAttachedDomainsList(value: Array<AttachedDomain>): ApiGateway;
     addAttachedDomains(value?: AttachedDomain, index?: number): AttachedDomain;
 
+    hasConnectivity(): boolean;
+    clearConnectivity(): void;
+    getConnectivity(): Connectivity | undefined;
+    setConnectivity(value?: Connectivity): ApiGateway;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ApiGateway.AsObject;
     static toObject(includeInstance: boolean, msg: ApiGateway): ApiGateway.AsObject;
@@ -59,6 +63,7 @@ export namespace ApiGateway {
         domain: string,
         logGroupId: string,
         attachedDomainsList: Array<AttachedDomain.AsObject>,
+        connectivity?: Connectivity.AsObject,
     }
 
     export enum Status {
@@ -98,5 +103,30 @@ export namespace AttachedDomain {
         certificateId: string,
         enabled: boolean,
         domain: string,
+    }
+}
+
+export class Connectivity extends jspb.Message { 
+    getNetworkId(): string;
+    setNetworkId(value: string): Connectivity;
+    clearSubnetIdList(): void;
+    getSubnetIdList(): Array<string>;
+    setSubnetIdList(value: Array<string>): Connectivity;
+    addSubnetId(value: string, index?: number): string;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Connectivity.AsObject;
+    static toObject(includeInstance: boolean, msg: Connectivity): Connectivity.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Connectivity, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Connectivity;
+    static deserializeBinaryFromReader(message: Connectivity, reader: jspb.BinaryReader): Connectivity;
+}
+
+export namespace Connectivity {
+    export type AsObject = {
+        networkId: string,
+        subnetIdList: Array<string>,
     }
 }

@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/field_mask_pb";
 import * as yandex_cloud_api_operation_pb from "../../../../../yandex/cloud/api/operation_pb";
 import * as yandex_cloud_operation_operation_pb from "../../../../../yandex/cloud/operation/operation_pb";
 import * as yandex_cloud_validation_pb from "../../../../../yandex/cloud/validation_pb";
@@ -127,6 +128,64 @@ export class CreateConnectorMetadata extends jspb.Message {
 }
 
 export namespace CreateConnectorMetadata {
+    export type AsObject = {
+        clusterId: string,
+        connectorName: string,
+    }
+}
+
+export class UpdateConnectorRequest extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): UpdateConnectorRequest;
+    getConnectorName(): string;
+    setConnectorName(value: string): UpdateConnectorRequest;
+
+    hasUpdateMask(): boolean;
+    clearUpdateMask(): void;
+    getUpdateMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+    setUpdateMask(value?: google_protobuf_field_mask_pb.FieldMask): UpdateConnectorRequest;
+
+    hasConnectorSpec(): boolean;
+    clearConnectorSpec(): void;
+    getConnectorSpec(): yandex_cloud_mdb_kafka_v1_connector_pb.UpdateConnectorSpec | undefined;
+    setConnectorSpec(value?: yandex_cloud_mdb_kafka_v1_connector_pb.UpdateConnectorSpec): UpdateConnectorRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateConnectorRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateConnectorRequest): UpdateConnectorRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateConnectorRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateConnectorRequest;
+    static deserializeBinaryFromReader(message: UpdateConnectorRequest, reader: jspb.BinaryReader): UpdateConnectorRequest;
+}
+
+export namespace UpdateConnectorRequest {
+    export type AsObject = {
+        clusterId: string,
+        connectorName: string,
+        updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+        connectorSpec?: yandex_cloud_mdb_kafka_v1_connector_pb.UpdateConnectorSpec.AsObject,
+    }
+}
+
+export class UpdateConnectorMetadata extends jspb.Message { 
+    getClusterId(): string;
+    setClusterId(value: string): UpdateConnectorMetadata;
+    getConnectorName(): string;
+    setConnectorName(value: string): UpdateConnectorMetadata;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateConnectorMetadata.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateConnectorMetadata): UpdateConnectorMetadata.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateConnectorMetadata, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateConnectorMetadata;
+    static deserializeBinaryFromReader(message: UpdateConnectorMetadata, reader: jspb.BinaryReader): UpdateConnectorMetadata;
+}
+
+export namespace UpdateConnectorMetadata {
     export type AsObject = {
         clusterId: string,
         connectorName: string,

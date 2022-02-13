@@ -23,6 +23,7 @@ var yandex_cloud_mdb_postgresql_v1_config_postgresql11_1c_pb = require('../../..
 var yandex_cloud_mdb_postgresql_v1_config_postgresql12_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql13_pb.js');
+var yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql14_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_host9_6_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host9_6_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_host10_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_host10_1c_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_1c_pb.js');
@@ -31,6 +32,7 @@ var yandex_cloud_mdb_postgresql_v1_config_host11_1c_pb = require('../../../../..
 var yandex_cloud_mdb_postgresql_v1_config_host12_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host12_1c_pb.js');
 var yandex_cloud_mdb_postgresql_v1_config_host13_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host13_pb.js');
+var yandex_cloud_mdb_postgresql_v1_config_host14_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host14_pb.js');
 var yandex_cloud_mdb_postgresql_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/maintenance_pb.js');
 
 function serialize_yandex_cloud_mdb_postgresql_v1_AddClusterHostsRequest(arg) {

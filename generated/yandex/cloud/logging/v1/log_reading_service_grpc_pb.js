@@ -3,7 +3,6 @@
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var yandex_cloud_logging_v1_log_reading_service_pb = require('../../../../yandex/cloud/logging/v1/log_reading_service_pb.js');
-var google_api_annotations_pb = require('../../../../google/api/annotations_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var yandex_cloud_validation_pb = require('../../../../yandex/cloud/validation_pb.js');
 var yandex_cloud_logging_v1_log_entry_pb = require('../../../../yandex/cloud/logging/v1/log_entry_pb.js');

@@ -130,6 +130,10 @@ export class CreateClusterRequest extends jspb.Message {
     setDeletionProtection(value: boolean): CreateClusterRequest;
     getSqlcollation(): string;
     setSqlcollation(value: string): CreateClusterRequest;
+    clearHostGroupIdsList(): void;
+    getHostGroupIdsList(): Array<string>;
+    setHostGroupIdsList(value: Array<string>): CreateClusterRequest;
+    addHostGroupIds(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateClusterRequest.AsObject;
@@ -157,6 +161,7 @@ export namespace CreateClusterRequest {
         securityGroupIdsList: Array<string>,
         deletionProtection: boolean,
         sqlcollation: string,
+        hostGroupIdsList: Array<string>,
     }
 }
 
@@ -365,6 +370,12 @@ export class RestoreClusterRequest extends jspb.Message {
     getSecurityGroupIdsList(): Array<string>;
     setSecurityGroupIdsList(value: Array<string>): RestoreClusterRequest;
     addSecurityGroupIds(value: string, index?: number): string;
+    getDeletionProtection(): boolean;
+    setDeletionProtection(value: boolean): RestoreClusterRequest;
+    clearHostGroupIdsList(): void;
+    getHostGroupIdsList(): Array<string>;
+    setHostGroupIdsList(value: Array<string>): RestoreClusterRequest;
+    addHostGroupIds(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RestoreClusterRequest.AsObject;
@@ -390,6 +401,8 @@ export namespace RestoreClusterRequest {
         networkId: string,
         folderId: string,
         securityGroupIdsList: Array<string>,
+        deletionProtection: boolean,
+        hostGroupIdsList: Array<string>,
     }
 }
 

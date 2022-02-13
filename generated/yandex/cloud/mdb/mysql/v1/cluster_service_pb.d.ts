@@ -1165,6 +1165,8 @@ export class UpdateHostSpec extends jspb.Message {
     setBackupPriority(value: number): UpdateHostSpec;
     getAssignPublicIp(): boolean;
     setAssignPublicIp(value: boolean): UpdateHostSpec;
+    getPriority(): number;
+    setPriority(value: number): UpdateHostSpec;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateHostSpec.AsObject;
@@ -1183,6 +1185,7 @@ export namespace UpdateHostSpec {
         updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
         backupPriority: number,
         assignPublicIp: boolean,
+        priority: number,
     }
 }
 
@@ -1195,6 +1198,10 @@ export class HostSpec extends jspb.Message {
     setAssignPublicIp(value: boolean): HostSpec;
     getReplicationSource(): string;
     setReplicationSource(value: string): HostSpec;
+    getBackupPriority(): number;
+    setBackupPriority(value: number): HostSpec;
+    getPriority(): number;
+    setPriority(value: number): HostSpec;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): HostSpec.AsObject;
@@ -1212,6 +1219,8 @@ export namespace HostSpec {
         subnetId: string,
         assignPublicIp: boolean,
         replicationSource: string,
+        backupPriority: number,
+        priority: number,
     }
 }
 

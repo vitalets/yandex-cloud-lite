@@ -19,6 +19,7 @@ interface IDiskServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     update: IDiskServiceService_IUpdate;
     delete: IDiskServiceService_IDelete;
     listOperations: IDiskServiceService_IListOperations;
+    move: IDiskServiceService_IMove;
 }
 
 interface IDiskServiceService_IGet extends grpc.MethodDefinition<yandex_cloud_compute_v1_disk_service_pb.GetDiskRequest, yandex_cloud_compute_v1_disk_pb.Disk> {
@@ -75,6 +76,15 @@ interface IDiskServiceService_IListOperations extends grpc.MethodDefinition<yand
     responseSerialize: grpc.serialize<yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse>;
 }
+interface IDiskServiceService_IMove extends grpc.MethodDefinition<yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.compute.v1.DiskService/Move";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 
 export const DiskServiceService: IDiskServiceService;
 
@@ -85,6 +95,7 @@ export interface IDiskServiceServer extends grpc.UntypedServiceImplementation {
     update: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_service_pb.UpdateDiskRequest, yandex_cloud_operation_operation_pb.Operation>;
     delete: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_service_pb.DeleteDiskRequest, yandex_cloud_operation_operation_pb.Operation>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse>;
+    move: grpc.handleUnaryCall<yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, yandex_cloud_operation_operation_pb.Operation>;
 }
 
 export interface IDiskServiceClient {
@@ -106,6 +117,9 @@ export interface IDiskServiceClient {
     listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
     listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
     listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }
 
 export class DiskServiceClient extends grpc.Client implements IDiskServiceClient {
@@ -128,4 +142,7 @@ export class DiskServiceClient extends grpc.Client implements IDiskServiceClient
     public listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
     public listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
     public listOperations(request: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_disk_service_pb.ListDiskOperationsResponse) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_disk_service_pb.MoveDiskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }

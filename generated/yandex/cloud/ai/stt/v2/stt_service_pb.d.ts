@@ -207,6 +207,8 @@ export class RecognitionSpec extends jspb.Message {
     setAudioChannelCount(value: number): RecognitionSpec;
     getRawResults(): boolean;
     setRawResults(value: boolean): RecognitionSpec;
+    getLiteratureText(): boolean;
+    setLiteratureText(value: boolean): RecognitionSpec;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RecognitionSpec.AsObject;
@@ -229,12 +231,14 @@ export namespace RecognitionSpec {
         singleUtterance: boolean,
         audioChannelCount: number,
         rawResults: boolean,
+        literatureText: boolean,
     }
 
     export enum AudioEncoding {
     AUDIO_ENCODING_UNSPECIFIED = 0,
     LINEAR16_PCM = 1,
     OGG_OPUS = 2,
+    MP3 = 3,
     }
 
 }

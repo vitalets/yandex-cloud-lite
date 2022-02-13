@@ -349,6 +349,8 @@ export namespace ScalePolicy {
         getCustomRulesList(): Array<ScalePolicy.CustomRule>;
         setCustomRulesList(value: Array<ScalePolicy.CustomRule>): AutoScale;
         addCustomRules(value?: ScalePolicy.CustomRule, index?: number): ScalePolicy.CustomRule;
+        getAutoScaleType(): ScalePolicy.AutoScale.AutoScaleType;
+        setAutoScaleType(value: ScalePolicy.AutoScale.AutoScaleType): AutoScale;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): AutoScale.AsObject;
@@ -370,7 +372,15 @@ export namespace ScalePolicy {
             initialSize: number,
             cpuUtilizationRule?: ScalePolicy.CpuUtilizationRule.AsObject,
             customRulesList: Array<ScalePolicy.CustomRule.AsObject>,
+            autoScaleType: ScalePolicy.AutoScale.AutoScaleType,
         }
+
+        export enum AutoScaleType {
+    AUTO_SCALE_TYPE_UNSPECIFIED = 0,
+    ZONAL = 1,
+    REGIONAL = 2,
+        }
+
     }
 
     export class CpuUtilizationRule extends jspb.Message { 
@@ -1313,6 +1323,7 @@ export namespace ManagedInstance {
     RUNNING_OUTDATED = 22,
     STOPPED = 23,
     DELETED = 24,
+    PREPARING_RESOURCES = 25,
     }
 
 }

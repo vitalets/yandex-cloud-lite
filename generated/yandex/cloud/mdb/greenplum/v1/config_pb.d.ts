@@ -34,17 +34,51 @@ export namespace Resources {
     }
 }
 
+export class ConnectionPoolerConfig extends jspb.Message { 
+    getMode(): ConnectionPoolerConfig.PoolMode;
+    setMode(value: ConnectionPoolerConfig.PoolMode): ConnectionPoolerConfig;
+
+    hasSize(): boolean;
+    clearSize(): void;
+    getSize(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setSize(value?: google_protobuf_wrappers_pb.Int64Value): ConnectionPoolerConfig;
+
+    hasClientIdleTimeout(): boolean;
+    clearClientIdleTimeout(): void;
+    getClientIdleTimeout(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setClientIdleTimeout(value?: google_protobuf_wrappers_pb.Int64Value): ConnectionPoolerConfig;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ConnectionPoolerConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: ConnectionPoolerConfig): ConnectionPoolerConfig.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ConnectionPoolerConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ConnectionPoolerConfig;
+    static deserializeBinaryFromReader(message: ConnectionPoolerConfig, reader: jspb.BinaryReader): ConnectionPoolerConfig;
+}
+
+export namespace ConnectionPoolerConfig {
+    export type AsObject = {
+        mode: ConnectionPoolerConfig.PoolMode,
+        size?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        clientIdleTimeout?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+    }
+
+    export enum PoolMode {
+    POOL_MODE_UNSPECIFIED = 0,
+    SESSION = 1,
+    TRANSACTION = 2,
+    }
+
+}
+
 export class MasterSubclusterConfig extends jspb.Message { 
 
     hasResources(): boolean;
     clearResources(): void;
     getResources(): Resources | undefined;
     setResources(value?: Resources): MasterSubclusterConfig;
-
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): GreenplumMasterConfigSet | undefined;
-    setConfig(value?: GreenplumMasterConfigSet): MasterSubclusterConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): MasterSubclusterConfig.AsObject;
@@ -59,7 +93,6 @@ export class MasterSubclusterConfig extends jspb.Message {
 export namespace MasterSubclusterConfig {
     export type AsObject = {
         resources?: Resources.AsObject,
-        config?: GreenplumMasterConfigSet.AsObject,
     }
 }
 
@@ -69,11 +102,6 @@ export class SegmentSubclusterConfig extends jspb.Message {
     clearResources(): void;
     getResources(): Resources | undefined;
     setResources(value?: Resources): SegmentSubclusterConfig;
-
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): GreenplumSegmentConfigSet | undefined;
-    setConfig(value?: GreenplumSegmentConfigSet): SegmentSubclusterConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SegmentSubclusterConfig.AsObject;
@@ -88,154 +116,228 @@ export class SegmentSubclusterConfig extends jspb.Message {
 export namespace SegmentSubclusterConfig {
     export type AsObject = {
         resources?: Resources.AsObject,
-        config?: GreenplumSegmentConfigSet.AsObject,
     }
 }
 
-export class GreenplumMasterConfig extends jspb.Message { 
-    getLogLevel(): GreenplumMasterConfig.LogLevel;
-    setLogLevel(value: GreenplumMasterConfig.LogLevel): GreenplumMasterConfig;
+export class GreenplumConfig6_17 extends jspb.Message { 
 
     hasMaxConnections(): boolean;
     clearMaxConnections(): void;
     getMaxConnections(): google_protobuf_wrappers_pb.Int64Value | undefined;
-    setMaxConnections(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumMasterConfig;
+    setMaxConnections(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
 
-    hasTimezone(): boolean;
-    clearTimezone(): void;
-    getTimezone(): google_protobuf_wrappers_pb.StringValue | undefined;
-    setTimezone(value?: google_protobuf_wrappers_pb.StringValue): GreenplumMasterConfig;
+    hasMaxSlotWalKeepSize(): boolean;
+    clearMaxSlotWalKeepSize(): void;
+    getMaxSlotWalKeepSize(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setMaxSlotWalKeepSize(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
+
+    hasGpWorkfileLimitPerSegment(): boolean;
+    clearGpWorkfileLimitPerSegment(): void;
+    getGpWorkfileLimitPerSegment(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitPerSegment(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
+
+    hasGpWorkfileLimitPerQuery(): boolean;
+    clearGpWorkfileLimitPerQuery(): void;
+    getGpWorkfileLimitPerQuery(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitPerQuery(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
+
+    hasGpWorkfileLimitFilesPerQuery(): boolean;
+    clearGpWorkfileLimitFilesPerQuery(): void;
+    getGpWorkfileLimitFilesPerQuery(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitFilesPerQuery(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
+
+    hasMaxPreparedTransactions(): boolean;
+    clearMaxPreparedTransactions(): void;
+    getMaxPreparedTransactions(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setMaxPreparedTransactions(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_17;
+
+    hasGpWorkfileCompression(): boolean;
+    clearGpWorkfileCompression(): void;
+    getGpWorkfileCompression(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setGpWorkfileCompression(value?: google_protobuf_wrappers_pb.BoolValue): GreenplumConfig6_17;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GreenplumMasterConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: GreenplumMasterConfig): GreenplumMasterConfig.AsObject;
+    toObject(includeInstance?: boolean): GreenplumConfig6_17.AsObject;
+    static toObject(includeInstance: boolean, msg: GreenplumConfig6_17): GreenplumConfig6_17.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GreenplumMasterConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GreenplumMasterConfig;
-    static deserializeBinaryFromReader(message: GreenplumMasterConfig, reader: jspb.BinaryReader): GreenplumMasterConfig;
+    static serializeBinaryToWriter(message: GreenplumConfig6_17, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GreenplumConfig6_17;
+    static deserializeBinaryFromReader(message: GreenplumConfig6_17, reader: jspb.BinaryReader): GreenplumConfig6_17;
 }
 
-export namespace GreenplumMasterConfig {
+export namespace GreenplumConfig6_17 {
     export type AsObject = {
-        logLevel: GreenplumMasterConfig.LogLevel,
         maxConnections?: google_protobuf_wrappers_pb.Int64Value.AsObject,
-        timezone?: google_protobuf_wrappers_pb.StringValue.AsObject,
+        maxSlotWalKeepSize?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitPerSegment?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitPerQuery?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitFilesPerQuery?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        maxPreparedTransactions?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileCompression?: google_protobuf_wrappers_pb.BoolValue.AsObject,
     }
-
-    export enum LogLevel {
-    LOG_LEVEL_UNSPECIFIED = 0,
-    TRACE = 1,
-    DEBUG = 2,
-    INFORMATION = 3,
-    WARNING = 4,
-    ERROR = 5,
-    }
-
 }
 
-export class GreenplumSegmentConfig extends jspb.Message { 
-    getLogLevel(): GreenplumSegmentConfig.LogLevel;
-    setLogLevel(value: GreenplumSegmentConfig.LogLevel): GreenplumSegmentConfig;
+export class GreenplumConfig6_19 extends jspb.Message { 
 
     hasMaxConnections(): boolean;
     clearMaxConnections(): void;
     getMaxConnections(): google_protobuf_wrappers_pb.Int64Value | undefined;
-    setMaxConnections(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumSegmentConfig;
+    setMaxConnections(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasMaxSlotWalKeepSize(): boolean;
+    clearMaxSlotWalKeepSize(): void;
+    getMaxSlotWalKeepSize(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setMaxSlotWalKeepSize(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasGpWorkfileLimitPerSegment(): boolean;
+    clearGpWorkfileLimitPerSegment(): void;
+    getGpWorkfileLimitPerSegment(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitPerSegment(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasGpWorkfileLimitPerQuery(): boolean;
+    clearGpWorkfileLimitPerQuery(): void;
+    getGpWorkfileLimitPerQuery(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitPerQuery(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasGpWorkfileLimitFilesPerQuery(): boolean;
+    clearGpWorkfileLimitFilesPerQuery(): void;
+    getGpWorkfileLimitFilesPerQuery(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setGpWorkfileLimitFilesPerQuery(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasMaxPreparedTransactions(): boolean;
+    clearMaxPreparedTransactions(): void;
+    getMaxPreparedTransactions(): google_protobuf_wrappers_pb.Int64Value | undefined;
+    setMaxPreparedTransactions(value?: google_protobuf_wrappers_pb.Int64Value): GreenplumConfig6_19;
+
+    hasGpWorkfileCompression(): boolean;
+    clearGpWorkfileCompression(): void;
+    getGpWorkfileCompression(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setGpWorkfileCompression(value?: google_protobuf_wrappers_pb.BoolValue): GreenplumConfig6_19;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GreenplumSegmentConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: GreenplumSegmentConfig): GreenplumSegmentConfig.AsObject;
+    toObject(includeInstance?: boolean): GreenplumConfig6_19.AsObject;
+    static toObject(includeInstance: boolean, msg: GreenplumConfig6_19): GreenplumConfig6_19.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GreenplumSegmentConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GreenplumSegmentConfig;
-    static deserializeBinaryFromReader(message: GreenplumSegmentConfig, reader: jspb.BinaryReader): GreenplumSegmentConfig;
+    static serializeBinaryToWriter(message: GreenplumConfig6_19, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GreenplumConfig6_19;
+    static deserializeBinaryFromReader(message: GreenplumConfig6_19, reader: jspb.BinaryReader): GreenplumConfig6_19;
 }
 
-export namespace GreenplumSegmentConfig {
+export namespace GreenplumConfig6_19 {
     export type AsObject = {
-        logLevel: GreenplumSegmentConfig.LogLevel,
         maxConnections?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        maxSlotWalKeepSize?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitPerSegment?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitPerQuery?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileLimitFilesPerQuery?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        maxPreparedTransactions?: google_protobuf_wrappers_pb.Int64Value.AsObject,
+        gpWorkfileCompression?: google_protobuf_wrappers_pb.BoolValue.AsObject,
     }
-
-    export enum LogLevel {
-    LOG_LEVEL_UNSPECIFIED = 0,
-    TRACE = 1,
-    DEBUG = 2,
-    INFORMATION = 3,
-    WARNING = 4,
-    ERROR = 5,
-    }
-
 }
 
-export class GreenplumMasterConfigSet extends jspb.Message { 
+export class GreenplumConfigSet6_17 extends jspb.Message { 
 
     hasEffectiveConfig(): boolean;
     clearEffectiveConfig(): void;
-    getEffectiveConfig(): GreenplumMasterConfig | undefined;
-    setEffectiveConfig(value?: GreenplumMasterConfig): GreenplumMasterConfigSet;
+    getEffectiveConfig(): GreenplumConfig6_17 | undefined;
+    setEffectiveConfig(value?: GreenplumConfig6_17): GreenplumConfigSet6_17;
 
     hasUserConfig(): boolean;
     clearUserConfig(): void;
-    getUserConfig(): GreenplumMasterConfig | undefined;
-    setUserConfig(value?: GreenplumMasterConfig): GreenplumMasterConfigSet;
+    getUserConfig(): GreenplumConfig6_17 | undefined;
+    setUserConfig(value?: GreenplumConfig6_17): GreenplumConfigSet6_17;
 
     hasDefaultConfig(): boolean;
     clearDefaultConfig(): void;
-    getDefaultConfig(): GreenplumMasterConfig | undefined;
-    setDefaultConfig(value?: GreenplumMasterConfig): GreenplumMasterConfigSet;
+    getDefaultConfig(): GreenplumConfig6_17 | undefined;
+    setDefaultConfig(value?: GreenplumConfig6_17): GreenplumConfigSet6_17;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GreenplumMasterConfigSet.AsObject;
-    static toObject(includeInstance: boolean, msg: GreenplumMasterConfigSet): GreenplumMasterConfigSet.AsObject;
+    toObject(includeInstance?: boolean): GreenplumConfigSet6_17.AsObject;
+    static toObject(includeInstance: boolean, msg: GreenplumConfigSet6_17): GreenplumConfigSet6_17.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GreenplumMasterConfigSet, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GreenplumMasterConfigSet;
-    static deserializeBinaryFromReader(message: GreenplumMasterConfigSet, reader: jspb.BinaryReader): GreenplumMasterConfigSet;
+    static serializeBinaryToWriter(message: GreenplumConfigSet6_17, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GreenplumConfigSet6_17;
+    static deserializeBinaryFromReader(message: GreenplumConfigSet6_17, reader: jspb.BinaryReader): GreenplumConfigSet6_17;
 }
 
-export namespace GreenplumMasterConfigSet {
+export namespace GreenplumConfigSet6_17 {
     export type AsObject = {
-        effectiveConfig?: GreenplumMasterConfig.AsObject,
-        userConfig?: GreenplumMasterConfig.AsObject,
-        defaultConfig?: GreenplumMasterConfig.AsObject,
+        effectiveConfig?: GreenplumConfig6_17.AsObject,
+        userConfig?: GreenplumConfig6_17.AsObject,
+        defaultConfig?: GreenplumConfig6_17.AsObject,
     }
 }
 
-export class GreenplumSegmentConfigSet extends jspb.Message { 
+export class GreenplumConfigSet6_19 extends jspb.Message { 
 
     hasEffectiveConfig(): boolean;
     clearEffectiveConfig(): void;
-    getEffectiveConfig(): GreenplumSegmentConfig | undefined;
-    setEffectiveConfig(value?: GreenplumSegmentConfig): GreenplumSegmentConfigSet;
+    getEffectiveConfig(): GreenplumConfig6_19 | undefined;
+    setEffectiveConfig(value?: GreenplumConfig6_19): GreenplumConfigSet6_19;
 
     hasUserConfig(): boolean;
     clearUserConfig(): void;
-    getUserConfig(): GreenplumSegmentConfig | undefined;
-    setUserConfig(value?: GreenplumSegmentConfig): GreenplumSegmentConfigSet;
+    getUserConfig(): GreenplumConfig6_19 | undefined;
+    setUserConfig(value?: GreenplumConfig6_19): GreenplumConfigSet6_19;
 
     hasDefaultConfig(): boolean;
     clearDefaultConfig(): void;
-    getDefaultConfig(): GreenplumSegmentConfig | undefined;
-    setDefaultConfig(value?: GreenplumSegmentConfig): GreenplumSegmentConfigSet;
+    getDefaultConfig(): GreenplumConfig6_19 | undefined;
+    setDefaultConfig(value?: GreenplumConfig6_19): GreenplumConfigSet6_19;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GreenplumSegmentConfigSet.AsObject;
-    static toObject(includeInstance: boolean, msg: GreenplumSegmentConfigSet): GreenplumSegmentConfigSet.AsObject;
+    toObject(includeInstance?: boolean): GreenplumConfigSet6_19.AsObject;
+    static toObject(includeInstance: boolean, msg: GreenplumConfigSet6_19): GreenplumConfigSet6_19.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GreenplumSegmentConfigSet, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GreenplumSegmentConfigSet;
-    static deserializeBinaryFromReader(message: GreenplumSegmentConfigSet, reader: jspb.BinaryReader): GreenplumSegmentConfigSet;
+    static serializeBinaryToWriter(message: GreenplumConfigSet6_19, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GreenplumConfigSet6_19;
+    static deserializeBinaryFromReader(message: GreenplumConfigSet6_19, reader: jspb.BinaryReader): GreenplumConfigSet6_19;
 }
 
-export namespace GreenplumSegmentConfigSet {
+export namespace GreenplumConfigSet6_19 {
     export type AsObject = {
-        effectiveConfig?: GreenplumSegmentConfig.AsObject,
-        userConfig?: GreenplumSegmentConfig.AsObject,
-        defaultConfig?: GreenplumSegmentConfig.AsObject,
+        effectiveConfig?: GreenplumConfig6_19.AsObject,
+        userConfig?: GreenplumConfig6_19.AsObject,
+        defaultConfig?: GreenplumConfig6_19.AsObject,
+    }
+}
+
+export class ConnectionPoolerConfigSet extends jspb.Message { 
+
+    hasEffectiveConfig(): boolean;
+    clearEffectiveConfig(): void;
+    getEffectiveConfig(): ConnectionPoolerConfig | undefined;
+    setEffectiveConfig(value?: ConnectionPoolerConfig): ConnectionPoolerConfigSet;
+
+    hasUserConfig(): boolean;
+    clearUserConfig(): void;
+    getUserConfig(): ConnectionPoolerConfig | undefined;
+    setUserConfig(value?: ConnectionPoolerConfig): ConnectionPoolerConfigSet;
+
+    hasDefaultConfig(): boolean;
+    clearDefaultConfig(): void;
+    getDefaultConfig(): ConnectionPoolerConfig | undefined;
+    setDefaultConfig(value?: ConnectionPoolerConfig): ConnectionPoolerConfigSet;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ConnectionPoolerConfigSet.AsObject;
+    static toObject(includeInstance: boolean, msg: ConnectionPoolerConfigSet): ConnectionPoolerConfigSet.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ConnectionPoolerConfigSet, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ConnectionPoolerConfigSet;
+    static deserializeBinaryFromReader(message: ConnectionPoolerConfigSet, reader: jspb.BinaryReader): ConnectionPoolerConfigSet;
+}
+
+export namespace ConnectionPoolerConfigSet {
+    export type AsObject = {
+        effectiveConfig?: ConnectionPoolerConfig.AsObject,
+        userConfig?: ConnectionPoolerConfig.AsObject,
+        defaultConfig?: ConnectionPoolerConfig.AsObject,
     }
 }

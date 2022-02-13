@@ -51,6 +51,10 @@ export class Cluster extends jspb.Message {
     setDeletionProtection(value: boolean): Cluster;
     getSqlcollation(): string;
     setSqlcollation(value: string): Cluster;
+    clearHostGroupIdsList(): void;
+    getHostGroupIdsList(): Array<string>;
+    setHostGroupIdsList(value: Array<string>): Cluster;
+    addHostGroupIds(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Cluster.AsObject;
@@ -80,6 +84,7 @@ export namespace Cluster {
         securityGroupIdsList: Array<string>,
         deletionProtection: boolean,
         sqlcollation: string,
+        hostGroupIdsList: Array<string>,
     }
 
     export enum Environment {

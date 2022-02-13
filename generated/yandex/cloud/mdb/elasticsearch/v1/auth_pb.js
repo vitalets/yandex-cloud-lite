@@ -15,10 +15,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_api_annotations_pb = require('../../../../../google/api/annotations_pb.js');
-goog.object.extend(proto, google_api_annotations_pb);
-var yandex_cloud_api_operation_pb = require('../../../../../yandex/cloud/api/operation_pb.js');
-goog.object.extend(proto, yandex_cloud_api_operation_pb);
 var yandex_cloud_validation_pb = require('../../../../../yandex/cloud/validation_pb.js');
 goog.object.extend(proto, yandex_cloud_validation_pb);
 goog.exportSymbol('proto.yandex.cloud.mdb.elasticsearch.v1.AuthProvider', null, global);

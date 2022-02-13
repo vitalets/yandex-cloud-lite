@@ -187,6 +187,11 @@ export class ClusterConfig extends jspb.Message {
     getSqlUserManagement(): google_protobuf_wrappers_pb.BoolValue | undefined;
     setSqlUserManagement(value?: google_protobuf_wrappers_pb.BoolValue): ClusterConfig;
 
+    hasEmbeddedKeeper(): boolean;
+    clearEmbeddedKeeper(): void;
+    getEmbeddedKeeper(): google_protobuf_wrappers_pb.BoolValue | undefined;
+    setEmbeddedKeeper(value?: google_protobuf_wrappers_pb.BoolValue): ClusterConfig;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ClusterConfig.AsObject;
     static toObject(includeInstance: boolean, msg: ClusterConfig): ClusterConfig.AsObject;
@@ -207,6 +212,7 @@ export namespace ClusterConfig {
         cloudStorage?: CloudStorage.AsObject,
         sqlDatabaseManagement?: google_protobuf_wrappers_pb.BoolValue.AsObject,
         sqlUserManagement?: google_protobuf_wrappers_pb.BoolValue.AsObject,
+        embeddedKeeper?: google_protobuf_wrappers_pb.BoolValue.AsObject,
     }
 
 
@@ -521,6 +527,10 @@ export class Access extends jspb.Message {
     setMetrika(value: boolean): Access;
     getServerless(): boolean;
     setServerless(value: boolean): Access;
+    getDataTransfer(): boolean;
+    setDataTransfer(value: boolean): Access;
+    getYandexQuery(): boolean;
+    setYandexQuery(value: boolean): Access;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Access.AsObject;
@@ -538,6 +548,8 @@ export namespace Access {
         webSql: boolean,
         metrika: boolean,
         serverless: boolean,
+        dataTransfer: boolean,
+        yandexQuery: boolean,
     }
 }
 

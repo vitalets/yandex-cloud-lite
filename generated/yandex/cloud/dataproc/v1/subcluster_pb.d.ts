@@ -80,6 +80,8 @@ export class Subcluster extends jspb.Message {
     setSubnetId(value: string): Subcluster;
     getHostsCount(): number;
     setHostsCount(value: number): Subcluster;
+    getAssignPublicIp(): boolean;
+    setAssignPublicIp(value: boolean): Subcluster;
 
     hasAutoscalingConfig(): boolean;
     clearAutoscalingConfig(): void;
@@ -108,6 +110,7 @@ export namespace Subcluster {
         resources?: yandex_cloud_dataproc_v1_common_pb.Resources.AsObject,
         subnetId: string,
         hostsCount: number,
+        assignPublicIp: boolean,
         autoscalingConfig?: AutoscalingConfig.AsObject,
         instanceGroupId: string,
     }

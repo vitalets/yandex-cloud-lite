@@ -15,10 +15,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_protobuf_duration_pb = require('google-protobuf/google/protobuf/duration_pb.js');
-goog.object.extend(proto, google_protobuf_duration_pb);
-var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
-goog.object.extend(proto, google_protobuf_timestamp_pb);
 var yandex_cloud_validation_pb = require('../../../../yandex/cloud/validation_pb.js');
 goog.object.extend(proto, yandex_cloud_validation_pb);
 goog.exportSymbol('proto.yandex.cloud.logging.v1.LogEntryResource', null, global);

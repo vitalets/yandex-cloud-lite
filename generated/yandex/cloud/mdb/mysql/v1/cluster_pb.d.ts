@@ -231,6 +231,10 @@ export class Host extends jspb.Message {
     setAssignPublicIp(value: boolean): Host;
     getReplicationSource(): string;
     setReplicationSource(value: string): Host;
+    getBackupPriority(): number;
+    setBackupPriority(value: number): Host;
+    getPriority(): number;
+    setPriority(value: number): Host;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Host.AsObject;
@@ -254,6 +258,8 @@ export namespace Host {
         subnetId: string,
         assignPublicIp: boolean,
         replicationSource: string,
+        backupPriority: number,
+        priority: number,
     }
 
     export enum Role {

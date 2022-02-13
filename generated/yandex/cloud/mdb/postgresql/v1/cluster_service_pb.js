@@ -55,6 +55,8 @@ var yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb = require('../../..
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb);
 var yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql13_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb);
+var yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/postgresql14_pb.js');
+goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb);
 var yandex_cloud_mdb_postgresql_v1_config_host9_6_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host9_6_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_host9_6_pb);
 var yandex_cloud_mdb_postgresql_v1_config_host10_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host10_pb.js');
@@ -71,6 +73,8 @@ var yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb = require('../../../../..
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb);
 var yandex_cloud_mdb_postgresql_v1_config_host13_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host13_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_host13_pb);
+var yandex_cloud_mdb_postgresql_v1_config_host14_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/config/host14_pb.js');
+goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_config_host14_pb);
 var yandex_cloud_mdb_postgresql_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/postgresql/v1/maintenance_pb.js');
 goog.object.extend(proto, yandex_cloud_mdb_postgresql_v1_maintenance_pb);
 goog.exportSymbol('proto.yandex.cloud.mdb.postgresql.v1.AddClusterHostsMetadata', null, global);
@@ -9980,7 +9984,7 @@ proto.yandex.cloud.mdb.postgresql.v1.HostSpec.prototype.hasConfigSpec = function
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.oneofGroups_ = [[2,10,3,7,13,11,14,15]];
+proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.oneofGroups_ = [[2,10,3,7,13,11,14,15,16]];
 
 /**
  * @enum {number}
@@ -9994,7 +9998,8 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.PostgresqlConfigCase = {
   POSTGRESQL_CONFIG_11_1C: 13,
   POSTGRESQL_CONFIG_12: 11,
   POSTGRESQL_CONFIG_12_1C: 14,
-  POSTGRESQL_CONFIG_13: 15
+  POSTGRESQL_CONFIG_13: 15,
+  POSTGRESQL_CONFIG_14: 16
 };
 
 /**
@@ -10044,6 +10049,7 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.toObject = function(includeInsta
     postgresqlConfig12: (f = msg.getPostgresqlConfig12()) && yandex_cloud_mdb_postgresql_v1_config_postgresql12_pb.PostgresqlConfig12.toObject(includeInstance, f),
     postgresqlConfig121c: (f = msg.getPostgresqlConfig121c()) && yandex_cloud_mdb_postgresql_v1_config_postgresql12_1c_pb.PostgresqlConfig12_1C.toObject(includeInstance, f),
     postgresqlConfig13: (f = msg.getPostgresqlConfig13()) && yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfig13.toObject(includeInstance, f),
+    postgresqlConfig14: (f = msg.getPostgresqlConfig14()) && yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfig14.toObject(includeInstance, f),
     poolerConfig: (f = msg.getPoolerConfig()) && yandex_cloud_mdb_postgresql_v1_cluster_pb.ConnectionPoolerConfig.toObject(includeInstance, f),
     resources: (f = msg.getResources()) && yandex_cloud_mdb_postgresql_v1_cluster_pb.Resources.toObject(includeInstance, f),
     autofailover: (f = msg.getAutofailover()) && google_protobuf_wrappers_pb.BoolValue.toObject(includeInstance, f),
@@ -10130,6 +10136,11 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.deserializeBinaryFromReader = fu
       var value = new yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfig13;
       reader.readMessage(value,yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfig13.deserializeBinaryFromReader);
       msg.setPostgresqlConfig13(value);
+      break;
+    case 16:
+      var value = new yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfig14;
+      reader.readMessage(value,yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfig14.deserializeBinaryFromReader);
+      msg.setPostgresqlConfig14(value);
       break;
     case 4:
       var value = new yandex_cloud_mdb_postgresql_v1_cluster_pb.ConnectionPoolerConfig;
@@ -10264,6 +10275,14 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.serializeBinaryToWriter = functi
       15,
       f,
       yandex_cloud_mdb_postgresql_v1_config_postgresql13_pb.PostgresqlConfig13.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgresqlConfig14();
+  if (f != null) {
+    writer.writeMessage(
+      16,
+      f,
+      yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfig14.serializeBinaryToWriter
     );
   }
   f = message.getPoolerConfig();
@@ -10640,6 +10659,43 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.hasPostgresqlConfig13 
 
 
 /**
+ * optional config.PostgresqlConfig14 postgresql_config_14 = 16;
+ * @return {?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.getPostgresqlConfig14 = function() {
+  return /** @type{?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_mdb_postgresql_v1_config_postgresql14_pb.PostgresqlConfig14, 16));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14|undefined} value
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec} returns this
+*/
+proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.setPostgresqlConfig14 = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 16, proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec} returns this
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.clearPostgresqlConfig14 = function() {
+  return this.setPostgresqlConfig14(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.hasPostgresqlConfig14 = function() {
+  return jspb.Message.getField(this, 16) != null;
+};
+
+
+/**
  * optional ConnectionPoolerConfig pooler_config = 4;
  * @return {?proto.yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
  */
@@ -10907,7 +10963,7 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigSpec.prototype.hasPerformanceDiagnost
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.oneofGroups_ = [[1,4,2,3,6,5,7,8]];
+proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.oneofGroups_ = [[1,4,2,3,6,5,7,8,9]];
 
 /**
  * @enum {number}
@@ -10921,7 +10977,8 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.PostgresqlConfigCase = {
   POSTGRESQL_CONFIG_11_1C: 6,
   POSTGRESQL_CONFIG_12: 5,
   POSTGRESQL_CONFIG_12_1C: 7,
-  POSTGRESQL_CONFIG_13: 8
+  POSTGRESQL_CONFIG_13: 8,
+  POSTGRESQL_CONFIG_14: 9
 };
 
 /**
@@ -10969,7 +11026,8 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.toObject = function(includeI
     postgresqlConfig111c: (f = msg.getPostgresqlConfig111c()) && yandex_cloud_mdb_postgresql_v1_config_host11_1c_pb.PostgresqlHostConfig11_1C.toObject(includeInstance, f),
     postgresqlConfig12: (f = msg.getPostgresqlConfig12()) && yandex_cloud_mdb_postgresql_v1_config_host12_pb.PostgresqlHostConfig12.toObject(includeInstance, f),
     postgresqlConfig121c: (f = msg.getPostgresqlConfig121c()) && yandex_cloud_mdb_postgresql_v1_config_host12_1c_pb.PostgresqlHostConfig12_1C.toObject(includeInstance, f),
-    postgresqlConfig13: (f = msg.getPostgresqlConfig13()) && yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13.toObject(includeInstance, f)
+    postgresqlConfig13: (f = msg.getPostgresqlConfig13()) && yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13.toObject(includeInstance, f),
+    postgresqlConfig14: (f = msg.getPostgresqlConfig14()) && yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -11045,6 +11103,11 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.deserializeBinaryFromReader 
       var value = new yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13;
       reader.readMessage(value,yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13.deserializeBinaryFromReader);
       msg.setPostgresqlConfig13(value);
+      break;
+    case 9:
+      var value = new yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14;
+      reader.readMessage(value,yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14.deserializeBinaryFromReader);
+      msg.setPostgresqlConfig14(value);
       break;
     default:
       reader.skipField();
@@ -11137,6 +11200,14 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.serializeBinaryToWriter = fu
       8,
       f,
       yandex_cloud_mdb_postgresql_v1_config_host13_pb.PostgresqlHostConfig13.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgresqlConfig14();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14.serializeBinaryToWriter
     );
   }
 };
@@ -11435,6 +11506,43 @@ proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.clearPostgresqlCon
  */
 proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.hasPostgresqlConfig13 = function() {
   return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional config.PostgresqlHostConfig14 postgresql_config_14 = 9;
+ * @return {?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.getPostgresqlConfig14 = function() {
+  return /** @type{?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14} */ (
+    jspb.Message.getWrapperField(this, yandex_cloud_mdb_postgresql_v1_config_host14_pb.PostgresqlHostConfig14, 9));
+};
+
+
+/**
+ * @param {?proto.yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14|undefined} value
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec} returns this
+*/
+proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.setPostgresqlConfig14 = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 9, proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec} returns this
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.clearPostgresqlConfig14 = function() {
+  return this.setPostgresqlConfig14(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.yandex.cloud.mdb.postgresql.v1.ConfigHostSpec.prototype.hasPostgresqlConfig14 = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 

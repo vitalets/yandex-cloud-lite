@@ -12,6 +12,7 @@ var yandex_cloud_operation_operation_pb = require('../../../../../yandex/cloud/o
 var yandex_cloud_mdb_kafka_v1_cluster_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/cluster_pb.js');
 var yandex_cloud_mdb_kafka_v1_topic_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/topic_pb.js');
 var yandex_cloud_mdb_kafka_v1_user_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/user_pb.js');
+var yandex_cloud_mdb_kafka_v1_maintenance_pb = require('../../../../../yandex/cloud/mdb/kafka/v1/maintenance_pb.js');
 
 function serialize_yandex_cloud_mdb_kafka_v1_Cluster(arg) {
   if (!(arg instanceof yandex_cloud_mdb_kafka_v1_cluster_pb.Cluster)) {
@@ -154,6 +155,17 @@ function serialize_yandex_cloud_mdb_kafka_v1_MoveClusterRequest(arg) {
 
 function deserialize_yandex_cloud_mdb_kafka_v1_MoveClusterRequest(buffer_arg) {
   return yandex_cloud_mdb_kafka_v1_cluster_service_pb.MoveClusterRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_yandex_cloud_mdb_kafka_v1_RescheduleMaintenanceRequest(arg) {
+  if (!(arg instanceof yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest)) {
+    throw new Error('Expected argument of type yandex.cloud.mdb.kafka.v1.RescheduleMaintenanceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_yandex_cloud_mdb_kafka_v1_RescheduleMaintenanceRequest(buffer_arg) {
+  return yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_yandex_cloud_mdb_kafka_v1_StartClusterRequest(arg) {
@@ -320,6 +332,18 @@ stop: {
     responseType: yandex_cloud_operation_operation_pb.Operation,
     requestSerialize: serialize_yandex_cloud_mdb_kafka_v1_StopClusterRequest,
     requestDeserialize: deserialize_yandex_cloud_mdb_kafka_v1_StopClusterRequest,
+    responseSerialize: serialize_yandex_cloud_operation_Operation,
+    responseDeserialize: deserialize_yandex_cloud_operation_Operation,
+  },
+  // Reschedule planned maintenance operation.
+rescheduleMaintenance: {
+    path: '/yandex.cloud.mdb.kafka.v1.ClusterService/RescheduleMaintenance',
+    requestStream: false,
+    responseStream: false,
+    requestType: yandex_cloud_mdb_kafka_v1_cluster_service_pb.RescheduleMaintenanceRequest,
+    responseType: yandex_cloud_operation_operation_pb.Operation,
+    requestSerialize: serialize_yandex_cloud_mdb_kafka_v1_RescheduleMaintenanceRequest,
+    requestDeserialize: deserialize_yandex_cloud_mdb_kafka_v1_RescheduleMaintenanceRequest,
     responseSerialize: serialize_yandex_cloud_operation_Operation,
     responseDeserialize: deserialize_yandex_cloud_operation_Operation,
   },

@@ -32,6 +32,7 @@ interface IInstanceServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
     removeOneToOneNat: IInstanceServiceService_IRemoveOneToOneNat;
     updateNetworkInterface: IInstanceServiceService_IUpdateNetworkInterface;
     listOperations: IInstanceServiceService_IListOperations;
+    move: IInstanceServiceService_IMove;
 }
 
 interface IInstanceServiceService_IGet extends grpc.MethodDefinition<yandex_cloud_compute_v1_instance_service_pb.GetInstanceRequest, yandex_cloud_compute_v1_instance_pb.Instance> {
@@ -196,6 +197,15 @@ interface IInstanceServiceService_IListOperations extends grpc.MethodDefinition<
     responseSerialize: grpc.serialize<yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse>;
     responseDeserialize: grpc.deserialize<yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse>;
 }
+interface IInstanceServiceService_IMove extends grpc.MethodDefinition<yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, yandex_cloud_operation_operation_pb.Operation> {
+    path: "/yandex.cloud.compute.v1.InstanceService/Move";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest>;
+    requestDeserialize: grpc.deserialize<yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest>;
+    responseSerialize: grpc.serialize<yandex_cloud_operation_operation_pb.Operation>;
+    responseDeserialize: grpc.deserialize<yandex_cloud_operation_operation_pb.Operation>;
+}
 
 export const InstanceServiceService: IInstanceServiceService;
 
@@ -218,6 +228,7 @@ export interface IInstanceServiceServer extends grpc.UntypedServiceImplementatio
     removeOneToOneNat: grpc.handleUnaryCall<yandex_cloud_compute_v1_instance_service_pb.RemoveInstanceOneToOneNatRequest, yandex_cloud_operation_operation_pb.Operation>;
     updateNetworkInterface: grpc.handleUnaryCall<yandex_cloud_compute_v1_instance_service_pb.UpdateInstanceNetworkInterfaceRequest, yandex_cloud_operation_operation_pb.Operation>;
     listOperations: grpc.handleUnaryCall<yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse>;
+    move: grpc.handleUnaryCall<yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, yandex_cloud_operation_operation_pb.Operation>;
 }
 
 export interface IInstanceServiceClient {
@@ -275,6 +286,9 @@ export interface IInstanceServiceClient {
     listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
     listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
     listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }
 
 export class InstanceServiceClient extends grpc.Client implements IInstanceServiceClient {
@@ -333,4 +347,7 @@ export class InstanceServiceClient extends grpc.Client implements IInstanceServi
     public listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
     public listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
     public listOperations(request: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_compute_v1_instance_service_pb.ListInstanceOperationsResponse) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
+    public move(request: yandex_cloud_compute_v1_instance_service_pb.MoveInstanceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: yandex_cloud_operation_operation_pb.Operation) => void): grpc.ClientUnaryCall;
 }
